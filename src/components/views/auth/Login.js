@@ -11,7 +11,7 @@ export default function Login(props) {
 
   return (
     <>
-	  <div className="title mx-auto">
+	  <div className="text-center mb-3">
 	    <h4 className="font-weight-bold">Sign In</h4>
 		<h8>Enter your email and password to sign in</h8>
 	  </div>      	  
