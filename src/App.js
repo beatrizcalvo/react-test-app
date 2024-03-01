@@ -13,7 +13,9 @@ export default function App(props) {
   const currentUser = useLocalStorage("user");
 
   useEffect(() => {
-    console.log("currentUser: " + currentUser);
+    if (currentUser) {
+      console.log("currentUser: " + JSON.stringify(currentUser));
+    }
   }, []);
   
   return (
