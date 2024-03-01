@@ -26,26 +26,33 @@ const LoginForm = forwardRef(({ handleLogin }, _ref) => {
   return (
     <>
 	  <Form onSubmit={handleSubmit(handleLogin)} className="register-form">
-		<FormGroup floating>
+		<FormGroup>
+		  <Label for="inputEmail">
+            Email
+          </Label>
           <Input
             id="inputEmail"
             placeholder="Email"
-            type="email"
-          />
-          <Label for="inputEmail">
-            Email
-          </Label>
+            type="text"
+			{...register("email", inputValidations.email)}
+          />          
         </FormGroup>
-		<FormGroup floating>
+		<FormGroup>
+		  <Label for="inputPassword">
+            Password
+          </Label>
           <Input
             id="inputPassword"
             placeholder="Password"
             type="password"
+			{...register("password", inputValidations.password)}
           />
-          <Label for="inputPassword">
-            Password
-          </Label>
         </FormGroup>
+		<Button
+		  type="submit"
+		>
+		  Submit
+		</Button>
 	  </Form>
 	</>
   );
