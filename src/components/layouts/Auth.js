@@ -20,7 +20,7 @@ export default function Auth(props) {
 		<Container className="d-flex justify-content-center">
 		  <Row>
 		    <Col>
-			  <Card className="card-register d-flex justify-content-center">
+			  <Card className="card-register text-center">
 	            <Outlet />
 			  </Card>
 			</Col>
