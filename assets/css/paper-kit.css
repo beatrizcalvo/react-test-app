@@ -1,0 +1,221 @@
+/* -------- START GENERAL OVERWRITE -------- */
+body {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+/* --------- END GENERAL OVERWRITE --------- */
+
+/* ---------- START FONT SMOOTHING --------- */
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p,
+.navbar,
+.brand,
+a,
+.td-name,
+td,
+button,
+input,
+select,
+textarea {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+  font-weight: 300;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  margin: 30px 0 0;
+}
+
+h1,
+.h1 {
+  font-size: 3.6em;
+}
+
+h2,
+.h2 {
+  font-size: 2.8em;
+}
+
+h3,
+.h3 {
+  font-size: 1.825em;
+  line-height: 1.4;
+  margin: 20px 0 0px;
+}
+
+h4,
+.h4 {
+  font-size: 1.6em;
+  line-height: 1.2em;
+}
+
+h5,
+.h5 {
+  font-size: 1.35em;
+  line-height: 1.4em;
+}
+
+h6,
+.h6 {
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.5em;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.5em;
+  margin-bottom: 5px;
+}
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small,
+h1 .small,
+h2 .small,
+h3 .small,
+h4 .small,
+h5 .small,
+h6 .small,
+.h1 .small,
+.h2 .small,
+.h3 .small,
+.h4 .small,
+.h5 .small,
+.h6 .small {
+  color: #9a9a9a;
+  line-height: 1.5em;
+}
+
+h1 small,
+h2 small,
+h3 small,
+h1 .small,
+h2 .small,
+h3 .small {
+  font-size: 60%;
+}
+
+@keyframes heathing {
+  0% {
+    transform: scale(0.75);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(0.75);
+  }
+}
+/* ----------- END FONT SMOOTHING ---------- */
+
+/* ------------ START AUTH PAGE ------------ */
+.page-header {
+  background-color: #b2afab;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 999px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-header .filter::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.card-register {
+  background-color: #ff8f5e;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 350px;
+  margin: 20px 0 70px;
+  min-height: 400px;
+  padding: 30px;
+}
+
+/* Changes for small display */
+@media (max-width: 767px) {
+  .register-page .page-header {
+    max-height: 2000px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .register-page.full-screen .page-header .container {
+    margin-top: 30%;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .register-page .page-header .container {
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .register-page .page-header .container .info:first-of-type {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .register-page .page-header .container {
+    margin-top: 7rem !important;
+  }
+  .card.card-register {
+    margin-bottom: 20px;
+  }
+}
+/* ------------- END AUTH PAGE ------------- */
