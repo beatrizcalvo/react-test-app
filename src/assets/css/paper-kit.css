@@ -33,6 +33,16 @@ body {
   z-index: 1;
 }
 
+.card-register {
+  background-color: #ff8f5e;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 350px;
+  margin: 20px 0 70px;
+  min-height: 400px;
+  padding: 30px;
+}
+
 /* Changes for small display */
 @media (max-width: 767px) {
   .register-page .page-header {
@@ -61,6 +71,9 @@ body {
 @media screen and (max-width: 374px) {
   .register-page .page-header .container {
     margin-top: 7rem !important;
+  }
+  .card.card-register {
+    margin-bottom: 20px;
   }
 }
 /* ------------- END AUTH PAGE ------------- */
