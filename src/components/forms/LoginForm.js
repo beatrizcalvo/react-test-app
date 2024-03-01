@@ -26,32 +26,28 @@ const LoginForm = forwardRef(({ handleLogin }, _ref) => {
   return (
     <>
 	  <Form onSubmit={handleSubmit(handleLogin)} className="login-form">
-		<FormGroup className="form-group mb-0">
-		  <Label for="inputEmail">
-            Email
-          </Label>
-          <Input
-            id="inputEmail"
-            placeholder="Email"
-            type="text"
-			{...register("email", inputValidations.email)}
-          />          
-        </FormGroup>
-		<FormGroup className="form-group mb-0">
-		  <Label for="inputPassword">
-            Password
-          </Label>
-          <Input
-            id="inputPassword"
-            placeholder="Password"
-            type="password"
-			{...register("password", inputValidations.password)}
-          />
-        </FormGroup>
+		<Label for="inputEmail">
+          Email
+        </Label>
+		<Input
+          id="inputEmail"
+          placeholder="Email"
+          type="text"
+		  {...register("email", inputValidations.email)}
+        />          
+        <Label for="inputPassword">
+          Password
+        </Label>
+        <Input
+          id="inputPassword"
+          placeholder="Password"
+          type="password"
+		  {...register("password", inputValidations.password)}
+        />
 		<Button
 		  type="submit"
 		  color="danger"
-		  block="true"
+		  className="btn-round btn-block"
 		>
 		  Submit
 		</Button>
