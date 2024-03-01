@@ -6,7 +6,6 @@ export default function useLocalStorage(key) {
         const storedValue = window.localStorage.getItem(key);
         return storedValue ? JSON.parse(storedValue) : undefined;
       } catch (error) {
-        console.error(error);
         return undefined;
       }
     });
