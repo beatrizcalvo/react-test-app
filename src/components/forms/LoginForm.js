@@ -47,7 +47,8 @@ const LoginForm = forwardRef(({ handleLogin }, _ref) => {
 		<Button
 		  type="submit"
 		  color="danger"
-		  className="btn-round btn-block"
+		  block="true"
+		  className="btn-round"
 		>
 		  Submit
 		</Button>
