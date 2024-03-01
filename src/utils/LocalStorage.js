@@ -6,16 +6,16 @@ export default function useLocalStorage(key) {
         const storedValue = window.localStorage.getItem(key);
         return storedValue ? JSON.parse(storedValue) : undefined;
       } catch (error) {
-	    console.error(error);
+        console.error(error);
         return undefined;
       }
     });
   
     useEffect(() => {
       try {
-	    if (value) {
-	      window.localStorage.setItem(key, JSON.stringify(value));
-	    }
+        if (value) {
+          window.localStorage.setItem(key, JSON.stringify(value));
+        }
       } catch (error) {
         console.error(error);
       }
