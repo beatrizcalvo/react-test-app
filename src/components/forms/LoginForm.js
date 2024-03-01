@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Form, FormGroup, Input, Label } from "reactstrap";
 
 const LoginForm = forwardRef(({ handleLogin }, _ref) => {
-  const { register } = useForm();
+  const { handleSubmit } = useForm();
   
   // Input form validations
   const inputValidations = {
