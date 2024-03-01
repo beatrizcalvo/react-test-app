@@ -4,19 +4,18 @@ export default function useLocalStorage(key) {
   const [value, setValue] = useState(() => {
       try {
         const storedValue = window.localStorage.getItem(key);
-	(storedValue) ? console.log("defined") : console.log("undefined");
-        return undefined;
+        return storedValue ? JSON.parse(storedValue) : undefined;
       } catch (error) {
-	console.error(error);
+	    console.error(error);
         return undefined;
       }
     });
   
     useEffect(() => {
       try {
-	if (value) {
-	  window.localStorage.setItem(key, JSON.stringify(value));
-	}
+	    if (value) {
+	      window.localStorage.setItem(key, JSON.stringify(value));
+	    }
       } catch (error) {
         console.error(error);
       }
