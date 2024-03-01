@@ -17,7 +17,7 @@ export default function Auth(props) {
         style={{ backgroundImage: "url(" + require("../../assets/img/login-image.jpg") + ")" }}
       >
 		<div className="filter" />
-		<Container>
+		<Container fluid>
 		  <Row>
 		    <Col>
 			  <Card className="card-register ml-auto mr-auto">
