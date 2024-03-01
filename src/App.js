@@ -13,7 +13,8 @@ export default function App(props) {
   const currentUser = useLocalStorage("user");
 
   useEffect(() => {
-    console.log("currentUser: " + !!currentUser);
+    console.log("currentUSer: " + currentUser);
+    console.log("!!currentUser: " + !!currentUser);
   }, []);
   
   return (
