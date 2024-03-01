@@ -12,7 +12,7 @@ export default function Login(props) {
   return (
     <>
       <h4 className="font-weight-bold">Sign In</h4>
-	  <h8 className="mb-0">Enter your email and password to sign in</h8>
+	  <h8 className="mb-4">Enter your email and password to sign in</h8>
 	  <LoginForm handleLogin={handleLogin} ref={loginFormRef} />
     </>
   );

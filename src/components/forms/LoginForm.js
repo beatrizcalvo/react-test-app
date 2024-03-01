@@ -1,9 +1,9 @@
 import { forwardRef, memo } from "react";
 import { useForm } from "react-hook-form";
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 
 const LoginForm = forwardRef(({ handleLogin }, _ref) => {
-  const { handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
   
   // Input form validations
   const inputValidations = {
