@@ -1,7 +1,8 @@
 export default function Login(props) {  
   return (
     <>
-	  <h1>Hello from Login!</h1>
+      <h4 className="font-weight-bold">Sign In</h4>
+	  
     </>
   );
 }
