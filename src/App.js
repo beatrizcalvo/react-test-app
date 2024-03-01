@@ -12,11 +12,11 @@ import Register from "./components/views/auth/Register";
 export default function App(props) {
   const currentUser = useLocalStorage("user");
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (currentUser) {
       console.log("currentUser: " + JSON.stringify(currentUser));
     }
-  }, []);
+  }, []);*/
   
   return (
     <Routes>
