@@ -17,10 +17,10 @@ export default function Auth(props) {
         style={{ backgroundImage: "url(" + require("../../assets/img/login-image.jpg") + ")" }}
       >
 		<div className="filter" />
-		<Container fluid>
+		<Container className="d-flex justify-content-center">
 		  <Row>
 		    <Col>
-			  <Card className="card-register ml-auto mr-auto">
+			  <Card className="card-register d-flex justify-content-center">
 	            <Outlet />
 			  </Card>
 			</Col>
