@@ -20,7 +20,9 @@ export default function Auth(props) {
 		<Container>
 		  <Row>
 		    <Col>
-	          <Outlet />
+			  <Card className="card-register ml-auto mr-auto">
+	            <Outlet />
+			  </Card>
 			</Col>
 		  </Row>
 		</Container>

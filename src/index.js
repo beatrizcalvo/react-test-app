@@ -15,5 +15,3 @@ root.render(
     <App />
   </BrowserRouter>,
 );
-
-serviceWorker.unregister();
