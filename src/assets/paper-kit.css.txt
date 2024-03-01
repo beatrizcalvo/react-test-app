@@ -1,9 +1,0 @@
-/* -------- START GENERAL OVERWRITE -------- */
-body {
-  font-size: 14px;
-  font-weight: 300;
-  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
-}
-
-
-/* --------- END GENERAL OVERWRITE --------- */
