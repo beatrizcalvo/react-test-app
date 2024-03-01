@@ -15,6 +15,8 @@ export default function App(props) {
   useEffect(() => {
     if (currentUser) {
       console.log("currentUser: " + JSON.stringify(currentUser));
+    } else {
+      console.log("currentUser: undefined");
     }
   }, []);
   
