@@ -13,9 +13,7 @@ export default function useLocalStorage(key) {
   
     useEffect(() => {
       try {
-        if (value) {
-          window.localStorage.setItem(key, JSON.stringify(value));
-        }
+        window.localStorage.setItem(key, value ? JSON.stringify(value) : undefined);
       } catch (error) {
         console.error(error);
       }
