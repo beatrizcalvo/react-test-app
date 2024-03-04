@@ -36,7 +36,7 @@ const LoginForm = forwardRef(({ handleLogin }, _ref) => {
           invalid={!!errors.email}
           {...register("email", inputValidations.email)}
         />
-        <FormFeedback className=">
+        <FormFeedback>
           {errors.email?.message}
         </FormFeedback>       
         <Label for="inputPassword">
