@@ -14,7 +14,7 @@ export default function Login(props) {
     // Disabled all buttons
     loginFormRef.current.updateIsLoading(true);
 	
-	navigate("/");
+	navigate("/prueba");
 
     /*AuthService.loginUser(data.loginEmail, data.loginPassword)
       .then((response) => {
