@@ -31,14 +31,19 @@ export default function Dashboard(props) {
                       <i className="fa-solid fa-circle-user me-sm-1"/>
                     </Nav.Link>
                   </Nav.Item>
-                  <Nav.Item className="px-3">
+                  <Nav.Item className="px-2">
                     <Nav.Link href="/profile" className="text-body p-0">
                       <i className="fa-solid fa-bars me-sm-1"/>
                     </Nav.Link>
                   </Nav.Item>
-	          <Nav.Item>
+	          <Nav.Item className="px-2">
 	            <Nav.Link href="/settings" className="text-body p-0">
 	              <i className="fa-solid fa-gear me-sm-1"/>
+	            </Nav.Link>
+	          </Nav.Item>
+	          <Nav.Item>
+	            <Nav.Link className="text-body p-0">
+	              <i className="fa-solid fa-right-from-bracket"/>
 	            </Nav.Link>
 	          </Nav.Item>
                 </Nav>
