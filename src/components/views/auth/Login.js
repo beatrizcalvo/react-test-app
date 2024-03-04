@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import LoginForm from "../../forms/LoginForm";
-import AuthService from "../../services/AuthService";
+import AuthService from "../../../services/AuthService";
 
 export default function Login(props) {
   const loginFormRef = useRef();

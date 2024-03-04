@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import RegisterForm from "../../forms/RegisterForm";
-import AuthService from "../../services/AuthService";
+import AuthService from "../../../services/AuthService";
 
 export default function Register(props) {
   const registerFormRef = useRef();
