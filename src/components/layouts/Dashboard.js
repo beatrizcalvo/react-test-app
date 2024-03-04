@@ -13,16 +13,19 @@ export default function Dashboard(props) {
           <Navbar expand="lg" variant="main" className="px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <Container fluid className="py-1 px-3">
               <Breadcrumb listProps={{ className: 'bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5' }}>
-                <Breadcrumb.Item href="/" className="text-sm" listProps={{ className: 'opacity-5 text-dark' }}>Pages</Breadcrumb.Item>
+                <Breadcrumb.Item href="/" className="text-sm" linkProps={{ className: 'opacity-5 text-dark' }}>Pages</Breadcrumb.Item>
                 <Breadcrumb.Item href="/test" className="text-sm text-dark" active>Dashboard</Breadcrumb.Item>
+                <Breadcrumb.Item as="h6">Dashboard</Breadcrumb.Item>
 			  </Breadcrumb>
               <Navbar.Collapse id="navbar" className="mt-sm-0 mt-2 me-md-0 me-sm-4">
                 <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
                 <Nav className="justify-content-end">
                   <Nav.Item>
                     <Nav.Link href="/profile" className="text-body p-0 position-relative">
-                      <i class="fa-solid fa-circle-user material-icons me-sm-1"/>
+                      <i className="fa-solid fa-circle-user material-icons me-sm-1"/>
                     </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item className="d-xl-none ps-3 d-flex align-items-center">
                   </Nav.Item>
                 </Nav>
               </Navbar.Collapse>
