@@ -24,14 +24,14 @@ const LoginForm = forwardRef(({ handleRegister }, _ref) => {
 
   // Input form validations
   const inputValidations = {
-    loginEmail: {
+    email: {
       required: "Email is required",
       pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
         message: "Please enter a valid email",
       },
     },
-    loginPassword: {
+    password: {
       required: "Password is required",
       minLength: {
         value: 6,
@@ -47,22 +47,22 @@ const LoginForm = forwardRef(({ handleRegister }, _ref) => {
           <Form.Control
             type="text"
             placeholder="Email..."
-            {...register("loginEmail", inputValidations.email)}
-            isInvalid={!!errors.loginEmail}
+            {...register("email", inputValidations.email)}
+            isInvalid={!!errors.email}
           />
           <Form.Control.Feedback type="text-xs invalid">
-            {errors.loginEmail?.message}
+            {errors.email?.message}
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="input-group input-group-outline mb-3">
           <Form.Control
             type="password"
             placeholder="Password..."
-            {...register("loginPassword", inputValidations.loginPassword)}
-            isInvalid={!!errors.loginPassword}
+            {...register("password", inputValidations.password)}
+            isInvalid={!!errors.password}
           />
           <Form.Control.Feedback type="text-xs invalid">
-            {errors.loginPassword?.message}
+            {errors.password?.message}
           </Form.Control.Feedback>
         </Form.Group>
         <Alert variant="danger" className="text-white" show={!!alertMessage}>
