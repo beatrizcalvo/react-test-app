@@ -10,7 +10,7 @@ import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 
 export default function App(props) {
-  const [currentUser, setCurrentUser] = useLocalStorage("user");
+  const currentUser = useLocalStorage("user");
   
   useEffect(() => {
     console.log("currentUser: " + JSON.stringify(currentUser));
@@ -19,12 +19,13 @@ export default function App(props) {
   return (
     <Routes>
       <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
-        <Route path="" element={<Dashboard />} />
+        <Route exact path="/" element={<Dashboard />} />
       </Route>
       <Route element={<Auth />}>
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
+	  <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

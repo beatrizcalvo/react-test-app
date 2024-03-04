@@ -13,8 +13,10 @@ export default function Dashboard(props) {
           <Navbar expand="lg" variant="main" className="px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <Container fluid className="py-1 px-3">
               <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                </ol>
+                <Nav bsPrefix="breadcrumb" as="ol" className="bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+
+                </Nav>
+                <h6 class="font-weight-bolder mb-0">Dashboard</h6>
               </nav>			  
             </Container>
           </Navbar>
