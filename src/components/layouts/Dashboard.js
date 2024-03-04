@@ -38,6 +38,7 @@ export default function Dashboard(props) {
                   </Nav.Item>
 	          <Nav.Item>
 	            <Nav.Link href="/settings" className="text-body p-0">
+	              <i className="fa-solid fa-gear me-sm-1"/>
 	            </Nav.Link>
 	          </Nav.Item>
                 </Nav>
