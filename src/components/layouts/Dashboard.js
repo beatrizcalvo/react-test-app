@@ -10,7 +10,7 @@ export default function Dashboard(props) {
     <>
       <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
         <Container fluid className="py-4">
-          <Navbar collapseOnSelect expand="lg" variant="main" className="px-0 shadow-none">
+          <Navbar collapseOnSelect expand="lg" className="px-0 mx-4 shadow-none bg-transparent">
 	    <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
