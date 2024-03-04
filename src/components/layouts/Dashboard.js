@@ -12,7 +12,7 @@ export default function Dashboard(props) {
         <Container fluid className="py-4">
           <Navbar expand="lg" variant="main" className="px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <Container fluid className="py-1 px-3">
-              <Breadcrumb listProps={{ className=bg-transparent }}>
+              <Breadcrumb listProps={{ className: 'bg-transparent', foo: 'bar' }}>
                 <Breadcrumb.Item href="/" className="text-sm opacity-5 text-dark">Pages</Breadcrumb.Item>
                 <Breadcrumb.Item href="/test" className="text-sm text-dark" active>Dashboard</Breadcrumb.Item>
                 <Breadcrumb.Item as="h6" className="font-weight-bolder mb-0">Dashboard</Breadcrumb.Item>
