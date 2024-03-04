@@ -13,8 +13,8 @@ export default function App(props) {
   const [currentUser, setCurrentUser] = useLocalStorage("user");
   
   useEffect(() => {
-    console.log("currentUser: " + JSON.stringify(currentUser));
-  }, [currenUser]);
+    alert("currentUser: " + JSON.stringify(currentUser));
+  }, [currentUser);
   
   return (
     <Routes>
