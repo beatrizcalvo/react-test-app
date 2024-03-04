@@ -14,7 +14,7 @@ export default function Login(props) {
     // Disabled all buttons
     loginFormRef.current.updateIsLoading(true);
 
-    AuthService.loginUser(data.email, data.password)
+    AuthService.loginUser(data.loginEmail, data.loginPassword)
       .then((response) => {
         if (response.data) {
           // If login success then redirect to dashboard home page
