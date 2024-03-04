@@ -11,8 +11,8 @@ export default function Login(props) {
 
   return (
     <>
-	  <div className="text-center mb-3">
-	    <h4 className="font-weight-bold">Sign In</h4>
+	  <div className="card-title">
+	    <h4 className="fw-bold text-uppercase">Sign In</h4>
 		<h8>Enter your email and password to sign in</h8>
 	  </div>      	  
 	  <LoginForm handleLogin={handleLogin} ref={loginFormRef} />

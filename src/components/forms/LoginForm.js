@@ -1,6 +1,6 @@
 import { forwardRef, memo } from "react";
 import { useForm } from "react-hook-form";
-import { Form, FormGroup, FormFeedback, Input, Label, Button } from "reactstrap";
+import { Form, FormFeedback, Input, Label, Button } from "reactstrap";
 
 const LoginForm = forwardRef(({ handleLogin }, _ref) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -26,21 +26,19 @@ const LoginForm = forwardRef(({ handleLogin }, _ref) => {
   return (
     <>
       <Form onSubmit={handleSubmit(handleLogin)} className="login-form">
-        <FormGroup className="form-group">
-          <Label for="inputEmail">
-            Email
-          </Label>
-          <Input
-            id="inputEmail"
-            placeholder="Email"
-            type="text"
-            invalid={!!errors.email}
-            {...register("email", inputValidations.email)}
-          />
-          <FormFeedback>
-            {errors.email?.message}
-          </FormFeedback>
-        </FormGroup>          
+        <Label for="inputEmail">
+          Email
+        </Label>
+        <Input
+          id="inputEmail"
+          placeholder="Email"
+          type="text"
+          invalid={!!errors.email}
+          {...register("email", inputValidations.email)}
+        />
+        <FormFeedback className=">
+          {errors.email?.message}
+        </FormFeedback>       
         <Label for="inputPassword">
           Password
         </Label>
