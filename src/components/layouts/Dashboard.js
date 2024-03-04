@@ -13,11 +13,11 @@ export default function Dashboard(props) {
           <Navbar expand="lg" variant="main" className="px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <Container fluid className="py-1 px-3">
               <nav aria-label="breadcrumb">
-                <Nav bsPrefix="breadcrumb" as="ol" className="bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <Nav.Item as="li" className="text-sm">
+                <Nav bsPrefix="breadcrumb">
+                  <Nav.Item>
                     <Nav.Link href="/home">Active</Nav.Link>
                   </Nav.Item>
-                  <Nav.Item as="li">
+                  <Nav.Item>
                     <Nav.Link eventKey="link-1">Link</Nav.Link>
                   </Nav.Item>				  
                 </Nav>

@@ -10,7 +10,7 @@ import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 
 export default function App(props) {
-  const currentUser = useLocalStorage("user");
+  const [currentUser, setCurrentUser] = useLocalStorage("user");
   
   useEffect(() => {
     console.log("currentUser: " + JSON.stringify(currentUser));
