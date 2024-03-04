@@ -8,7 +8,7 @@ export default function Login(props) {
   const loginFormRef = useRef();
   const navigate = useNavigate();
 
-  const handleRegister = (data) => {
+  const handleRegister = async (data) => {
     const connectionError = "Cannot connect to the user registration server.";
     
     // Disabled all buttons

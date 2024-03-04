@@ -22,8 +22,8 @@ export default function App(props) {
         <Route path="/" element={<Dashboard />} />
       </Route>
       <Route element={<Auth />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Route>
     </Routes>
   );
