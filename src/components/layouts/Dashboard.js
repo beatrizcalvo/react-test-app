@@ -13,9 +13,6 @@ export default function Dashboard(props) {
           <Navbar expand="lg">
             <Container fluid className="py-1 px-3">
               <Nav role="breadcrumb>
-                <Nav.Item>
-                  <Nav.Link href="/home">Active</Nav.Link>
-                </Nav.Item>
                 <h6 class="font-weight-bolder mb-0">Dashboard</h6>
               </Nav>
             </Container>
