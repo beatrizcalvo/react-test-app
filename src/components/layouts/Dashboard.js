@@ -3,7 +3,7 @@ import { Container, Navbar } from "react-bootstrap";
 
 export default function Dashboard(props) {
   useEffect(() => {
-    document.body.classList.add("g-sidenav-show bg-gray-200");
+    document.body.classList.add("g-sidenav-show", "bg-gray-200");
   }, []);
   
   return (
@@ -12,6 +12,9 @@ export default function Dashboard(props) {
         <Container fluid className="py-4">
           <Navbar expand="lg">
             <Container fluid className="py-1 px-3">
+              <Nav role="breadcrumb>
+                <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+              </Nav>
             </Container>
           </Navbar>
         </Container>
