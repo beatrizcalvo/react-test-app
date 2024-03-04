@@ -16,8 +16,10 @@ export default function Login(props) {
 
     AuthService.loginUser(data.loginEmail, data.loginPassword)
       .then((response) => {
+		console.log("request ok");
         if (response.data) {
           // If login success then redirect to dashboard home page
+		  console.log("login ok");
           navigate("/");
         } else {
           loginFormRef.current.updateAlertMessage(connectionError);
