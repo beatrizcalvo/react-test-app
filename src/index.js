@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./assets/css/material-ui.css";
 
 import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
@@ -13,3 +14,5 @@ root.render(
     <App />
   </BrowserRouter>,
 );
+
+serviceWorker.unregister();
