@@ -9,7 +9,7 @@ export default function Dashboard(props) {
   return (
     <>
       <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
-        <Container fluid className="py-4">
+        <Container fluid>
           <Navbar collapseOnSelect expand="lg">
 	    <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
