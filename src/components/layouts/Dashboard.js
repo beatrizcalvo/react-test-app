@@ -19,10 +19,13 @@ export default function Dashboard(props) {
 			  </Breadcrumb>
               <Navbar.Collapse id="navbar" className="mt-sm-0 mt-2 me-md-0 me-sm-4">
                 <Nav className="justify-content-end">
-                  <Nav.Item className="d-flex align-items-center">
+                  <Nav.Item>
+                    <Nav.Link href="/profile">
+                      <i class="fa-solid fa-circle-user"/>
+                    </Nav.Link>
                   </Nav.Item>
                 </Nav>
-              </Navbar>
+              </Navbar.Collapse>
             </Container>
           </Navbar>
         </Container>
