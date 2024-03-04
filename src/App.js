@@ -18,7 +18,9 @@ export default function App(props) {
   
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      /*<Route element={<ProtectedRoute isAllowed={!!currentUser} />}>*/
+        <Route path="/" element={<Dashboard />} />
+      /*</Route>*/
       <Route element={<Auth />}>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />

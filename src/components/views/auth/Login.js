@@ -13,10 +13,8 @@ export default function Login(props) {
     
     // Disabled all buttons
     loginFormRef.current.updateIsLoading(true);
-	
-	navigate("/prueba");
 
-    /*AuthService.loginUser(data.loginEmail, data.loginPassword)
+    AuthService.loginUser(data.loginEmail, data.loginPassword)
       .then((response) => {
         if (response.data) {
           // If login success then redirect to dashboard home page
@@ -36,7 +34,7 @@ export default function Login(props) {
           connectionError
         loginFormRef.current.updateAlertMessage(errorMessage);
         loginFormRef.current.updateIsLoading(false);
-      });*/
+      });
   };
 
   return (
