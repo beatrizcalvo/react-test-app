@@ -1,0 +1,28 @@
+.card-register {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #000;
+  max-width: 350px;
+  margin: 20px 0 70px;
+  min-height: 400px;
+  padding: 30px;
+
+  & label {
+    margin-top: 10px;
+  }
+  & .card-title {
+    color: #000;
+    text-align: center;
+    padding-bottom: 1.25rem;
+  }
+  & .invalid-feedback {
+    font-weight: bold;
+    font-size: xx-small;
+  }
+  & .btn {
+    margin-top: 30px;
+  }
+  & .forgot {
+    text-align: center;
+  }
+}
