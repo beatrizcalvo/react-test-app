@@ -14,7 +14,7 @@ export default function App(props) {
   
   useEffect(() => {
     alert("currentUser: " + JSON.stringify(currentUser));
-  }, [currentUser);
+  });
   
   return (
     <Routes>
