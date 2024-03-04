@@ -6,7 +6,7 @@ export default function Login(props) {
   const loginFormRef = useRef();
   
   const handleLogin = async (data) => {
-    alert(JSON.stringify(data);
+    alert(JSON.stringify(data));
   };
 
   return (
