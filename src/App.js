@@ -14,7 +14,7 @@ export default function App(props) {
   
   useEffect(() => {
     console.log("currentUser: " + JSON.stringify(currentUser));
-  }, []);
+  }, [currenUser]);
   
   return (
     <Routes>
@@ -23,7 +23,7 @@ export default function App(props) {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
-	  <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
