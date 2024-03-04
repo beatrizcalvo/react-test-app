@@ -17,7 +17,7 @@ export default function Dashboard(props) {
                   <Breadcrumb listProps={{ className: 'bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5' }}>
                     <Breadcrumb.Item href="/" className="text-sm" linkProps={{ className: 'opacity-5 text-dark' }}>Pages</Breadcrumb.Item>
                     <Breadcrumb.Item href="/test" className="text-sm text-dark" active>Dashboard</Breadcrumb.Item>
-			      </Breadcrumb>
+	          </Breadcrumb>
                 </Row>
                 <Row>
                   <h6 className="font-weight-bolder mb-0">Dashboard</h6>
@@ -36,6 +36,10 @@ export default function Dashboard(props) {
                       <i className="fa-solid fa-bars me-sm-1"/>
                     </Nav.Link>
                   </Nav.Item>
+	          <Nav.Item>
+	            <Nav.Link href="/settings" className="text-body p-0">
+	            </Nav.Link>
+	          </Nav.Item>
                 </Nav>
               </Navbar.Collapse>
             </Container>
