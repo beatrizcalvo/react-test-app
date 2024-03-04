@@ -12,6 +12,10 @@ import Register from "./components/views/auth/Register";
 export default function App(props) {
   const [currentUser, setCurrentUser] = useLocalStorage("user");
   
+  useEffect(() => {
+    console.log("currentUser: " + JSON.stringify(currentUser));
+  }, []);
+  
   return (
     <Routes>
       <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
