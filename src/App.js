@@ -13,12 +13,14 @@ export default function App(props) {
   const [currentUser, setCurrentUser] = useLocalStorage("user");
   
   useEffect(() => {
-    alert("currentUser: " + JSON.stringify(currentUser));
+    console.log("currentUser: " + JSON.stringify(currentUser));
   });
   
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
+        <Route path="" element={<Dashboard />} />
+      </Route>
       <Route element={<Auth />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
