@@ -18,12 +18,10 @@ export default function App(props) {
   
   return (
     <Routes>
-      /*<Route element={<ProtectedRoute isAllowed={!!currentUser} />}>*/
-        <Route path="/" element={<Dashboard />} />
-      /*</Route>*/
+      <Route path="/" element={<Dashboard />} />
       <Route element={<Auth />}>
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
 	  <Route path="*" element={<Navigate to="/" />} />
     </Routes>
