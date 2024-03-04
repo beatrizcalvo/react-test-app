@@ -12,12 +12,9 @@ export default function Dashboard(props) {
         <Container fluid className="py-4">
           <Navbar expand="lg" variant="main" className="px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <Container fluid className="py-1 px-3">
-              <Breadcrumb>
-                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                  Library
-                </Breadcrumb.Item>
-                <Breadcrumb.Item active>Data</Breadcrumb.Item>
+              <Breadcrumb className="bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <Breadcrumb.Item href="/" className="text-sm">Pages</Breadcrumb.Item>
+                <Breadcrumb.Item href="/test" active>Dashboard</Breadcrumb.Item>
 			  </Breadcrumb>
             </Container>
           </Navbar>
