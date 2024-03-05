@@ -11,8 +11,12 @@ export default function BreadcrumbsDashboard(props) {
     return brandName;
   };
   
+  const getCurrentPage = () => {
+    return breadcrumbsLinks.pop();
+  };
+  
   const isCurrentPageHome = () => {
-    
+    return getCurrentPage() === "";
   };
   
   useEffect(() => {
@@ -28,12 +32,12 @@ export default function BreadcrumbsDashboard(props) {
               href="/" 
               className="text-sm text-dark" 
               linkProps={{ className: 'opacity-5' }} 
-              active="false"
+              active={!isCurrentPageHome}
             >
               <i className="fa-solid fa-house" />
             </Breadcrumb.Item>
             {
-              
+              breadcrumbsLinks.map();
             }
           </Breadcrumb>
         </Row>
