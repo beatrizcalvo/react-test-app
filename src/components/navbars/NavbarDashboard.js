@@ -17,6 +17,7 @@ export default function NavbarDashboard(props) {
         <Navbar 
           collapseOnSelect 
           expand="lg" 
+          sticky="top" 
           variant={color} 
           className="mx-4 shadow-none"
         >
