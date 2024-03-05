@@ -17,7 +17,6 @@ export default function NavbarDashboard(props) {
   
   return (
     <>
-      <Container fluid>
         <Navbar 
           collapseOnSelect 
           expand="lg" 
@@ -53,7 +52,6 @@ export default function NavbarDashboard(props) {
         </Navbar.Collapse>
           </Container>
         </Navbar>
-      </Container>
     </>
   );
 }
