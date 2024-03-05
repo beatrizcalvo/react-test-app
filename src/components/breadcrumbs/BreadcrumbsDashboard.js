@@ -8,8 +8,12 @@ export default function BreadcrumbsDashboard(props) {
 
   const getBrand = () => {
     let brandName = "Dashboard";
-	console.log(breadcrumbsLinks);
+    console.log(breadcrumbsLinks.slice(-1));
     return brandName;
+  };
+  
+  const getCurrentPage = () => {
+    
   };
   
   useEffect(() => {
