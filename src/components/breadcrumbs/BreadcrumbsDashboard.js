@@ -39,7 +39,12 @@ export default function BreadcrumbsDashboard(props) {
             {
               breadcrumbsLinks.map((link, name) => {
                 return (
-                  <Breadcrumb.Item>name</Breadcrumb.Item>
+                  <Breadcrumb.Item
+                    href={link} 
+                    className="text-sm"
+                  >
+                    {name}
+                  </Breadcrumb.Item>
                 );
               })
             }
