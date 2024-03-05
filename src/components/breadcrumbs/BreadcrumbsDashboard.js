@@ -16,6 +16,7 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   const isCurrentPageHome = () => {
+    console.log(getCurrentPage());
     return getCurrentPage().href === "/";
   };
   
@@ -45,7 +46,7 @@ export default function BreadcrumbsDashboard(props) {
                   >
                     { 
                       (breadcrumb.name === "Dashboard" && index === 0) ? 
-                        "<i className='fa-solid fa-house' />" 
+                        <i className="fa-solid fa-house" />
                       : breadcrumb.name 
                     }
                   </Breadcrumb.Item>
