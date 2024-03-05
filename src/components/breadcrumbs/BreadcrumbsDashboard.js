@@ -39,15 +39,13 @@ export default function BreadcrumbsDashboard(props) {
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
             {
               breadcrumbsLinks.map((item) => {
-                return (
-                  <Breadcrumb.Item
-                    href={item.page} 
-                    className="text-sm text-dark"
-                    linkProps={{ className: 'opacity-5' }}
-                  >
-                    {item.name}
-                  </Breadcrumb.Item>
-                );
+                <Breadcrumb.Item
+                  href={item.page} 
+                  className="text-sm text-dark"
+                  linkProps={{ className: 'opacity-5' }}
+                >
+                  {item.name}
+                </Breadcrumb.Item>
               })
             }
           </Breadcrumb>
