@@ -42,7 +42,7 @@ export default function BreadcrumbsDashboard(props) {
                     href={breadcrumb.href} 
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
-                    active={!isCurrentPageHome}
+                    active="false"
                   >
                     { 
                       (breadcrumb.name === "Dashboard" && index === 0) ? 
@@ -56,7 +56,7 @@ export default function BreadcrumbsDashboard(props) {
           </Breadcrumb>
         </Row>
         <Row>
-          <h6 className="font-weight-bolder mb-0">{getBrand()}</h6>
+          <h6 className="font-weight-bolder mb-0">{breadcrumbsLinks[breadcrumbsLinks.length - 1].name}</h6>
         </Row>
       </Col>
     </>
