@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Col, Row, Breadcrumb } from "react-bootstrap";
 
 export default function BreadcrumbsDashboard(props) {
-  const [breadcrumbsLinks, setBreadcrumbsLinks] = useState("black");
+  const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
   const location = useLocation();
 
   const getBrand = () => {
@@ -20,11 +20,12 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   useEffect(() => {
-    setBreadcrumbsLinks(
-      location.pathname.split("/").map((page) => { 
-        return "/" + page;
-      })
-    );
+    location.pathname.split("/").map((item) => {
+      setBreadcrumbsLinks([
+        ...breadcrumbsLinks
+        { link: item }
+      ]);
+    });
   }, [location]);
 
   return (
@@ -32,9 +33,7 @@ export default function BreadcrumbsDashboard(props) {
       <Col>
         <Row>
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
-            {breadcrumbsLinks.map((word, index) => {
-                return <p key={index}>{word}</p>;
-            })}       
+                 
           </Breadcrumb>
         </Row>
         <Row>
