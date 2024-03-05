@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Breadcrumb } from "react-bootstrap";
 
 export default function BreadcrumbsDashboard(props) {
   const getBrand = () => {
@@ -8,13 +8,6 @@ export default function BreadcrumbsDashboard(props) {
 
   return (
     <>
-      <Container>
-        <Row>
-        </Row>
-        </Row>
-          <h6 className="font-weight-bolder mb-0">{getBrand()}</h6>
-        </Row>
-      </Container>
     </>
   );
 }

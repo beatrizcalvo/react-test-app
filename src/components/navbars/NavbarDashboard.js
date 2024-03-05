@@ -24,7 +24,7 @@ export default function NavbarDashboard(props) {
           variant={color} 
           className="mt-4 mx-4 shadow-none"
         >
-          <Container>
+          <Container fluid>
             <BreadcrumbsDashboard />
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
