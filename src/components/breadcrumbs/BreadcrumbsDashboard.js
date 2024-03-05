@@ -8,6 +8,7 @@ export default function BreadcrumbsDashboard(props) {
 
   const getBrand = () => {
     let brandName = "Dashboard";
+	console.log(breadcrumbsLinks);
     return brandName;
   };
   
@@ -18,7 +19,8 @@ export default function BreadcrumbsDashboard(props) {
         name: (!page) ? "Dashboard" : page.charAt(0).toUpperCase() + page.slice(1)
       };
     });
-  }, []);
+    setBreadcrumbsLinks(newBreadcrumbsLinks);
+  }, [location]);
 
   return (
     <>
