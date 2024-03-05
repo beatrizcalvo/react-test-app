@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 
 export default function NavbarDashboard(props) {
   return (
