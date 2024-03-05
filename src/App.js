@@ -7,6 +7,7 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import Dashboard from "./components/layouts/Dashboard";
 import Auth from "./components/layouts/Auth";
 import Home from "./components/views/Home";
+import Profile from "./components/views/Profile";
 import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 
@@ -22,6 +23,7 @@ export default function App(props) {
       <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
         <Route element={<Dashboard />}>
           <Route path="/" element={<Home />} />
+		  <Route path="/profile" element={<Profile />} />
         </Route>
       </Route>
       <Route element={<Auth />}>
