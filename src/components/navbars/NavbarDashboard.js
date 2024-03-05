@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
@@ -7,6 +7,13 @@ import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 export default function NavbarDashboard(props) {
   const [color, setColor] = useState("transparent");
   const location = useLocation();
+  
+  // Adds color dark/transparent to the navbar on resize
+  const updateColor = () => {};
+  
+  useEffect(() => {
+    window.addEventListener("resize", updateColor.bind(this));
+  });
   
   return (
     <>
