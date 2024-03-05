@@ -24,8 +24,8 @@ export default function BreadcrumbsDashboard(props) {
       setBreadcrumbsLinks([
         ...breadcrumbsLinks,
         { 
-          link: "/" + item,
-          name: (!item) ? "/" : item
+          page: "/" + item,
+          name: (!item) ? "/" : item.charAt(0).toUpperCase() + item.slice(1)
         }
       ]);
     });
@@ -37,13 +37,13 @@ export default function BreadcrumbsDashboard(props) {
         <Row>
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
             {
-              breadcrumbsLinks.map((link, name) => {
+              breadcrumbsLinks.map((item) => {
                 return (
                   <Breadcrumb.Item
-                    href={link} 
+                    href={item.page} 
                     className="text-sm"
                   >
-                    {name}
+                    {item.name}
                   </Breadcrumb.Item>
                 );
               })
