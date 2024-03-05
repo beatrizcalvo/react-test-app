@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./assets/css/material-ui.css";
+import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";

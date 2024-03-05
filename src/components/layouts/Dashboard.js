@@ -1,45 +1,41 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Container, Row, Navbar, Nav, NavDropdown, Breadcrumb } from "react-bootstrap";
+import { PerfectScrollbar } from "perfect-scrollbar";
+
+import NavbarDashboard from "../navbars/NavbarDashboard";
+
+var ps;
 
 export default function Dashboard(props) {
+  const mainPanel = useRef();
+  const location = useLocation();
+
   useEffect(() => {
-    document.body.classList.add("g-sidenav-show", "bg-gray-200");
-  }, []);
+    document.body.classList.add("bg-gray-200");
+
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps = new PerfectScrollbar(mainPanel.current);
+      document.body.classList.toggle("perfect-scrollbar-on");
+    }
+
+    return function cleanup() {
+      if (navigator.platform.indexOf("Win") > -1) {
+        ps.destroy();
+        document.body.classList.toggle("perfect-scrollbar-on");
+      }
+    }
+  });
+
+  useEffect(() => {
+    mainPanel.current.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+  }, [location]);
   
   return (
     <>
-      <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
-        <Container fluid>
-          <Navbar collapseOnSelect expand="lg">
-	    <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-	  </Navbar>
-        </Container>
+      <main className="main-content position-relative max-height-vh-100 h-100">
+        <NavbarDashboard />
       </main>
     </>
   );
