@@ -21,11 +21,12 @@ export default function BreadcrumbsDashboard(props) {
   
   useEffect(() => {
     location.pathname.split("/").map((item) => {
+      console.log(item);
       setBreadcrumbsLinks([
         ...breadcrumbsLinks,
         { 
           page: "/" + item,
-          name: (!item) ? "/" : item.charAt(0).toUpperCase() + item.slice(1)
+          name: (!item) ? "Dashboard" : item.charAt(0).toUpperCase() + item.slice(1)
         }
       ]);
     });
@@ -41,7 +42,8 @@ export default function BreadcrumbsDashboard(props) {
                 return (
                   <Breadcrumb.Item
                     href={item.page} 
-                    className="text-sm"
+                    className="text-sm text-dark"
+                    linkProps={{ className: 'opacity-5' }}
                   >
                     {item.name}
                   </Breadcrumb.Item>
