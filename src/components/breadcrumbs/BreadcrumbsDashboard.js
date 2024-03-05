@@ -19,7 +19,8 @@ export default function BreadcrumbsDashboard(props) {
       };
     });
     setBreadcrumbsLinks(newBreadcrumbsLinks);
-	console.log(breadcrumbsLinks);
+	console.log(breadcrumbsLinks.toString());
+	console.log(breadcrumbsLinks.slice(-1));
   }, [location]);
 
   return (
