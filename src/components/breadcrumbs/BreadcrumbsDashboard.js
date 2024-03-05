@@ -41,9 +41,9 @@ export default function BreadcrumbsDashboard(props) {
                     href={breadcrumb.href} 
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
-                    active={!isCurrentPageHome}
+                    active="false"
                   >
-                    { (breadcrumb.name === "Dashboard") ? "Home" : breadcrumb.name }
+                    { (breadcrumb.name === "Dashboard" && index === 0) ? "Home" : breadcrumb.name }
                   </Breadcrumb.Item>
                 );
               })
