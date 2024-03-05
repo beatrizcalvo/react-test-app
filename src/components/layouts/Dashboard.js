@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { Container, Row, Navbar, Nav, NavDropdown, Breadcrumb } from "react-bootstrap";
-import { PerfectScrollbar } from "perfect-scrollbar";
+import PerfectScrollbar from "perfect-scrollbar";
 
 import NavbarDashboard from "../navbars/NavbarDashboard";
 
