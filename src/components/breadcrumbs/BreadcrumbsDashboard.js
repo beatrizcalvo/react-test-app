@@ -32,11 +32,9 @@ export default function BreadcrumbsDashboard(props) {
       <Col>
         <Row>
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
-            {
-              breadcrumbsLinks.map((page) => {
-                return page;
-              })
-            }         
+            {breadcrumbsLinks.map((word, index) => {
+                return <p key={index}>{word}</p>;
+            })}       
           </Breadcrumb>
         </Row>
         <Row>
