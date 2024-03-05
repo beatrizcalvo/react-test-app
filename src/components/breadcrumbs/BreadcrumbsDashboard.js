@@ -21,7 +21,7 @@ export default function BreadcrumbsDashboard(props) {
   
   useEffect(() => {
     location.pathname.split("/").map((item) => {
-      console.log(item);
+      console.log(breadcrumbsLinks);
       setBreadcrumbsLinks([
         ...breadcrumbsLinks,
         { 
@@ -39,13 +39,15 @@ export default function BreadcrumbsDashboard(props) {
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
             {
               breadcrumbsLinks.map((item) => {
-                <Breadcrumb.Item
-                  href={item.page} 
-                  className="text-sm text-dark"
-                  linkProps={{ className: 'opacity-5' }}
-                >
-                  {item.name}
-                </Breadcrumb.Item>
+                return (
+                  <Breadcrumb.Item
+                    href={item.page} 
+                    className="text-sm text-dark"
+                    linkProps={{ className: 'opacity-5' }}
+                  >
+                    {item.name}
+                  </Breadcrumb.Item>
+                );
               })
             }
           </Breadcrumb>
