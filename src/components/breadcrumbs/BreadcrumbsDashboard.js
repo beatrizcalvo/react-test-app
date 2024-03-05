@@ -12,7 +12,7 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   const getCurrentPage = () => {
-    return breadcrumbsLinks.pop();
+    return breadcrumbsLinks[breadcrumbsLinks.length - 1];
   };
   
   const isCurrentPageHome = () => {
@@ -41,9 +41,13 @@ export default function BreadcrumbsDashboard(props) {
                     href={breadcrumb.href} 
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
-                    active="false"
+                    active={!isCurrentPageHome}
                   >
-                    { (breadcrumb.name === "Dashboard" && index === 0) ? "Home" : breadcrumb.name }
+                    { 
+                      (breadcrumb.name === "Dashboard" && index === 0) ? 
+                        "<i className='fa-solid fa-house' />" 
+                      : breadcrumb.name 
+                    }
                   </Breadcrumb.Item>
                 );
               })
