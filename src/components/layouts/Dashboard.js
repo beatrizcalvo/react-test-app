@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
+import PerfectScrollbar from "perfect-scrollbar";
 
 import NavbarDashboard from "../navbars/NavbarDashboard";
 
