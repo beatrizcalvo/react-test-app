@@ -20,16 +20,14 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   useEffect(() => {
-    location.pathname.split("/").map((item) => {
+    const newBreadcrumbsLinks = location.pathname.split("/").map((item) => {
       console.log(breadcrumbsLinks);
-      setBreadcrumbsLinks([
-        ...breadcrumbsLinks,
-        { 
-          page: "/" + item,
-          name: (!item) ? "Dashboard" : item.charAt(0).toUpperCase() + item.slice(1)
-        }
-      ]);
+      return {
+        page: "/" + item,
+        name: (!item) ? "Dashboard" : item.charAt(0).toUpperCase() + item.slice(1)
+      };
     });
+    setBreadcrumbsLinks(newBreadcrumbsLinks);
   }, [location]);
 
   return (
