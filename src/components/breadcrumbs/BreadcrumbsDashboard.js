@@ -16,11 +16,15 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   const isCurrentPageHome = () => {
-    return getCurrentPage() === "";
+    return getCurrentPage() === "/";
   };
   
   useEffect(() => {
-    setBreadcrumbsLinks(location.pathname.split("/"));
+    setBreadcrumbsLinks(
+      location.pathname.split("/").map((page) => { 
+        return "/" + page
+      })
+    );
   }, [location]);
 
   return (
