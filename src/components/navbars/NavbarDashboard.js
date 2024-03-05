@@ -13,9 +13,12 @@ export default function NavbarDashboard(props) {
           collapseOnSelect 
           expand="lg" 
           variant={color} 
-          className="shadow-none"
+          className="mx-4 shadow-none"
         >
           <Container>
+            <Navbar.Brand className="font-weight-bolder mb-0">
+              Dashboard
+            </Navbar.Brand>
           </Container>
         </Navbar>
       </Container>
