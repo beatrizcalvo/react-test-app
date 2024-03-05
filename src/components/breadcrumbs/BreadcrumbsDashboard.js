@@ -19,7 +19,9 @@ export default function BreadcrumbsDashboard(props) {
       <Col>
         <Row>
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
-            <Breadcrumb.Item href="/" className="text-sm">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="/" className="text-sm text-dark" linkProps={{ className: 'opacity-5' }}>
+              <i className="fa-solid fa-house" />
+            </Breadcrumb.Item>
           </Breadcrumb>
         </Row>
         <Row>
