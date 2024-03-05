@@ -11,7 +11,7 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   useEffect(() => {
-    console.log(location.pathname.split("/");
+    console.log(location.pathname.split("/"));
   }, [location]);
 
   return (
