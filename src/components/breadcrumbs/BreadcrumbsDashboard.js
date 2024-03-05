@@ -18,7 +18,6 @@ export default function BreadcrumbsDashboard(props) {
         name: (!page) ? "Dashboard" : page.charAt(0).toUpperCase() + page.slice(1)
       };
     });
-    setBreadcrumbsLinks(newBreadcrumbsLinks);
   }, []);
 
   return (
@@ -46,7 +45,7 @@ export default function BreadcrumbsDashboard(props) {
           </Breadcrumb>
         </Row>
         <Row>
-          <h6 className="font-weight-bolder mb-0">{breadcrumbsLinks}</h6>
+          <h6 className="font-weight-bolder mb-0">{getBrand()}</h6>
         </Row>
       </Col>
     </>
