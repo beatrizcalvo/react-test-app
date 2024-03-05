@@ -22,7 +22,7 @@ export default function BreadcrumbsDashboard(props) {
   useEffect(() => {
     location.pathname.split("/").map((item) => {
       setBreadcrumbsLinks([
-        ...breadcrumbsLinks
+        ...breadcrumbsLinks,
         { link: item }
       ]);
     });
