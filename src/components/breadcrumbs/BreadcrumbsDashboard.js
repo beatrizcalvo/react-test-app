@@ -11,15 +11,6 @@ export default function BreadcrumbsDashboard(props) {
     return brandName;
   };
   
-  const getCurrentPage = () => {
-    return breadcrumbsLinks[breadcrumbsLinks.length - 1];
-  };
-  
-  const isCurrentPageHome = () => {
-    console.log(getCurrentPage());
-    return getCurrentPage().href === "/";
-  };
-  
   useEffect(() => {
     const newBreadcrumbsLinks = location.pathname.split("/").map((page) => {
       return {
@@ -28,6 +19,7 @@ export default function BreadcrumbsDashboard(props) {
       };
     });
     setBreadcrumbsLinks(newBreadcrumbsLinks);
+	console.log(breadcrumbsLinks);
   }, [location]);
 
   return (
@@ -42,7 +34,6 @@ export default function BreadcrumbsDashboard(props) {
                     href={breadcrumb.href} 
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
-                    active="false"
                   >
                     { 
                       (breadcrumb.name === "Dashboard" && index === 0) ? 
@@ -56,7 +47,7 @@ export default function BreadcrumbsDashboard(props) {
           </Breadcrumb>
         </Row>
         <Row>
-          <h6 className="font-weight-bolder mb-0">{breadcrumbsLinks[breadcrumbsLinks.length - 1]}</h6>
+          <h6 className="font-weight-bolder mb-0">{getBrand()}</h6>
         </Row>
       </Col>
     </>
