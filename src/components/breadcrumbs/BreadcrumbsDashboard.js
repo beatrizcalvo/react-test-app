@@ -5,16 +5,14 @@ import { Col, Row, Breadcrumb } from "react-bootstrap";
 export default function BreadcrumbsDashboard(props) {
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
   const location = useLocation();
-
-  const getBrand = () => {
-    let brandName = "Dashboard";
-    console.log(breadcrumbsLinks.slice(-1));
-    return brandName;
-  };
   
   const getCurrentPage = () => {
-    
+    return breadcrumbsLinks.slice(-1)[0];
   };
+  
+  const getBrand = () => {
+    return getCurrentPage().name;
+  }; 
   
   useEffect(() => {
     const newBreadcrumbsLinks = location.pathname.split("/").map((page) => {
