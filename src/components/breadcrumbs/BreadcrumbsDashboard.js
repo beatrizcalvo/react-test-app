@@ -20,7 +20,7 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   useEffect(() => {
-    setBreadcrumbsLinks(location.pathname.substring(1).split("/"));
+    setBreadcrumbsLinks(location.pathname.split("/"));
   }, [location]);
 
   return (
@@ -36,9 +36,7 @@ export default function BreadcrumbsDashboard(props) {
             >
               <i className="fa-solid fa-house" />
             </Breadcrumb.Item>
-            {
-              breadcrumbsLinks.map();
-            }
+            
           </Breadcrumb>
         </Row>
         <Row>
