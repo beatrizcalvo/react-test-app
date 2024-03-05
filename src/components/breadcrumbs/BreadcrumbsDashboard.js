@@ -21,7 +21,7 @@ export default function BreadcrumbsDashboard(props) {
     setBreadcrumbsLinks([...newBreadcrumbsLinks]);
 	console.log(newBreadcrumbsLinks);
 	console.log(breadcrumbsLinks);
-  }, [location]);
+  }, []);
 
   return (
     <>
