@@ -16,15 +16,14 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   const isCurrentPageHome = () => {
-    return getCurrentPage() === "/";
+    return getCurrentPage().href === "/";
   };
   
   useEffect(() => {
-    const newBreadcrumbsLinks = location.pathname.split("/").map((item) => {
-      console.log(breadcrumbsLinks);
+    const newBreadcrumbsLinks = location.pathname.split("/").map((page) => {
       return {
-        page: "/" + item,
-        name: (!item) ? "Dashboard" : item.charAt(0).toUpperCase() + item.slice(1)
+        href: "/" + page,
+        item: (!page) ? "<i className='fa-solid fa-house' />" : page.charAt(0).toUpperCase() + page.slice(1)
       };
     });
     setBreadcrumbsLinks(newBreadcrumbsLinks);
@@ -36,14 +35,15 @@ export default function BreadcrumbsDashboard(props) {
         <Row>
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
             {
-              breadcrumbsLinks.map((item) => {
+              breadcrumbsLinks.map((breadcrumb) => {
                 return (
                   <Breadcrumb.Item
-                    href={item.page} 
+                    href={breadcrumb.href} 
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
+                    active={!isCurrentPageHome}
                   >
-                    {item.name}
+                    {breadcrumb.item}
                   </Breadcrumb.Item>
                 );
               })
