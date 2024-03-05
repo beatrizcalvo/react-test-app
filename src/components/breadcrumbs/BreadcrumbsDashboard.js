@@ -18,7 +18,7 @@ export default function BreadcrumbsDashboard(props) {
         name: (!page) ? "Dashboard" : page.charAt(0).toUpperCase() + page.slice(1)
       };
     });
-    setBreadcrumbsLinks(newBreadcrumbsLinks);
+    setBreadcrumbsLinks([...newBreadcrumbsLinks]);
 	console.log(newBreadcrumbsLinks);
 	console.log(breadcrumbsLinks);
   }, [location]);
