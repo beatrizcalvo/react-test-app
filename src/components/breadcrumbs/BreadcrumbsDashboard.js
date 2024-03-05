@@ -19,8 +19,6 @@ export default function BreadcrumbsDashboard(props) {
       };
     });
     setBreadcrumbsLinks(newBreadcrumbsLinks);
-	console.log(newBreadcrumbsLinks);
-	console.log(breadcrumbsLinks);
   }, []);
 
   return (
@@ -48,7 +46,7 @@ export default function BreadcrumbsDashboard(props) {
           </Breadcrumb>
         </Row>
         <Row>
-          <h6 className="font-weight-bolder mb-0">{getBrand()}</h6>
+          <h6 className="font-weight-bolder mb-0">{breadcrumbsLinks}</h6>
         </Row>
       </Col>
     </>
