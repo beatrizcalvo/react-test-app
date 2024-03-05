@@ -16,7 +16,7 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   useEffect(() => {
-    setBreadcrumbsLinks(location.pathname.substring(1).split("/");
+    setBreadcrumbsLinks(location.pathname.substring(1).split("/"));
   }, [location]);
 
   return (
@@ -27,6 +27,9 @@ export default function BreadcrumbsDashboard(props) {
             <Breadcrumb.Item href="/" className="text-sm text-dark" linkProps={{ className: 'opacity-5' }} active="false">
               <i className="fa-solid fa-house" />
             </Breadcrumb.Item>
+            { breadcrumbsLinks.map((link) => {
+                <Breadcrumb.Item href={"/" + link} className="text-sm text-dark" linkProps={{ className: 'opacity-5' }}>{link}</Breadcrumb.Item>
+            }); }
           </Breadcrumb>
         </Row>
         <Row>
