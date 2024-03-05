@@ -17,16 +17,16 @@ export default function NavbarDashboard(props) {
   
   return (
     <>
-        <Navbar 
-          collapseOnSelect 
-          expand="lg" 
-          sticky="top" 
-          variant={color} 
-          className="mt-4 mx-4 shadow-none"
-        >
-          <Container fluid>
-            <BreadcrumbsDashboard />
-			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar 
+        collapseOnSelect 
+        expand="lg" 
+        sticky="top" 
+        variant={color} 
+        className="mt-4 mx-4 shadow-none"
+      >
+        <Container fluid className="py-1 px-3">
+          <BreadcrumbsDashboard />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">Features</Nav.Link>
