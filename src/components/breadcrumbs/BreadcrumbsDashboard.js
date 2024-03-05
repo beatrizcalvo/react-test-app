@@ -30,9 +30,11 @@ export default function BreadcrumbsDashboard(props) {
           <Breadcrumb listProps={{ className: 'mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
             {
               breadcrumbsLinks.map((page) => {
-                <Breadcrumb.Item>{page}</Breadcrumb.Item>
+                return (
+                  <Breadcrumb.Item>{page}</Breadcrumb.Item>
+                )
               })
-			}          
+            }         
           </Breadcrumb>
         </Row>
         <Row>
