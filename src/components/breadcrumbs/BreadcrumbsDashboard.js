@@ -56,7 +56,7 @@ export default function BreadcrumbsDashboard(props) {
           </Breadcrumb>
         </Row>
         <Row>
-          <h6 className="font-weight-bolder mb-0">{breadcrumbsLinks[breadcrumbsLinks.length - 1].name}</h6>
+          <h6 className="font-weight-bolder mb-0">{breadcrumbsLinks[breadcrumbsLinks.length - 1]}</h6>
         </Row>
       </Col>
     </>
