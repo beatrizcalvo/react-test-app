@@ -60,7 +60,10 @@ export default function NavbarDashboard(props) {
             <Nav className="justify-content-end">
 			  {
                 navbarLinks.map((item) => {
-                });
+                  return (
+                    <Nav.Link></Nav.Link>
+                  );
+                })
               }              
             </Nav>
           </Navbar.Collapse>
