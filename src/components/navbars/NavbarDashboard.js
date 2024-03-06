@@ -24,12 +24,12 @@ export default function NavbarDashboard(props) {
     {
       id: "navbar-3",
       title: "Logout",
-      clickHandler: "() => prueba();",
+      clickHandler: () => handleLogout(),
       icon: "fa-solid fa-right-from-bracket"	  
     }
   ];
   
-  const prueba = () => {console.log("pulsado")};
+  const handleLogout = () => {console.log("pulsado")};
     
   useEffect(() => {
     if (window.innerWidth < 993) {
@@ -76,7 +76,7 @@ export default function NavbarDashboard(props) {
                         <i className={ "text-body " + item.icon } />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block">
-					  {item.title}
+                        {item.title}
                       </span>
                     </Nav.Link>
                   );
