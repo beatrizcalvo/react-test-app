@@ -8,12 +8,13 @@ export default function NavbarDashboard(props) {
   const [color, setColor] = useState("transparent");
   const location = useLocation();
   
-  // Adds color dark/transparent to the navbar on resize
-  const updateColor = () => {};
-  
   useEffect(() => {
-    window.addEventListener("resize", updateColor.bind(this));
-  });
+    if (window.innerWidth < 993) {
+      console.log("ventaña pequeña");
+    } else {
+      console.log("ventana grande");
+    }
+  }, [location]);
   
   return (
     <>
