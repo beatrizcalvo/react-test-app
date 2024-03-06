@@ -12,7 +12,7 @@ export default function BreadcrumbsDashboard(props) {
   
   const getBrand = () => {
     console.log(breadcrumbsLinks.length);
-    console.log(getCurrentPage());
+    console.log(getCurrentPage().valueOf());
     return "Dashboard";
   }; 
   
@@ -38,7 +38,7 @@ export default function BreadcrumbsDashboard(props) {
                     href={breadcrumb.href}
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
-                    active={(breadcrumb.name !== "Dashboard") ? true : false}
+                    active={(index === breadcrumbsLinks.length - 1) ? true : false}
                   >
                     { 
                       (breadcrumb.name === "Dashboard" && index === 0) ? 
