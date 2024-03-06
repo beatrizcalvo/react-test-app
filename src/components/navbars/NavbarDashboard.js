@@ -6,7 +6,6 @@ import AuthService from "../../services/AuthService";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
 export default function NavbarDashboard(props) {
-  const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState("transparent");
   const location = useLocation();
   
@@ -36,25 +35,6 @@ export default function NavbarDashboard(props) {
     AuthService.logoutUser();
     window.location.reload();
   };
-
-  // Change navbar color when expanded
-  const toggleNavbar = () => {
-    setColor(isOpen ? "transparent" : "dark");
-    setIsOpen(!isOpen);
-  };
-  
-  // Adds color dark/transparent to the navbar on resize (this is for the collapse)
-  const updateColor = () => {
-    if (window.innerWidth < 993 && isOpen) {
-      setColor("dark");
-    } else {
-      setColor("transparent");
-    }
-  };
-  
-  useEffect(() => {
-    window.addEventListener("resize", updateColor.bind(this));
-  });
   
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
@@ -69,9 +49,8 @@ export default function NavbarDashboard(props) {
         collapseOnSelect 
         expand="lg" 
         sticky="top" 
-        variant={color} 
-        className="mt-4 mx-4 shadow-none" 
-        onToggle={() => toggleNavbar()} 
+        color={ location.pathname.indexOf("full-screen-maps") !== -1 ? "dark" : color }
+        className="mt-4 mx-4 shadow-none"
       >
         <Container fluid className="py-1 px-3">
           <BreadcrumbsDashboard />
