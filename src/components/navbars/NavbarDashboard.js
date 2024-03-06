@@ -34,12 +34,13 @@ export default function NavbarDashboard(props) {
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
               <Nav.Item className="d-flex align-items-center">
-                <Nav.Link 
-                  href="/profile" 
-                  className="text-body p-0"
+                <Nav.Link href="/profile" 
+                  className="text-body"
                 >
-                  <i className="fa-solid fa-users" />
-                  <p></p>
+                  <i className="fa-solid fa-user-circle" />
+                  <span className="text-uppercase d-lg-none d-md-block">
+                    Profile
+                  </span>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
