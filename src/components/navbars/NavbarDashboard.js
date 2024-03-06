@@ -29,7 +29,7 @@ export default function NavbarDashboard(props) {
   
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
-    <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
+    <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
 		{children}
     </OverlayTrigger>
   );
