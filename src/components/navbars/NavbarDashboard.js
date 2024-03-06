@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
@@ -8,6 +8,17 @@ export default function NavbarDashboard(props) {
   const [color, setColor] = useState("transparent");
   const location = useLocation();
   
+  const navbarLinks = [
+    {
+      href: "/profile"
+	},
+    {
+      href: "/settings"
+    }
+  ];
+  
+  const prueba = () => {console.log("pulsado")};
+    
   useEffect(() => {
     if (window.innerWidth < 993) {
       console.log("ventaña pequeña");
@@ -15,6 +26,13 @@ export default function NavbarDashboard(props) {
       console.log("ventana grande");
     }
   }, [location]);
+  
+  // Add a tooltip in a link
+  const LinkTooltip = ({ id, title, children }) => (
+    <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
+		{children}
+    </OverlayTrigger>
+  );
   
   return (
     <>
@@ -34,6 +52,7 @@ export default function NavbarDashboard(props) {
 		  >
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
+              <LinkTooltip id="menu-1" title="Profile">
               <Nav.Link 
                 href="/profile" 
                 className="d-flex align-items-center icon-md"
@@ -41,6 +60,7 @@ export default function NavbarDashboard(props) {
                 <i className="text-body fa-solid fa-user-circle" />
                 <span className="text-uppercase d-lg-none d-md-block">Profile</span>
               </Nav.Link>
+              </LinkTooltip>
               <Nav.Link 
                 href="#pricing"
                 className="d-flex align-items-center icon-md"
