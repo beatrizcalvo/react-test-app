@@ -11,7 +11,8 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   const getBrand = () => {
-    console.log(getCurrentPage().href);
+    console.log(breadcrumbsLinks.length);
+    console.log(getCurrentPage());
     return "Dashboard";
   }; 
   
