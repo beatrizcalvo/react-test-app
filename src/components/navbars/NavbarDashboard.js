@@ -33,8 +33,15 @@ export default function NavbarDashboard(props) {
 		  >
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
-              <Nav.Item></Nav.Item>
-              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Item className="d-flex align-items-center">
+                <Nav.Link 
+                  href="/profile" 
+                  className="text-body p-0"
+                >
+                  <i className="fa-solid fa-users" />
+                  <p></p>
+                </Nav.Link>
+              </Nav.Item>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
           </Navbar.Collapse>
