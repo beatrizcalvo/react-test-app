@@ -12,9 +12,8 @@ export default function BreadcrumbsDashboard(props) {
   };
   
   const getBrand = () => {
-    console.log(breadcrumbsLinks.length);
-    console.log(getCurrentPage());
-    return "Dashboard";
+    const currentPage = getCurrentPage();
+    return (currentPage) ? currentPage.name : "Undefined";
   }; 
   
   useEffect(() => {
@@ -36,7 +35,7 @@ export default function BreadcrumbsDashboard(props) {
               breadcrumbsLinks.map((breadcrumb, index) => {
                 return (
                   <Breadcrumb.Item
-                    href={breadcrumb.href}
+                    {...(breadcrumb.name !== "Dashboard") ? { href: breadcrumb.href} : {}}
                     className="text-sm text-dark"
                     linkProps={{ className: 'opacity-5' }}
                     active={(index === breadcrumbsLinks.length - 1) ? true : false}
