@@ -20,6 +20,11 @@ export default function NavbarDashboard(props) {
       href: "/settings",
       title: "Settings",
       icon: "fa-solid fa-gear"
+    },
+    {
+      id: "navbar-3",
+      title: "Logout",
+      icon: "fa-solid fa-right-from-bracket"	  
     }
   ];
   
@@ -62,7 +67,7 @@ export default function NavbarDashboard(props) {
                 navbarLinks.map((item) => {
                   return (
                     <Nav.Link
-                      href={item.href}
+                      {...(item.href ? {href: item.href} : {})}
                       className="d-flex align-items-center icon-md"
                       onClick={() => prueba()}
                     >
