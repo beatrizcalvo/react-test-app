@@ -12,10 +12,14 @@ export default function NavbarDashboard(props) {
     {
       id: "navbar-1",
       href: "/profile",
+      title: "Profile Overview",
+      icon: ""
 	},
     {
       id: "navbar-2",
-      href: "/settings"
+      href: "/settings",
+      title: "Settings",
+      icon: ""
     }
   ];
   
@@ -54,22 +58,21 @@ export default function NavbarDashboard(props) {
 		  >
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
-              <Nav.Link 
-                href="/profile" 
-                className="d-flex align-items-center icon-md"
-              >
-                <LinkTooltip id="menu-1" title="Profile">
-                <i className="text-body fa-solid fa-user-circle" />
-                </LinkTooltip>
-                <span className="text-uppercase d-lg-none d-md-block">Profile</span>
-              </Nav.Link>
-              <Nav.Link 
-                href="#pricing"
-                className="d-flex align-items-center icon-md"
-              >
-                <i className="text-body fa-solid fa-gear"/>
-                <span className="text-uppercase d-lg-none d-md-block">Settings</span>
-              </Nav.Link>
+			  {
+                navbarLinks.map((item) => {
+                  return (
+                    <Nav.Link
+                      href={item.href}
+                      className="d-flex align-items-center icon-md"
+                    >
+                      <LinkTooltip id={item.id} title={item.title}>
+                        <i className="text-body fa-solid fa-user-circle" />
+                      </LinkTooltip>
+                      <span className="text-uppercase d-lg-none d-md-block">{item.title}</span>
+                    </Nav.Link>	
+                  );					
+                });
+              }              
             </Nav>
           </Navbar.Collapse>
         </Container>
