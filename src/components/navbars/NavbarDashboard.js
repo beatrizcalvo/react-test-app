@@ -24,7 +24,7 @@ export default function NavbarDashboard(props) {
     {
       id: "navbar-3",
       title: "Logout",
-      clickHandler: "prueba();",
+      clickHandler: "() => prueba();",
       icon: "fa-solid fa-right-from-bracket"	  
     }
   ];
@@ -68,9 +68,9 @@ export default function NavbarDashboard(props) {
                 navbarLinks.map((item) => {
                   return (
                     <Nav.Link
-                      {...(item.href ? {href: item.href} : {})}
+                      {...(item.href ? { href: item.href } : {})}
                       className="d-flex align-items-center icon-md"
-                      onClick={prueba()}
+                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
                       <LinkTooltip id={item.id} title={item.title}>
                         <i className={ "text-body " + item.icon } />
