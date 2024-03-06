@@ -61,7 +61,14 @@ export default function NavbarDashboard(props) {
 			  {
                 navbarLinks.map((item) => {
                   return (
-                    <Nav.Link></Nav.Link>
+                    <Nav.Link
+                      href={item.href}
+                      className="d-flex align-items-center icon-md"
+                    >
+                      <span className="text-uppercase d-lg-none d-md-block">
+					  {item.title}
+                      </span>
+                    </Nav.Link>
                   );
                 })
               }              
