@@ -39,7 +39,7 @@ export default function NavbarDashboard(props) {
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
     <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
-		{children}
+      {children}
     </OverlayTrigger>
   );
   
@@ -60,7 +60,7 @@ export default function NavbarDashboard(props) {
           <Navbar.Collapse id="main-navbar">
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
-			  {
+	      {
                 navbarLinks.map((item) => {
                   return (
                     <Nav.Link
@@ -69,7 +69,7 @@ export default function NavbarDashboard(props) {
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
                       <LinkTooltip id={item.id} title={item.title}>
-                        <i className={ "text-body " + item.icon } />
+                        <i className={ item.icon } />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block ms-3">
                         {item.title}
