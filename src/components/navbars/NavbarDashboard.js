@@ -10,9 +10,11 @@ export default function NavbarDashboard(props) {
   
   const navbarLinks = [
     {
-      href: "/profile"
+      id: "navbar-1",
+      href: "/profile",
 	},
     {
+      id: "navbar-2",
       href: "/settings"
     }
   ];
@@ -52,15 +54,15 @@ export default function NavbarDashboard(props) {
 		  >
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
-              <LinkTooltip id="menu-1" title="Profile">
               <Nav.Link 
                 href="/profile" 
                 className="d-flex align-items-center icon-md"
               >
+                <LinkTooltip id="menu-1" title="Profile">
                 <i className="text-body fa-solid fa-user-circle" />
+                </LinkTooltip>
                 <span className="text-uppercase d-lg-none d-md-block">Profile</span>
               </Nav.Link>
-              </LinkTooltip>
               <Nav.Link 
                 href="#pricing"
                 className="d-flex align-items-center icon-md"
