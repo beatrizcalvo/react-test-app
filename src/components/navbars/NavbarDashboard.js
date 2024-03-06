@@ -19,7 +19,7 @@ export default function NavbarDashboard(props) {
       id: "navbar-2",
       href: "/settings",
       title: "Settings",
-      icon: ""
+      icon: "fa-solid fa-gear"
     }
   ];
   
@@ -64,9 +64,10 @@ export default function NavbarDashboard(props) {
                     <Nav.Link
                       href={item.href}
                       className="d-flex align-items-center icon-md"
+                      onClick={() => prueba()}
                     >
                       <LinkTooltip id={item.id} title={item.title}>
-                        <i className={ "text-body " + (item.icon) ? item.icon : "fa-solid fa-bomb"} />
+                        <i className={ "text-body " + item.icon } />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block">
 					  {item.title}
