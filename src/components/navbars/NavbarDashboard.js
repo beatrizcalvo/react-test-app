@@ -22,22 +22,21 @@ export default function NavbarDashboard(props) {
         collapseOnSelect 
         expand="lg" 
         sticky="top" 
-        variant={color} 
+        variant="main"
         className="mt-4 mx-4 shadow-none"
       >
         <Container fluid className="py-1 px-3">
           <BreadcrumbsDashboard />
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse 
-            id="responsive-navbar-nav" 
+            id="navbar" 
 			className="mt-sm-0 mt-2 me-md-0 me-sm-4"
 		  >
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
               <Nav.Link href="/profile" 
-                className="d-flex align-items-center icom-md text-body"
+                className="d-flex align-items-center icon-md"
               >
-                <i className="fa-solid fa-user-circle" />
+                <i className="text-body fa-solid fa-user-circle" />
                 <span className="text-uppercase d-lg-none d-md-block">
                   Profile
                 </span>
