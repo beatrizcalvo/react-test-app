@@ -39,7 +39,7 @@ export default function NavbarDashboard(props) {
 
   // Change navbar color when expanded
   const toggleNavbar = () => {
-    setColor(isOpen ? "dark" : "transparent");
+    setColor(isOpen ? "transparent" : "dark");
     setIsOpen(!isOpen);
   };
   
@@ -58,7 +58,7 @@ export default function NavbarDashboard(props) {
         sticky="top" 
         variant={color} 
         className="mt-4 mx-4 shadow-none" 
-	onToggle={() => toggleNavbar()} 
+        onToggle={() => toggleNavbar()} 
       >
         <Container fluid className="py-1 px-3">
           <BreadcrumbsDashboard />
@@ -68,7 +68,7 @@ export default function NavbarDashboard(props) {
           <Navbar.Collapse id="main-navbar">
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
-	      {
+              {
                 navbarLinks.map((item) => {
                   return (
                     <Nav.Link
