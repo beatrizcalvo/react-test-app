@@ -22,26 +22,32 @@ export default function NavbarDashboard(props) {
         collapseOnSelect 
         expand="lg" 
         sticky="top" 
-        variant="main"
+        variant={color} 
         className="mt-4 mx-4 shadow-none"
       >
         <Container fluid className="py-1 px-3">
           <BreadcrumbsDashboard />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse 
-            id="navbar" 
+            id="responsive-navbar-nav" 
 			className="mt-sm-0 mt-2 me-md-0 me-sm-4"
 		  >
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
-              <Nav.Link href="/profile" 
+              <Nav.Link 
+                href="/profile" 
                 className="d-flex align-items-center icon-md"
               >
                 <i className="text-body fa-solid fa-user-circle" />
-                <span className="text-uppercase d-lg-none d-md-block">
-                  Profile
-                </span>
+                <span className="text-uppercase d-lg-none d-md-block">Profile</span>
               </Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link 
+                href="#pricing"
+                className="d-flex align-items-center icon-md"
+              >
+                <i className="text-body fa-solid fa-gear"/>
+                <span className="text-uppercase d-lg-none d-md-block">Settings</span>
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
