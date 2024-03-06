@@ -13,7 +13,7 @@ export default function NavbarDashboard(props) {
       id: "navbar-1",
       href: "/profile",
       title: "Profile Overview",
-      icon: ""
+      icon: "fa-solid fa-user-circle"
 	},
     {
       id: "navbar-2",
@@ -66,7 +66,7 @@ export default function NavbarDashboard(props) {
                       className="d-flex align-items-center icon-md"
                     >
                       <LinkTooltip id={item.id} title={item.title}>
-                        <i className="text-body fa-solid fa-user-circle" />
+                        <i className={ "text-body " + (item.icon) ? item.icon : "fa-solid fa-bomb"} />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block">
 					  {item.title}
