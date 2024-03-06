@@ -49,7 +49,8 @@ export default function NavbarDashboard(props) {
         collapseOnSelect 
         expand="lg" 
         sticky="top" 
-        bg={ location.pathname.indexOf("full-screen-maps") !== -1 ? "dark" : color }
+        bg={color}
+        variant="main"
         className="mt-4 mx-4 shadow-none"
       >
         <Container fluid className="py-1 px-3">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Col, Row, Breadcrumb } from "react-bootstrap";
+import { Col, Breadcrumb } from "react-bootstrap";
 
 export default function BreadcrumbsDashboard(props) {
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
@@ -28,33 +28,27 @@ export default function BreadcrumbsDashboard(props) {
 
   return (
     <>
-      <Col>
-        <Row>
-          <Breadcrumb listProps={{ className: 'bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
-            {
-              breadcrumbsLinks.map((breadcrumb, index) => {
-                return (
-                  <Breadcrumb.Item
-                    href={breadcrumb.href} 
-                    className="text-sm text-dark"
-                    linkProps={{ className: 'opacity-5' }}
-                    active={(breadcrumb.name === getCurrentPageName()) ? true : false}
-                  >
-                    { 
-                      (breadcrumb.name === "Dashboard" && index === 0) ? 
-                        <i className="fa-solid fa-house" />
-                      : breadcrumb.name 
-                    }
-                  </Breadcrumb.Item>
-                );
-              })
-            }
-          </Breadcrumb>
-        </Row>
-        <Row>
-          <h6 className="font-weight-bolder mb-0">{getCurrentPageName()}</h6>
-        </Row>
-      </Col>
+      <Breadcrumb listProps={{ className: 'bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5'}}>
+        {
+          breadcrumbsLinks.map((breadcrumb, index) => {
+            return (
+              <Breadcrumb.Item
+                href={breadcrumb.href} 
+                className="text-sm text-dark"
+                linkProps={{ className: 'opacity-5' }}
+                active={(breadcrumb.name === getCurrentPageName()) ? true : false}
+              >
+                { 
+                  (breadcrumb.name === "Dashboard" && index === 0) ? 
+                    <i className="fa-solid fa-house" />
+                  : breadcrumb.name 
+                }
+              </Breadcrumb.Item>
+            );
+          })
+        }
+        <h6 className="font-weight-bolder mb-0">{getCurrentPageName()}</h6>
+      </Breadcrumb>
     </>
   );
 }
