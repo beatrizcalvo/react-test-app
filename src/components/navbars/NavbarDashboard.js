@@ -60,17 +60,6 @@ export default function NavbarDashboard(props) {
             <Nav className="justify-content-end">
 			  {
                 navbarLinks.map((item) => {
-                  return (
-                    <Nav.Link
-                      href={item.href}
-                      className="d-flex align-items-center icon-md"
-                    >
-                      <LinkTooltip id={item.id} title={item.title}>
-                        <i className="text-body fa-solid fa-user-circle" />
-                      </LinkTooltip>
-                      <span className="text-uppercase d-lg-none d-md-block">{item.title}</span>
-                    </Nav.Link>	
-                  );					
                 });
               }              
             </Nav>
