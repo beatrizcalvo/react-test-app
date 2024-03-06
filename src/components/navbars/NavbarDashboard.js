@@ -54,11 +54,10 @@ export default function NavbarDashboard(props) {
       >
         <Container fluid className="py-1 px-3">
           <BreadcrumbsDashboard />
-          <Navbar.Toggle aria-controls="main-navbar" />
-          <Navbar.Collapse 
-            id="main-navbar" 
-			className="mt-sm-0 mt-2 me-md-0 me-sm-4"
-		  >
+          <Navbar.Toggle aria-controls="main-navbar">
+            <i className="fa-solid fa-ellipsis-vertical" />
+          </Navbar.Toggle>
+          <Navbar.Collapse id="main-navbar">
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
 			  {
@@ -66,7 +65,7 @@ export default function NavbarDashboard(props) {
                   return (
                     <Nav.Link
                       {...(item.href ? { href: item.href } : {})}
-                      className="d-flex align-items-center icon-md"
+                      className="d-flex align-items-center icon-md w-100 h-100"
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
                       <LinkTooltip id={item.id} title={item.title}>
