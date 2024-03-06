@@ -7,12 +7,13 @@ export default function BreadcrumbsDashboard(props) {
   const location = useLocation();
   
   const getCurrentPage = () => {
-    return breadcrumbsLinks.slice(-1)[0];
+    const lastUrl = breadcrumbsLinks.slice(-1);
+    return (lastUrl) ? lastUrl[0] : undefined;
   };
   
   const getBrand = () => {
     console.log(breadcrumbsLinks.length);
-    console.log(getCurrentPage().valueOf());
+    console.log(getCurrentPage());
     return "Dashboard";
   }; 
   
