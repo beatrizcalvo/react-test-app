@@ -61,7 +61,7 @@ export default function NavbarDashboard(props) {
         className="mt-4 mx-4 shadow-none"
         onToggle={() => toggleNavbar()}
       >
-        <Container fluid>
+        <Container fluid className="py-1 pe-3">
           <BreadcrumbsDashboard className="ps-3" />
           <Navbar.Toggle aria-controls="main-navbar">
             <i className="fa-solid fa-ellipsis-vertical" />
