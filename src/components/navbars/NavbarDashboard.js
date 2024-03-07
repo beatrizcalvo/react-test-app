@@ -6,6 +6,7 @@ import AuthService from "../../services/AuthService";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
 export default function NavbarDashboard(props) {
+  const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState("transparent");
   const location = useLocation();
   
@@ -36,6 +37,16 @@ export default function NavbarDashboard(props) {
     window.location.reload();
   };
   
+  // Change color dark/transparent when collapse navbar
+  const toggleNavbar = () => {
+    if (isOpen) {
+      setColor("dark");	
+    } else {
+      setColor("transparent");
+    }
+    setIsOpen(!isOpen);
+  };
+  
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
     <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
@@ -50,8 +61,9 @@ export default function NavbarDashboard(props) {
         expand="lg" 
         sticky="top" 
         bg={color}
-        variant="main"
+        variant={color === "dark" ? color : "main"}
         className="mt-4 mx-4 shadow-none"
+        onToggle={() => toggleNavbar()}
       >
         <Container fluid className="py-1 px-3">
           <BreadcrumbsDashboard />
