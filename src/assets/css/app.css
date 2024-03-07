@@ -6,6 +6,10 @@
   box-shadow: none;
 }
 
+.navbar-dark .navbar-toggler {
+	color: var(--bs-gray-500);
+}
+
 .navbar-dark a:not(.btn):not(.dropdown-item) {
-  color: #fff;
+  color: var(--bs-light);
 }
