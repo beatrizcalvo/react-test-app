@@ -1,0 +1,11 @@
+.navbar-toggle {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-dark a:not(.btn):not(.dropdown-item) {
+  color: #fff;
+}
