@@ -1,5 +1,5 @@
 .navbar-toggle {
-  border: none;
+  border: none !important;
 }
 
 .navbar-toggler:focus {
