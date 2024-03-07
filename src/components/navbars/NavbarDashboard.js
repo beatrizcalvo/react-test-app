@@ -39,11 +39,7 @@ export default function NavbarDashboard(props) {
   
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
-    if (isOpen) {
-      setColor("dark");	
-    } else {
-      setColor("transparent");
-    }
+    setColor((isOpen) ? "dark" : "transparent");
     setIsOpen(!isOpen);
   };
   
