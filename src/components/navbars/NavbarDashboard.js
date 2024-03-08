@@ -38,13 +38,15 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
 
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
-    setColor((isOpen && !isBlur) ? "transparent" : "dark");
+    console.log("isBlur: " + isBlur);
+    setColor((isOpen) ? "transparent" : "dark");
     setIsOpen(!isOpen);
   };
 
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
     showBlur: (value) => {
+      setIsOpen(false);
       setIsBlur(value);
     }
   }));
