@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import AuthService from "../../services/AuthService";
@@ -8,7 +7,6 @@ import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 export default function NavbarDashboard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState("transparent");
-  const location = useLocation();
   
   const navbarLinks = [
     {
