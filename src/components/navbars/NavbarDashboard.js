@@ -1,4 +1,4 @@
-import { forwardRef, memo, useState, useImperativeHandle } from "react";
+import { forwardRef, memo, useState, useImperativeHandle, useEffect } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import AuthService from "../../services/AuthService";
@@ -48,6 +48,8 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
       setIsBlur(value);
     }
   }));
+
+  useEffect(() => {console.log("update")}, [isBlur]);
 
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
