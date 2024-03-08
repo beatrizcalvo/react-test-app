@@ -87,6 +87,9 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
                       {...(item.href ? { href: item.href } : {})}
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
+                      <LinkTooltip id={item.id} title={item.title}>
+                        <i className={ item.icon } />
+                      </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block ms-2">
                         {item.title}
                       </span>
