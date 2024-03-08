@@ -1,15 +1,19 @@
+.breadcrumb {
+  --bs-breadcrumb-item-active-color: #344767;
+}
+
 .navbar-toggler {
   border: none !important;
 }
 
 .navbar-toggler:focus {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .navbar-dark .navbar-toggler {
-	color: var(--bs-gray-500);
+  color: var(--bs-gray-500) !important;
 }
 
 .navbar-dark a:not(.btn):not(.dropdown-item) {
-  color: var(--bs-light);
+  color: var(--bs-light) !important;
 }
