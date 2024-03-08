@@ -10,6 +10,10 @@
   box-shadow: none !important;
 }
 
+.navbar-dark {
+  --bs-link-hover-color: #e91e63 !important;
+}
+
 .navbar-dark .navbar-toggler {
   color: var(--bs-gray-500) !important;
 }
