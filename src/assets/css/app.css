@@ -14,7 +14,8 @@
   --bs-link-hover-color: #e91e63 !important;
 }
 
-.navbar-dark .navbar-toggler {
+.navbar-dark .navbar-toggler,
+.navbar-dark .navbar-collapse .navbar-nav .nav-link i {
   color: var(--bs-gray-500) !important;
 }
 
@@ -28,8 +29,4 @@
 
 .navbar-dark .breadcrumb .breadcrumb-title {
   color: var(--bs-light) !important;
-}
-
-.navbar-dark .navbar-collapse .navbar-nav .nav-link i {
-  color: var(--bs-gray-500) !important;
 }
