@@ -19,8 +19,8 @@ export default function Dashboard(props) {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanelRef.current);
       document.body.classList.toggle("perfect-scrollbar-on");
-      mainPanelRef.current.addEventListener("ps-scroll-y", () => navbarRef.current.updateIsBlur(true));
-      mainPanelRef.current.addEventListener("ps-y-reach-start", () => navbarRef.current.updateIsBlur(false));
+      mainPanelRef.current.addEventListener("ps-scroll-y", () => navbarRef.current.showBlur(true));
+      mainPanelRef.current.addEventListener("ps-y-reach-start", () => navbarRef.current.showBlur(false));
     }
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
