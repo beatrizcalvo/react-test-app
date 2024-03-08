@@ -31,5 +31,5 @@
 }
 
 .navbar-dark .navbar-collapse .navbar-nav .nav-link i {
-  color: var(--bs-light) !important;
+  color: var(--bs-gray-500) !important;
 }
