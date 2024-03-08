@@ -10,10 +10,6 @@
   box-shadow: none !important;
 }
 
-.bg-dark {
-  background-color: #343a40 !important;
-}
-
 .navbar-dark .navbar-toggler {
   color: var(--bs-gray-500) !important;
 }
