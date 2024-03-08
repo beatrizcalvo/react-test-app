@@ -19,7 +19,7 @@ export default function Login(props) {
         if (response.data) {
           // If login success then redirect to dashboard home page
           navigate("/");
-		  window.location.reload();
+          window.location.reload();
         } else {
           loginFormRef.current.updateAlertMessage(connectionError);
           loginFormRef.current.updateIsLoading(false);
