@@ -19,11 +19,13 @@ export default function Dashboard(props) {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current);
       document.body.classList.toggle("perfect-scrollbar-on");
+      mainPanelRef.current.addEventListener("ps-scroll-y", () => console.log("scroll"));
     }
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
         document.body.classList.toggle("perfect-scrollbar-on");
+        mainPanelRef.current.removeEventListener("ps-scroll-y");
       }
     };
   });
