@@ -44,13 +44,9 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
 
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
-    showBlur: () => {
+    showBlur: (value) => {
       setIsOpen(false);
-      setIsBlur(true);
-    };
-    hideBlur: () => {
-      setIsOpen(false);
-      setIsBlur(false);
+      setIsBlur(value);
     }
   }));
 
