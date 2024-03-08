@@ -1,4 +1,4 @@
-import { forwardRef, memo, useState, useImperativeHandle, useEffect } from "react";
+import { forwardRef, memo, useState, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import AuthService from "../../services/AuthService";
@@ -39,7 +39,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
     console.log("isBlur: " + isBlur);
-    setColor((isOpen) ? "transparent" : "dark");
+    setColor((isOpen && isBlur) ? "transparent" : "dark");
     setIsOpen(!isOpen);
   };
 
@@ -50,8 +50,6 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
       setIsBlur(value);
     }
   }));
-
-  useEffect(() => {console.log("reload");});
 
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
