@@ -30,6 +30,6 @@
   color: var(--bs-light) !important;
 }
 
-.navbar-dark .nav-link i {
+.navbar-dark .navbar-collapse .navbar-nav .nav-link i {
   color: var(--bs-light) !important;
 }
