@@ -39,7 +39,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
     console.log("isBlur: " + isBlur);
-    setColor((isOpen && isBlur) ? "transparent" : "dark");
+    setColor((isOpen) ? "transparent" : "dark");
     setIsOpen(!isOpen);
   };
 
