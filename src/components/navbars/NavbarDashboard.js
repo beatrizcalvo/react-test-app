@@ -39,9 +39,21 @@ export default function NavbarDashboard(props) {
   
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
-    setColor((isOpen) ? "transparent" : "dark");
     setIsOpen(!isOpen);
   };
+  
+  // function that adds color dark/transparent to the navbar on resize (this is for the collapse)
+  const updateColor = () => {
+    if (window.innerWidth < 993 && isOpen) {
+      setColor("dark");
+    } else {
+      setColor("transparent");
+    }
+  };
+  
+  useEffect(() => {
+    window.addEventListener("resize", updateColor.bind(this));
+  });
   
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
@@ -58,7 +70,7 @@ export default function NavbarDashboard(props) {
         sticky="top" 
         bg={color}
         variant={color === "dark" ? color : "main"}
-        className="mt-4 mx-4 shadow-none"
+        className="mt-4 mx-4 shadow-none border-radius-xl"
         onToggle={() => toggleNavbar()}
       >
         <Container fluid className="py-1 pe-3">
