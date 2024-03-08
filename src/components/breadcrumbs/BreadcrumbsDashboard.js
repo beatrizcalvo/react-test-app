@@ -50,7 +50,7 @@ export default function BreadcrumbsDashboard(props) {
             );
           })
         }
-        <h6 className="font-weight-bolder mb-0 w-100">{getCurrentPageName()}</h6>
+        <h6 className="breadcrumb-title font-weight-bolder mb-0 w-100">{getCurrentPageName()}</h6>
       </Breadcrumb>
     </>
   );
