@@ -57,7 +57,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         sticky="top" 
         bg={color}
         variant={color === "dark" ? color : "main"}
-        className={"mt-4 mx-4 shadow-none border-radius-xl" + (isBlur) ? "" : ""}
+        className={"mt-4 mx-4 shadow-none border-radius-xl" + (isBlur) ? " top-1 blur shadow-blur" : ""}
         onToggle={() => toggleNavbar()}
       >
         <Container fluid className="py-1 pe-3">
