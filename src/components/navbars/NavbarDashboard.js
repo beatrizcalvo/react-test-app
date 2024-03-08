@@ -1,20 +1,21 @@
-import { useState } from "react";
+import { forwardRef, memo, useState } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import AuthService from "../../services/AuthService";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
-export default function NavbarDashboard(props) {
+const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBlur, setIsBlur] = useState(false);
   const [color, setColor] = useState("transparent");
-  
+
   const navbarLinks = [
     {
       id: "navbar-1",
       href: "/profile",
       title: "Profile Overview",
       icon: "fa-solid fa-user-circle"
-	},
+    },
     {
       id: "navbar-2",
       href: "/settings",
@@ -34,20 +35,20 @@ export default function NavbarDashboard(props) {
     AuthService.logoutUser();
     window.location.reload();
   };
-  
+
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
     setColor((isOpen) ? "transparent" : "dark");
     setIsOpen(!isOpen);
   };
-    
+
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
     <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
       {children}
     </OverlayTrigger>
   );
-  
+
   return (
     <>
       <Navbar 
@@ -56,15 +57,15 @@ export default function NavbarDashboard(props) {
         sticky="top" 
         bg={color}
         variant={color === "dark" ? color : "main"}
-        className="mt-4 mx-4 shadow-none border-radius-xl"
+        className={"mt-4 mx-4 shadow-none border-radius-xl" + (isBlur) ? "" : ""}
         onToggle={() => toggleNavbar()}
       >
         <Container fluid className="py-1 pe-3">
           <BreadcrumbsDashboard className="ps-3" />
-          <Navbar.Toggle aria-controls="main-navbar">
+          <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
             <i className="fa-solid fa-ellipsis-vertical" />
           </Navbar.Toggle>
-          <Navbar.Collapse id="main-navbar">
+          <Navbar.Collapse id="navbar-dashboard-collapse">
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav className="justify-content-end">
               {
@@ -91,4 +92,6 @@ export default function NavbarDashboard(props) {
       </Navbar>
     </>
   );
-}
+};
+
+export default memo(NavbarDashboard);
