@@ -10,6 +10,7 @@ var ps;
 
 export default function Dashboard(props) {
   const mainPanel = useRef();
+  const navbar = useRef();
   const location = useLocation();
 
   useEffect(() => {
@@ -29,14 +30,14 @@ export default function Dashboard(props) {
   
   useEffect(() => {
     mainPanel.current.scrollTop = 0;
-    mainPanel.current.addEventListener("ps-scroll-y", () => console.log("scroll"));
+    mainPanel.current.addEventListener("ps-scroll-y", () => navbar.current.classList.add("top-1 blur shadow-blur"));
     document.scrollingElement.scrollTop = 0;
   }, [location]);
   
   return (
     <>
       <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanel}>
-        <NavbarDashboard />
+        <NavbarDashboard ref={navbar} />
         <Container fluid className="px-4 py-4">
           <Outlet />
         </Container>
