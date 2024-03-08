@@ -29,6 +29,7 @@ export default function Dashboard(props) {
   
   useEffect(() => {
     mainPanel.current.scrollTop = 0;
+    mainPanel.current.addEventListener("ps-scroll-y", () => console.log("scroll"));
     document.scrollingElement.scrollTop = 0;
   }, [location]);
   
