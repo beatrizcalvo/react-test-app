@@ -39,7 +39,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
     console.log("isBlur: " + isBlur);
-    setColor((isOpen) ? "transparent" : "dark");
+    setColor(isOpen ? "transparent" : (isBlur ? "transparent" : "dark"));
     setIsOpen(!isOpen);
   };
 
@@ -68,6 +68,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         variant={color === "dark" ? color : "main"}
         className={"mt-4 mx-4 shadow-none border-radius-xl" + ((isBlur) ? " top-2 blur shadow-blur" : "")}
         onToggle={() => toggleNavbar()}
+        expanded={isOpen}
       >
         <Container fluid className="py-1 pe-3">
           <BreadcrumbsDashboard className="ps-3" />
