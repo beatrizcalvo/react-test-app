@@ -45,7 +45,6 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
     showBlur: (value) => {
-      setIsOpen(false);
       setIsBlur(value);
     }
   }));
@@ -79,18 +78,11 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
               {
                 navbarLinks.map((item) => {
                   return (
-                    <Nav.Link
-                      {...(item.href ? { href: item.href } : {})}
-                      className="d-flex align-items-center icon-md w-100 h-100"
-                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
-                    >
-                      <LinkTooltip id={item.id} title={item.title}>
-                        <i className={ item.icon } />
-                      </LinkTooltip>
-                      <span className="text-uppercase d-lg-none d-md-block ms-3">
+                    <Nav.Item>
+                      <Nav.Link>
                         {item.title}
-                      </span>
-                    </Nav.Link>
+                      </Nav.Link>
+                    </Nav.Item>
                   );
                 })
               }              
