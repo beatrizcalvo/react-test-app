@@ -49,7 +49,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
     }
   }));
 
-  useEffect(() => {window.addEventListener("resize", () => console.log("update"));});
+  useEffect(() => {console.log("reload");});
 
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
