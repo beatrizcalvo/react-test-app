@@ -42,6 +42,13 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
     setIsOpen(!isOpen);
   };
 
+  // Functions to update state fields from parent
+  useImperativeHandle(_ref, () => ({
+    updateIsBlur: (value) => {
+      setIsBlur(value);
+    }
+  }));
+
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
     <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
