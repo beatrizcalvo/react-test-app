@@ -25,3 +25,7 @@
 .navbar-dark .breadcrumb .breadcrumb-title {
   color: var(--bs-light) !important;
 }
+
+.navbar-dark .navbar-link i {
+  color: var(--bs-light) !important;
+}
