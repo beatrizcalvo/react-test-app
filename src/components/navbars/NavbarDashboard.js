@@ -76,7 +76,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
           </Navbar.Toggle>
           <Navbar.Collapse id="navbar-dashboard-collapse">
             <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
-            <Nav className="justify-content-end">
+            <Nav pullRight>
               {
                 navbarLinks.map((item) => {
                   return (
