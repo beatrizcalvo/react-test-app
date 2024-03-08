@@ -18,7 +18,8 @@
 }
 
 .navbar-dark .navbar-collapse .navbar-nav .nav-link:hover {
-  color: var(--bs-link-hover-color) !important;
+  color: #f3e823 !important;
+  font-weight: 600 !important;
 }
 
 .navbar-dark .breadcrumb {
