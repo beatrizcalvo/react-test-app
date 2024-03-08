@@ -20,7 +20,7 @@ export default function Dashboard(props) {
       ps = new PerfectScrollbar(mainPanel.current);
       document.body.classList.toggle("perfect-scrollbar-on");
       mainPanelRef.current.addEventListener("ps-scroll-y", () => console.log("scroll"));
-      mainPanelRef.current.addEventListener("ps-y-reach-start", () => console.log("scroll top");
+      mainPanelRef.current.addEventListener("ps-y-reach-start", () => console.log("scroll top"));
     }
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
