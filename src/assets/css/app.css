@@ -2,16 +2,14 @@
   --bs-breadcrumb-item-active-color: #344767;
 }
 
-.navbar-toggler {
-  border: none !important;
-}
-
+.navbar-toggler,
 .navbar-toggler:focus {
+  border: none !important;
   box-shadow: none !important;
 }
 
-.navbar-dark {
-  --bs-link-hover-color: #e91e63 !important;
+.navbar-dark a:not(.btn):not(.dropdown-item) {
+  color: var(--bs-light) !important;
 }
 
 .navbar-dark .navbar-toggler,
@@ -19,8 +17,8 @@
   color: var(--bs-gray-500) !important;
 }
 
-.navbar-dark a:not(.btn):not(.dropdown-item) {
-  color: var(--bs-light) !important;
+.navbar-dark .navbar-collapse .navbar-nav .nav-link i:hover {
+  color: #e91e63 !important;
 }
 
 .navbar-dark .breadcrumb {
