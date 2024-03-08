@@ -99,6 +99,6 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
       </Navbar>
     </>
   );
-};
+});
 
 export default memo(NavbarDashboard);
