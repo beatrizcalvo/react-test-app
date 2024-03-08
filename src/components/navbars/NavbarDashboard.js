@@ -49,7 +49,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
     }
   }));
 
-  useEffect(() => {console.log("update")}, [isBlur]);
+  useEffect(() => {window.addEventListener("resize", () => console.log("update"));});
 
   // Add a tooltip in a link
   const LinkTooltip = ({ id, title, children }) => (
@@ -66,7 +66,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         sticky="top" 
         bg={color}
         variant={color === "dark" ? color : "main"}
-        className={"mt-4 mx-4 shadow-none border-radius-xl" + ((isBlur) ? " top-1 blur shadow-blur" : "")}
+        className={"mt-4 mx-4 shadow-none border-radius-xl" + ((isBlur) ? " top-2 blur shadow-blur" : "")}
         onToggle={() => toggleNavbar()}
       >
         <Container fluid className="py-1 pe-3">
