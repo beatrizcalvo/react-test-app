@@ -75,16 +75,22 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
           <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
             <i className="fa-solid fa-ellipsis-vertical" />
           </Navbar.Toggle>
-          <Navbar.Collapse id="navbar-dashboard-collapse">
+          <Navbar.Collapse 
+            id="navbar-dashboard-collapse" 
+            {...(isOpen ? { className: "pt-3" } : {})}
+          >
             <Nav pullRight>
               {
                 navbarLinks.map((item) => {
                   return (
-                    <Nav.Item>
-                      <Nav.Link>
+                    <Nav.Link
+                      {...(item.href ? { href: item.href } : {})}
+                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
+                    >
+                      <span className="text-uppercase d-lg-none d-md-block ms-2">
                         {item.title}
-                      </Nav.Link>
-                    </Nav.Item>
+                      </span>
+                    </Nav.Link>
                   );
                 })
               }              
