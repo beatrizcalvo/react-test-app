@@ -19,16 +19,14 @@ export default function Dashboard(props) {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanelRef.current);
       document.body.classList.toggle("perfect-scrollbar-on");
-      mainPanelRef.current.addEventListener("ps-scroll-y", () => console.log("scroll"));
-      mainPanelRef.current.addEventListener("ps-scroll-down", () => console.log("scroll down"));
-      mainPanelRef.current.addEventListener("ps-y-reach-start", () => console.log("scroll top"));
+      mainPanelRef.current.addEventListener("ps-scroll-y", () => navbarRef.current.updateIsBlur(true));
+      mainPanelRef.current.addEventListener("ps-y-reach-start", () => navbarRef.current.updateIsBlur(false));
     }
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
         document.body.classList.toggle("perfect-scrollbar-on");
         mainPanelRef.current.removeEventListener("ps-scroll-y");
-        mainPanelRef.current.removeEventListener("ps-scroll-down");
         mainPanelRef.current.removeEventListener("ps-y-reach-start");
       }
     };
