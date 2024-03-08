@@ -17,9 +17,10 @@ export default function Dashboard(props) {
     document.body.classList.add("bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanel.current);
+      ps = new PerfectScrollbar(mainPanelRef.current);
       document.body.classList.toggle("perfect-scrollbar-on");
       mainPanelRef.current.addEventListener("ps-scroll-y", () => console.log("scroll"));
+      mainPanelRef.current.addEventListener("ps-scroll-down", () => console.log("scroll down"));
       mainPanelRef.current.addEventListener("ps-y-reach-start", () => console.log("scroll top"));
     }
     return function cleanup() {
@@ -27,6 +28,7 @@ export default function Dashboard(props) {
         ps.destroy();
         document.body.classList.toggle("perfect-scrollbar-on");
         mainPanelRef.current.removeEventListener("ps-scroll-y");
+        mainPanelRef.current.removeEventListener("ps-scroll-down");
         mainPanelRef.current.removeEventListener("ps-y-reach-start");
       }
     };
