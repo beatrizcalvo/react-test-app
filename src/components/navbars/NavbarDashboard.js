@@ -4,6 +4,15 @@ import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap
 import AuthService from "../../services/AuthService";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
+  // Add a tooltip in a link
+  function LinkTooltip({ id, title, children }) {
+    return (
+      <>
+        {children}
+      </>
+    );
+  };
+
 const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlur, setIsBlur] = useState(false);
@@ -50,13 +59,6 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
       setColor("transparent");
     }
   }));
-
-  // Add a tooltip in a link
-  const LinkTooltip = ({ id, title, children }) => {
-    return (
-      <>{children}</>
-    );
-  };
   
   return (
     <>
