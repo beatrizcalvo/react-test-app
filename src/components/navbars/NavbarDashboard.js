@@ -9,7 +9,7 @@ import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
     if (!showTooltip) return children;
     
     return (
-      {children}
+      <>{children}</>
     );
   };
 
