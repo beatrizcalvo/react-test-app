@@ -6,13 +6,10 @@ import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
   // Add a tooltip in a link
   function LinkTooltip({ showTooltip, children }) {
+    if (!showTooltip) return children;
+    
     return (
-      <>
-        {showTooltip 
-          ? {children} 
-          : {children}
-        }
-      </>
+      {children}
     );
   };
 
