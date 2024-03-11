@@ -52,10 +52,12 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   }));
 
   // Add a tooltip in a link
-  const LinkTooltip = ({ id, title, children, show }) => (
-    <OverlayTrigger placement="bottom" show={show} overlay={<Tooltip id={id}>{title}</Tooltip>}>
+  const LinkTooltip = ({ id, title, children }) => (
+    if (!isOpen) {
       {children}
-    </OverlayTrigger>
+    } else {
+      {children}
+    };
   );
   
   return (
