@@ -17,7 +17,7 @@
   color: var(--bs-gray-500);
 }
 
-.navbar-dark .breadcrumb .breadcrumb-item i:hover {
+.navbar-dark .breadcrumb .breadcrumb-item:not(.active) i:hover {
   color: #e91e63;
 }
 
