@@ -55,7 +55,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   const LinkTooltip = ({ id, title, children }) => {
     return (
       <>
-        { (isOpen) ? {children} : {children} }
+        { (isOpen ? {children} : {children}) }
       </>
     );
   };
