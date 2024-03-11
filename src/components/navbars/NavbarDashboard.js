@@ -79,7 +79,8 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
             id="navbar-dashboard-collapse" 
             {...(isOpen ? { className: "pt-3" } : {})}
           >
-            <Nav pullRight>
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center" />
+            <Nav>
               {
                 navbarLinks.map((item) => {
                   return (
