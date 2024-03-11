@@ -1,4 +1,4 @@
-import { forwardRef, memo, useState, useImperativeHandle } from "react";
+import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 import AuthService from "../../services/AuthService";
@@ -54,6 +54,19 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
     setColor(isOpen ? "transparent" : (isBlur ? "transparent" : "dark"));
     setIsOpen(!isOpen);
   };
+  
+  // Adds color dark/transparent to the navbar on resize
+  const updateColor = () => {
+    if (window.innerWidth < 993 && isOpen && !isBlur) {
+      setColor("dark");
+    } else {
+      setColor("transparent");
+    }
+  };
+  
+  useEffect(() => {
+    window.addEventListener("resize", updateColor.bind(this));
+  });
 
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
