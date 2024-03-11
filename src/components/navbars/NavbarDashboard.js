@@ -58,7 +58,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         {children}
       </OverlayTrigger>
     ) : (
-	{children}
+      {children}
     );
   );
 
