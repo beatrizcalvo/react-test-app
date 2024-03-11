@@ -5,10 +5,13 @@ import AuthService from "../../services/AuthService";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
   // Add a tooltip in a link
-  function LinkTooltip({ id, title, children }) {
+  function LinkTooltip({ showTooltip, children }) {
     return (
       <>
-        {children}
+        {showTooltip 
+          ? {children} 
+          : {children}
+        }
       </>
     );
   };
@@ -91,7 +94,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
                       className="d-flex align-items-center icon-md w-100 h-100"
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
-                      <LinkTooltip id={item.id} title={item.title} show={!isOpen}>
+                      <LinkTooltip showTooltip={!isOpen}>
                         <i className={ item.icon } />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block ms-2">
