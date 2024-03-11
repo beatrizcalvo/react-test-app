@@ -52,13 +52,11 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   }));
 
   // Add a tooltip in a link
-  const LinkTooltip = ({ id, title, children }) => {
-    return (
-      <>
-        { (isOpen ? {children} : {children}) }
-      </>
-    );
-  };
+  const LinkTooltip = ({ id, title, children, show }) => (
+    <OverlayTrigger placement="bottom" show={show} overlay={<Tooltip id={id}>{title}</Tooltip>}>
+      {children}
+    </OverlayTrigger>
+  );
   
   return (
     <>
@@ -91,7 +89,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
                       className="d-flex align-items-center icon-md w-100 h-100"
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
-                      <LinkTooltip id={item.id} title={item.title}>
+                      <LinkTooltip id={item.id} title={item.title} show={!isOpen}>
                         <i className={ item.icon } />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block ms-2">
