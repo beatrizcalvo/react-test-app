@@ -5,11 +5,15 @@ import AuthService from "../../services/AuthService";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
   // Add a tooltip in a link
-  function LinkTooltip({ showTooltip, children }) {
+  function LinkTooltip({ id, title, showTooltip, children }) {
     if (!showTooltip) return children;
     
     return (
-      <>{children}</>
+      <>
+        <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
+          {children}
+        </OverlayTrigger>
+      </>
     );
   };
 
@@ -91,7 +95,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
                       className="d-flex align-items-center icon-md w-100 h-100"
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
-                      <LinkTooltip showTooltip={!isOpen}>
+                      <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
                         <i className={ item.icon } />
                       </LinkTooltip>
                       <span className="text-uppercase d-lg-none d-md-block ms-2">
