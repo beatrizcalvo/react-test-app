@@ -8,7 +8,7 @@ import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 function LinkTooltip({ id, title, children }) {
   return (
     <>
-      {children}
+      { (isOpen) ? {children} : {children} }
     </>
   );
 }
