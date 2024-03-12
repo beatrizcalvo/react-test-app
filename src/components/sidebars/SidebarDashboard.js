@@ -25,13 +25,19 @@ function SidebarHeader(props) {
 function SidebarItemCollapsable({ className }) {
   return (
     <>
-      <SidebarMenu.Item
+      <SidebarMenu.Sub
         as="li"
         bsPrefix="nav-item"
         className={"mt-0" + className}
       >
-        
-      </<SidebarMenu.Item>
+        <SidebarMenu.Sub.Toggle
+          as="a"
+          bsPrefix="nav-link"
+          className="text-white"
+          aria-controls="profile-nav"
+        >
+        </SidebarMenu.Sub.Toggle>
+      </SidebarMenu.Sub>
     </>
   );
 };
