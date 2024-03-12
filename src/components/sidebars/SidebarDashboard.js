@@ -41,6 +41,12 @@ export default function SidebarDashboard(props) {
             as="ul"
             bsPrefix="navbar-nav"
           >
+            <SidebarMenu.Item
+              as="li"
+              bsPrefix="nav-item"
+              className="mb-2 mt-0"
+            >
+            </<SidebarMenu.Item>
           </SidebarMenu.Nav>
           <hr class="horizontal light mt-0" />
         </SidebarMenu.Collapse>
