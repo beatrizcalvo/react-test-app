@@ -38,9 +38,13 @@ export default function SidebarDashboard(props) {
               >
                 <span className="nav-link-text ms-2 ps-1">
                   Brooklyn Alice
-                  </span>
+                </span>
               </Navbar.Toggle>
+              <Navbar.Collapse id="profile-nav">
+                <Nav as="ul"></Nav>
+              </Navbar.Collapse>
             </Nav.Item>
+            <hr class="horizontal light mt-0" />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
