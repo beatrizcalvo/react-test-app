@@ -30,6 +30,11 @@ function SidebarItemCollapsable({ id, title, className, links }) {
               links.map((item) => {
                 return (
                   <SidebarMenu.Nav.Item as="li" bsPrefix="nav-item">
+                    <SidebarMenu.Nav.Link bsPrefix="nav-link" className="text-white" href={item.href}>
+                      <SidebarMenu.Nav.Title as="span" bsPrefix="sidenav-normal" className="ms-3 ps-1">
+                        {item.title}
+                      </SidebarMenu.Nav.Title>
+                    </SidebarMenu.Nav.Link>
                   </SidebarMenu.Nav.Item>
                 );
               })
@@ -49,10 +54,12 @@ export default function SidebarDashboard(props) {
       className: "mb-2",
       links: [
         {
-          href: "/profile"
+          href: "/profile",
+          title: "My Profile"
         },
         {
-          href: "/settings"
+          href: "/settings",
+          title: "Settings"
         }
       ]
     }
