@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import useLocalStorage from "./utils/LocalStorage";
@@ -13,10 +12,6 @@ import Register from "./components/views/auth/Register";
 
 export default function App(props) {
   const [currentUser, setCurrentUser] = useLocalStorage("user");
-  
-  useEffect(() => {
-    console.log("currentUser: " + JSON.stringify(currentUser));
-  });
   
   return (
     <Routes>
