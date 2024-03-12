@@ -12,9 +12,15 @@ export default function SidebarDashboard(props) {
         <div class="sidenav-header">
           <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" />
           <NavbarBrand className="m-0">
+            <img src={require("../../assets/img/logo-ct.png")} className="navbar-brand-img h-100" />
+            <span className="ms-1 font-weight-bold text-white">
+              React Test App
+            </span>
           </NavbarBrand>
         </div>
         <hr class="horizontal light mt-0 mb-2" />
+        <Navbar.Collapse id="sidebar-dashboard-collapse">
+        </Navbar.Collapse>
       </Navbar>
     </>
   );
