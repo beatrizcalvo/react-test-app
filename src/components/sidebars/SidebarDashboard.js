@@ -50,9 +50,11 @@ export default function SidebarDashboard(props) {
           <SidebarMenu.Nav as="ul" bsPrefix="navbar-nav">
             {
               sidebarLinks.map((item) => {
-                return (
-                  <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
-                );
+                if (item.id === "profile-nav") {
+                  return <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
+                } else {
+                  return <li/>
+                }
               })
             }
             <hr class="horizontal light mt-0" />
