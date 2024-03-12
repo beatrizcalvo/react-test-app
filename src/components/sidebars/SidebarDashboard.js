@@ -9,7 +9,10 @@ export default function SidebarDashboard(props) {
         variant="vertical"
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
-        <SidebarMenu.Header bsPrefix="sidenav-header">
+        <SidebarMenu.Header 
+          bsPrefix="sidenav-header"
+          className="d-flex align-items-center justify-content-center"
+        >
           <SidebarMenu.Brand
             as="a" 
             bsPrefix="navbar-brand" 
