@@ -44,7 +44,10 @@ function SidebarItemCollapsable({ id, title, className }) {
             {title}
           </SidebarMenu.Nav.Title>
         </SidebarMenu.Sub.Toggle>
-        <SidebarMenu.Sub.Collapse id={id}>
+        <SidebarMenu.Sub.Collapse 
+          id={id}
+          bsPrefix=""
+        >
               
         </SidebarMenu.Sub.Collapse>
       </SidebarMenu.Sub>
@@ -53,6 +56,10 @@ function SidebarItemCollapsable({ id, title, className }) {
 };
 
 export default function SidebarDashboard(props) {
+  const sidebarLinks = [
+    
+  ];
+  
   return (
     <>
       <SidebarMenu
