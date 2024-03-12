@@ -19,7 +19,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
   return (
     <>
       <SidebarMenu.Sub as="li" bsPrefix="nav-item" className={"mt-0 " + className} >
-        <SidebarMenu.Sub.Toggle as="a" bsPrefix="nav-link" className="text-white" aria-controls={id} data-bs-toggle="collapse">
+        <SidebarMenu.Sub.Toggle as="a" bsPrefix="nav-link" className="text-white" aria-controls={id} data-bs-toggle="collapse" aria-expanded="false">
           <SidebarMenu.Nav.Title as="span" bsPrefix="nav-link-text" className="ms-2 ps-1">
             {title}
           </SidebarMenu.Nav.Title>
