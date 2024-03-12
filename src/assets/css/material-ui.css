@@ -22275,15 +22275,6 @@ hr.horizontal.gray-light {
         color: #344767
     }
 
-    .g-sidenav-show .navbar:not(.sidenav).navbar-main .navbar-collapse {
-        display: flex!important;
-        flex-basis: auto
-    }
-
-    .g-sidenav-show .navbar:not(.sidenav).navbar-main .navbar-nav {
-        flex-direction: row
-    }
-
     .navbar .navbar-collapse .navbar-nav .dropdown .dropdown-menu {
         box-shadow: none!important
     }
