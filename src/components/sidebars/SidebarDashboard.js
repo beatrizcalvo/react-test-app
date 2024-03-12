@@ -25,14 +25,17 @@ export default function SidebarDashboard(props) {
           id="sidebar-dashboard-collapse" 
           className="w-auto"
         >
-          <Nav>
-            <Nav.Item className="mb-2 mt-0">
-              <Navbar.Toggle 
-                aria-controls="profile-nav"
-                className="text-white"
+          <Nav as="ul">
+            <Nav.Item 
+              as="li"
+              className="mb-2 mt-0"
+            >
+              <a 
+                clasName="nav-link text-white" 
+                data-bs-toggle="collapse"
               >
                 Brooklyn Alice
-              </Navbar.Toggle>
+              </a>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
