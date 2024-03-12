@@ -1,4 +1,4 @@
-import { Container, Navbar, NavbarBrand, Nav } from "react-bootstrap";
+import { Navbar, NavbarBrand, Nav } from "react-bootstrap";
 
 export default function SidebarDashboard(props) {
   return (
@@ -30,12 +30,16 @@ export default function SidebarDashboard(props) {
               as="li"
               className="mb-2 mt-0"
             >
-              <a 
-                clasName="nav-link text-white" 
-                data-bs-toggle="collapse"
+              <Navbar.Toggle 
+                as="a"
+                aria-controls="profile-nav" 
+                bsPrefix="nav-link" 
+                className="text-white"
               >
-                Brooklyn Alice
-              </a>
+                <span className="nav-link-text ms-2 ps-1">
+                  Brooklyn Alice
+                  </span>
+              </Navbar.Toggle>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
