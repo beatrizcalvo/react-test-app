@@ -22,7 +22,7 @@ function SidebarHeader(props) {
   );
 };
 
-function SidebarItemCollapsable({ title, className }) {
+function SidebarItemCollapsable({ id, title, className }) {
   return (
     <>
       <SidebarMenu.Sub
@@ -34,7 +34,7 @@ function SidebarItemCollapsable({ title, className }) {
           as="a"
           bsPrefix="nav-link"
           className="text-white"
-          aria-controls="profile-nav"
+          aria-controls={id}
         >
           <SidebarMenu.Nav.Title
             as="span"
@@ -50,13 +50,6 @@ function SidebarItemCollapsable({ title, className }) {
 };
 
 export default function SidebarDashboard(props) {
-  const sidebarLinks = [
-    {
-      title: "Brooklyn Alice",
-      className: "mb-2"
-    }
-  ];
-  
   return (
     <>
       <SidebarMenu
@@ -75,13 +68,9 @@ export default function SidebarDashboard(props) {
             as="ul"
             bsPrefix="navbar-nav"
           >
-            {
-              sidebarLinks.map((item) => {
-                <SidebarItemCollapsable {...item} />
-              })
-            }
+            <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
+            <hr class="horizontal light mt-0" />
           </SidebarMenu.Nav>
-          <hr class="horizontal light mt-0" />
         </SidebarMenu.Collapse>
       </SidebarMenu>
     </>
