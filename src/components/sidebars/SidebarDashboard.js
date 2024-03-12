@@ -39,7 +39,6 @@ export default function SidebarDashboard(props) {
                 <span className="nav-link-text ms-2 ps-1">
                   Brooklyn Alice
                 </span>
-                ::after
               </Navbar.Toggle>
               <Navbar.Collapse id="profile-nav">
                 <Nav as="ul"></Nav>
