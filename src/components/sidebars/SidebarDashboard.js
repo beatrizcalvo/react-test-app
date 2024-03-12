@@ -44,6 +44,9 @@ function SidebarItemCollapsable({ id, title, className }) {
             {title}
           </SidebarMenu.Nav.Title>
         </SidebarMenu.Sub.Toggle>
+        <SidebarMenu.Sub.Collapse id={id}>
+              
+        </SidebarMenu.Sub.Collapse>
       </SidebarMenu.Sub>
     </>
   );
