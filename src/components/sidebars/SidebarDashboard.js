@@ -27,14 +27,12 @@ export default function SidebarDashboard(props) {
         >
           <Nav>
             <Nav.Item className="mb-2 mt-0">
-              <Nav.Link 
+              <Navbar.Toggle 
+                aria-controls="profile-nav"
                 className="text-white"
-                href="/profile"
               >
-                <span className="nav-link-text ms-2 ps-1">
-                  Brooklyn Alice
-                </span>
-              </Nav.Link>
+                Brooklyn Alice
+              </Navbar.Toggle>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
