@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 
 import PerfectScrollbar from "perfect-scrollbar";
 
+import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
 
 var ps;
@@ -39,6 +40,7 @@ export default function Dashboard(props) {
   
   return (
     <>
+      <SidebarDashboard />
       <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
         <NavbarDashboard ref={navbarRef} />
         <Container fluid className="py-4">
