@@ -1,4 +1,4 @@
-import { SidebarMenu } from 'react-bootstrap-sidebar-menu';
+import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 export default function SidebarDashboard(props) {
   return (
@@ -7,6 +7,11 @@ export default function SidebarDashboard(props) {
         expand="xs"
         variant="vertical"
       >
+        <SidebarMenu.Header>
+          <SidebarMenu.Brand>
+          </SidebarMenu.Brand>
+        </SidebarMenu.Header>
+        <hr class="horizontal light mt-0 mb-2" />
       </SidebarMenu>
     </>
   );
