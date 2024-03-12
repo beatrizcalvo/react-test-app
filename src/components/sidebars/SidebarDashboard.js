@@ -15,7 +15,7 @@ function SidebarHeader(props) {
   );
 };
 
-function SidebarItemCollapsable({ id, title, className }) {
+function SidebarItemCollapsable({ id, title, className, links }) {
   return (
     <>
       <SidebarMenu.Sub as="li" bsPrefix="nav-item" className={"mt-0 " + className} >
@@ -25,7 +25,16 @@ function SidebarItemCollapsable({ id, title, className }) {
           </SidebarMenu.Nav.Title>
         </SidebarMenu.Sub.Toggle>
         <SidebarMenu.Sub.Collapse id={id}>
-              
+          <SidebarMenu.Nav as="ul" bsPrefix="nav">
+            {
+              links.map((item) => {
+                return (
+                  <SidebarMenu.Nav.Item as="li" bsPrefix="nav-item">
+                  </SidebarMenu.Nav.Item>
+                );
+              })
+            }
+          </SidebarMenu.Nav>
         </SidebarMenu.Sub.Collapse>
       </SidebarMenu.Sub>
     </>
@@ -37,7 +46,15 @@ export default function SidebarDashboard(props) {
     {
       id: "profile-nav",
       title: "Brooklyn Alice",
-      className: "mb-2"
+      className: "mb-2",
+      links: [
+        {
+          href: "/profile"
+        },
+        {
+          href: "/settings"
+        }
+      ]
     }
   ];
   
@@ -51,7 +68,7 @@ export default function SidebarDashboard(props) {
             {
               sidebarLinks.map((item) => {
                 if (item.id === "profile-nav") {
-                  return <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
+                  return <SidebarItemCollapsable {...item} />
                 } else {
                   return <li/>
                 }
