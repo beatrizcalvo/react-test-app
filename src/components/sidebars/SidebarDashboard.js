@@ -22,6 +22,20 @@ function SidebarHeader(props) {
   );
 };
 
+function SidebarItemCollapsable({ className }) {
+  return (
+    <>
+      <SidebarMenu.Item
+        as="li"
+        bsPrefix="nav-item"
+        className={"mt-0" + className}
+      >
+        
+      </<SidebarMenu.Item>
+    </>
+  );
+};
+
 export default function SidebarDashboard(props) {
   return (
     <>
@@ -41,12 +55,7 @@ export default function SidebarDashboard(props) {
             as="ul"
             bsPrefix="navbar-nav"
           >
-            <SidebarMenu.Item
-              as="li"
-              bsPrefix="nav-item"
-              className="mb-2 mt-0"
-            >
-            </<SidebarMenu.Item>
+            <SidebarItemCollapsable className="mb-2" />
           </SidebarMenu.Nav>
           <hr class="horizontal light mt-0" />
         </SidebarMenu.Collapse>
