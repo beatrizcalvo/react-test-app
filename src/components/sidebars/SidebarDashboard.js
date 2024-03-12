@@ -24,7 +24,7 @@ function SidebarItemCollapsable({ id, title, className }) {
             {title}
           </SidebarMenu.Nav.Title>
         </SidebarMenu.Sub.Toggle>
-        <SidebarMenu.Sub.Collapse id={id} bsPrefix=" ">
+        <SidebarMenu.Sub.Collapse id={id}>
               
         </SidebarMenu.Sub.Collapse>
       </SidebarMenu.Sub>
@@ -50,10 +50,9 @@ export default function SidebarDashboard(props) {
           <SidebarMenu.Nav as="ul" bsPrefix="navbar-nav">
             {
               sidebarLinks.map((item) => {
-                <li/>
+                <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
               })
             }
-            <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
             <hr class="horizontal light mt-0" />
           </SidebarMenu.Nav>
         </SidebarMenu.Collapse>
