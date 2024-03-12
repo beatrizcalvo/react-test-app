@@ -80,13 +80,15 @@ export default function SidebarDashboard(props) {
             {
               sidebarLinks.map((item) => {
                 if (item.id === "profile-nav") {
-                  return <SidebarItemCollapsable {...item} />
+                  return (
+                    <SidebarItemCollapsable {...item} />
+                    <hr class="horizontal light mt-0" />
+                  );
                 } else {
                   return <li/>
                 }
               })
             }
-            <hr class="horizontal light mt-0" />
           </SidebarMenu.Nav>
         </SidebarMenu.Collapse>
       </SidebarMenu>
