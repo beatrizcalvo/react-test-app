@@ -1,4 +1,4 @@
-import { Navbar, NavbarBrand } from "react-bootstrap";
+import { Navbar, NavbarBrand, Nav } from "react-bootstrap";
 
 export default function SidebarDashboard(props) {
   return (
@@ -19,7 +19,13 @@ export default function SidebarDashboard(props) {
           </NavbarBrand>
         </div>
         <hr class="horizontal light mt-0 mb-2" />
-        <Navbar.Collapse id="sidebar-dashboard-collapse">
+        <Navbar.Collapse 
+          id="sidebar-dashboard-collapse" 
+          className="w-auto"
+        >
+          <Nav>
+            
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
     </>
