@@ -9,7 +9,7 @@ export default function SidebarDashboard(props) {
         variant="vertical"
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
-        <div class="sidenav-header d-flex align-items-center">
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
           <NavbarBrand 
             as="a" 
             className="m-0"
@@ -26,7 +26,16 @@ export default function SidebarDashboard(props) {
           className="w-auto"
         >
           <Nav>
-           
+            <Nav.Item className="mb-2 mt-0">
+              <Nav.Link 
+                className="text-white"
+                href="/profile"
+              >
+                <span className="nav-link-text ms-2 ps-1">
+                  Brooklyn Alice
+                </span>
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
