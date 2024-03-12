@@ -15,7 +15,7 @@ export default function Dashboard(props) {
   const location = useLocation();
 
   useEffect(() => {
-    document.body.classList.add("bg-gray-200");
+    document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanelRef.current);
