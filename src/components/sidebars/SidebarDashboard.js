@@ -25,8 +25,14 @@ export default function SidebarDashboard(props) {
           </SidebarMenu.Brand>
         </SidebarMenu.Header>
         <hr class="horizontal light mt-0 mb-2" />
-        <SidebarMenu.Body>
-        </SidebarMenu.Body>
+        <SidebarMenu.Collapse 
+          bsPrefix="navbar-collapse"
+          className="w-auto"
+        >
+          <SidebarMenu.Sub>
+          </SidebarMenu.Sub>
+          <hr class="horizontal light mt-0" />
+        </SidebarMenu.Collapse>
       </SidebarMenu>
     </>
   );
