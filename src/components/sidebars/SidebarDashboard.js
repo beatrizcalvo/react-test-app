@@ -50,7 +50,9 @@ export default function SidebarDashboard(props) {
           <SidebarMenu.Nav as="ul" bsPrefix="navbar-nav">
             {
               sidebarLinks.map((item) => {
-                <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
+                return (
+                  <SidebarItemCollapsable id="profile-nav" title="Brooklyn Alice" className="mb-2" />
+                );
               })
             }
             <hr class="horizontal light mt-0" />
