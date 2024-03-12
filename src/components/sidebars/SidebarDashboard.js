@@ -12,7 +12,7 @@ export default function SidebarDashboard(props) {
         <div class="sidenav-header">
 
         </div>
-        <hr class="horizontal light mt-0 mb-2">
+        <hr class="horizontal light mt-0 mb-2" />
       </Navbar>
     </>
   );
