@@ -18,7 +18,7 @@ export default function App(props) {
       <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
         <Route element={<Dashboard />}>
           <Route path="/" element={<Home />} />
-		  <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
         </Route>
       </Route>
       <Route element={<Auth />}>
