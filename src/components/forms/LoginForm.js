@@ -5,12 +5,7 @@ import { useForm } from "react-hook-form";
 const LoginForm = forwardRef(({ handleRegister }, _ref) => {
   const [isLoading, setIsLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState(undefined);
-  const {
-    register,
-    handleSubmit,
-    getValues,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
