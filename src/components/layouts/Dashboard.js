@@ -55,6 +55,7 @@ export default function Dashboard(props) {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     getCurrentUserData();
+    console.log("update dashboard");
   }, [location]);
   
   return (
