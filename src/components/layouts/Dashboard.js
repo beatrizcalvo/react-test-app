@@ -23,7 +23,7 @@ export default function Dashboard(props) {
   // Get current user data from token save in localStorage
   const getCurrentUserData = async () => {
     const response = await UserService.loggedUser();
-    alert(response);
+    alert(JSON.stringify(response));
   };
 
   useEffect(() => {
