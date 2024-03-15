@@ -1,18 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import PerfectScrollbar from "perfect-scrollbar";
 
+import AuthService from "../../services/AuthService";
 import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
 
 var ps;
 
 export default function Dashboard(props) {
+  const [userData, setUserData] = useState(undefined);
   const mainPanelRef = useRef();
   const navbarRef = useRef();
   const location = useLocation();
+
+  const getCurrentUserData = () => {
+    console.log("update data");
+    setUserData("Brooklyn Alice");
+  };
 
   useEffect(() => {
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
@@ -36,11 +43,12 @@ export default function Dashboard(props) {
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
+    getCurrentUserData();
   }, [location]);
   
   return (
     <>
-      <SidebarDashboard />
+      <SidebarDashboard userData={userData} />
       <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
         <NavbarDashboard ref={navbarRef} />
         <Container fluid className="py-4">
