@@ -51,6 +51,10 @@ export default function Dashboard(props) {
       }
     };
   });
+
+  useEffect(() => {
+    console.log("se ejecuta");
+  }, []);
   
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
