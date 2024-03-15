@@ -16,6 +16,9 @@ export default function Dashboard(props) {
   const navbarRef = useRef();
   const location = useLocation();
 
+  const navbarShowBlur = () => navbarRef.current.showBlur(true);
+  const navbarHideBlur = () => navbarRef.current.showBlur(false);
+
   const getCurrentUserData = () => {
     console.log("update data");
     setUserData("Brooklyn Alice");
@@ -27,15 +30,15 @@ export default function Dashboard(props) {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanelRef.current);
       document.body.classList.toggle("perfect-scrollbar-on");
-      mainPanelRef.current.addEventListener("ps-scroll-y", () => navbarRef.current.showBlur(true));
-      mainPanelRef.current.addEventListener("ps-y-reach-start", () => navbarRef.current.showBlur(false));
+      mainPanelRef.current.addEventListener("ps-scroll-y", navbarShowBlur);
+      mainPanelRef.current.addEventListener("ps-y-reach-start", navbarHideBlur);
     }
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
         document.body.classList.toggle("perfect-scrollbar-on");
-        mainPanelRef.current.removeEventListener("ps-scroll-y");
-        mainPanelRef.current.removeEventListener("ps-y-reach-start");
+        mainPanelRef.current.removeEventListener("ps-scroll-y", navbarShowBlur);
+        mainPanelRef.current.removeEventListener("ps-y-reach-start", navbarHideBlur);
       }
     };
   });
