@@ -22,6 +22,7 @@ export default function Dashboard(props) {
 
   // Get current user data from token save in localStorage
   const getCurrentUserData = () => {
+    
     UserService.loggedUser()
       .then(response => {
         setUserData(response.data);
