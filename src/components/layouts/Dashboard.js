@@ -24,7 +24,7 @@ export default function Dashboard(props) {
   const getCurrentUserData = () => {
     UserService.loggedUser()
       .then(response => {
-        setUserData(response.data);
+        setUserData({fullName: response.data});
       })
       .catch((error) => {
         AuthService.logoutUser();
@@ -56,7 +56,6 @@ export default function Dashboard(props) {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     getCurrentUserData();
-    console.log((new Date()).toLocaleTimeString() + " - update location");
   }, [location]);
   
   return (
