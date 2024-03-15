@@ -53,7 +53,7 @@ export default function SidebarDashboard(props) {
   const sidebarLinks = [
     {
       id: "profile-nav",
-      title: "Brooklyn Alice",
+      title: props.userData,
       className: "mb-2",
       links: [
         {
