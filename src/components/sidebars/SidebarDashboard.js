@@ -15,11 +15,14 @@ function SidebarHeader(props) {
   );
 };
 
-function SidebarItemCollapsable({ id, title, className, links }) {
+function SidebarItemCollapsable({ id, title, className, icon, links }) {
   return (
     <>
       <SidebarMenu.Sub as="li" bsPrefix="nav-item" className={"mt-0 " + className} >
         <SidebarMenu.Sub.Toggle as="a" bsPrefix="nav-link" className="text-white" aria-controls={id} data-bs-toggle="collapse" aria-expanded="false">
+          <SidebarMenu.Nav.Icon bsPrefix="avatar">
+          
+          </SidebarMenu.Nav.Icon>
           <SidebarMenu.Nav.Title as="span" bsPrefix="nav-link-text" className="ms-2 ps-1">
             {title}
           </SidebarMenu.Nav.Title>
@@ -53,19 +56,12 @@ export default function SidebarDashboard(props) {
   const sidebarLinks = [
     {
       id: "profile-nav",
-      title: props.userData,
+      title: props.userData.fullName,
       className: "mb-2",
-      links: [
-        {
-          href: "/profile",
-          icon: "MP",
-          title: "My Profile"
-        },
-        {
-          href: "/settings",
-          icon: "S",
-          title: "Settings"
-        }
+      icon: null,
+      links: [ 
+        { href: "/profile", icon: "MP", title: "My Profile" },
+        { href: "/settings", icon: "S", title: "Settings" }
       ]
     }
   ];
