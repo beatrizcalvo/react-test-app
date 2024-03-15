@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 function SidebarHeader(props) {
@@ -53,6 +54,8 @@ function SidebarItemCollapsable({ id, title, className, icon, links }) {
 };
 
 export default function SidebarDashboard(props) {
+  const sidebarRef = useRef();
+  
   const sidebarLinks = [
     {
       id: "profile-nav",
@@ -68,7 +71,11 @@ export default function SidebarDashboard(props) {
   
   return (
     <>
-      <SidebarMenu bsPrefix="navbar" expand="xs" variant="vertical" className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark">
+      <SidebarMenu 
+        ref={sidebarRef}
+        bsPrefix="navbar" expand="xs" variant="vertical" 
+        className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
+      >
         <SidebarHeader />
         <hr class="horizontal light mt-0 mb-2" />
         <SidebarMenu.Collapse bsPrefix="navbar-collapse" className="w-auto">
