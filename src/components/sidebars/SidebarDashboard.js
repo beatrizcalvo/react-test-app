@@ -65,7 +65,7 @@ export default function SidebarDashboard({ userData }) {
   const sidebarLinks = [
     {
       id: "profile-nav",
-      title: "aaa",
+      title: userData.fullName,
       className: "mb-2",
       icon: null,
       links: [ 
@@ -76,7 +76,14 @@ export default function SidebarDashboard({ userData }) {
   ];
 
   useEffect(() => {
-    console.log((new Date()).toLocaleTimeString() + " - " + userData);
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps = new PerfectScrollbar(sidebarRef.current);
+    }
+    return function cleanup() {
+      if (navigator.platform.indexOf("Win") > -1) {
+        ps.detroy();
+      }
+    }
   });
   
   return (
