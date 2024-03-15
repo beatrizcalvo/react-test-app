@@ -76,23 +76,8 @@ export default function SidebarDashboard(props) {
   ];
 
   useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(sidebarRef.current);
-      document.body.classList.toggle("perfect-scrollbar-on");
-    }
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.body.classList.toggle("perfect-scrollbar-on");
-      }
-    };
     console.log(props.userData);
   });
-
-  useEffect(() => {
-    sidebarRef.current.scrollTop = 0;
-    document.scrollingElement.scrollTop = 0;
-  }, [location]);
   
   return (
     <>
