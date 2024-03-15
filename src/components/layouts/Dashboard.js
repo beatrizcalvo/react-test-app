@@ -53,13 +53,12 @@ export default function Dashboard(props) {
   });
 
   useEffect(() => {
-    console.log("se ejecuta");
+    getCurrentUserData();
   }, []);
   
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    getCurrentUserData();
   }, [location]);
   
   return (
