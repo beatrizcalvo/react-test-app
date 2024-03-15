@@ -1,10 +1,5 @@
-import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
-
-import PerfectScrollbar from "perfect-scrollbar";
-
-var ps;
 
 function SidebarHeader() {
   return (
@@ -26,9 +21,9 @@ function SidebarItemCollapsable({ id, title, className, icon, links }) {
     <>
       <SidebarMenu.Sub as="li" bsPrefix="nav-item" className={"mt-0 " + className} >
         <SidebarMenu.Sub.Toggle as="a" bsPrefix="nav-link" className="text-white" aria-controls={id} data-bs-toggle="collapse" aria-expanded="false">
-          <SidebarMenu.Nav.Icon bsPrefix="avatar">
-          
-          </SidebarMenu.Nav.Icon>
+          {
+            
+          }
           <SidebarMenu.Nav.Title as="span" bsPrefix="nav-link-text" className="ms-2 ps-1">
             {title}
           </SidebarMenu.Nav.Title>
@@ -58,9 +53,8 @@ function SidebarItemCollapsable({ id, title, className, icon, links }) {
   );
 };
 
-export default function SidebarDashboard({ userData }) {
-  const sidebarRef = useRef();
-  const location = useLocation();
+export default function SidebarDashboard(props) {
+  const { userData } = props;
   
   const sidebarLinks = [
     {
@@ -74,22 +68,10 @@ export default function SidebarDashboard({ userData }) {
       ]
     }
   ];
-
-  useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(sidebarRef.current);
-    }
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.detroy();
-      }
-    }
-  });
   
   return (
     <>
       <SidebarMenu 
-        ref={sidebarRef}
         bsPrefix="navbar" expand="xs" variant="vertical" 
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
