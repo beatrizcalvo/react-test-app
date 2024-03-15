@@ -25,6 +25,7 @@ export default function Dashboard(props) {
     UserService.loggedUser()
       .then(response => {
         setUserData(response.data);
+        console.log(userData);
       })
       .catch((error) => {
         AuthService.logoutUser();
