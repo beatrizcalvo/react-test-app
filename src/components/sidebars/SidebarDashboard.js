@@ -76,7 +76,7 @@ export default function SidebarDashboard({ userData }) {
   ];
 
   useEffect(() => {
-    console.log(props.userData);
+    console.log((new Date()).toLocaleTimeString() + " - " + userData);
   });
   
   return (
