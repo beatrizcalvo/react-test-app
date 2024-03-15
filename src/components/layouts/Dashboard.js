@@ -33,6 +33,11 @@ export default function Dashboard(props) {
   };
 
   useEffect(() => {
+    // Get App data
+    getCurrentUserData();
+    console.log((new Date()).toLocaleTimeString() + " - init dashboard");
+
+    // Add dynamically css
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
@@ -40,9 +45,7 @@ export default function Dashboard(props) {
       document.body.classList.toggle("perfect-scrollbar-on");
       mainPanelRef.current.addEventListener("ps-scroll-y", navbarShowBlur);
       mainPanelRef.current.addEventListener("ps-y-reach-start", navbarHideBlur);
-    }
-    console.log((new Date())..toLocaleTimeString() + " - init dashboard");
-    
+    }    
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
