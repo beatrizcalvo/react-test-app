@@ -24,7 +24,8 @@ export default function Dashboard(props) {
   const getCurrentUserData = async () => {
     try {
       const response = await UserService.loggedUser();
-      alert(JSON.stringify(response));
+      const data = await response.data;
+      alert(JSON.stringify(data));
     } catch(error) {
       alert(JSON.stringify(error));
     }
