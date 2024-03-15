@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 
 import PerfectScrollbar from "perfect-scrollbar";
 
-import AuthService from "../../services/AuthService";
+import UserService from "../../services/UserService";
 import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
 
@@ -22,6 +22,13 @@ export default function Dashboard(props) {
   const getCurrentUserData = () => {
     console.log("update data");
     setUserData("Brooklyn Alice");
+    UserService.loggedUser()
+      .then(response => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
