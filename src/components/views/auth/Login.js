@@ -16,10 +16,10 @@ export default function Login(props) {
 
     AuthService.loginUser(data.email, data.password)
       .then((response) => {
-        console.log(response);
         if (response.data) {
           // If login success then redirect to dashboard home page
-          
+          navigate("/");
+          window.location.reload();
         } else {
           loginFormRef.current.updateAlertMessage(connectionError);
           loginFormRef.current.updateIsLoading(false);
