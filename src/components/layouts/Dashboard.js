@@ -24,10 +24,12 @@ export default function Dashboard(props) {
   const getCurrentUserData = () => {
     UserService.loggedUser()
       .then(response => {
+        console.log(response);
         setUserData(response.data);
         console.log(userData);
       })
       .catch((error) => {
+        console.log(error);
         AuthService.logoutUser();
         window.location.reload();
       });
