@@ -56,7 +56,7 @@ export default function SidebarDashboard(props) {
   const sidebarLinks = [
     {
       id: "profile-nav",
-      title: props.userData.fullName,
+      title: "aaa",
       className: "mb-2",
       icon: null,
       links: [ 
