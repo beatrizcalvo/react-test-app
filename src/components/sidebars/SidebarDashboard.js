@@ -86,7 +86,7 @@ export default function SidebarDashboard(props) {
   });
 
   useEffect(() => {
-    mainPanelRef.current.scrollTop = 0;
+    sidebarRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
   
