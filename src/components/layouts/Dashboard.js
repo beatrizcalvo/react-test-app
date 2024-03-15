@@ -12,7 +12,7 @@ import NavbarDashboard from "../navbars/NavbarDashboard";
 var ps;
 
 export default function Dashboard(props) {
-  const [userData, setUserData] = useState(undefined);
+  const [userData, setUserData] = useState(false);
   const mainPanelRef = useRef();
   const navbarRef = useRef();
   const location = useLocation();
@@ -54,6 +54,7 @@ export default function Dashboard(props) {
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
+    getCurrentUserData();
   }, [location]);
   
   return (
