@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 function SidebarHeader(props) {
@@ -55,6 +56,7 @@ function SidebarItemCollapsable({ id, title, className, icon, links }) {
 
 export default function SidebarDashboard(props) {
   const sidebarRef = useRef();
+  const location = useLocation();
   
   const sidebarLinks = [
     {
@@ -68,6 +70,24 @@ export default function SidebarDashboard(props) {
       ]
     }
   ];
+
+  useEffect(() => {
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps = new PerfectScrollbar(mainPanelRef.current);
+      document.body.classList.toggle("perfect-scrollbar-on");
+    }
+    return function cleanup() {
+      if (navigator.platform.indexOf("Win") > -1) {
+        ps.destroy();
+        document.body.classList.toggle("perfect-scrollbar-on");
+      }
+    };
+  });
+
+  useEffect(() => {
+    mainPanelRef.current.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+  }, [location]);
   
   return (
     <>
