@@ -20,14 +20,13 @@ export default function Dashboard(props) {
   const navbarShowBlur = () => navbarRef.current.showBlur(true);
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
+  // Get current user data from token save in localStorage
   const getCurrentUserData = () => {
-    setUserData("Brooklyn Alice");
     UserService.loggedUser()
       .then(response => {
-        console.log(response);
+        setUserData(response.data);
       })
       .catch((error) => {
-        console.log(error);
         AuthService.logoutUser();
         window.location.reload();
       });
