@@ -33,10 +33,6 @@ export default function Dashboard(props) {
   };
 
   useEffect(() => {
-    // Get App data
-    getCurrentUserData();
-    console.log((new Date()).toLocaleTimeString() + " - init dashboard");
-
     // Add dynamically css
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
@@ -60,6 +56,7 @@ export default function Dashboard(props) {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     getCurrentUserData();
+    console.log((new Date()).toLocaleTimeString() + " - update location");
   }, [location]);
   
   return (
