@@ -6,7 +6,7 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 var ps;
 
-function SidebarHeader(props) {
+function SidebarHeader() {
   return (
     <>
       <SidebarMenu.Header bsPrefix="sidenav-header" className="d-flex align-items-center justify-content-center">
@@ -58,7 +58,7 @@ function SidebarItemCollapsable({ id, title, className, icon, links }) {
   );
 };
 
-export default function SidebarDashboard(props) {
+export default function SidebarDashboard({ userData }) {
   const sidebarRef = useRef();
   const location = useLocation();
   
