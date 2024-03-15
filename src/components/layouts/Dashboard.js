@@ -34,13 +34,17 @@ export default function Dashboard(props) {
 
   useEffect(() => {
     console.log("ejecuta 1");
-    getCurrentUserData();
-    console.log(userData);
   });
 
   useEffect(() => {
     console.log("ejecuta 2");
   }, []);
+
+  useEffect(() => {
+    console.log("ejecuta 3");
+    getCurrentUserData();
+    console.log(userData);
+  }, [location]);
   
   return (
     <>
