@@ -30,11 +30,21 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
+const authHeader = () => {
+  const user = getCurrentUser();
+  if (user && user.token_type && user.access_token) {
+    return { Authorization: user.token_type.trim() + " " + user.access_token };
+  } else {
+    return {};
+  }
+};
+
 const AuthService = { 
   registerUser, 
   loginUser, 
   logoutUser,
-  getCurrentUser
+  getCurrentUser,
+  authHeader
 };
 
 export default AuthService;
