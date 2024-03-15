@@ -82,6 +82,7 @@ export default function SidebarDashboard(props) {
         document.body.classList.toggle("perfect-scrollbar-on");
       }
     };
+    console.log(props.userData);
   });
 
   useEffect(() => {
