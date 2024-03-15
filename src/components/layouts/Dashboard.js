@@ -34,6 +34,8 @@ export default function Dashboard(props) {
 
   useEffect(() => {
     console.log("ejecuta 1");
+    getCurrentUserData();
+    console.log(userData);
   });
 
   useEffect(() => {
