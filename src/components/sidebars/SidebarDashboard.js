@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
+import PerfectScrollbar from "perfect-scrollbar";
+
 var ps;
 
 function SidebarHeader(props) {
@@ -75,7 +77,7 @@ export default function SidebarDashboard(props) {
 
   useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanelRef.current);
+      ps = new PerfectScrollbar(sidebarRef.current);
       document.body.classList.toggle("perfect-scrollbar-on");
     }
     return function cleanup() {
