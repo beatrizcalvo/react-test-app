@@ -24,7 +24,7 @@ export default function Dashboard(props) {
   const getCurrentUserData = () => {
     UserService.loggedUser()
       .then(response => {
-        setUserData({fullName: response.data});
+        setUserData(response.data);
       })
       .catch((error) => {
         AuthService.logoutUser();
