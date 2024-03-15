@@ -51,10 +51,6 @@ export default function Dashboard(props) {
       }
     };
   });
-
-  useEffect(() => {
-    getCurrentUserData();
-  }, []);
   
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
