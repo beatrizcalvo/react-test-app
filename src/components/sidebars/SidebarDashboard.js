@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
+var ps;
+
 function SidebarHeader(props) {
   return (
     <>
