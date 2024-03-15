@@ -21,16 +21,9 @@ export default function Dashboard(props) {
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
   // Get current user data from token save in localStorage
-  const getCurrentUserData = () => {
-    
-    UserService.loggedUser()
-      .then(response => {
-        setUserData(response.data);
-      })
-      .catch((error) => {
-        AuthService.logoutUser();
-        window.location.reload();
-      });
+  const getCurrentUserData = async () => {
+    const user = await UserService.loggedUser();
+    console.log(user);
   };
 
   useEffect(() => {
@@ -57,7 +50,7 @@ export default function Dashboard(props) {
     console.log("ejecuta 2");
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    setUserData({fullName: "Prueba"});
+    getCurrentUserData();
   }, [location]);
   
   return (
