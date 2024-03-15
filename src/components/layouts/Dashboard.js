@@ -34,12 +34,29 @@ export default function Dashboard(props) {
 
   useEffect(() => {
     console.log("ejecuta 1");
-  });
+    getCurrentUserData();
+    document.body.classList.add("g-sidenav-show", "bg-gray-200");
+
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps = new PerfectScrollbar(mainPanelRef.current);
+      document.body.classList.toggle("perfect-scrollbar-on");
+      mainPanelRef.current.addEventListener("ps-scroll-y", navbarShowBlur);
+      mainPanelRef.current.addEventListener("ps-y-reach-start", navbarHideBlur);
+    }    
+    return function cleanup() {
+      if (navigator.platform.indexOf("Win") > -1) {
+        ps.destroy();
+        document.body.classList.toggle("perfect-scrollbar-on");
+        mainPanelRef.current.removeEventListener("ps-scroll-y", navbarShowBlur);
+        mainPanelRef.current.removeEventListener("ps-y-reach-start", navbarHideBlur);
+      }
+    };
+  }, []);
 
   useEffect(() => {
-    console.log("ejecuta 3");
-    getCurrentUserData();
-    console.log(userData);
+    console.log("ejecuta 2");
+    mainPanelRef.current.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
   }, [location]);
   
   return (
