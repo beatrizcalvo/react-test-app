@@ -59,7 +59,6 @@ function SidebarItemCollapsable({ id, title, className, icon, links }) {
 };
 
 export default function SidebarDashboard(props) {
-  const currentUserName = props.userData.fullName;
   const sidebarRef = useRef();
   const location = useLocation();
   
