@@ -31,6 +31,7 @@ export default function Dashboard(props) {
   };
 
   useEffect(() => {
+    getCurrentUserData();
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
@@ -52,7 +53,6 @@ export default function Dashboard(props) {
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    getCurrentUserData();
   }, [location]);
   
   return (
