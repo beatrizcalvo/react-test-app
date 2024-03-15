@@ -33,7 +33,6 @@ export default function Dashboard(props) {
   };
 
   useEffect(() => {
-    // Add dynamically css
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
