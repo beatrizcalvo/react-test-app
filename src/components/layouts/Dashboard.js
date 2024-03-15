@@ -41,7 +41,7 @@ export default function Dashboard(props) {
       mainPanelRef.current.addEventListener("ps-scroll-y", navbarShowBlur);
       mainPanelRef.current.addEventListener("ps-y-reach-start", navbarHideBlur);
     }
-    console.log("init dashboard");
+    console.log((new Date())..toLocaleTimeString() + " - init dashboard");
     
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
