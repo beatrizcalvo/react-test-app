@@ -12,6 +12,7 @@ import NavbarDashboard from "../navbars/NavbarDashboard";
 var ps;
 
 export default function Dashboard(props) {
+  const [isLoading, setLoading] = useState(true);
   const [userData, setUserData] = useState(false);
   const mainPanelRef = useRef();
   const navbarRef = useRef();
