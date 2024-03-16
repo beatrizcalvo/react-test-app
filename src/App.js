@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import useLocalStorage from "./utils/LocalStorage";
-import AuthProvider from "./utils/AuthProvider";
+import { AuthProvider } from "./utils/AuthProvider";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 import Dashboard from "./components/layouts/Dashboard";
