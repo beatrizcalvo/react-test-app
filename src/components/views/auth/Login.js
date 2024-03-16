@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../../utils/AuthProvider";
 import LoginForm from "../../forms/LoginForm";
-import AuthService from "../../../services/AuthService";
 
 export default function Login(props) {
   const loginFormRef = useRef();
   const navigate = useNavigate();
+  const { loginUser } = useAuth();
 
   const handleRegister = async (data) => {
     const connectionError = "Cannot connect to the user registration server.";
@@ -15,7 +15,7 @@ export default function Login(props) {
     // Disabled all buttons
     loginFormRef.current.updateIsLoading(true);
 
-    AuthService.loginUser(data.email, data.password)
+    loginUser(data.email, data.password)
       .then((response) => {
         if (response.data) {
           // If login success then redirect to dashboard home page
