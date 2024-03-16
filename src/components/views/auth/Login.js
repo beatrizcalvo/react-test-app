@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-imports { useAuth } from "../../../utils/AuthProvider";
+import { useAuth } from "../../../utils/AuthProvider";
 import LoginForm from "../../forms/LoginForm";
 import AuthService from "../../../services/AuthService";
 
