@@ -32,12 +32,21 @@ export const AuthProvider = ({ children }) => {
       password,
     });
   };
+
+  const authHeader = () => {
+    if (token && token.token_type && token.access_token) {
+      return { Authorization: token.token_type.trim() + " " + token.access_token };
+    } else {
+      return {};
+    }
+  };
   
   const contextValue = {
     user,
     loginUser,
     logoutUser,
-    registerUser
+    registerUser,
+    authHeader
   };
   
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
