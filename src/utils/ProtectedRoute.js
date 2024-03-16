@@ -1,11 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
 
+import { useAuth } from "./AuthProvider";
+
 export default function ProtectedRoute({
-  isAllowed,
   redirectTo = "/login",
   children,
 }) {
-  if (!isAllowed) {
+  const { user } = useAuth();
+  
+  if (!user) {
     return <Navigate to={redirectTo} />;
   }
   return children ? children : <Outlet />;
