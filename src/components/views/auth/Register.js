@@ -6,7 +6,7 @@ import { useAuth } from "../../../utils/AuthProvider";
 
 export default function Register(props) {
   const registerFormRef = useRef();
-  const { registerUser } = useAurh();
+  const { registerUser } = useAuth();
 
   const handleRegister = async (data) => {
     const connectionError = "Cannot connect to the user registration server.";
