@@ -23,11 +23,16 @@ export const AuthProvider = ({ children }) => {
     setUser(undefined);
     setToken(undefined);
   };
+
+  const registerUser = (firstName, lastName, email, password) => {
+    
+  };
   
   const contextValue = {
     user,
     loginUser,
-    logoutUser
+    logoutUser,
+    registerUser
   };
   
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
