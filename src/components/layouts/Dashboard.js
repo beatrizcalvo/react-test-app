@@ -6,7 +6,6 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
-import LoadingPage from "../views/LoadingPage";
 
 var ps;
 
