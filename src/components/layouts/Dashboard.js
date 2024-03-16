@@ -14,7 +14,7 @@ var ps;
 
 export default function Dashboard(props) {
   const [isLoading, setLoading] = useState(true);
-  const [userData, setUserData] = useState(false);
+  const [userData, setUserData] = useState(undefined);
   const mainPanelRef = useRef();
   const navbarRef = useRef();
   const location = useLocation();
@@ -23,18 +23,23 @@ export default function Dashboard(props) {
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
   // Get current user data from token save in localStorage
-  const getCurrentUserData = async () => {
-    try {
-      const response = await UserService.loggedUser();
-      const data = await response.data;
-      alert(JSON.stringify(data));
-    } catch(error) {
-      alert(JSON.stringify(error));
-    }
+  const getCurrentUserData = () => {
+    UserService.loggedUser()
+      .then(response => {
+        setUserData(response.data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        // If user not valid or token expired then logout
+        AuthService.logoutUser();
+        window.location.reload();
+      });
   };
 
   useEffect(() => {
+    // Get view data
     getCurrentUserData();
+    
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
@@ -56,6 +61,7 @@ export default function Dashboard(props) {
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
+    setIsLoading(true);
   }, [location]);
 
   if (isLoading) return <LoadingPage/>
