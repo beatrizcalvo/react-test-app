@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import PerfectScrollbar from "perfect-scrollbar";
 
-import AuthService from "../../services/AuthService";
-import UserService from "../../services/UserService";
 import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
 import LoadingPage from "../views/LoadingPage";
@@ -13,8 +11,6 @@ import LoadingPage from "../views/LoadingPage";
 var ps;
 
 export default function Dashboard(props) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [userData, setUserData] = useState(undefined);
   const mainPanelRef = useRef();
   const navbarRef = useRef();
   const location = useLocation();
@@ -22,24 +18,7 @@ export default function Dashboard(props) {
   const navbarShowBlur = () => navbarRef.current.showBlur(true);
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
-  // Get current user data from token save in localStorage
-  const getCurrentUserData = () => {
-    UserService.loggedUser()
-      .then(response => {
-        setUserData(response.data);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        // If user not valid or token expired then logout
-        AuthService.logoutUser();
-        window.location.reload();
-      });
-  };
-
   useEffect(() => {
-    // Get view data
-    getCurrentUserData();
-    
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
 
     if (navigator.platform.indexOf("Win") > -1) {
@@ -62,8 +41,6 @@ export default function Dashboard(props) {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
-
-  if (isLoading) return <LoadingPage/>
   
   return (
     <>
