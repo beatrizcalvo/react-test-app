@@ -61,7 +61,6 @@ export default function Dashboard(props) {
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    setIsLoading(true);
   }, [location]);
 
   if (isLoading) return <LoadingPage/>
