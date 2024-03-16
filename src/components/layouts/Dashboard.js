@@ -44,7 +44,7 @@ export default function Dashboard(props) {
   
   return (
     <>
-      <SidebarDashboard userData={userData} />
+      <SidebarDashboard />
       <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
         <NavbarDashboard ref={navbarRef} />
         <Container fluid className="py-4">
