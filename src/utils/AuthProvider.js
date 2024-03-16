@@ -6,8 +6,12 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
+
+  const loginUser = () => {};
   
-  const contextValue = {};
+  const contextValue = {
+    loginUser
+  };
   
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };
