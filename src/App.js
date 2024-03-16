@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import useLocalStorage from "./utils/LocalStorage";
 import { AuthProvider } from "./utils/AuthProvider";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
@@ -12,7 +11,7 @@ import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 
 export default function App(props) {
-  const [currentUser, setCurrentUser] = useLocalStorage("user");
+  const currentUser = null;
   
   return (
     <AuthProvider>
