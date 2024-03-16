@@ -2,10 +2,11 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import RegisterForm from "../../forms/RegisterForm";
-import AuthService from "../../../services/AuthService";
+import { useAuth } from "../../../utils/AuthProvider";
 
 export default function Register(props) {
   const registerFormRef = useRef();
+  const { registerUser } = useAurh();
 
   const handleRegister = async (data) => {
     const connectionError = "Cannot connect to the user registration server.";
@@ -13,7 +14,7 @@ export default function Register(props) {
     // Disabled all buttons
     registerFormRef.current.updateIsLoading(true);
 
-    AuthService.registerUser(
+    registerUser(
       data.firstName,
       data.lastName,
       data.email,
