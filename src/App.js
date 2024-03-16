@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import useLocalStorage from "./utils/LocalStorage";
+import AuthProvider from "./utils/AuthProvider";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 import Dashboard from "./components/layouts/Dashboard";
@@ -14,18 +15,20 @@ export default function App(props) {
   const [currentUser, setCurrentUser] = useLocalStorage("user");
   
   return (
-    <Routes>
-      <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
-        <Route element={<Dashboard />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+    <AuthProvider>
+      <Routes>
+        <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
+          <Route element={<Dashboard />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
         </Route>
-      </Route>
-      <Route element={<Auth />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Route>
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+        <Route element={<Auth />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </AuthProvider>
   );
 }
