@@ -11,12 +11,10 @@ import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 
 export default function App(props) {
-  const currentUser = null;
-  
   return (
     <AuthProvider>
       <Routes>
-        <Route element={<ProtectedRoute isAllowed={!!currentUser} />}>
+        <Route element={<ProtectedRoute />}>
           <Route element={<Dashboard />}>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
