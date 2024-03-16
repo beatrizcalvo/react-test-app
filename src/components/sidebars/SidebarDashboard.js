@@ -52,12 +52,10 @@ function SidebarItemCollapsable({ id, title, className, links }) {
 };
 
 export default function SidebarDashboard(props) {
-  const { userData } = props;
-  
   const sidebarLinks = [
     {
       id: "profile-nav",
-      title: userData.fullName,
+      title: "Aaaaa",
       className: "mb-2",
       links: [ 
         { href: "/profile", icon: "MP", title: "My Profile" },
