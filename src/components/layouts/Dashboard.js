@@ -8,6 +8,7 @@ import AuthService from "../../services/AuthService";
 import UserService from "../../services/UserService";
 import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
+import LoadingPage from "../views/LoadingPage";
 
 var ps;
 
@@ -56,6 +57,8 @@ export default function Dashboard(props) {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
+
+  if (isLoading) return <LoadingPage/>
   
   return (
     <>
