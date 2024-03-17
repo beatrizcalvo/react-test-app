@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    
+    alert(JSON.stringify("Ejecuta"));
   }, [token]);
   
   const loginUser = (email, password) => {
