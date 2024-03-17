@@ -19,6 +19,7 @@ export default function Login(props) {
       .then((response) => {
         if (response.data) {
           // If login success then redirect to dashboard home page
+          alert("Login OK");
           navigate("/");
           window.location.reload();
         } else {
