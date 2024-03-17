@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(JSON.stringify(response.data));
-      return response;
+      return getUserData();
     });
   };
 
