@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    if (token & !user) {
+    if (token && !user) {
       alert("ejecuta - token: " + JSON.stringify(token) + " - user: " + JSON.stringify(user));
     }
   }, []);
