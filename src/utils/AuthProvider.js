@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
     if (token && !user) {
       alert("ejecuta - token: " + JSON.stringify(token) + " - user: " + JSON.stringify(user));
       getUserData();
+      alert(user);
     }
   }, []);
   
