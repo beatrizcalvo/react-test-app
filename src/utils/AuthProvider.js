@@ -9,6 +9,10 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
 
+  useEffect(() => {
+    
+  }, [token]);
+  
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
@@ -39,6 +43,15 @@ export const AuthProvider = ({ children }) => {
     } else {
       return {};
     }
+  };
+
+  const getUserData = () => {
+    return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
+      headers: authHeader 
+    }).then(response => {
+      setUser(JSON.stringify(response.data));
+      return response;
+    });
   };
   
   const contextValue = {
