@@ -7,7 +7,7 @@ export default function ProtectedRoute({
   children,
 }) {
   const { user } = useAuth();
-  alert(JSON.stringify(user));
+  
   if (!user) {
     return <Navigate to={redirectTo} />;
   }
