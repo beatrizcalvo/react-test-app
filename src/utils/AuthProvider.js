@@ -10,7 +10,9 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    alert("Ejecuta");
+    if (token) {
+      alert("Ejecuta");
+    }
   }, []);
   
   const loginUser = (email, password) => {
@@ -19,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return response;
+      return getUserData();
     });
   };
 
