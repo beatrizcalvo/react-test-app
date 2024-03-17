@@ -10,9 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    if (token && !user) {
-      alert("Ejecuta");
-    }
+    alert("Ejecuta");
   }, []);
   
   const loginUser = (email, password) => {
@@ -40,6 +38,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
+    alert(token.access_token);
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
