@@ -10,10 +10,10 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    if (token) {
+    if (token & !user) {
       alert("ejecuta - token: " + JSON.stringify(token) + " - user: " + JSON.stringify(user));
     }
-  });
+  }, [user]);
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
