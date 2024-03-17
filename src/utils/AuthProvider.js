@@ -45,7 +45,6 @@ export const AuthProvider = ({ children }) => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
     }).then(response => {
-      alert("getUserData OK");
       setUser(response.data);
       return response;
     });
