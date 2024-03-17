@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
-    alert("authHeader - " + token.token_type);
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
@@ -47,7 +46,7 @@ export const AuthProvider = ({ children }) => {
       headers: authHeader()
     }).then(response => {
       alert("getUserData OK");
-      setUser(JSON.stringify(response.data));
+      setUser(response.data);
       return response;
     });
   };
