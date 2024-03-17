@@ -10,8 +10,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    if (token) {
-      alert("Ejecuta");
+    if (token && !user) {
+      getUserData().catch(error => alert(error));
     }
   }, []);
   
