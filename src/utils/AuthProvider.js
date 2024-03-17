@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     if (token & !user) {
       alert("ejecuta - token: " + JSON.stringify(token) + " - user: " + JSON.stringify(user));
     }
-  }, [user]);
+  }, [token, user]);
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
