@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       setUser("a");
       alert(user);
     }
-  }, []);
+  });
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
