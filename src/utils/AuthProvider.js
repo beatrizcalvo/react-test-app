@@ -11,7 +11,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (token && !user) {
-    alert("Ejecuta");}
+      getUserData();
+    }
   }, [token]);
   
   const loginUser = (email, password) => {
