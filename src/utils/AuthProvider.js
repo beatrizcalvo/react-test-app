@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (token && !user) {
       alert("ejecuta - token: " + JSON.stringify(token) + " - user: " + JSON.stringify(user));
-      getUserData();
       setUser("a");
       alert(user);
     }
