@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(JSON.stringify(response.data));
-      return response;
+      return getUserData();
     });
   };
 
@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
+    alert("authHeader - " + JSON.stringify(token));
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
@@ -45,6 +46,7 @@ export const AuthProvider = ({ children }) => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
     }).then(response => {
+      alert("getUserData OK");
       setUser(JSON.stringify(response.data));
       return response;
     });
