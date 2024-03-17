@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       email,
       password
     }).then(response => {
-      setToken(response.data);
+      setToken(JSON.parse(response.data));
       return getUserData();
     });
   };
