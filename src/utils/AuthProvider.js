@@ -8,18 +8,14 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
-
-  useEffect(() => {
-    alert(JSON.stringify("Ejecuta"));
-  }, [token]);
-  
+ 
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
       password
     }).then(response => {
       setToken(JSON.stringify(response.data));
-      return getUserData();
+      return response;
     });
   };
 
@@ -38,7 +34,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
-    console.log(token);
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
