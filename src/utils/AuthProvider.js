@@ -40,7 +40,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
-    alert(token.ac
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
