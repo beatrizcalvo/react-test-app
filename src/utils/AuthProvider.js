@@ -10,8 +10,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     if (!token) return undefined;      
     getUserData()
-      .then(response => return "")
-      .catch(() => return undefined);
+      .then(response => { return response.data; })
+      .catch(() => { return undefined; });
   });
   
   const loginUser = (email, password) => {
