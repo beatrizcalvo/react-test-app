@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     if (!token) return undefined;      
     getUserData()
-      .then(response => return response.data)
+      .then(response => return "")
       .catch(() => return undefined);
   });
   
