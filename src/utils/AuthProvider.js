@@ -25,7 +25,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const registerUser = (firstName, lastName, email, password) => {
-    
+    return axios.post(process.env.REACT_APP_AUTH_API + "/auth/register", {
+      firstName,
+      lastName,
+      email,
+      password,
+    });
   };
 
   const authHeader = () => {
