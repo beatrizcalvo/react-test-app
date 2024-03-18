@@ -11,9 +11,7 @@ import App from "./App";
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
 root.render(
-  <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AuthProvider>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
