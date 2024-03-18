@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 
 import useLocalStorage from './LocalStorage';
 
@@ -9,10 +9,6 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
 
-  useEffect(() => {
-    console.log(JSON.stringify(user));
-  });
-  
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
@@ -54,7 +50,9 @@ export const AuthProvider = ({ children }) => {
 
   useMemo(() => {
     if (token && !user) {
-      setUser({fullName: "Prueba"});
+      getUserData()
+        .then(response => setUser({fullName: "Prueba"}))
+        .catch(() => logoutUser());
     }
   }, []);
   
