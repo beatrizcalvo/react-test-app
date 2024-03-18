@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      getUserData().then(resUser => setUser(resUser.data));
+      getUserData();
       return response;
     });
   };
@@ -45,11 +45,13 @@ export const AuthProvider = ({ children }) => {
   const getUserData = () => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
+    }).then(response => {
+      setUser(response.data);
     });
   };
 
   useMemo(() => {
-    console.log("Update 2");
+    console.log("Update 3");
     if (token) {
       console.log("token in localStorage");
     }
