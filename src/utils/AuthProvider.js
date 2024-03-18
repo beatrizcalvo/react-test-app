@@ -10,7 +10,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   const loginUser = (email, password) => {
-    
+    return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
+      email,
+      password
+    }).then(response => {
+      setToken(response.data);
+      return getUserData();
+    });
   };
 
   const logoutUser = () => {
