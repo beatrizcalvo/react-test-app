@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      getUserData().then(responseMe => { setUser(responseMe.data); });
+      getUserData().then(responseMe => { setUser(JSON.stringify(responseMe.data)); });
       return response;
     });
   };
