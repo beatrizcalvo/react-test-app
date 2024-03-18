@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 import useLocalStorage from './LocalStorage';
 
@@ -8,12 +8,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
-
-  useEffect(() => {
-    if (token && !user) {
-      setUser({fullName: "Prueba"});
-    }
-  }, []);
 
   useEffect(() => {
     console.log(JSON.stringify(user));
@@ -57,6 +51,12 @@ export const AuthProvider = ({ children }) => {
       headers: authHeader()
     });
   };
+
+  useMemo(() => {
+    if (token && !user) {
+      setUser({fullName: "Prueba"});
+    }
+  }, []);
   
   const contextValue = {
     user,
