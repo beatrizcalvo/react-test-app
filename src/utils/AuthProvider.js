@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 import useLocalStorage from './LocalStorage';
 
@@ -48,11 +48,9 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  useMemo(() => {
-    if (token && !user) {
-      getUserData().then(response => setUser(response.data));
-    }
-  }, []);
+  useEffect(() => {
+    console.log("ejecuta");
+  }, [getUserData]);
   
   const contextValue = {
     user,
