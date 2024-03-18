@@ -7,12 +7,15 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
-  const [user, setUser] = useState(() => {
-    if (!token) return undefined;      
-    getUserData()
-      .then(response => { return response.data; })
-      .catch(() => { return undefined; });
-  });
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setUser({fullName: "Prueba"});
+    };
+
+    fetchData();
+  }, []);
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
