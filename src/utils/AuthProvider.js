@@ -40,7 +40,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
-    alert(token.access_token);
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
@@ -49,6 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getUserData = () => {
+    console.log(token.access_token);
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
     }).then(response => {
