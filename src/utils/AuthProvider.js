@@ -15,7 +15,10 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return getUserData();
+      getUserData()
+        .then(responseMe => {
+          return responseMe;
+        });
     });
   };
 
@@ -52,7 +55,6 @@ export const AuthProvider = ({ children }) => {
   useMemo(() => {
     if (token) {
       getUserData().then(() => console.log("OK")).catch(() => console.log("error"));
-      setUser({fullname: "Prueba"});
     }
   }, []);
   
