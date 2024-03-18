@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return getUserData();
+      return response;
     });
   };
 
@@ -48,6 +48,13 @@ export const AuthProvider = ({ children }) => {
       setUser(response.data);
     });
   };
+
+  const useMemo(() => {
+    if (token) {
+      getUserData().then(() => console.log("OK")).catch(() => console.log("error"));
+      setUser({fullname: "Prueba"});
+    }
+  }, []);
   
   const contextValue = {
     user,
