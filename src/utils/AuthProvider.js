@@ -47,12 +47,6 @@ export const AuthProvider = ({ children }) => {
       headers: authHeader()
     });
   };
-
-  useMemo(() => {
-    if (token && !user) {
-      setUser({fullName: "Prueba"})
-    }
-  }, []);
   
   const contextValue = {
     user,
