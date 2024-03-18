@@ -10,11 +10,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    const fetchData = async () => {
+    if (token && !user) {
       setUser({fullName: "Prueba"});
-    };
-
-    fetchData();
+      window.location.reload();
+    }
+    console.log(JSON.stringify(user));
   }, []);
   
   const loginUser = (email, password) => {
