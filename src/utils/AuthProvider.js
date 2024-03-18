@@ -8,6 +8,16 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    console.log("ejecuta");
+    const fetchData = async () => {
+      const response = await getUserData();
+      console.log(JSON.stringify(response));
+    };
+
+    fetchData();
+  }, []);
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
@@ -47,10 +57,6 @@ export const AuthProvider = ({ children }) => {
       headers: authHeader()
     });
   };
-
-  useEffect(() => {
-    console.log("ejecuta");
-  }, [getUserData]);
   
   const contextValue = {
     user,
