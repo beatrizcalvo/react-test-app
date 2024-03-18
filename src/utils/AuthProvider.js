@@ -15,7 +15,8 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return getUserData();
+      getUserData().then(response => setUser(response.data));
+      return response;
     });
   };
 
@@ -44,16 +45,15 @@ export const AuthProvider = ({ children }) => {
   const getUserData = () => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
-    }).then(response => {
-      setUser(response.data);
-      return response;
     });
   };
 
   useMemo(() => {
     if (token && !user) {
-      getUserData();
-      console.log(JSON.stringify(user));
+      getUserData().then(response => {
+        console.log(JSON.stringify(response.data));
+        setUser(response.data);
+      });
     }
   }, []);
   
