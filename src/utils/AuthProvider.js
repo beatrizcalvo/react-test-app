@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return getUserData();
+      return getUserData().then(resUser => setUser(resUser.data));
     });
   };
 
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useMemo(() => {
-    console.log("ejecuta");
+    console.log("Update 1");
   }, []);
   
   const contextValue = {
