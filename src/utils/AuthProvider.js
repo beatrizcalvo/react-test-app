@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  const useMemo(() => {
+  useMemo(() => {
     if (token) {
       getUserData().then(() => console.log("OK")).catch(() => console.log("error"));
       setUser({fullname: "Prueba"});
