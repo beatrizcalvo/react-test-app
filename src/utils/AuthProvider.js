@@ -50,9 +50,7 @@ export const AuthProvider = ({ children }) => {
 
   useMemo(() => {
     if (token && !user) {
-      getUserData()
-        .then(response => setUser({fullName: "Prueba"}))
-        .catch(() => logoutUser());
+      setUser({fullName: "Prueba"})
     }
   }, []);
   
