@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { AuthProvider } from "./utils/AuthProvider";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 import Dashboard from "./components/layouts/Dashboard";
@@ -12,20 +11,18 @@ import Register from "./components/views/auth/Register";
 
 export default function App(props) {
   return (
-    <AuthProvider>
-      <Routes>
-        <Route element={<ProtectedRoute />}>
-          <Route element={<Dashboard />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-          </Route>
+    <Routes>
+      <Route element={<ProtectedRoute />}>
+        <Route element={<Dashboard />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
-        <Route element={<Auth />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </AuthProvider>
+      </Route>
+      <Route element={<Auth />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
