@@ -8,12 +8,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
-
-  useMemo(() => {
-    if (token && !user) {
-      getUserData();
-    }
-  }, []);
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
@@ -56,6 +50,12 @@ export const AuthProvider = ({ children }) => {
       return response;
     });
   };
+
+  useMemo(() => {
+    if (token && !user) {
+      getUserData();
+    }
+  }, []);
   
   const contextValue = {
     user,
