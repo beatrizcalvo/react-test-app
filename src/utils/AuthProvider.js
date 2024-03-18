@@ -11,8 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   useMemo(() => {
     if (token && !user) {
-      alert("token: ${token} - user: ${user}");
-      getUserData();
+      alert("token: " + JSON.stringify(token) + " - user: " + JSON.stringify(user));
     }
   }, []);
   
@@ -41,6 +40,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
+    alert(token.access_token);
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
