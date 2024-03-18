@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     registerUser
   }), [user]);
   
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={contextValues}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
