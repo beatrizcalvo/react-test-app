@@ -12,10 +12,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (token && !user) {
       setUser({fullName: "Prueba"});
-      window.location.reload();
     }
-    console.log(JSON.stringify(user));
   }, []);
+
+  useEffect(() => {
+    console.log(JSON.stringify(user));
+  });
   
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
