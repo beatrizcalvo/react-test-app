@@ -10,27 +10,16 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
 
   const loginUser = (email, password) => {
-    return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
-      email,
-      password
-    }).then(response => {
-      setToken(response.data);
-      return getUserData();
-    });
+    
   };
 
   const logoutUser = () => {
-    setUser(undefined);
     setToken(undefined);
+    setUser(undefined);
   };
 
   const registerUser = (firstName, lastName, email, password) => {
-    return axios.post(process.env.REACT_APP_AUTH_API + "/auth/register", {
-      firstName,
-      lastName,
-      email,
-      password,
-    });
+    
   };
 
   const authHeader = () => {
@@ -41,29 +30,12 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const getUserData = () => {
-    return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
-      headers: authHeader()
-    }).then(response => {
-      setUser(response.data);
-      return response;
-    });
-  };
-
-  useMemo(() => {
-    console.log("Update 5");
-    if (token) {
-      getUserData().then(response => console.log("OK")).catch(error => console.log(error));
-    }
-  }, []);
-  
-  const contextValue = {
+  const contextValues = useMemo(() => ({
     user,
     loginUser,
     logoutUser,
-    registerUser,
-    authHeader
-  };
+    registerUser
+  }), [user]);
   
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };
