@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
+import { useAuth } from "../../utils/AuthProvider";
+
 function SidebarHeader() {
   return (
     <>
@@ -52,10 +54,12 @@ function SidebarItemCollapsable({ id, title, className, links }) {
 };
 
 export default function SidebarDashboard(props) {
+  const { user } = useAuth();
+  
   const sidebarLinks = [
     {
       id: "profile-nav",
-      title: "Aaaaa",
+      title: user.fullName,
       className: "mb-2",
       links: [ 
         { href: "/profile", icon: "MP", title: "My Profile" },
