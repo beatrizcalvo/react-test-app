@@ -15,7 +15,8 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return getUserData().then(resUser => setUser(resUser.data));
+      getUserData().then(resUser => setUser(resUser.data));
+      return response;
     });
   };
 
@@ -48,7 +49,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   useMemo(() => {
-    console.log("Update 1");
+    console.log("Update 2");
+    if (token) {
+      console.log("token in localStorage");
+    }
   }, []);
   
   const contextValue = {
