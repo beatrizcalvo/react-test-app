@@ -12,18 +12,20 @@ import Register from "./components/views/auth/Register";
 
 export default function App(props) {
   return (
-    <Routes>
-      <Route element={<ProtectedRoute />}>
-        <Route element={<Dashboard />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+    <AuthProvider>
+      <Routes>
+        <Route element={<ProtectedRoute />}>
+          <Route element={<Dashboard />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
         </Route>
-      </Route>
-      <Route element={<Auth />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Route>
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+        <Route element={<Auth />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </AuthProvider>
   );
 }
