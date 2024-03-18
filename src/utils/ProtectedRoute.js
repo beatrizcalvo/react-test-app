@@ -6,7 +6,7 @@ export default function ProtectedRoute({
   redirectTo = "/login",
   children,
 }) {
-  const { user } = useAuth();
+  const user = useAuth();
   console.log(JSON.stringify(user));
   
   if (!user) {
