@@ -7,7 +7,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState();
 
   const loginUser = (email, password) => {
     return axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
@@ -51,9 +51,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   useMemo(() => {
-    console.log("Update 3");
+    console.log("Update 4");
     if (token) {
-      console.log("token in localStorage");
+      getUserData().then(response => console.log("OK")).catch(error => console.log(error));
     }
   }, []);
   
