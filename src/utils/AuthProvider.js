@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      return response;
+      return getUserData();
     });
   };
 
@@ -34,6 +34,15 @@ export const AuthProvider = ({ children }) => {
     } else {
       return {};
     }
+  };
+
+  const getUserData = () => {
+    return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
+      headers: authHeader()
+    }).then(response => {
+      setUser(response.data);
+      return response;
+    });
   };
 
   const contextValues = useMemo(() => ({
