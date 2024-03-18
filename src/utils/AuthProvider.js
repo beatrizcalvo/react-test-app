@@ -7,14 +7,17 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getUserData();
-      setUser(response.data);
-      console.log(JSON.stringify(response.data));
-      console.log(user);
+      try {
+        const response = await getUserData();
+        setUser(response.data);
+        console.log(user);
+      } catch (error) {
+        logoutUser();
+      }
     };
 
     fetchData();
