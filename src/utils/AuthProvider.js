@@ -42,7 +42,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getUserData = () => {
-    console.log(token.access_token);
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
     }).then(response => {
@@ -54,6 +53,7 @@ export const AuthProvider = ({ children }) => {
   useMemo(() => {
     if (token && !user) {
       getUserData();
+      console.log(JSON.stringify(user));
     }
   }, []);
   
