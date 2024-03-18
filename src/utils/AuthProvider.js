@@ -15,8 +15,7 @@ export const AuthProvider = ({ children }) => {
       password
     }).then(response => {
       setToken(response.data);
-      getUserData();
-      return response;
+      return getUserData();
     });
   };
 
@@ -47,11 +46,12 @@ export const AuthProvider = ({ children }) => {
       headers: authHeader()
     }).then(response => {
       setUser(response.data);
+      return response;
     });
   };
 
   useMemo(() => {
-    console.log("Update 4");
+    console.log("Update 5");
     if (token) {
       getUserData().then(response => console.log("OK")).catch(error => console.log(error));
     }
