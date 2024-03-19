@@ -49,6 +49,30 @@ export default function RegisterForm(props) {
   return (
     <>
       <Form onSubmit={handleSubmit(handleRegister)}>
+        <Row className="mb-3">
+          <Form.Group as={Col} className="input-group input-group-outline">
+            <Form.Control
+              type="text"
+              placeholder="First Name..."
+              {...register("firstName", inputValidations.firstName)}
+              isInvalid={!!errors.firstName}
+            ></Form.Control>
+            <Form.Control.Feedback type="text-xs invalid">
+              {errors.firstName?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} className="input-group input-group-outline">
+            <Form.Control
+              type="text"
+              placeholder="Last Name..."
+              {...register("lastName", inputValidations.lastName)}
+              isInvalid={!!errors.lastName}
+            ></Form.Control>
+            <Form.Control.Feedback type="text-xs invalid">
+              {errors.lastName?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
       </Form>
     </>
   );
