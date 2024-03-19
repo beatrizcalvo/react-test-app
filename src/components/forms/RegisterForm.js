@@ -37,7 +37,7 @@ export default function RegisterForm(props) {
       required: "Password is required",
       minLength: {
         value: 6,
-        message: "Username must have at lenght 6 or greater",
+        message: "Password must have at lenght 6 or greater",
       },
     },
     password2: {
