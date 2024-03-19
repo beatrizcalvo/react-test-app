@@ -1,23 +1,56 @@
+import { Form, Button, Alert, Spinner } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+
+import { useAuth } from "../../hooks/AuthProvider";
+
 export default function LoginForm(props) {
   const { handleLogin } = props;
+  const { loading } = useAuth();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  // Input form validations
+  const inputValidations = {
+    email: {
+      required: "Email is required",
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+        message: "Please enter a valid email",
+      },
+    },
+    password: {
+      required: "Password is required",
+      minLength: {
+        value: 6,
+        message: "Username must have at lenght 6 or greater",
+      },
+    },
+  };
   
   return (
-    <form onSubmit={handleLogin}>
-      <h1>Login</h1>
-
-      <label htmlFor="email">
-        Email
-        <input id="email" name="email" />
-      </label>
-
-      <label htmlFor="password">
-        Password
-        <input id="password" name="password" type="password" />
-      </label>
-
-      <button type="submit">
-        Submit
-      </button>
-    </form>
+    <>
+      <Form onSubmit={handleSubmit(handleLogin)}>
+        <Button
+          className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
+          variant="primary"
+          type="submit"
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />{" "}
+              Loading...
+            </>
+          ) : (
+            "Submit"
+          )}
+        </Button>
+      </Form>
+    </>
   );
 }
