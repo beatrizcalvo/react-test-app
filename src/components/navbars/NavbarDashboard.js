@@ -100,7 +100,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
                   return (
                     <Nav.Link as={Link}
                       {...(item.href ? { to: item.href } : {})}
-                      className="d-flex align-items-center icon-md w-100 h-100"
+                      className="d-flex align-items-center icon-md w-100 h-100 pe-3"
                       {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
                       <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
