@@ -10,14 +10,16 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
+  const [successAuth, setSuccessAuth] = useState(undefined);
   const [loadingAuth, setLoadingAuth] = useState(false);
   const [loadingInitial, setLoadingInitial] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Reset error state if we change page
+  // Reset error and success states if we change page
   useEffect(() => {
-    if (errorAuth) setErrorAuth(null);
+    if (errorAuth) setErrorAuth(undefined);
+    if (successAuth) setSuccessAuth(undefined);
   }, [location]);
 
   // Check if there is a currently active session when the provider is mounted for the first time.
@@ -25,6 +27,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData
+      .then()
       .catch(() => setToken(undefined))
       .finally(() => setLoadingInitial(false));
   }, []);
@@ -56,7 +59,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   const registerUser = (firstName, lastName, email, password) => {
-    
+    setLoadingAuth(true);
+    axios.post(process.env.REACT_APP_AUTH_API + "/auth/register", {
+      firstName,
+      lastName,
+      email,
+      password,
+    })
+      .then(response => )
+      .catch(error => setErrorAuth(error))
+      .finally(() => setLoadingAuth(false));
   };
 
   const authHeader = () => {
@@ -81,11 +93,12 @@ export const AuthProvider = ({ children }) => {
     user,
     loadingAuth,
     errorAuth,
+    successAuth,
     loginUser,
     logoutUser,
     registerUser,
     authHeader
-  }), [user, loadingAuth, errorAuth]);
+  }), [user, loadingAuth, errorAuth, successAuth]);
 
   return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children}</AuthContext.Provider>;
 };
