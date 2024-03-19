@@ -15,6 +15,6 @@ export const AuthProvider = ({ children }) => {
   return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
 };
 
-export default function useAuth() {
+export const useAuth = () => {
   return useContext(AuthContext);
-}
+};
