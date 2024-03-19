@@ -6,10 +6,12 @@ import useLocalStorage from './LocalStorage';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
   const navigate = useNavigate();
 
-  function login(email, password) {
+  function loginUser(email, password) {
+    setToken("aaaaaaa");
     setUser("Bbbbb");
     navigate("/");
   }
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     user,
-    login
+    loginUser
   }), [user]);
 
   return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
