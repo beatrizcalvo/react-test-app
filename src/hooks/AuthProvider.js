@@ -8,11 +8,15 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
+  const [error, setError] = useState(undefined);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   function loginUser(email, password) {
+    setLoading(true);
     setToken("aaaaaaa");
     setUser("Bbbbb");
+    setLoading(false);
     navigate("/");
   };
 
@@ -25,9 +29,11 @@ export const AuthProvider = ({ children }) => {
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     user,
+    loading,
+    error,
     loginUser,
     logoutUser
-  }), [user]);
+  }), [user, loading, error]);
 
   return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
 };
