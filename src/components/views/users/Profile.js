@@ -6,18 +6,6 @@ export default function Profile(props) {
   const { user } = useAuth();
 
   return (
-    <Container fluid className="px-2 px-md-4">
-      <div 
-        className="page-header min-height-300 border-radius-xl mt-4" 
-        style={{background-image: require("../../assets/img/profile_header.png")}}
-      >
-        <span class="mask bg-gradient-primary opacity-6" />
-      </div>
-      <div className="card card-body mx-3 mx-md-4 mt-n6">
-
-        
-      </div>
-    </Container>
     <div>
       <p>Profile Page</p>
       <p>Hello {JSON.stringify(user)}</p>
