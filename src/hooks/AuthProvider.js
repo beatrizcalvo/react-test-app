@@ -14,12 +14,19 @@ export const AuthProvider = ({ children }) => {
     setToken("aaaaaaa");
     setUser("Bbbbb");
     navigate("/");
-  }
+  };
+
+  function logoutUser() {
+    setToken(undefined);
+    setUser(undefined);
+    navigate("/login");
+  };
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     user,
-    loginUser
+    loginUser,
+    logoutUser
   }), [user]);
 
   return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
