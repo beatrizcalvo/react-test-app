@@ -8,7 +8,7 @@ export default function Profile(props) {
   return (
     <div>
       <p>Profile Page</p>
-      <p>Hello {user}</p>
+      <p>Hello {JSON.stringify(user)}</p>
     </div>
   );
 }
