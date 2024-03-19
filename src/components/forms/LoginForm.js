@@ -61,7 +61,7 @@ export default function LoginForm(props) {
               Error!!
             </strong>{" "}
             { 
-              errorAuth
+              JSON.stringify(errorAuth)
             }
           </span>
         </Alert>
