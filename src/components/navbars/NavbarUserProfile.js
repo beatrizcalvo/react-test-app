@@ -3,7 +3,11 @@ import { Nav } from "react-bootstrap";
 export default function NavbarUserProfile(props) {
 
   const navbarLinks = [
-    {}
+    {
+      href: "#profile",
+      title: "Profile",
+      icon: "fa-solid fa-user"
+    }
   ];
   
   return (
@@ -13,7 +17,10 @@ export default function NavbarUserProfile(props) {
           navbarLinks.map((item, index) => {
             return (
               <Nav.Item as="li">
-                <Nav.Link></Nav.Link>
+                <Nav.Link className="text-dark d-flex" href={item.href}>
+                  <i className={item.icon + " text-lg me-2"} />
+                  <span className="text-sm">{item.title}</span>
+                </Nav.Link>
               </Nav.Item>
             );
           })
