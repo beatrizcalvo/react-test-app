@@ -18,14 +18,15 @@ export default function Dashboard(props) {
 
   useEffect(() => {
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
-
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanelRef.current);
       document.body.classList.toggle("perfect-scrollbar-on");
       mainPanelRef.current.addEventListener("ps-scroll-y", navbarShowBlur);
       mainPanelRef.current.addEventListener("ps-y-reach-start", navbarHideBlur);
     }    
+    
     return function cleanup() {
+      document.body.classList.remove("g-sidenav-show", "bg-gray-200");
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
         document.body.classList.toggle("perfect-scrollbar-on");
