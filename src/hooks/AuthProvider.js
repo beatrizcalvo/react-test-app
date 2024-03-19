@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   // Reset the error state if we change page
   useEffect(() => {
+    console.log("reset error");
     if (errorAuth) setErrorAuth(undefined);
   }, [location.pathname]);
 
@@ -24,9 +25,8 @@ export const AuthProvider = ({ children }) => {
   // If there is an error, it means there is nos session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
-    getUserData()
-      .catch(() => setToken(undefined))
-      .finally(() => setLoadingInitial(false));
+    console.log("ejecuta get");
+    setLoadingInitial(false);
   }, []);
 
   const loginUser = (email, password) => {
