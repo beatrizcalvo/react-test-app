@@ -34,6 +34,11 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
+  const registerUser = () => {};
+
+  const authHeader = () => {};
+
+  const getUserData = () => {};
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
@@ -41,7 +46,9 @@ export const AuthProvider = ({ children }) => {
     loadingAuth,
     errorAuth,
     loginUser,
-    logoutUser
+    logoutUser,
+    registerUser,
+    authHeader
   }), [user, loadingAuth, errorAuth]);
 
   return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
