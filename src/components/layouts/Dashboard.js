@@ -1,10 +1,42 @@
-import { Outlet } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { Container } from "react-bootstrap";
+
+import PerfectScrollbar from "perfect-scrollbar";
+
+var ps;
 
 export default function Dashboard(props) {
+  const mainPanelRef = useRef();
+  const location = useLocation();
+
+  useEffect(() => {
+    document.body.classList.add("g-sidenav-show", "bg-gray-200");
+
+    if (navigator.platform.indexOf("Win") > -1) {
+      ps = new PerfectScrollbar(mainPanelRef.current);
+      document.body.classList.toggle("perfect-scrollbar-on");
+    }    
+    return function cleanup() {
+      if (navigator.platform.indexOf("Win") > -1) {
+        ps.destroy();
+        document.body.classList.toggle("perfect-scrollbar-on");
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    mainPanelRef.current.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+  }, [location]);
 
   return (
-    <div>
-      <Outlet />
-    </div>
+    <>
+      <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
+        <Container fluid className="py-4">
+          <Outlet />
+        </Container>
+      </main>
+    </>
   );
 }
