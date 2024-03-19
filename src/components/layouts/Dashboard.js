@@ -31,6 +31,8 @@ export default function Dashboard(props) {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
         document.body.classList.toggle("perfect-scrollbar-on");
+        mainPanelRef.current.removeEventListener("ps-scroll-y", navbarShowBlur);
+        mainPanelRef.current.removeEventListener("ps-y-reach-start", navbarHideBlur);
       }
     };
   }, []);
