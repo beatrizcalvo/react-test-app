@@ -35,7 +35,13 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        getUserData().then(() => navigate("/"));
+        getUserData()
+          .then(() => navigate("/"))
+          .catch(() => {
+            const errorsList = {message: "Application login error", description: "Can not get user data"};
+            const error = {response: {data: {errors: [errorsList]}}};
+            setErrorAuth(error);
+          });
       })
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
