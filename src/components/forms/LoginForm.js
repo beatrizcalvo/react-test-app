@@ -61,7 +61,9 @@ export default function LoginForm(props) {
               Error!!
             </strong>{" "}
             { 
-              JSON.stringify(errorAuth)
+              (errorAuth && error.response && error.response.data && error.response.data.errors && 
+                error.response.data.errors[0].message + " - " + error.response.data.errors[0].description)
+              || connectionError
             }
           </span>
         </Alert>
