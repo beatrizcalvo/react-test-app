@@ -10,7 +10,7 @@ export default function Login(props) {
     const formData = new FormData(event.currentTarget);
 
     login(formData.get("email") as string, formData.get("password") as string);
-  }
+  };
   
   return (
     <form onSubmit={handleSubmit}>
