@@ -7,7 +7,7 @@ export default function RegisterForm(props) {
   const connectionError = "Cannot connect to the user registration server.";
 
   const { handleRegister } = props;
-  const { loadingAuth, errorAuth } = useAuth();
+  const { loadingAuth, errorAuth, successAuth } = useAuth();
   const { register, handleSubmit, getValues, formState: { errors } } = useForm();
 
   // Input form validations
@@ -44,6 +44,10 @@ export default function RegisterForm(props) {
       validate: (value) =>
         value === getValues("password") || "Passwords don't match",
     },
+  };
+
+  const getAlertType = () => {
+    return (!!successAuth) ? "success" : "danger";
   };
 
   return (
@@ -106,6 +110,49 @@ export default function RegisterForm(props) {
             {errors.password2?.message}
           </Form.Control.Feedback>
         </Form.Group>
+        <Alert variant={getAlertType()} className="text-white" show={!!errorAuth || !! successAuth}>
+          <i
+            className={
+              getAlertType() === "success"
+                ? "fa-solid fa-circle-check"
+                : "fa-solid fa-triangle-exclamation"
+            }
+          />{" "}
+          <span className="alert-text text-xs">
+            <strong className="text-uppercase">
+              {getAlertType() === "success" ? "Success!!" : "Error!!"}
+            </strong>{" "}
+            {
+              (!!successAuth) 
+                ? "Create user with email " + data.email" 
+                : (errorAuth && errorAuth.response && errorAuth.response.data && errorAuth.response.data.errors && 
+                     error.response.data.errors[0].description.includes("E11000") && 
+                     error.response.data.errors[0].message + " - Already exists a user with email: " + data.email) 
+                  || connectionError
+            }
+          </span>
+        </Alert>
+        <Button
+          className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
+          variant="primary"
+          type="submit"
+          disabled={loadingAuth}
+        >
+          {loadingAuth ? (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />{" "}
+              Loading...
+            </>
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </Form>
     </>
   );
