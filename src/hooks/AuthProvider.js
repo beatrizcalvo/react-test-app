@@ -20,6 +20,15 @@ export const AuthProvider = ({ children }) => {
     if (errorAuth) setErrorAuth(null);
   }, [location]);
 
+  // Check if there is a currently active session when the provider is mounted for the first time.
+  // If there is an error, it means there is no session.
+  // Finally, just signal the component that the initial load is over.
+  useEffect(() => {
+    getUserData
+      .catch(() => setToken(undefined))
+      .finally(() => setLoadingInitial(false));
+  }, []);
+  
   const loginUser = (email, password) => {
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
@@ -78,7 +87,7 @@ export const AuthProvider = ({ children }) => {
     authHeader
   }), [user, loadingAuth, errorAuth]);
 
-  return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
