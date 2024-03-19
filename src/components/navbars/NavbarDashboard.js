@@ -1,5 +1,6 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/AuthProvider";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
@@ -97,10 +98,8 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
               {
                 navbarLinks.map((item) => {
                   return (
-                    <Nav.Link
-                      {...(item.href ? { href: item.href } : {})}
+                    <Nav.Link as={Link}
                       className="d-flex align-items-center icon-md w-100 h-100"
-                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
                     >
                       <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
                         <i className={ item.icon } />
