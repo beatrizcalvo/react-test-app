@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       email,
       password,
     })
-      .then(response => {})
+      .then(response => setSuccessAuth(response.data))
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
   };
