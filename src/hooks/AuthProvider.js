@@ -13,9 +13,8 @@ export const AuthProvider = ({ children }) => {
   const [loadingAuth, setLoadingAuth] = useState(false);
   const navigate = useNavigate();
 
-  function loginUser(email, password) {
+  const loginUser = (email, password) => {
     setLoadingAuth(true);
-
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login2", {
       email,
       password
@@ -29,11 +28,12 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoadingAuth(false));
   };
 
-  function logoutUser() {
+  const logoutUser = () => {
     setToken(undefined);
     setUser(undefined);
     navigate("/login");
   };
+
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
