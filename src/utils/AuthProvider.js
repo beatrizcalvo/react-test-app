@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useState, useMemo } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import useLocalStorage from './LocalStorage';
 
@@ -8,6 +9,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
+  const navigate = useNavigate();
 
   const loginUser = (email, password) => {
     setToken("aaaaaaa");
@@ -17,6 +19,7 @@ export const AuthProvider = ({ children }) => {
   const logoutUser = () => {
     setToken(undefined);
     setUser(undefined);
+    navigate("/");
   };
 
   const registerUser = (firstName, lastName, email, password) => {
