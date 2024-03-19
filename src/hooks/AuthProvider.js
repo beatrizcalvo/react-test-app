@@ -6,9 +6,7 @@ import useLocalStorage from './LocalStorage';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const connectionError = "Cannot connect to the user registration server.";
-  
+export const AuthProvider = ({ children }) => {  
   const [token, setToken] = useLocalStorage("auth_token");
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
@@ -21,17 +19,14 @@ export const AuthProvider = ({ children }) => {
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login2", {
       email,
       password
-    }).then(token => {
-      setToken("aaaaaaa");
-      setUser("Bbbbb");
-      navigate("/");
-    }).catch(error => {
-      let errorMessage =
-        (error.response && error.response.data && 
-          (error.response.data.errors[0].message + " - " + error.response.data.errors[0].description)) 
-        || connectionError;
-      setErrorAuth(errorMessage);
-    }).finally(() => setLoadingAuth(false));
+    })
+      .then(response => {
+        setToken(response.data);
+        setUser("Bbbbb");
+        navigate("/");
+      })
+      .catch(error => setErrorAuth(error))
+      .finally(() => setLoadingAuth(false));
   };
 
   function logoutUser() {
