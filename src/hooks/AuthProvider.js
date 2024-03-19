@@ -35,8 +35,7 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        setUser("Bbbbb");
-        navigate("/");
+        getUserData().then(() => navigate("/"));
       })
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
@@ -50,9 +49,22 @@ export const AuthProvider = ({ children }) => {
 
   const registerUser = () => {};
 
-  const authHeader = () => {};
+  const authHeader = () => {
+    if (token && token.token_type && token.access_token) {
+      return { Authorization: token.token_type.trim() + " " + token.access_token };
+    } else {
+      return {};
+    }
+  };
 
-  const getUserData = () => {};
+  const getUserData = () => {
+    return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
+      headers: authHeader2()
+    }).then(response => {
+      setUser(response.data);
+      return response;
+    });
+  };
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
