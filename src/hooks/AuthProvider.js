@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData
-      .then()
+      .then(() => {})
       .catch(() => setToken(undefined))
       .finally(() => setLoadingInitial(false));
   }, []);
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       email,
       password,
     })
-      .then(response => )
+      .then(response => {})
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
   };
