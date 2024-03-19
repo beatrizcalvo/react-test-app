@@ -13,7 +13,7 @@ export default function Login(props) {
   return (
     <>
       <div className="card card-plain">
-        <div className="card-header text-center bg-transparent">
+        <div className="card-header text-center">
           <h4 className="font-weight-bolder">Sign In</h4>
           <p className="mb-0">Enter your email and password to sign in</p>
         </div>
