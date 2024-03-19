@@ -27,6 +27,11 @@ export default function Profile(props) {
             <NavbarUserProfile navbarLinks={navbarLinks} />
           </Card>
         </Col>
+        <Col lg="9" className="mt-lg-0 mt-4">
+          <Card.Body>
+            
+          </Card.Body>
+        </Col>
       </Row>
     </>
   );
