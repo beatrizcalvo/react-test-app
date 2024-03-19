@@ -55,7 +55,9 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
-  const registerUser = () => {};
+  const registerUser = (firstName, lastName, email, password) => {
+    
+  };
 
   const authHeader = () => {
     if (token && token.token_type && token.access_token) {
