@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/AuthProvider";
 
 export default function LoginForm(props) {
   const { handleLogin } = props;
-  const { loading, error } = useAuth();
+  const { loadingAuth, errorAuth } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   // Input form validations
@@ -29,23 +29,45 @@ export default function LoginForm(props) {
   return (
     <>
       <Form onSubmit={handleSubmit(handleLogin)}>
-        <Alert variant="danger" className="text-white" show={!!error}>
+        <Form.Group className="input-group input-group-outline mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Email..."
+            {...register("email", inputValidations.email)}
+            isInvalid={!!errors.email}
+          />
+          <Form.Control.Feedback type="text-xs invalid">
+            {errors.email?.message}
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="input-group input-group-outline mb-3">
+          <Form.Control
+            type="password"
+            placeholder="Password..."
+            {...register("password", inputValidations.password)}
+            isInvalid={!!errors.password}
+          />
+          <Form.Control.Feedback type="text-xs invalid">
+            {errors.password?.message}
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Alert variant="danger" className="text-white" show={!!errorAuth}>
           <i className="fa-solid fa-triangle-exclamation" />
           {" "}
           <span className="alert-text text-xs">
             <strong className="text-uppercase">
               Error!!
             </strong>{" "}
-            {error}
+            {errorAuth}
           </span>
         </Alert>
         <Button
           className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
           variant="primary"
           type="submit"
-          disabled={loading}
+          disabled={loadingAuth}
         >
-          {loading ? (
+          {loadingAuth ? (
             <>
               <Spinner
                 as="span"
