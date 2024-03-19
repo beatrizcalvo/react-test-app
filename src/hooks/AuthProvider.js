@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   }, [location]);
 
   // Check if there is a currently active session when the provider is mounted for the first time.
-  //
+  // If there is an error, it means there is nos session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     setLoadingInitial(false);
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
   const getUserData = () => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
-      headers: {}
+      headers: authHeader()
     }).then(response => {
       setUser(response.data);
       return response;
