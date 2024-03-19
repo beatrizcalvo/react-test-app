@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from 'react';
-import useHistory from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 import useLocalStorage from './LocalStorage';
 
@@ -7,11 +7,11 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function login(email, password) {
     setUser("Bbbbb");
-    history.push("/");
+    navigate("/");
   }
 
   // Make the provider update only when it should
