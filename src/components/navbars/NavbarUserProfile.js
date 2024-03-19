@@ -1,14 +1,7 @@
 import { Nav } from "react-bootstrap";
 
 export default function NavbarUserProfile(props) {
-
-  const navbarLinks = [
-    {
-      href: "#profile",
-      title: "Profile",
-      icon: "fa-solid fa-user"
-    }
-  ];
+  const { navbarLink } = props;
   
   return (
     <>
@@ -16,7 +9,9 @@ export default function NavbarUserProfile(props) {
        {
           navbarLinks.map((item, index) => {
             return (
-              <Nav.Item as="li">
+              <Nav.Item as="li" 
+                {...((index !== 0) ? { className: "pt-2"} : {})}
+              >
                 <Nav.Link className="text-dark d-flex" href={item.href}>
                   <i className={item.icon + " text-lg me-2"} />
                   <span className="text-sm">{item.title}</span>
