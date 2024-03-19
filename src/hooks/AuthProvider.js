@@ -1,6 +1,6 @@
 import axios from "axios";
-import { createContext, useContext, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import useLocalStorage from './LocalStorage';
 
@@ -11,7 +11,20 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
   const [loadingAuth, setLoadingAuth] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  // Reset the error state if we change page
+  useEffect(() => {
+    if (errorAuth) setErrorAuth(undefined);
+  }, [location.pathname]);
+
+  // Check if there is a currently active session when the provider is mounted for first time.
+  //
+  // Finally, just signal the component that the initial load is over.
+  useEffect(() => {
+    console.log("ejecuta");
+  }, []);
 
   const loginUser = (email, password) => {
     setLoadingAuth(true);
