@@ -1,41 +1,15 @@
 import { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useAuth } from "../../../utils/AuthProvider";
 import LoginForm from "../../forms/LoginForm";
 
 export default function Login(props) {
   const loginFormRef = useRef();
-  const navigate = useNavigate();
   const { loginUser } = useAuth();
 
   const handleRegister = async (data) => {
-    const connectionError = "Cannot connect to the user registration server.";
-    
-    // Disabled all buttons
-    loginFormRef.current.updateIsLoading(true);
-
-    loginUser(data.email, data.password)
-      .then((response) => {
-        if (response.data) {
-          // If login success then redirect to dashboard home page
-          navigate("/");
-        } else {
-          loginFormRef.current.updateAlertMessage(connectionError);
-          loginFormRef.current.updateIsLoading(false);
-        }
-      })
-      .catch((error) => {
-        let errorMessage =
-          (error.response && 
-            error.response.data && 
-            (error.response.data.errors[0].message +
-              " - " +
-              error.response.data.errors[0].description)) || 
-          connectionError
-        loginFormRef.current.updateAlertMessage(errorMessage);
-        loginFormRef.current.updateIsLoading(false);
-      });
+    loginUser(data.email, data.password);
   };
 
   return (
