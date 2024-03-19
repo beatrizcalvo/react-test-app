@@ -38,7 +38,7 @@ export default function Profile(props) {
                   createElement(item.component, {
                     id: item.href.substring(1),
                     profile: user
-                  });
+                  })
                 );
               }
             })
