@@ -11,6 +11,11 @@ export default function Profile(props) {
       href: "#profile",
       title: "Profile",
       icon: "fa-solid fa-user"
+    },
+    {
+      href: "#basic-info",
+      title: "Basic Info",
+      icon: "fa-regular fa-id-card"
     }
   ];
 
