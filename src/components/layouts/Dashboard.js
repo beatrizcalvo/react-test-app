@@ -1,11 +1,10 @@
-import { useAuth } from "../../hooks/AuthProvider";
+import { Outlet } from "react-router-dom";
 
 export default function Dashboard(props) {
-  const { user } = useAuth();
 
   return (
     <div>
-      <p>Hello {user}</p>
+      <Outlet />
     </div>
   );
 }
