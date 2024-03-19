@@ -14,6 +14,11 @@ export const AuthProvider = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Reset the error state if we change page
+  useEffect(() => {
+    if (errorAuth) setErrorAuth(undefined);
+  }, [location]);
+
   const loginUser = (email, password) => {
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login2", {
