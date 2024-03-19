@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loginUser = (email, password) => {
-    setError(undefined);
+    setErrorAuth(undefined);
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
