@@ -1,6 +1,7 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 
+import { useAuth } from "../../hooks/AuthProvider";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
 // Add a tooltip in a link
@@ -19,6 +20,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlur, setIsBlur] = useState(false);
   const [color, setColor] = useState("transparent");
+  const { logoutUser } = useAuth();
   
   const navbarLinks = [
     {
@@ -36,15 +38,10 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
     {
       id: "navbar-3",
       title: "Logout",
-      clickHandler: () => handleLogout(),
+      clickHandler: () => logoutUser(),
       icon: "fa-solid fa-right-from-bracket"	  
     }
   ];
-
-  // Logout user from App
-  const handleLogout = () => {
-    
-  };
 
   // Change color dark/transparent when collapse navbar
   const toggleNavbar = () => {
