@@ -10,12 +10,14 @@ export default function Profile(props) {
     {
       href: "#profile",
       title: "Profile",
-      icon: "fa-solid fa-user"
+      icon: "fa-solid fa-user",
+      component: null
     },
     {
       href: "#basic-info",
       title: "Basic Info",
-      icon: "fa-regular fa-id-card"
+      icon: "fa-regular fa-id-card",
+      component: null
     }
   ];
 
@@ -28,9 +30,7 @@ export default function Profile(props) {
           </Card>
         </Col>
         <Col lg="9" className="mt-lg-0 mt-4">
-          <Card.Body>
-            
-          </Card.Body>
+          
         </Col>
       </Row>
     </>
