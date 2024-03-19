@@ -6,7 +6,7 @@ import RegisterForm from "../../forms/RegisterForm";
 export default function Register(props) {
   const { registerUser } = useAuth();
 
-  const handleRegister = () => {
+  const handleRegister = (data) => {
     registerUser();
   };
 
