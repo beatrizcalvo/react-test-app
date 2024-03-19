@@ -124,10 +124,10 @@ export default function RegisterForm(props) {
             </strong>{" "}
             {
               (!!successAuth) 
-                ? "Create user with email " + data.email" 
+                ? "Create user with email " + getValues("email") 
                 : (errorAuth && errorAuth.response && errorAuth.response.data && errorAuth.response.data.errors && 
                      error.response.data.errors[0].description.includes("E11000") && 
-                     error.response.data.errors[0].message + " - Already exists a user with email: " + data.email) 
+                     error.response.data.errors[0].message + " - Already exists a user with email: " + getValues("email")) 
                   || connectionError
             }
           </span>
