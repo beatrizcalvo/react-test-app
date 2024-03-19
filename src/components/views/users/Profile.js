@@ -13,6 +13,10 @@ export default function Profile(props) {
       >
         <span class="mask bg-gradient-primary opacity-6" />
       </div>
+      <div className="card card-body mx-3 mx-md-4 mt-n6">
+
+        
+      </div>
     </Container>
     <div>
       <p>Profile Page</p>
