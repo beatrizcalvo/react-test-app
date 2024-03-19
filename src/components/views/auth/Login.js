@@ -1,15 +1,11 @@
-import { FormEvent } from "react";
 import { useAuth } from "../../../hooks/AuthProvider";
 
 export default function Login(props) {
   const { login } = useAuth();
   
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event) {
     event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-
-    login(formData.get("email") as string, formData.get("password") as string);
+    login("aaa", "bbbb");
   };
   
   return (
