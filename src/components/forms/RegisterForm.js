@@ -73,6 +73,39 @@ export default function RegisterForm(props) {
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
+        <Form.Group className="input-group input-group-outline mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Email..."
+            {...register("email", inputValidations.email)}
+            isInvalid={!!errors.email}
+          />
+          <Form.Control.Feedback type="text-xs invalid">
+            {errors.email?.message}
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="input-group input-group-outline mb-3">
+          <Form.Control
+            type="password"
+            placeholder="Password..."
+            {...register("password", inputValidations.password)}
+            isInvalid={!!errors.password}
+          />
+          <Form.Control.Feedback type="text-xs invalid">
+            {errors.password?.message}
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="input-group input-group-outline mb-3">
+          <Form.Control
+            type="password"
+            placeholder="Confirm password..."
+            {...register("password2", inputValidations.password2)}
+            isInvalid={!!errors.password2}
+          />
+          <Form.Control.Feedback type="text-xs invalid">
+            {errors.password2?.message}
+          </Form.Control.Feedback>
+        </Form.Group>
       </Form>
     </>
   );
