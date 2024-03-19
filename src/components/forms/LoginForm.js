@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/AuthProvider";
 
 export default function LoginForm(props) {
+  const connectionError = "Cannot connect to the user registration server.";
+  
   const { handleLogin } = props;
   const { loadingAuth, errorAuth } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -58,7 +60,11 @@ export default function LoginForm(props) {
             <strong className="text-uppercase">
               Error!!
             </strong>{" "}
-            {errorAuth}
+            { 
+              (errorAuth.response && errorAuth.response.data && 
+                (errorAuth.response.data.errors[0].message + " - " + errorAuth.response.data.errors[0].description)) 
+              || connectionError;
+            }
           </span>
         </Alert>
         <Button
