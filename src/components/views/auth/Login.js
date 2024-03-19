@@ -6,8 +6,8 @@ import LoginForm from "../../forms/LoginForm";
 export default function Login(props) {
   const { loginUser } = useAuth();
   
-  function handleLogin() {
-    loginUser("aaa", "bbbb");
+  const handleLogin = (data) => {
+    loginUser(data.email, data.password);
   };
   
   return (
