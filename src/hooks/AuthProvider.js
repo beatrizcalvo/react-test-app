@@ -15,12 +15,6 @@ export const AuthProvider = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Reset the error state if we change page
-  useEffect(() => {
-    console.log("reset error");
-    if (errorAuth) setErrorAuth(undefined);
-  }, [location.pathname]);
-
   // Check if there is a currently active session when the provider is mounted for the first time.
   // If there is an error, it means there is nos session.
   // Finally, just signal the component that the initial load is over.
@@ -30,6 +24,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loginUser = (email, password) => {
+    setError(undefined);
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
