@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = (email, password) => {
     setLoadingAuth(true);
-    axios.post(process.env.REACT_APP_AUTH_API + "/auth/login2", {
+    axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
       password
     })
