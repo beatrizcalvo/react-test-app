@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from 'react';
-import { useHistory } from "react-router-dom";
+import useHistory from "react-router-dom";
 
 import useLocalStorage from './LocalStorage';
 
