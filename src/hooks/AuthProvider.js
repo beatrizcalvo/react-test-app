@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   // Reset the error state if we change page
   useEffect(() => {
     if (errorAuth) setErrorAuth(undefined);
-  }, [location]);
+  }, [location.pathname]);
 
   // Check if there is a currently active session when the provider is mounted for the first time.
   // If there is an error, it means there is nos session.
@@ -68,7 +68,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getUserData = () => {
-    console.log(token.access_token);
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
     }).then(response => {
