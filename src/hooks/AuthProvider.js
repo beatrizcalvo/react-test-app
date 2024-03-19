@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const loginUser = (email, password) => {
-    setErrorAuth(undefined);
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
