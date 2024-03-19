@@ -7,7 +7,7 @@ export default function Register(props) {
   const { registerUser } = useAuth();
 
   const handleRegister = (data) => {
-    registerUser();
+    registerUser(data.firstName, data.lastName, data.email, data.password);
   };
 
   return (
