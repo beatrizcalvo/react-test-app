@@ -15,14 +15,6 @@ export const AuthProvider = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Check if there is a currently active session when the provider is mounted for the first time.
-  // If there is an error, it means there is nos session.
-  // Finally, just signal the component that the initial load is over.
-  useEffect(() => {
-    console.log("ejecuta get");
-    setLoadingInitial(false);
-  }, []);
-
   const loginUser = (email, password) => {
     setErrorAuth(undefined);
     setLoadingAuth(true);
@@ -82,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     authHeader
   }), [user, loadingAuth, errorAuth]);
 
-  return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
