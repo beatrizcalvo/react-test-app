@@ -1,11 +1,11 @@
 import { useAuth } from "../../../hooks/AuthProvider";
 
 export default function Login(props) {
-  const { login } = useAuth();
+  const { loginUser } = useAuth();
   
   function handleSubmit(event) {
     event.preventDefault();
-    login("aaa", "bbbb");
+    loginUser("aaa", "bbbb");
   };
   
   return (
