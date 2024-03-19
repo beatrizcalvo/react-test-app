@@ -24,7 +24,9 @@ export const AuthProvider = ({ children }) => {
   // If there is an error, it means there is nos session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
-    setLoadingInitial(false);
+    getUserData()
+      .catch(() => setToken(undefined))
+      .finally(() => setLoadingInitial(false));
   }, []);
 
   const loginUser = (email, password) => {
