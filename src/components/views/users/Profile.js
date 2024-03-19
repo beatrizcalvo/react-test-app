@@ -2,6 +2,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/AuthProvider";
 import NavbarUserProfile from "../../navbars/NavbarUserProfile";
+import CardUserProfile from "../../cards/CardUserProfile";
 
 export default function Profile(props) {
   const { user } = useAuth();
@@ -11,7 +12,7 @@ export default function Profile(props) {
       href: "#profile",
       title: "Profile",
       icon: "fa-solid fa-user",
-      component: null
+      component: CardUserProfile
     },
     {
       href: "#basic-info",
