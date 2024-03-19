@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/AuthProvider";
 
 export default function LoginForm(props) {
   const { handleLogin } = props;
-  const { loading } = useAuth();
+  const { loading, error } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   // Input form validations
@@ -29,6 +29,16 @@ export default function LoginForm(props) {
   return (
     <>
       <Form onSubmit={handleSubmit(handleLogin)}>
+        <Alert variant="danger" className="text-white" show={!!error}>
+          <i className="fa-solid fa-triangle-exclamation" />
+          {" "}
+          <span className="alert-text text-xs">
+            <strong className="text-uppercase">
+              Error!!
+            </strong>{" "}
+            {error}
+          </span>
+        </Alert>
         <Button
           className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
           variant="primary"
