@@ -14,12 +14,12 @@ export const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     setToken("aaaaaaa");
     setUser("Bbbbb");
+    navigate("/");
   };
 
   const logoutUser = () => {
     setToken(undefined);
     setUser(undefined);
-    navigate("/");
   };
 
   const registerUser = (firstName, lastName, email, password) => {
