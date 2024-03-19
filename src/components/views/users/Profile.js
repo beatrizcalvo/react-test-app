@@ -36,7 +36,8 @@ export default function Profile(props) {
               if (typeof item.component !== "undefined") {
                 return (
                   createElement(item.component, {
-                    id: item.href.substring(1);
+                    id: item.href.substring(1),
+                    profile: user
                   });
                 );
               }
