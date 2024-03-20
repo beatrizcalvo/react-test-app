@@ -5,12 +5,12 @@ export default function CardProfile(props) {
   
   return (
     <>
-      <Card.Body id={id}>
+      <Card.Body id={id} className="card">
         <Row className="justify-content-center align-items-center">
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
               <img src={require("../../../assets/img/logo-ct.png")} className="w-100 rounded-circle shadow-sm" />
-              <span className="position-absolute top-100 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">
+              <span className="position-absolute top-100 start-100 translate-middle bg-primary border border-light rounded-circle">
                 <i className="fa-solid fa-camera"/>
               </span>
             </div>
