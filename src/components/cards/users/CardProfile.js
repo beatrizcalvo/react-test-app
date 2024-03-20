@@ -15,6 +15,8 @@ export default function CardProfile(props) {
               </span>
             </div>
           </Col>
+          <Col sm="auto" className="col-8 my-auto">
+          </Col>
         </Row>
       </Card.Body>
     </>
