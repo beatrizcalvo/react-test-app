@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   // If there is an error, it means there is no session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
-    getUserData(token)
+    getUserData()
       .catch(() => setToken(undefined))
       .finally(() => setLoadingInitial(false));
   }, []);
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        getUserData(response.data)
+        getUserData()
           .then(() => navigate("/"))
           .catch(() => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
@@ -71,17 +71,17 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoadingAuth(false));
   };
 
-  const authHeader = (tokenAuth) => {
-    if (tokenAuth && tokenAuth.token_type && tokenAuth.access_token) {
-      return { Authorization: tokenAuth.token_type.trim() + " " + tokenAuth.access_token };
+  const authHeader = () => {
+    if (token && token.token_type && token.access_token) {
+      return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
       return {};
     }
   };
 
-  const getUserData = (tokenAuth) => {
+  const getUserData = () => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
-      headers: authHeader(tokenAuth)
+      headers: authHeader()
     }).then(response => {
       setUser(response.data);
       return response;
