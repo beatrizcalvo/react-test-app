@@ -26,12 +26,12 @@ export const AuthProvider = ({ children }) => {
   // If there is an error, it means there is no session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
-    getUserData()
+    getUserData(token)
       .catch(() => setToken(undefined))
       .finally(() => setLoadingInitial(false));
   }, []);
   
-  function loginUser(email, password) {
+  const loginUser = (email, password) => {
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        getUserData()
+        getUserData(response.data)
           .then(() => navigate("/"))
           .catch(() => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
@@ -49,15 +49,15 @@ export const AuthProvider = ({ children }) => {
       })
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
-  }
+  };
 
-  function logoutUser() {
+  const logoutUser = () => {
     setToken(undefined);
     setUser(undefined);
     navigate("/login");
-  }
+  };
 
-  function registerUser(firstName, lastName, email, password) {
+  const registerUser = (firstName, lastName, email, password) => {
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/register", {
       firstName,
@@ -68,26 +68,24 @@ export const AuthProvider = ({ children }) => {
       .then(response => setSuccessAuth(response.data))
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
-  }
+  };
 
-  function authHeader() {
-    console.log("crea cabecera");
-    console.log(JSON.stringify(token));
-    if (token && token.token_type && token.access_token) {
-      return { Authorization: token.token_type.trim() + " " + token.access_token };
+  const authHeader = (tokenAuth) => {
+    if (tokenAuth && tokenAuth.token_type && tokenAuth.access_token) {
+      return { Authorization: tokenAuth.token_type.trim() + " " + tokenAuth.access_token };
     } else {
       return {};
     }
-  }
+  };
 
-  function getUserData() {
+  const getUserData = (tokenAuth) => {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
-      headers: authHeader()
+      headers: authHeader(tokenAuth)
     }).then(response => {
       setUser(response.data);
       return response;
     });
-  }
+  };
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
