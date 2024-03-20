@@ -2,7 +2,6 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import useLocalStorage from "./LocalStorage";
 import LoadingPage from "../components/views/LoadingPage";
 
 const AuthContext = createContext();
@@ -40,7 +39,6 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        console.log(JSON.stringify(token));
         getUserData()
           .then(() => navigate("/"))
           .catch(() => {
