@@ -14,7 +14,7 @@ export default function useLocalStorage(key) {
     useEffect(() => {
       try {
         console.log("update token");
-        console.log("JSON.stringify(value));
+        console.log(JSON.stringify(value));
         localStorage.setItem(key, JSON.stringify(value));
       } catch (error) {
         console.error(error);
