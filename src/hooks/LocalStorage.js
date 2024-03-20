@@ -9,14 +9,15 @@ export default function useLocalStorage(key) {
         return undefined;
       }
     });
+
+  const setStateValue = (newValue) => {
+    try {
+      localStorage.setItem(key, JSON.stringify(newValue));
+      setValue(newValue);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   
-    useEffect(() => {
-      try {
-        localStorage.setItem(key, JSON.stringify(value));
-      } catch (error) {
-        console.error(error);
-      }
-    }, [key, value]);
-  
-    return [value, setValue];
+  return [value, setStateValue];
 };
