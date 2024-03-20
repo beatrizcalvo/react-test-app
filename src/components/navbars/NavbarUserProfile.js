@@ -1,7 +1,7 @@
 import { Nav } from "react-bootstrap";
 
 export default function NavbarUserProfile(props) {
-  const { navbarLink } = props;
+  const { navbarLinks } = props;
   
   return (
     <>
