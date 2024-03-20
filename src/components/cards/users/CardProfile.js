@@ -10,7 +10,7 @@ export default function CardProfile(props) {
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 rounded-circle shadow-sm" />
-              <span className="position-absolute top-100 start-100 translate-middle badge badge-circle badge-primary">
+              <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-info">
                 1
               </span>
             </div>
