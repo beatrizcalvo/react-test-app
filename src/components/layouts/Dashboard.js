@@ -30,8 +30,8 @@ export default function Dashboard(props) {
   
       ps.destroy();
       document.body.classList.toggle("perfect-scrollbar-on");
-      mainPanelRef.current.removeEventListener("ps-scroll-y", navbarShowBlur);
-      mainPanelRef.current.removeEventListener("ps-y-reach-start", navbarHideBlur);
+      mainPanelRef.current.removeEventListener("ps-scroll-y");
+      mainPanelRef.current.removeEventListener("ps-y-reach-start");
     };
   }, []);
 
