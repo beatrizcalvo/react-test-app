@@ -11,7 +11,7 @@ export default function CardProfile(props) {
             <div className="avatar avatar-xl position-relative">
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
               <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-info">
-                1
+                <i className="fa-solid fa-camera" />
               </span>
             </div>
           </Col>
