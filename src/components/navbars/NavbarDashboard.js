@@ -103,18 +103,18 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
               {
                 navbarLinks.map((item) => {
                   return (
-                    <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
-                      <Nav.Link as={Link}
-                        {...(item.href ? { to: item.href } : {})}
-                        className="d-flex align-items-center icon-md w-100 h-100 pe-3"
-                        {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
-                      >
+                    <Nav.Link as={Link}
+                      {...(item.href ? { to: item.href } : {})}
+                      className="d-flex align-items-center icon-md w-100 h-100 pe-4"
+                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
+                    >
+                      <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
                         <i className={ item.icon } />
-                        <span className="text-uppercase d-lg-none d-md-block ms-2">
-                          {item.title}
-                        </span>
-                      </Nav.Link>
-                    </LinkTooltip>
+                      </LinkTooltip>
+                      <span className="text-uppercase d-lg-none d-md-block ms-2">
+                        {item.title}
+                      </span>
+                    </Nav.Link>
                   );
                 })
               }              
