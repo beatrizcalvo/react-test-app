@@ -2,7 +2,8 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import useLocalStorage from './LocalStorage';
+import useLocalStorage from "./LocalStorage";
+import LoadingPage from "../components/views/LoadingPage";
 
 const AuthContext = createContext();
 
@@ -99,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     authHeader
   }), [user, loadingAuth, errorAuth, successAuth]);
 
-  return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children || <LoadingPage />}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
