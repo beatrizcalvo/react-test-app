@@ -91,6 +91,7 @@ export const AuthProvider = ({ children }) => {
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
+    token,
     user,
     loadingAuth,
     errorAuth,
@@ -99,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     logoutUser,
     registerUser,
     authHeader
-  }), [user, loadingAuth, errorAuth, successAuth]);
+  }), [token, user, loadingAuth, errorAuth, successAuth]);
 
   return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children || <LoadingPage />}</AuthContext.Provider>;
 };
