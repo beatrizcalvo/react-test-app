@@ -8,7 +8,7 @@ import LoadingPage from "../components/views/LoadingPage";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {  
-  const [token, setToken] = useLocalStorage("auth_token");
+  const [token, setToken] = useState(undefined);
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
   const [successAuth, setSuccessAuth] = useState(undefined);
