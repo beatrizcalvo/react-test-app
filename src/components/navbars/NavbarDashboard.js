@@ -75,13 +75,13 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   return (
     <>
       <Navbar 
-        collapseOnSelect 
         expand="lg" 
         sticky="top" 
         bg={color}
         variant={color === "dark" ? color : "main"}
         className={"mt-4 mx-4 shadow-none border-radius-xl" + ((isBlur) ? " top-2 blur shadow-blur" : "")}
-        onToggle={() => toggleNavbar()}
+        onToggle={() => toggleNavbar()} 
+        onSelect={() => setIsOpen(!isOpen)}
         expanded={isOpen}
       >
         <Container fluid className="py-1 pe-3">
