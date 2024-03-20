@@ -39,7 +39,6 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        console.log(JSON.stringify(token));
         getUserData()
           .then(() => navigate("/"))
           .catch(() => {
@@ -72,6 +71,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
+    console.log(JSON.stringify(token));
     if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
