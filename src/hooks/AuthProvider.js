@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoadingInitial(false));
   }, []);
   
-  const loginUser = (email, password) => {
+  function loginUser(email, password) {
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/login", {
       email,
@@ -49,15 +49,15 @@ export const AuthProvider = ({ children }) => {
       })
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
-  };
+  }
 
-  const logoutUser = () => {
+  function logoutUser() {
     setToken(undefined);
     setUser(undefined);
     navigate("/login");
-  };
+  }
 
-  const registerUser = (firstName, lastName, email, password) => {
+  function registerUser(firstName, lastName, email, password) {
     setLoadingAuth(true);
     axios.post(process.env.REACT_APP_AUTH_API + "/auth/register", {
       firstName,
@@ -68,9 +68,9 @@ export const AuthProvider = ({ children }) => {
       .then(response => setSuccessAuth(response.data))
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
-  };
+  }
 
-  const authHeader = () => {
+  function authHeader() {
     console.log("crea cabecera");
     console.log(JSON.stringify(token));
     if (token && token.token_type && token.access_token) {
@@ -78,16 +78,16 @@ export const AuthProvider = ({ children }) => {
     } else {
       return {};
     }
-  };
+  }
 
-  const getUserData = () => {
+  function getUserData() {
     return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
       headers: authHeader()
     }).then(response => {
       setUser(response.data);
       return response;
     });
-  };
+  }
 
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
