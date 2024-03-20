@@ -66,7 +66,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
 
   // Reset expanded navbar
   useEffect(() => {
-    setIsOpen(false);
+    if (isOpen) toggleNavbar();
   }, [location]);
 
   // Functions to update state fields from parent
