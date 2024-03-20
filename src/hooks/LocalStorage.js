@@ -10,7 +10,7 @@ export default function useLocalStorage(key) {
       }
     });
 
-  const setValue = (newValue) => {
+  const setNewValue = (newValue) => {
     try {
       console.log("newValue: " + JSON.stringify(newValue));
       const valueToStore =
@@ -22,5 +22,5 @@ export default function useLocalStorage(key) {
       console.error(error);
     }
   };
-  return [storedValue, setValue];
+  return [storedValue, setNewValue];
 };
