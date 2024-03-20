@@ -5,7 +5,7 @@ export default function CardProfile(props) {
   
   return (
     <>
-      <Card.Body id={id} className="card text-start">
+      <Card.Body id={id} className="card">
         <Row className="justify-content-center align-items-center">
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
