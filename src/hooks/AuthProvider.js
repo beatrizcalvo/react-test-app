@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
+        console.log(JSON.stringify(token));
         getUserData()
           .then(() => navigate("/"))
           .catch(() => {
