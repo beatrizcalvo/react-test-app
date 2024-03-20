@@ -1,6 +1,6 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/AuthProvider";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
@@ -22,6 +22,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
   const [isBlur, setIsBlur] = useState(false);
   const [color, setColor] = useState("transparent");
   const { logoutUser } = useAuth();
+  const location = useLocation();
   
   const navbarLinks = [
     {
@@ -63,6 +64,11 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
     window.addEventListener("resize", updateColor.bind(this));
   });
 
+  // Reset expanded navbar
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
     showBlur: (value) => {
@@ -81,7 +87,6 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         variant={color === "dark" ? color : "main"}
         className={"mt-4 mx-4 shadow-none border-radius-xl" + ((isBlur) ? " top-2 blur shadow-blur" : "")}
         onToggle={() => toggleNavbar()} 
-        onSelect={() => setIsOpen(!isOpen)}
         expanded={isOpen}
       >
         <Container fluid className="py-1 pe-3">
