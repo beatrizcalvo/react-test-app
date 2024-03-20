@@ -6,7 +6,7 @@ export default function CardProfile(props) {
   return (
     <>
       <Card.Body id={id} className="card">
-        <Row className="justify-content-center align-items-center">
+        <Row className="justify-content-center justify-content-lg-start align-items-center">
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 rounded-circle shadow-sm" />
