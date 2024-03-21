@@ -11,11 +11,15 @@ export default function useLocalStorage(key, initialValue = null) {
   });
 
   const setStoredValue = useCallback(newValue => {
-    console.log("ejecuta callback");
+    try {
+      const valueToStore = newValue instanceof Function ? newValue(value) : newValue;
+      localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.log(error);
+    }
   }, [value, key]);
 
   useEffect(() => {
-    console.log("ejecuta effect");
     setStoredValue(value);
   }, [value, setStoredValue]);
 
