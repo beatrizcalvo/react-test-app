@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData()
-      .catch(() => setToken(undefined))
+      .catch(() => setToken(null))
       .finally(() => setLoadingInitial(false));
   }, []);
   
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    setToken(undefined);
+    setToken(null);
     setUser(undefined);
     navigate("/login");
   };
