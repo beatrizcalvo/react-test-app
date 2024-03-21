@@ -21,12 +21,11 @@ export default function CardProfile(props) {
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
-              <span className="w-100 border-radius-lg shadow-sm" style={{ background-image: ("../../../assets/img/default_profile.jpg") }}>
-  
-              </span>
+              <span className="w-100 border-radius-lg shadow-sm" style={{ background-image: require("../../../assets/img/default_profile.jpg") }}>
                 <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
                   <i className="fa-solid fa-camera" />
                 </span>
+              </span>
             </div>
           </Col>
           <Col sm="auto" className="col-8 my-auto">
