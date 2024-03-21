@@ -6,9 +6,7 @@ export default function CardProfile(props) {
   const inputFileRef = useRef();
 
   // Show file browser to select file
-  const showFileSearching = () => {
-    alert("Pulsa");
-  };
+  const showFileSearching = () => inputFileRef.current.click();
 
   // Upload file to server
   const uploadFile = () => {
