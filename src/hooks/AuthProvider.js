@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
             const error = {response: {data: {errors: [errorsList]}}};
             setErrorAuth(error);
+            secureLocalStorage.removeItem(AUTH_TOKEN_KEY));
           });
       })
       .catch(error => setErrorAuth(error))
@@ -54,7 +55,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    secureLocalStorage.clear();
+    secureLocalStorage.removeItem(AUTH_TOKEN_KEY);
     setUser(undefined);
     navigate("/login");
   };
@@ -74,9 +75,8 @@ export const AuthProvider = ({ children }) => {
 
   const authHeader = () => {
     const token = secureLocalStorage.getItem(AUTH_TOKEN_KEY);
-    console.log(token);
     if (token) {
-      return { Authorization: "Bearer ${token}" };
+      return { Authorization: "Bearer " + token };
     } else {
       return {};
     }
