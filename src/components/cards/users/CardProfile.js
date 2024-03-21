@@ -1,4 +1,4 @@
-import { Card, Row, Col, Form, Button } from "react-bootstrap";
+import { Card, Row, Col, Form } from "react-bootstrap";
 
 export default function CardProfile(props) {
   const { id, profile } = props;
