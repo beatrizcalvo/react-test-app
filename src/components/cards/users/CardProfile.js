@@ -10,9 +10,7 @@ export default function CardProfile(props) {
 
   // Upload file to server
   const uploadFile = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      alert("Carga");
-    }
+    alert("Carga");
   };
   
   return (
