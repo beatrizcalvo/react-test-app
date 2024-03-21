@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Button } from "react-bootstrap";
 
 export default function CardProfile(props) {
   const { id, profile } = props;
@@ -21,17 +21,13 @@ export default function CardProfile(props) {
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
-              <div 
-                className="w-100 border-radius-lg shadow-sm" 
-                style={{ 
-                  backgroundImage: "url(" + require("../../../assets/img/default_profile.jpg") + ")",
-                  backgroundSize: "cover"
-                }}
-              >
-                <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
+              <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
+              <Button>
+                <i className="fa-solid fa-camera" />
+              </Button>
+                /*<span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
                   <i className="fa-solid fa-camera" />
-                </span>
-              </div>
+                </span>*/
             </div>
           </Col>
           <Col sm="auto" className="col-8 my-auto">
