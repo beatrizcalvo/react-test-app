@@ -8,6 +8,8 @@ import LoadingPage from "../components/views/LoadingPage";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const AUTH_TOKEN_KEY = "access_token";
+  
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
   const [successAuth, setSuccessAuth] = useState(undefined);
@@ -27,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData()
-      .catch(() => {})
+      .catch(() => secureLocalStorage.clear())
       .finally(() => setLoadingInitial(false));
   }, []);
   
@@ -38,8 +40,7 @@ export const AuthProvider = ({ children }) => {
       password
     })
       .then(response => {
-        // set token
-        console.log("ejecuta setToken");
+        secureLocalStorage.setItem(AUTH_TOKEN_KEY, response.data.access_token);
         getUserData()
           .then(() => navigate("/"))
           .catch(() => {
@@ -53,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    // remove token
+    secureLocalStorage.clear();
     setUser(undefined);
     navigate("/login");
   };
