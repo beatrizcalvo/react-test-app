@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData()
-      .catch(() => {// remove token})
+      .catch(() => {})
       .finally(() => setLoadingInitial(false));
   }, []);
   
