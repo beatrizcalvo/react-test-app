@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
             const error = {response: {data: {errors: [errorsList]}}};
             setErrorAuth(error);
-            secureLocalStorage.removeItem(AUTH_TOKEN_KEY));
+            secureLocalStorage.removeItem(AUTH_TOKEN_KEY);
           });
       })
       .catch(error => setErrorAuth(error))
