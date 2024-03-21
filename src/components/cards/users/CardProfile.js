@@ -10,7 +10,9 @@ export default function CardProfile(props) {
 
   // Upload file to server
   const uploadFile = (event) => {
-    
+    if (event.target.files && event.target.files[0]) {
+      alert("Carga");
+    }
   };
   
   return (
@@ -26,7 +28,13 @@ export default function CardProfile(props) {
               <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
                   <i className="fa-solid fa-camera" />
               </span>
-              <Form.Control ref={inputFileRef} type="file" className="d-none" />
+              <Form.Control 
+                ref={inputFileRef} 
+                type="file" 
+                accept="image/*" 
+                className="d-none"
+                onChange={() => uploadFile()}
+              />
             </div>
           </Col>
           <Col sm="auto" className="col-8 my-auto">
