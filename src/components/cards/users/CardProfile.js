@@ -10,9 +10,9 @@ export default function CardProfile(props) {
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
-              <Form.Control type="file" className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
-                <i className="fa-solid fa-camera" />
-              </Form.Control>
+              <Form.Group className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
+                <Form.Control as="i" type="file" className="fa-solid fa-camera">
+              </Form.Group>
             </div>
           </Col>
           <Col sm="auto" className="col-8 my-auto">
