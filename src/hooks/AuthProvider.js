@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData()
-      .catch(() => secureLocalStorage.clear())
+      .catch(() => secureLocalStorage.removeItem(AUTH_TOKEN_KEY))
       .finally(() => setLoadingInitial(false));
   }, []);
   
@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
             const error = {response: {data: {errors: [errorsList]}}};
             setErrorAuth(error);
+            secureLocalStorage.clear();
           });
       })
       .catch(error => setErrorAuth(error))
