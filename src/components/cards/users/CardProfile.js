@@ -20,7 +20,10 @@ export default function CardProfile(props) {
       <Card.Body id={id} className="card">
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
-            <div className="avatar avatar-xl position-relative">
+            <div 
+              className="avatar avatar-xl position-relative" 
+              onClick={() => showFileSearching()}
+            >
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
               <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
                   <i className="fa-solid fa-camera" />
