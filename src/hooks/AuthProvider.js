@@ -74,6 +74,7 @@ export const AuthProvider = ({ children }) => {
 
   const authHeader = () => {
     const token = secureLocalStorage.getItem(AUTH_TOKEN_KEY);
+    console.log(token);
     if (token) {
       return { Authorization: "Bearer ${token}" };
     } else {
