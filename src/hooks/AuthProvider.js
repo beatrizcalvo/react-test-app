@@ -31,10 +31,6 @@ export const AuthProvider = ({ children }) => {
       .catch(() => setToken(undefined))
       .finally(() => setLoadingInitial(false));
   }, []);
-
-  useEffect(() => {
-    console.log("ejecuta effect");
-  }, [loginUser]);
   
   const loginUser = (email, password) => {
     setLoadingAuth(true);
