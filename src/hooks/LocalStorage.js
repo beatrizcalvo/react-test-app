@@ -13,7 +13,6 @@ export default function useLocalStorage(key, initialValue = null) {
   const setStoredValue = useCallback(newValue => {
     try {
       const valueToStore = newValue instanceof Function ? newValue(value) : newValue;
-      setValue(valueToStore);
       localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
