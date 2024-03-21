@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col, Form } from "react-bootstrap";
 
 export default function CardProfile(props) {
   const { id, profile } = props;
@@ -9,7 +9,7 @@ export default function CardProfile(props) {
   const showFileSearching = () => inputFileRef.current.click();
 
   // Upload file to server
-  const uploadFile = () => {
+  const uploadFile = (event) => {
     
   };
   
@@ -26,6 +26,7 @@ export default function CardProfile(props) {
               <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
                   <i className="fa-solid fa-camera" />
               </span>
+              <Form.Control ref={inputFileRef} type="file" className="d-none" />
             </div>
           </Col>
           <Col sm="auto" className="col-8 my-auto">
