@@ -9,6 +9,11 @@ export default function CardProfile(props) {
   const showFileSearching = () => {
     inputFileRef.current.click();
   };
+
+  // Upload file to server
+  const uploadFile = () => {
+    
+  };
   
   return (
     <>
