@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function useLocalStorage(key, initialValue = null) {
-  const [storedValue, setStoredValue] = useState(initialValue);
-
-  const setValue = (value) => {
+  const [value, setValue] = useState(() => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.log(error);
+      return initialValue;
     }
-  };
+  });
+
+  const setStoredValue = useCallback(newValue => {
+    console.log("ejecuta callback");
+  }, [value, key]);
 
   useEffect(() => {
-    try {
-      const item = window.localStorage.getItem(key)
-      setStoredValue(item ? JSON.parse(item) : initialValue)
-    } catch (error) {
-      console.log(error)
-      return setStoredValue(initialValue)
-    }
-  }, []);
+    console.log("ejecuta effect");
+  }, [value, setStoredValue]);
 
-  return [storedValue, setValue];  
+  return [value, setStoredValue];  
 }
