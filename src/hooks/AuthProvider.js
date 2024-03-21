@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
   const [loadingInitial, setLoadingInitial] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-  const [prueba, setPrueba] = useState(undefined);
 
   // Reset error and success states if we change page
   useEffect(() => {
@@ -41,8 +40,6 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         setToken(response.data);
-        setPrueba("prueba")
-        console.log(prueba);
         getUserData()
           .then(() => navigate("/"))
           .catch(() => {
