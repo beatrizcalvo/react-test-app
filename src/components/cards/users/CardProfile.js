@@ -18,23 +18,15 @@ export default function CardProfile(props) {
   return (
     <>
       <Card.Body id={id} className="card">
-        <Row className="justify-content-center justify-content-lg-start align-items-center">
+        <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
             <div className="avatar avatar-xl position-relative">
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
-              <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
-                <i className="fa-solid fa-camera" />
-              </span>
-              /*<Form.Control 
-                ref={inputFileRef} 
-                type="file" 
-                className="d-none" 
-              />*/
             </div>
           </Col>
           <Col sm="auto" className="col-8 my-auto">
             <div className="h-100">
-              <h5 class="mb-1 font-weight-bolder">
+              <h5 className="mb-1 font-weight-bolder">
                 { profile.fullName }
               </h5>
               <p className="mb-0 font-weight-normal text-sm">
