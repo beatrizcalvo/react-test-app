@@ -73,13 +73,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
-    /*if (token && token.token_type && token.access_token) {
-      return { Authorization: token.token_type.trim() + " " + token.access_token };
+    const token = secureLocalStorage.getItem(AUTH_TOKEN_KEY);
+    if (token) {
+      return { Authorization: "Bearer ${token}" };
     } else {
       return {};
-    }*/
-    // get token
-    return {};
+    }
   };
 
   const getUserData = () => {
