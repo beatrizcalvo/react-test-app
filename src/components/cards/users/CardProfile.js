@@ -3,7 +3,7 @@ import { Card, Row, Col, Form } from "react-bootstrap";
 export default function CardProfile(props) {
   const { id, profile } = props;
 
-  const uploadFile = (value) = {
+  const uploadFile = (value) => {
     console.log(JSON.stringify(value));
   };
   
