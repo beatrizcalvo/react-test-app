@@ -28,9 +28,11 @@ export const AuthProvider = ({ children }) => {
   // If there is an error, it means there is no session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
-    getUserData()
-      .catch(() => secureLocalStorage.removeItem(AUTH_TOKEN_KEY))
-      .finally(() => setLoadingInitial(false));
+    if (!user) {
+      getUserData()
+        .catch(() => secureLocalStorage.removeItem(AUTH_TOKEN_KEY))
+        .finally(() => setLoadingInitial(false));
+    }
   }, []);
   
   const loginUser = (email, password) => {
