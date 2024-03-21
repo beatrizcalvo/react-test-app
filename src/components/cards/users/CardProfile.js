@@ -20,6 +20,9 @@ export default function CardProfile(props) {
               <h5 class="mb-1 font-weight-bolder">
                 { profile.fullName }
               </h5>
+              <p className="mb-0 font-weight-normal text-sm">
+                { profile.typeDescription }
+              </p>
             </div>
           </Col>
         </Row>
