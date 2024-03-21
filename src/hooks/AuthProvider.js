@@ -1,14 +1,13 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import  secureLocalStorage  from  "react-secure-storage";
 
-import useLocalStorage from "./LocalStorage";
 import LoadingPage from "../components/views/LoadingPage";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {  
-  const [token, setToken] = useLocalStorage("access_token");
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
   const [successAuth, setSuccessAuth] = useState(undefined);
@@ -28,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     getUserData()
-      .catch(() => setToken(null))
+      .catch(() => {// remove token})
       .finally(() => setLoadingInitial(false));
   }, []);
   
@@ -39,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       password
     })
       .then(response => {
-        setToken(response.data);
+        // set token
         console.log("ejecuta setToken");
         getUserData()
           .then(() => navigate("/"))
@@ -54,7 +53,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    setToken(null);
+    // remove token
     setUser(undefined);
     navigate("/login");
   };
@@ -73,11 +72,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   const authHeader = () => {
-    if (token && token.token_type && token.access_token) {
+    /*if (token && token.token_type && token.access_token) {
       return { Authorization: token.token_type.trim() + " " + token.access_token };
     } else {
       return {};
-    }
+    }*/
+    // get token
+    return {};
   };
 
   const getUserData = () => {
