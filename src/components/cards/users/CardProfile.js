@@ -31,7 +31,7 @@ export default function CardProfile(props) {
                 type="file" 
                 accept="image/*" 
                 className="d-none"
-                onChange={() => uploadFile()}
+                onChange={uploadFile}
               />
             </div>
           </Col>
