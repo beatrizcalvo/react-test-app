@@ -7,10 +7,8 @@ export default function Alert(props) {
     switch(variant) {
       case "danger":
         return "fa-solid fa-circle-exclamation";
-      case "success":
-        return "fa-solid fa-circle-check";
       default:
-        return "fa-solid fa-thumbs-up";
+        return "fa-solid fa-circle-check";
     }
   };
   
@@ -19,12 +17,19 @@ export default function Alert(props) {
       <ToastContainer position="top-end">
         <Toast 
           bg={variant}
+          show={show}
           autohide 
           delay={5000}
+          onClose={() => setShow(false)}
         >
           <Toast.Body className="d-flex gap-4 text-white">
             <span><i className={alertIcon() + " fa-lg"} /></span>
-            Hello, world! This is a toast message.
+            <div className="d-flex flex-grow-1 aling-items-center">
+              <span className="fw-semibold">
+                { (variant === "danger") ? "Error!! " : "Success!! " }
+              </span>
+              Hello, world! This is a toast message.
+            </div>
           </Toast.Body>
         </Toast>
       </ToastContainer>
