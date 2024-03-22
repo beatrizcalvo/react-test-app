@@ -5,7 +5,7 @@ import Alert from "../../popups/Alert";
 
 export default function CardProfile(props) {
   const [showAlert, setShowAlert] = useState(false);  
-  const [alertConfig, setAlertConfig] = useState(alertSuccess);
+  const [alertConfig, setAlertConfig] = useState(undefined);
   const { id, profile } = props;
   const inputFileRef = useRef();
 
@@ -30,7 +30,7 @@ export default function CardProfile(props) {
   
   return (
     <>
-      <Alert {...alertConfig} />
+      <Alert show={showAlert} {...alertConfig} />
       <Card.Body id={id} className="card">
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
