@@ -14,7 +14,7 @@ export default function CardProfile(props) {
 
   // Upload file to server
   const uploadFile = (event) => {
-    console.log(showAlert);
+    console.log(event.target.files);
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].size > 1 * 1000 * 1024) {
         setAlertConfig({variant: "danger", message: event.target.files[0].fileName});
