@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import  secureLocalStorage  from  "react-secure-storage";
 
 import LoadingPage from "../components/views/LoadingPage";
+import useAxiosWithCredentials from "./AxiosWithCredentials";
 
 const AUTH_TOKEN_KEY = "access_token";
 const AuthContext = createContext();
@@ -16,6 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [loadingInitial, setLoadingInitial] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  const axiosCrendentials = useAxiosWithCrendetials(process.env.REACT_APP_AUTH_API);  
 
   // Reset error and success states if we change page
   useEffect(() => {
@@ -28,7 +30,8 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     if (!user) {
-      getUserData()
+      axiosCredentials.get("/users/me")
+        .then(response => setUser(response.data))
         .catch(() => secureLocalStorage.removeItem(AUTH_TOKEN_KEY))
         .finally(() => setLoadingInitial(false));
     }
