@@ -7,6 +7,8 @@ import LoadingPage from "../components/views/LoadingPage";
 import UsersService from "../services/UsersService";
 
 const AUTH_TOKEN_KEY = "access_token";
+const REFRESH_TOKEN_KEY = "refresh_token";
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {  
@@ -31,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     if (!user) {
       UsersService.getCurrentUser()
         .then(response => setUser(response.data))
-        .catch(() => secureLocalStorage.removeItem(AUTH_TOKEN_KEY))
+        .catch(() => clearLocalSorage())
         .finally(() => setLoadingInitial(false));
     }
   }, []);
@@ -53,7 +55,7 @@ export const AuthProvider = ({ children }) => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
             const error = {response: {data: {errors: [errorsList]}}};
             setErrorAuth(error);
-            secureLocalStorage.removeItem(AUTH_TOKEN_KEY);
+            clearLocalSorage();
           });
       })
       .catch(error => setErrorAuth(error))
@@ -61,7 +63,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logoutUser = () => {
-    secureLocalStorage.removeItem(AUTH_TOKEN_KEY);
+    clearLocalSorage();
     setUser(undefined);
     navigate("/login");
   };
@@ -77,6 +79,11 @@ export const AuthProvider = ({ children }) => {
       .then(response => setSuccessAuth(response.data))
       .catch(error => setErrorAuth(error))
       .finally(() => setLoadingAuth(false));
+  };
+
+  const clearLocalSorage = () => {
+    secureLocalStorage.removeItem(AUTH_TOKEN_KEY);
+    secureLocalStorage.removeItem(REFRESH_TOKEN_KEY);
   };
 
   // Make the provider update only when it should
