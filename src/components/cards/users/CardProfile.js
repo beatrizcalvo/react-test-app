@@ -21,7 +21,7 @@ export default function CardProfile(props) {
         setShowAlert(true);
         return false;
       }
-      setAlertConfig({variant: "success", , message: event.target.files[0].fileName});
+      setAlertConfig({variant: "success", message: event.target.files[0].fileName});
       setShowAlert(true);
     }
   };
