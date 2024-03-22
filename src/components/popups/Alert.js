@@ -17,13 +17,15 @@ export default function Alert(props) {
   return (
     <>
       <ToastContainer position="top-end">
-        <Toast bg="info">
-          <Toast.Header>
+        <Toast 
+          bg={variant}
+          autohide 
+          delay={5000}
+        >
+          <Toast.Body className="d-flex gap-4 text-white">
             <span><i className={alertIcon() + " fa-lg"} /></span>
-            <strong className="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+            Hello, world! This is a toast message.
+          </Toast.Body>
         </Toast>
       </ToastContainer>
     </>
