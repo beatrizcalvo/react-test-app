@@ -1,4 +1,4 @@
-import { ToastContainer, Toast } from "react-bootstrap";
+import { ToastContainer, Toast, Button } from "react-bootstrap";
 
 export default function Alert(props) {
   const { show, setShow, variant } = props;
@@ -12,6 +12,7 @@ export default function Alert(props) {
               <span><i className="fa-solid fa-circle-check fa-lg" /></span>
               <div className="d-flex flex-grow-1 aling-items-center">
                 <span className="fw-semibold">Prueba Alert</span>
+                <Button bsPrefix="btn-close" variant="white" className="btn-close-sm ms-auto" onClick={() => setShow(false)} />
               </div>
             </div>
           </Toast.Body>
