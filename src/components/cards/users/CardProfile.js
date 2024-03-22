@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import { Card, Row, Col, Form } from "react-bootstrap";
 
+import Alert from "../../popups/Alert";
+
 export default function CardProfile(props) {
   const { id, profile } = props;
   const inputFileRef = useRef();
@@ -21,6 +23,7 @@ export default function CardProfile(props) {
   
   return (
     <>
+      <Alert />
       <Card.Body id={id} className="card">
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
