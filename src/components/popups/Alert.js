@@ -27,7 +27,7 @@ export default function Alert(props) {
             <div className="d-flex flex-grow-1 aling-items-center">
               <span>
                 <strong>{ (variant === "danger") ? "ERROR!!" : "SUCCESS!!" }</strong>
-                <p><small>Hello, world! This is a toast message.</small></p>
+                <p><small>{message}</small></p>
               </span>
               <Button 
                 bsPrefix="btn-close" 
