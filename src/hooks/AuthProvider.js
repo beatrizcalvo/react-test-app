@@ -5,11 +5,10 @@ import  secureLocalStorage  from  "react-secure-storage";
 
 import LoadingPage from "../components/views/LoadingPage";
 
+const AUTH_TOKEN_KEY = "access_token";
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const AUTH_TOKEN_KEY = "access_token";
-  
+export const AuthProvider = ({ children }) => {  
   const [user, setUser] = useState(undefined);
   const [errorAuth, setErrorAuth] = useState(undefined);
   const [successAuth, setSuccessAuth] = useState(undefined);
