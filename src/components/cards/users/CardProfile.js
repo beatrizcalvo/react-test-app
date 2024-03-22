@@ -17,6 +17,7 @@ export default function CardProfile(props) {
 
   // Upload file to server
   const uploadFile = (event) => {
+    setAlertConfig(undefined);
     const fileToUpload = event.target.files[0];
     
     // Check file size
