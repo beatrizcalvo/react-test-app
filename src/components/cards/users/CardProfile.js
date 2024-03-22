@@ -3,9 +3,12 @@ import { Card, Row, Col, Form } from "react-bootstrap";
 
 import Alert from "../../popups/Alert";
 
+const MAX_SIZE_MB = 1;
+
 export default function CardProfile(props) {
   const [showAlert, setShowAlert] = useState(false);  
   const [alertConfig, setAlertConfig] = useState(undefined);
+  
   const { id, profile } = props;
   const inputFileRef = useRef();
 
@@ -14,13 +17,14 @@ export default function CardProfile(props) {
 
   // Upload file to server
   const uploadFile = (event) => {
-    console.log(event.target.files);
-    if (event.target.files && event.target.files[0]) {
-      if (event.target.files[0].size > 1 * 1000 * 1024) {
-        setAlertConfig({variant: "danger", message: event.target.files[0].fileName});
-        setShowAlert(true);
-        return false;
-      }
+    const fileToUpload = event.target.files[0];
+    console.log(fileToUpload);
+    if (fileToUpload.size > MAX_SIZE_MB * 1000 * 1024) {
+      const errorMessage = "The file ${fileToUpload.name} is larger then ${MAX_SIZE_MB}Mb";
+      setAlertConfig({variant: "danger", message: errorMessage});
+      setShowAlert(true);
+      return false;
+    }
       setAlertConfig({variant: "success", message: event.target.files[0].fileName});
       setShowAlert(true);
     }
