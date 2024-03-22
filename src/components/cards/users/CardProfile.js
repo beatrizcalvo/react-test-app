@@ -17,11 +17,11 @@ export default function CardProfile(props) {
     console.log(showAlert);
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].size > 1 * 1000 * 1024) {
-        setAlertConfig({variant: "danger"});
+        setAlertConfig({variant: "danger", message: event.target.files[0].fileName});
         setShowAlert(true);
         return false;
       }
-      setAlertConfig({variant: "success"});
+      setAlertConfig({variant: "success", , message: event.target.files[0].fileName});
       setShowAlert(true);
     }
   };
