@@ -17,7 +17,8 @@ export default function Alert(props) {
       <ToastContainer position="top-end">
         <Toast 
           bg={variant}
-          autohide 
+          show={show}
+          
           delay={5000}
           onClose={() => setShow(false)}
         >
