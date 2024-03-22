@@ -1,4 +1,4 @@
-import { ToastContainer, Toast } from "react-bootstrap";
+import { ToastContainer, Toast, Button } from "react-bootstrap";
 
 export default function Alert(props) {
   const { show, setShow, variant } = props;
@@ -29,6 +29,7 @@ export default function Alert(props) {
                 { (variant === "danger") ? "Error!! " : "Success!! " }
               </span>
               Hello, world! This is a toast message.
+              <Button bsPrefix="btn-close" />
             </div>
           </Toast.Body>
         </Toast>
