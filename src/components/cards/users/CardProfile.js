@@ -11,7 +11,10 @@ export default function CardProfile(props) {
   // Upload file to server
   const uploadFile = (event) => {
     if (event.target.files && event.target.files[0]) {
-      alert("Carga");
+      if (event.target.files[0].size > 1 * 1000 * 1024) {
+        alert("Archivo de mas de un mb");
+      }
+      alert("OK");
     }
   };
   
