@@ -9,16 +9,6 @@ export default function CardProfile(props) {
   const { id, profile } = props;
   const inputFileRef = useRef();
 
-  // Alert config when upload file was success
-  const alertSuccess = {
-    variant: "success"
-  };
-
-  // Alert config when upload file has an error
-  const alertError = {
-    variant: "danger"
-  };
-
   // Show file browser to select file
   const showFileSearching = () => inputFileRef.current.click();
 
@@ -26,11 +16,11 @@ export default function CardProfile(props) {
   const uploadFile = (event) => {
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].size > 1 * 1000 * 1024) {
-        setAlertConfig(alertError);
+        setAlertConfig({variant: "danger"});
         setShowAlert(true);
         return false;
       }
-      setAlertConfig(alertSuccess);
+      setAlertConfig({variant: "success"});
       setShowAlert(true);
     }
   };
