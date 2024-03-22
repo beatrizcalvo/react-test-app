@@ -54,7 +54,7 @@ export default function CardProfile(props) {
                 type="file" 
                 accept=".jpg,.jpeg,.png" 
                 className="d-none"
-                onChange={() => uploadFile()}
+                onChange={(e) => uploadFile(e)}
               />
             </div>
           </Col>
