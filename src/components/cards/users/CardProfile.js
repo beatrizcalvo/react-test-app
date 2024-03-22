@@ -13,6 +13,7 @@ export default function CardProfile(props) {
     if (event.target.files && event.target.files[0]) {
       if (event.target.files[0].size > 1 * 1000 * 1024) {
         alert("Archivo de mas de un mb");
+        return false;
       }
       alert("OK");
     }
