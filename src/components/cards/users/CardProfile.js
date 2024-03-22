@@ -18,7 +18,8 @@ export default function CardProfile(props) {
   // Upload file to server
   const uploadFile = (event) => {
     const fileToUpload = event.target.files[0];
-    console.log(fileToUpload);
+    
+    // Check file size
     if (fileToUpload.size > MAX_SIZE_MB * 1000 * 1024) {
       const errorMessage = "The file ${fileToUpload.name} is larger then ${MAX_SIZE_MB}Mb";
       setAlertConfig({variant: "danger", message: errorMessage});
