@@ -11,6 +11,8 @@ interface RetryQueueItem {
 
 export default function axiosWithCredentials (baseURL) {
   const axiosInstance = axios.create({ baseURL: baseURL });
+  const refreshAndRetryQueue: RetryQueueItem[] = [];
+  let isRefreshing = false;
 
   axiosInstance.interceptors.request.use(
     async (config) => {
@@ -28,7 +30,13 @@ export default function axiosWithCredentials (baseURL) {
 
   axiosInstance.interceptors.response.use(
     (response) => response,
-    async (error) => Promise.reject(error)
+    async (error) => {
+      const originalRequest: AxiosRequestConfig = error.config;
+      if (error.response && error.response.status === 401) {
+        
+      }
+      return Promise.reject(error);
+    }
   );
   
   return axiosInstance;
