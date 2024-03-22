@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [loadingInitial, setLoadingInitial] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-  const axiosCrendentials = useAxiosWithCrendetials(process.env.REACT_APP_AUTH_API);  
+  const axiosCrendentials = useAxiosWithCredentials(process.env.REACT_APP_AUTH_API);  
 
   // Reset error and success states if we change page
   useEffect(() => {
