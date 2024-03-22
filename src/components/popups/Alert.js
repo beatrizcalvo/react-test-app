@@ -17,7 +17,6 @@ export default function Alert(props) {
       <ToastContainer position="top-end">
         <Toast 
           bg={variant}
-          show={show}
           autohide 
           delay={5000}
           onClose={() => setShow(false)}
@@ -29,7 +28,7 @@ export default function Alert(props) {
                 { (variant === "danger") ? "Error!! " : "Success!! " }
               </span>
               Hello, world! This is a toast message.
-              <Button bsPrefix="btn-close" />
+              <Button bsPrefix="btn-close" variant="white" />
             </div>
           </Toast.Body>
         </Toast>
