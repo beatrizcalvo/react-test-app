@@ -37,7 +37,7 @@ export default function CardProfile(props) {
   
   return (
     <>
-      <Alert show={showAlert} {...alertConfig} />
+      <Alert show={showAlert} setShow={setShowAlert} {...alertConfig} />
       <Card.Body id={id} className="card">
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
