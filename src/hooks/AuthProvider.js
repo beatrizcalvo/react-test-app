@@ -44,8 +44,11 @@ export const AuthProvider = ({ children }) => {
     })
       .then(response => {
         secureLocalStorage.setItem(AUTH_TOKEN_KEY, response.data.access_token);
-        getUserData()
-          .then(() => navigate("/"))
+        UsersService.getCurrentUser()
+          .then(userResponse => {
+            setUser(userResponse.data)
+            navigate("/")
+          })
           .catch(() => {
             const errorsList = {message: "Application login error", description: "Can not get user data"};
             const error = {response: {data: {errors: [errorsList]}}};
@@ -76,24 +79,6 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoadingAuth(false));
   };
 
-  const authHeader = () => {
-    const token = secureLocalStorage.getItem(AUTH_TOKEN_KEY);
-    if (token) {
-      return { Authorization: "Bearer " + token };
-    } else {
-      return {};
-    }
-  };
-
-  const getUserData = () => {
-    return axios.get(process.env.REACT_APP_AUTH_API + "/users/me", { 
-      headers: authHeader()
-    }).then(response => {
-      setUser(response.data);
-      return response;
-    });
-  };
-
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     user,
@@ -102,8 +87,7 @@ export const AuthProvider = ({ children }) => {
     successAuth,
     loginUser,
     logoutUser,
-    registerUser,
-    authHeader
+    registerUser
   }), [user, loadingAuth, errorAuth, successAuth]);
 
   return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children || <LoadingPage />}</AuthContext.Provider>;
