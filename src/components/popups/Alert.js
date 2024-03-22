@@ -17,7 +17,7 @@ export default function Alert(props) {
   return (
     <>
       <ToastContainer position="top-end">
-        <Toast>
+        <Toast bg="info">
           <Toast.Header>
             <span><i className={alertIcon() + " fa-lg"} /></span>
             <strong className="me-auto">Bootstrap</strong>
