@@ -5,15 +5,12 @@ export default function Alert(props) {
   
   return (
     <>
-      <ToastContainer position="top-end">
+      <ToastContainer position="top-end" className="px-1">
         <Toast bg={variant} show={show} delay={3000} autohide onClose={() => setShow(false)}>
+          <Toast.Header />
           <Toast.Body>
             <div className="d-flex gap-4 text-white">
-              <span><i className="fa-solid fa-circle-check fa-lg" /></span>
-              <div className="d-flex flex-grow-1 aling-items-center">
-                <span className="fw-semibold">Prueba Alert</span>
-                <Button bsPrefix="btn-close" variant="white" className="btn-close-sm ms-auto" onClick={() => setShow(false)} />
-              </div>
+              
             </div>
           </Toast.Body>
         </Toast>
