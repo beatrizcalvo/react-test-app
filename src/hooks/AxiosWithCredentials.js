@@ -23,6 +23,6 @@ axiosInstance.interceptors.response.use(
   (error) => { Promise.reject(error) }
 );
 
-export default function useAxiosWithCrendetials = (baseURL) => {
+export default function useAxiosWithCrendetials (baseURL) {
   return axiosInstance;
 };
