@@ -1,7 +1,13 @@
-import axios from "axios";
-import  secureLocalStorage  from  "react-secure-storage";
+import axios, { AxiosRequestConfig } from "axios";
+import secureLocalStorage from  "react-secure-storage";
 
 const AUTH_TOKEN_KEY = "access_token";
+
+interface RetryQueueItem {
+  resolve: (value?: any) => void;
+  reject: (error?: any) => void;
+  config: AxiosRequestConfig;
+}
 
 export default function axiosWithCredentials (baseURL) {
   const axiosInstance = axios.create({ baseURL: baseURL });
