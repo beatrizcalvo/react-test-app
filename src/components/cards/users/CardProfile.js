@@ -1,11 +1,18 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Card, Row, Col, Form } from "react-bootstrap";
 
 import Alert from "../../popups/Alert";
 
 export default function CardProfile(props) {
+  const [showAlert, setShowAlert] = useState(false);  
+  const [alertConfig, setAlertConfig] = useState(alertSuccess);
   const { id, profile } = props;
   const inputFileRef = useRef();
+
+  // Alert config when upload file was success
+  const alertSuccess = {
+    variant: "success"
+  };
 
   // Show file browser to select file
   const showFileSearching = () => inputFileRef.current.click();
@@ -23,7 +30,7 @@ export default function CardProfile(props) {
   
   return (
     <>
-      <Alert />
+      <Alert {...alertConfig} />
       <Card.Body id={id} className="card">
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
