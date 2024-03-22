@@ -52,7 +52,7 @@ export default function CardProfile(props) {
               <Form.Control 
                 ref={inputFileRef} 
                 type="file" 
-                accept="image/*" 
+                accept=".jpg,.jpeg,.png" 
                 className="d-none"
                 onChange={uploadFile}
               />
