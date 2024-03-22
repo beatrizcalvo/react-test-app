@@ -22,14 +22,17 @@ export default function Alert(props) {
           delay={5000}
           onClose={() => setShow(false)}
         >
-          <Toast.Body className="d-flex gap-4 text-white">
+          <Toast.Body className="d-flex gap-3 text-white">
             <span><i className={alertIcon() + " fa-lg"} /></span>
             <div className="d-flex flex-grow-1 aling-items-center">
-              <span className="fw-semibold">
-                { (variant === "danger") ? "Error!! " : "Success!! " }
+              <span>
+                <strong><em>{ (variant === "danger") ? "Error!!" : "Success!!" }</em></strong>
+                {" "}
+                Hello, world! This is a toast message.
               </span>
-              Hello, world! This is a toast message.
-              <Button bsPrefix="btn-close" variant="white" />
+              <Button bsPrefix="btn-close" className="text-white btn-close-sm ms-auto">
+                <i className="fa-solid fa-xmark"/>
+              </Button>
             </div>
           </Toast.Body>
         </Toast>
