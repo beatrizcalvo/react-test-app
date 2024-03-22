@@ -1,7 +1,7 @@
-import  secureLocalStorage  from  "react-secure-storage";
-import useAxiosWithCredentials from "../hooks/AxiosWithCredentials";
+import secureLocalStorage from "react-secure-storage";
+import axiosWithCredentials from "../hooks/AxiosWithCredentials";
 
-const axiosCredentials = useAxiosWithCredentials(process.env.REACT_APP_AUTH_API); 
+const axiosCredentials = axiosWithCredentials(process.env.REACT_APP_AUTH_API); 
 
 const getCurrentUser = () => { return axiosCredentials.get("/users/me") };
 
