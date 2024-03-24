@@ -68,7 +68,7 @@ export default function axiosWithCredentials (baseURL) {
         }
 
         // Add the original request to the queue
-        return new Promise<void>((resolve, reject) => {
+        return new Promise((resolve, reject) => {
           refreshAndRetryQueue.push({ config: originalRequest, resolve, reject });
         });
       }
