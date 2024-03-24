@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import secureLocalStorage from  "react-secure-storage";
 
-const AUTH_TOKEN_KEY = "access_token";
+const ACCESS_TOKEN_KEY = "access_token";
 const REFRESH_TOKEN_KEY = "refresh_token";
 
 interface RetryQueueItem {
@@ -17,7 +17,7 @@ export default function axiosWithCredentials (baseURL) {
 
   axiosInstance.interceptors.request.use(
     async (config) => {
-      const token = secureLocalStorage.getItem(AUTH_TOKEN_KEY);
+      const token = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
       if (token) {
         config.headers = {
           ...config.headers,
