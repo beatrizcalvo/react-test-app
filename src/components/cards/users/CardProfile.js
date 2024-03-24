@@ -3,9 +3,9 @@ import { Card, Row, Col, Form } from "react-bootstrap";
 
 import Alert from "../../popups/Alert";
 
-const MAX_SIZE_MB = 1;
-
 export default function CardProfile(props) {
+  const MAX_SIZE_MB = 1;
+  
   const [showAlert, setShowAlert] = useState(false);  
   const [alertConfig, setAlertConfig] = useState(undefined);
   
