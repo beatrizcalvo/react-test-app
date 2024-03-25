@@ -1,4 +1,4 @@
-import { Toast } from "react-bootstrap";
+import { Toast, Button } from "react-bootstrap";
 
 export default function Alert(props) {
   const { variant, message } = props;
