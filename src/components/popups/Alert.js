@@ -18,12 +18,13 @@ export default function Alert(props) {
       <Toast 
         bg={variant}
       >
-        <Toast.Body className="d-flex gap-3 text-white">
+        <Toast.Body className="d-flex gap-2 text-white">
           <span><i className={alertIcon() + " fa-lg"} /></span>
           <div className="d-flex flex-grow-1 aling-items-center">
             <span>
               <strong>{ (variant === "danger") ? "ERROR!!" : "SUCCESS!!" }</strong>
-              <p className="text-xs">{message}</p>
+              <br/>
+              <span className="text-xs">{message}</span>
             </span>
           </div>
         </Toast.Body>
