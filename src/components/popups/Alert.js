@@ -21,7 +21,8 @@ export default function Alert(props) {
       <Toast 
         bg={variant} 
         autohide
-        delay={10000}
+        delay={10000} 
+        onClose={() => removeAlert(id)}
       >
         <Toast.Body className="d-flex gap-2 text-white">
           <span><i className={alertIcon() + " fa-lg"} /></span>
