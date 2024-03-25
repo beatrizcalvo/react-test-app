@@ -47,7 +47,7 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <ToastContainer position="bottom-end">
+      <ToastContainer position="bottom-end" className="px-1 py-3">
         { alerts.map(item => { return <Alert {...item} />; }) }
       </ToastContainer>
       <SidebarDashboard />
