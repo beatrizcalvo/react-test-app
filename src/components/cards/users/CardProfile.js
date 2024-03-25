@@ -9,6 +9,7 @@ export default function CardProfile(props) {
       
   const { id } = props;
   const { user } = useAuth();
+  const { addNewAlert } = useAlerts();
   const inputFileRef = useRef();
 
   // Show file browser to select file
