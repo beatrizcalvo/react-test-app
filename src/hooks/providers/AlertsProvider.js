@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 
 const AlertsContext = createContext();
 
-export const AlertsProvider = ({ children }) => {
+export const AlertsProvider = ({ alerts, setAlerts, children }) => {
   
 };
 
