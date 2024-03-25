@@ -1,7 +1,7 @@
 import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-import { useAuth } from "../../hooks/AuthProvider";
+import { useAuth } from "../../hooks/providers/AuthProvider";
 
 export default function LoginForm(props) {
   const connectionError = "Cannot connect to the user registration server.";
