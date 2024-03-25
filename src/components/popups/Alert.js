@@ -1,7 +1,10 @@
 import { Toast, Button } from "react-bootstrap";
 
+import { useAlerts } from "../../hooks/providers/AlertsProvider";
+
 export default function Alert(props) {
   const { id, variant, message } = props;
+  const { removeAlert } = useAlerts();
 
   // Get icon depending on variant value
   const alertIcon = () => {
@@ -26,11 +29,12 @@ export default function Alert(props) {
             <span>
               <strong>{ (variant === "danger") ? "ERROR!!" : "SUCCESS!!" }</strong>
               <br/>
-              <span className="text-xs">{id} - {message}</span>
+              <span className="text-xs">{message}</span>
             </span>
             <Button 
               bsPrefix="btn-close" 
               className="text-white btn-close-sm ms-auto" 
+              onClick={() => removeAlert(id)}
             >
               <i className="fa-solid fa-xmark"/>
             </Button>
