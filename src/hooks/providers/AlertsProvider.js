@@ -3,14 +3,16 @@ import { createContext, useContext, useMemo } from "react";
 const AlertsContext = createContext();
 
 interface AlertType {
-  variant: string
+  variant: string,
+  message: string
 };
 
 export const AlertsProvider = ({ alerts, setAlerts, children }) => {
 
-  const addNewAlert = (variant) => {
+  const addNewAlert = (variant, message) => {
     const newAlert: AlertType = {
-      variant: variant
+      variant: variant,
+      message: message
     };
     setAlerts(prevAlertsArray => [...prevAlertsArray, newAlert]);
   };
