@@ -47,18 +47,18 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <ToastContainer position="bottom-end" className="px-1 py-3">
-        { alerts.map(item => { return <Alert {...item} />; }) }
-      </ToastContainer>
-      <SidebarDashboard />
-      <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
-        <NavbarDashboard ref={navbarRef} />
-        <Container fluid className="px-4 py-4">
-          <AlertsProvider alerts={alerts} setAlerts={setAlerts}>
+      <AlertsProvider alerts={alerts} setAlerts={setAlerts}>
+        <ToastContainer position="bottom-end" className="px-1 py-3">
+          { alerts.map(item => { return <Alert {...item} />; }) }
+        </ToastContainer>
+        <SidebarDashboard />
+        <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
+          <NavbarDashboard ref={navbarRef} />
+          <Container fluid className="px-4 py-4">          
             <Outlet />
-          </AlertsProvider>
-        </Container>
-      </main>
+          </Container>
+        </main>
+      </AlertsProvider>
     </>
   );
 }
