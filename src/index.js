@@ -7,7 +7,7 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import "./assets/css/app.css";
 
 import App from "./App";
-import { AuthProvider } from "./hooks/AuthProvider";
+import { AuthProvider } from "./hooks/providers/AuthProvider";
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
