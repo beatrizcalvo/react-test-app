@@ -1,13 +1,11 @@
 import { createElement } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
-import { useAuth } from "../../../hooks/providers/AuthProvider";
 import NavbarUserProfile from "../../navbars/NavbarUserProfile";
 import CardProfile from "../../cards/users/CardProfile";
 
 export default function Profile(props) {
-  const { user } = useAuth();
-
+  // Links config for profile navbar
   const navbarLinks = [
     {
       href: "#profile",
@@ -34,12 +32,7 @@ export default function Profile(props) {
           {
             navbarLinks.map(item => {
               if (typeof item.component !== "undefined") {
-                return (
-                  createElement(item.component, {
-                    id: item.href.substring(1),
-                    profile: user
-                  })
-                );
+                return createElement(item.component, { id: item.href.substring(1) });
               }
             })
           }
