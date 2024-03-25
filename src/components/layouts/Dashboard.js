@@ -7,6 +7,7 @@ import PerfectScrollbar from "perfect-scrollbar";
 import SidebarDashboard from "../sidebars/SidebarDashboard";
 import NavbarDashboard from "../navbars/NavbarDashboard";
 import Alert from "../popups/Alert";
+import { AlertsProvider } from "../../hooks/providers/AlertsProvider";
 
 var ps;
 
@@ -53,7 +54,9 @@ export default function Dashboard(props) {
       <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
         <NavbarDashboard ref={navbarRef} />
         <Container fluid className="px-4 py-4">
-          <Outlet />
+          <AlertsProvider alerts={alerts} setAlerts={setAlerts}>
+            <Outlet />
+          </AlertsProvider>
         </Container>
       </main>
     </>
