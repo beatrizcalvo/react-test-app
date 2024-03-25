@@ -2,7 +2,7 @@ import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "reac
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useLocation } from 'react-router-dom';
 
-import { useAuth } from "../../hooks/AuthProvider";
+import { useAuth } from "../../hooks/providers/AuthProvider";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
 
 // Add a tooltip in a link
