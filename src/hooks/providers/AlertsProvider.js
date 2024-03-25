@@ -12,7 +12,7 @@ export const AlertsProvider = ({ alerts, setAlerts, children }) => {
 
   const addNewAlert = (variant, message) => {
     const newAlert: AlertType = {
-      id: "alert_" + alerts.length + 1;
+      id: "alert_" + alerts.length + 1,
       variant: variant,
       message: message
     };
