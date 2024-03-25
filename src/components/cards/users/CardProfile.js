@@ -6,26 +6,30 @@ import { useAlerts } from "../../../hooks/providers/AlertsProvider";
 
 export default function CardProfile(props) {
   const MAX_SIZE_MB = 1;
-      
+
+  const [isLoading, setIsLoading] = useState(false);      
   const { id } = props;
   const { user } = useAuth();
   const { addNewAlert } = useAlerts();
   const inputFileRef = useRef();
 
   // Show file browser to select file
-  const showFileSearching = () => inputFileRef.current.click();
+  const showFileSearching = () => if(!isLoading) inputFileRef.current.click();
 
   // Upload file to server
   const uploadFile = (event) => {
+    setIsLoading(true);
     const fileToUpload = event.target.files[0];
     
     // Check file size
     if (fileToUpload.size > MAX_SIZE_MB * 1000 * 1024) {
       const errorMessage = "The file " + fileToUpload.name + " is larger than " + MAX_SIZE_MB + "Mb";
       alert(errorMessage);
+      setIsLoading(false);
       return false;
     }
-      alert("OK");
+    alert("OK");
+    setIsLoading(false);
   };
   
   return (
