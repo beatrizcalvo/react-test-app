@@ -1,6 +1,6 @@
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
-import { useAuth } from "../../hooks/AuthProvider";
+import { useAuth } from "../../hooks/providers/AuthProvider";
 
 function SidebarHeader() {
   return (
