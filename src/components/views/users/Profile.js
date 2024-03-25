@@ -7,17 +7,10 @@ import CardProfile from "../../cards/users/CardProfile";
 export default function Profile(props) {
   // Links config for profile navbar
   const navbarLinks = [
-    {
-      href: "#profile",
-      title: "Profile",
-      icon: "fa-solid fa-user",
-      component: CardProfile
-    },
-    {
-      href: "#basic-info",
-      title: "Basic Info",
-      icon: "fa-regular fa-id-card"
-    }
+    { href: "#profile-info", title: "Profile", icon: "fa-solid fa-user", component: CardProfile },
+    { href: "#basic-info", title: "Basic Info", icon: "fa-regular fa-id-card" },
+    { href: "#change-password", title: "Change Password", icon: "fa-solid fa-lock" },
+    { href: "#delete-account", title: "Delete Account", icon: "fa-solid fa-trash" }
   ];
 
   return (
