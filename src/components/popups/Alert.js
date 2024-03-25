@@ -28,6 +28,12 @@ export default function Alert(props) {
               <br/>
               <span className="text-xs">{message}</span>
             </span>
+            <Button 
+              bsPrefix="btn-close" 
+              className="text-white btn-close-sm ms-auto" 
+            >
+              <i className="fa-solid fa-xmark"/>
+            </Button>
           </div>
         </Toast.Body>
       </Toast>
