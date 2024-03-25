@@ -33,8 +33,7 @@ export default function Alert(props) {
             </span>
             <Button 
               bsPrefix="btn-close" 
-              className="text-white btn-close-sm ms-auto" 
-              onClick={() => removeAlert(id)}
+              className="text-white btn-close-sm ms-auto"
             >
               <i className="fa-solid fa-xmark"/>
             </Button>
