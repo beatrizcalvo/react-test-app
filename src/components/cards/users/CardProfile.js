@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Card, Row, Col, Form } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
+import { useAlerts } from "../../../hooks/providers/AlertsProvider";
 
 export default function CardProfile(props) {
   const MAX_SIZE_MB = 1;
