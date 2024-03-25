@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useAuth } from "../../../hooks/AuthProvider";
+import { useAuth } from "../../../hooks/providers/AuthProvider";
 import RegisterForm from "../../forms/RegisterForm";
 
 export default function Register(props) {
