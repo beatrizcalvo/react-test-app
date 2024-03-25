@@ -52,7 +52,7 @@ export default function Dashboard(props) {
       <SidebarDashboard />
       <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
         <NavbarDashboard ref={navbarRef} />
-        <Container fluid className="px-4">
+        <Container fluid className="px-4 py-4">
           <Outlet />
         </Container>
       </main>
