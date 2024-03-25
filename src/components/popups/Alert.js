@@ -34,6 +34,7 @@ export default function Alert(props) {
             <Button 
               bsPrefix="btn-close" 
               className="text-white btn-close-sm ms-auto"
+              onClick={() => removeAlert(id)}
             >
               <i className="fa-solid fa-xmark"/>
             </Button>
