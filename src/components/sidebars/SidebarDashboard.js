@@ -6,7 +6,7 @@ function SidebarHeader() {
   return (
     <>
       <SidebarMenu.Header bsPrefix="sidenav-header" className="d-flex align-items-center justify-content-center">
-        <SidebarMenu.Brand as="a" bsPrefix="navbar-brand" className="m-0">
+        <SidebarMenu.Brand as="a" bsPrefix="navbar-brand" className="m-0" href="/">
           <img src={require("../../assets/img/logo-ct.png")} className="navbar-brand-img h-100" />
           <span className="ms-1 font-weight-bold text-white">
             React Test App
