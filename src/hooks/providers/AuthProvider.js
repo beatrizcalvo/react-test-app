@@ -30,6 +30,7 @@ export const AuthProvider = ({ children }) => {
   // If there is an error, it means there is no session.
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
+    console.log("ejecuta: user=" + JSON.stringify(user));
     if (!user) {
       UsersService.getCurrentUser()
         .then(response => setUser(response.data))
