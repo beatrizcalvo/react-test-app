@@ -3,6 +3,7 @@ import { createContext, useContext, useMemo } from "react";
 const AlertsContext = createContext();
 
 interface AlertType {
+  id: string,
   variant: string,
   message: string
 };
@@ -11,6 +12,7 @@ export const AlertsProvider = ({ alerts, setAlerts, children }) => {
 
   const addNewAlert = (variant, message) => {
     const newAlert: AlertType = {
+      id: "alert_" + alerts.length + 1;
       variant: variant,
       message: message
     };
