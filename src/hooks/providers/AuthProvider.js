@@ -3,8 +3,8 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import  secureLocalStorage  from  "react-secure-storage";
 
-import LoadingPage from "../components/views/LoadingPage";
-import UsersService from "../services/UsersService";
+import LoadingPage from "../../components/views/LoadingPage";
+import UsersService from "../../services/UsersService";
 
 const ACCESS_TOKEN_KEY = "access_token";
 const REFRESH_TOKEN_KEY = "refresh_token";
