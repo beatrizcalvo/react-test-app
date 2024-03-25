@@ -24,7 +24,7 @@ export default function CardProfile(props) {
     // Check file size
     if (fileToUpload.size > MAX_SIZE_MB * 1000 * 1024) {
       const errorMessage = "The file " + fileToUpload.name + " is larger than " + MAX_SIZE_MB + "Mb";
-      alert(errorMessage);
+      addNewAlert("danger", errorMessage);
       setIsLoading(false);
       return false;
     }
