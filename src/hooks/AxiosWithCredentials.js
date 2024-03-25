@@ -32,8 +32,9 @@ export default function axiosWithCredentials (baseURL) {
   axiosInstance.interceptors.response.use(
     (response) => { return response },
     async (error) => {
+      const token = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
       const originalRequest: AxiosRequestConfig = error.config;
-      if (error.response && error.response.status === 401) {
+      if (!!token && error.response && error.response.status === 401) {
         if (!isRefreshing) {
           isRefreshing = true;
           try {
