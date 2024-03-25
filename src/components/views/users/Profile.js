@@ -1,7 +1,7 @@
 import { createElement } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
-import { useAuth } from "../../../hooks/AuthProvider";
+import { useAuth } from "../../../hooks/providers/AuthProvider";
 import NavbarUserProfile from "../../navbars/NavbarUserProfile";
 import CardProfile from "../../cards/users/CardProfile";
 
