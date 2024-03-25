@@ -18,11 +18,16 @@ export const AlertsProvider = ({ alerts, setAlerts, children }) => {
     };
     setAlerts(prevAlertsArray => [...prevAlertsArray, newAlert]);
   };
+
+  const removeAlert = (id) => {
+    setAlerts(alerts.filter(item => item.id !== id));
+  };
   
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     alerts,
-    addNewAlert
+    addNewAlert,
+    removeAlert
   }), [alerts]);
 
   return <AlertsContext.Provider value={memoedValue}>{children}</AlertsContext.Provider>;
