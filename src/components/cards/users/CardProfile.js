@@ -1,15 +1,13 @@
 import { useRef, useState } from "react";
 import { Card, Row, Col, Form } from "react-bootstrap";
 
-import Alert from "../../popups/Alert";
+import { useAuth } from "../../../hooks/providers/AuthProvider";
 
 export default function CardProfile(props) {
   const MAX_SIZE_MB = 1;
-  
-  const [showAlert, setShowAlert] = useState(false);  
-  const [alertConfig, setAlertConfig] = useState(undefined);
-  
-  const { id, profile } = props;
+      
+  const { id } = props;
+  const { user } = useAuth();
   const inputFileRef = useRef();
 
   // Show file browser to select file
@@ -23,17 +21,14 @@ export default function CardProfile(props) {
     // Check file size
     if (fileToUpload.size > MAX_SIZE_MB * 1000 * 1024) {
       const errorMessage = "The file " + fileToUpload.name + " is larger than " + MAX_SIZE_MB + "Mb";
-      setAlertConfig({variant: "danger", message: errorMessage});
-      setShowAlert(true);
+      alert(errorMessage);
       return false;
     }
-      setAlertConfig({variant: "success", message: event.target.files[0].fileName});
-      setShowAlert(true);
+      alert("OK");
   };
   
   return (
     <>
-      <Alert show={showAlert} setShow={setShowAlert} {...alertConfig} />
       <Card.Body id={id} className="card">
         <Row className="justify-content-center justify-content-sm-start align-items-center px-2">
           <Col sm="auto" className="col-4">
@@ -57,10 +52,10 @@ export default function CardProfile(props) {
           <Col sm="auto" className="col-8 my-auto">
             <div className="h-100">
               <h5 className="mb-1 font-weight-bolder">
-                { profile.fullName }
+                { user.fullName }
               </h5>
               <p className="mb-0 font-weight-normal text-sm">
-                { profile.typeDescription }
+                { user.typeDescription }
               </p>
             </div>
           </Col>
