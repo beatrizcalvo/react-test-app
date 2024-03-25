@@ -55,6 +55,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
 export default function SidebarDashboard(props) {
   const { user } = useAuth();
 
+  // Links config for sidebar
   const sidebarLinks = [
     {
       id: "profile-nav",
