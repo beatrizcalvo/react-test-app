@@ -17,11 +17,11 @@ export default function axiosWithCredentials (baseURL) {
 
   axiosInstance.interceptors.request.use(
     async (config) => {
-      const token = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
-      if (token) {
+      const accessToken = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
+      if (accessToken) {
         config.headers = {
           ...config.headers,
-          authorization: `Bearer ${token}`
+          authorization: `Bearer ${accessToken}`
         };
       }
       return config;
@@ -33,9 +33,10 @@ export default function axiosWithCredentials (baseURL) {
     (response) => { return response },
     async (error) => {
       const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
+      const originalRequest: AxiosRequestConfig = error.config;
       
       // Return a Promise rejection if the status code is not 401 or not refresh token exists
-      if (!token || error.response?.status !== 401) {
+      if (!refreshToken || error.response?.status !== 401) {
         return Promise.reject(error);
       }
 
