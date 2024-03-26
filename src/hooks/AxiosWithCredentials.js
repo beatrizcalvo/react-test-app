@@ -17,4 +17,12 @@ axiosWithCredentials.interceptors.request.use(
   (error) => { Promise.reject(error); }
 );
 
+axiosWithCredentials.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    
+    return Promise.reject(error);
+  }
+);
+
 export default axiosWithCredentials;
