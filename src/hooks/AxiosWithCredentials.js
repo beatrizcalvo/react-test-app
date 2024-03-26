@@ -48,6 +48,7 @@ export default function axiosWithCredentials (baseURL) {
         console.log("add to retry queue");
       }
       return Promise.reject(error);
+    }
   );
   
   return axiosInstance;
