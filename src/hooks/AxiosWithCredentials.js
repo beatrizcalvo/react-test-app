@@ -40,7 +40,13 @@ export default function axiosWithCredentials (baseURL) {
         return Promise.reject(error);
       }
 
-      console.log("error 401);
+      if (!isRefreshing) {
+        isRefreshing = true;
+        console.log("refresh token");
+        isRefreshing = false;
+      } else {
+        console.log("add to retry queue");
+      }
       return Promise.reject(error);
   );
   
