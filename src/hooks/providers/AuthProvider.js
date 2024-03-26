@@ -32,7 +32,8 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     UsersService.getCurrentUser()
       .then(response => console.log("OK"))
-      .catch(() => console.log("Error"));
+      .catch(() => console.log("Error"))
+      .finally(() => setLoadingInitial(false));
   }, []);
   
   const loginUser = (email, password) => {
