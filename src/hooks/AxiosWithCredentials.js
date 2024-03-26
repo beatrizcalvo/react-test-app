@@ -42,9 +42,26 @@ export default function axiosWithCredentials (baseURL) {
         // Refresh the access token
         axios.post(proccess.env.REACT_APP_AUTH_API + "/auth/refresh", {})
           .then(refreshResponse => {
-            return Promise.reject(error);
+            // Update the localStorage with the new access token
+            const newAccessToken = refreshResponse.data.access_token;
+            secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
+
+            // Retry all requests in the queue with the new token
+            refreshAndRetryQueue.forEach(({ config, resolve, reject }) => {
+              axiosInstance
+                .request(config)
+                .then((response) => resolve(response))
+                .catch((err) => reject(err));
+            });
+
+            // Clear the queue
+            refreshAndRetryQueue.length = 0;
+            
+            // Retry the original request
+            return axiosInstance(originalRequest);
           })
           .catch((refreshError) => {
+            refreshAndRetryQueue.length = 0;
             return Promise.reject(refreshError);
           })
           .finally(() => isRefreshing = false);
