@@ -4,47 +4,24 @@ import secureLocalStorage from  "react-secure-storage";
 const ACCESS_TOKEN_KEY = "access_token";
 const REFRESH_TOKEN_KEY = "refresh_token";
 
-const axiosWithCredentials = axios.create({ baseURL: process.env.REACT_APP_AUTH_API });
+export default function axiosWithCredentials (baseURL) {
+  const axiosInstance = axios.create({ baseURL: baseURL });
 
-axiosWithCredentials.interceptors.request.use(
-  async (config) => {
-    const accessToken = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
-    config.headers.Authorization = (accessToken) ? `Bearer ${accessToken}` : "";
-    return config;
-  },
-  (error) => { Promise.reject(error); }
-);
+  axiosInstance.interceptors.request.use(
+    async (config) => {
+      const accessToken = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
+      config.headers.Authorization = (accessToken) ? `Bearer ${accessToken}` : "";
+      return config;
+    },
+    (error) => Promise.reject(error)
+  );
 
-interface RetryQueueItem {
-  resolve: (value?: any) => void;
-  reject: (error?: any) => void;
-  config: AxiosRequestConfig;
-}
-
-const refreshAndRetryQueue: RetryQueueItem[] = [];
-let isRefreshing = false;
-
-axiosWithCredentials.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const originalRequest: AxiosRequestConfig = error.config;
-    const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
-
-    if (!!refreshToken && error.response?.status === 401 && !originalRequest.retry) {
-      originalRequest.retry = true;
-      
-      axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", { refresh_token: refreshToken })
-        .then(refreshResponse => {
-          return axiosWithCredentials(originalRequest);
-        })
-        .catch(refreshError => {
-          return Promise.reject(refreshError);
-        });      
+  axiosInstance.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+      Promise.reject(error);
     }
+  );
 
-    // Return a Promise rejection if the status code is not 401
-    return Promise.reject(error);
-  }
-);
-
-export default axiosWithCredentials;
+  return axiosInstance;
+};
