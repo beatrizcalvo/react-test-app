@@ -63,7 +63,6 @@ export default function axiosWithCredentials (baseURL) {
             .then((response) => resolve(response))
             .catch((err) => reject(err));
         });
-
         // Clear the queue
         refreshAndRetryQueue.length = 0;
         
@@ -74,7 +73,6 @@ export default function axiosWithCredentials (baseURL) {
       } finally {
         isRefreshing = false;
       }
-
       // Return a Promise rejection if an error occurs
       return Promise.reject(error);
     }
