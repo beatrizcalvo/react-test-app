@@ -53,12 +53,7 @@ export default function axiosWithCredentials (baseURL) {
         // Refresh the access token
         const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
 
-        // Update the localstorage with the new access token
-        const newAccessToken = refreshResponse.access_token;
-        secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
-        
-        // Retry the original request
-        return axiosInstance(originalRequest);
+        return Promise.reject(error);
       } catch (refreshError) {
         refreshAndRetryQueue.length = 0;
       } finally {
