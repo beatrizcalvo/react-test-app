@@ -32,8 +32,15 @@ export default function axiosWithCredentials (baseURL) {
   axiosInstance.interceptors.response.use(
     (response) => { return response },
     async (error) => {
-      // Return a Promise rejection if the status code is not 401
-      return Promise.reject(error)
+      const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
+      
+      // Return a Promise rejection if the status code is not 401 or not refresh token exists
+      if (!token || error.response?.status !== 401) {
+        return Promise.reject(error);
+      }
+
+      console.log("error 401);
+      return Promise.reject(error);
   );
   
   return axiosInstance;
