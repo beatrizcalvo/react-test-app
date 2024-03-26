@@ -10,13 +10,11 @@ axiosWithCredentials.interceptors.request.use(
   async (config) => {
     const accessToken = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
     if (accessToken) {
-      config.headers.Authorization = accessToken;
+      config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;
   },
-  (error) => { 
-    Promise.reject(error);
-  }
+  (error) => { Promise.reject(error); }
 );
 
 export default axiosWithCredentials;
