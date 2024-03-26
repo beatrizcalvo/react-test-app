@@ -49,8 +49,9 @@ export default function axiosWithCredentials (baseURL) {
 
       // Refresh the access token
       isRefreshing = true;
-      axios.post(baseURL + "/auth/refresh");
-      isRefreshing = false;
+      axios.post(baseURL + "/auth/refresh")
+        .catch(() => {})
+        .finally(() => isRefreshing = false);
       return Promise.reject(error);
     }
   );
