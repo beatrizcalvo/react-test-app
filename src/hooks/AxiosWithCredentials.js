@@ -26,14 +26,21 @@ export default function axiosWithCredentials (baseURL) {
       }
       return config;
     },
-    (error) => { return Promise.reject(error) }
+    (error) => Promise.reject(error)
   );
 
   axiosInstance.interceptors.response.use(
-    (response) => { return response },
-    (error) => {
+    (response) => response,
+    async (error) => {
       const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
       const originalRequest: AxiosRequestConfig = error.config;
+
+      try {
+        // Refresh the access token
+        const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
+      } catch (error) {
+        console.log(error);
+      }
       
       // Return a Promise rejection if error occurs
       return Promise.reject(error);
