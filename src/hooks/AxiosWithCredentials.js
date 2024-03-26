@@ -50,8 +50,11 @@ export default function axiosWithCredentials (baseURL) {
       // Refresh the access token
       isRefreshing = true;
       axios.post(baseURL + "/auth/refresh")
+        .then(response => {})
         .catch(() => {})
         .finally(() => isRefreshing = false);
+
+      // Return a Promise rejection if error occurs
       return Promise.reject(error);
     }
   );
