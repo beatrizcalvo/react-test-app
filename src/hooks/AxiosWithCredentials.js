@@ -32,7 +32,7 @@ export default function axiosWithCredentials (baseURL) {
       const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
       
       // Return a Promise rejection if the status code is not 401 or not exists refresh token
-      if (!token || error.response?.status !== 401) {
+      if (!refreshToken || error.response?.status !== 401) {
         return Promise.reject(error);
       }
 
