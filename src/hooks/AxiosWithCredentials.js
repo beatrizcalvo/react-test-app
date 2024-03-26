@@ -40,7 +40,7 @@ export default function axiosWithCredentials (baseURL) {
         isRefreshing = true;
 
         // Refresh the access token
-        axios.post(proccess.env.REACT_APP_AUTH_API + "/auth/refresh", {})
+        axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", {})
           .then(refreshResponse => {
             // Update the localStorage with the new access token
             const newAccessToken = refreshResponse.data.access_token;
