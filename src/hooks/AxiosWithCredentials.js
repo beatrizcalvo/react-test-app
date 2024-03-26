@@ -60,9 +60,9 @@ export default function axiosWithCredentials (baseURL) {
             // Retry the original request
             return axiosInstance(originalRequest);
           })
-          .catch((refreshError) => {
+          .catch(() => {
             refreshAndRetryQueue.length = 0;
-            return Promise.reject(refreshError);
+            return Promise.reject(error);
           })
           .finally(() => isRefreshing = false);
       }
