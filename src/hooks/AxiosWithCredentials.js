@@ -40,13 +40,18 @@ export default function axiosWithCredentials (baseURL) {
         return Promise.reject(error);
       }
 
+      // Add the original request to the queue if another call is refreshing token
+      if (isRefreshing) {
+        return new Promise((resolve, reject) => {
+          refreshAndRetryQueue.push({ config: originalRequest, resolve, reject });
+        });
+      }
+      
       if (!isRefreshing) {
         isRefreshing = true;
         console.log("refresh token");
         isRefreshing = false;
-      } else {
-        console.log("add to retry queue");
-      }
+      } 
       return Promise.reject(error);
     }
   );
