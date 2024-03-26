@@ -21,8 +21,13 @@ axiosWithCredentials.interceptors.response.use(
     const originalRequest: AxiosRequestConfig = error.config;
     const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
 
-    console.log(originalRequest._retry);
-    
+    if (!!refreshToken && error.response?.status === 401) {
+      axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", { refresh_token: refreshToken })
+        .then()
+        .catch();      
+    }
+
+    // Return a Promise rejection if the status code is not 401
     return Promise.reject(error);
   }
 );
