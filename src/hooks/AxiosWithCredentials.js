@@ -30,36 +30,25 @@ export default function axiosWithCredentials (baseURL) {
     async (error) => {
       const originalRequest: AxiosRequestConfig = error.config;
       const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
+
+      if (refreshToken && error.response && error.response.status === 401) {
+        try {
+          // Refresh the access token
+          const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
+
+          // Update the localstorage with the new access token
+          const newAccessToken = refreshResponse.access_token;
+          secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
+
+          // Retry the original request
+          return axiosInstance(originalRequest);
+        } catch (refreshError) {
+          throw refreshError;
+        }
+      }
       
-      // Return a Promise rejection if the status code is not 401 or not exists refresh token
-      if (!refreshToken || error.response?.status !== 401) {
-        return Promise.reject(error);
-      }
-
-      if (!isRefreshing) {
-        isRefreshing = true;
-
-        // Refresh the access token
-        axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", { refresh_token: refreshToken })
-          .then(refreshResponse => {
-            // Update the localStorage with the new access token
-            const newAccessToken = refreshResponse.data.access_token;
-            secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
-            
-            // Retry the original request
-            return axiosInstance(originalRequest);
-          })
-          .catch(() => {
-            refreshAndRetryQueue.length = 0;
-            return Promise.reject(error);
-          })
-          .finally(() => isRefreshing = false);
-      }
-
-      // Add the original request to the queue
-      return new Promise((resolve, reject) => {
-        refreshAndRetryQueue.push({ config: originalRequest, resolve, reject });
-      });
+      // Return a Promise rejection if the status code is not 401
+      return Promise.reject(error);
     }
   );
 
