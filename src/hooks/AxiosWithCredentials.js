@@ -47,11 +47,9 @@ export default function axiosWithCredentials (baseURL) {
         });
       }
       
-      if (!isRefreshing) {
-        isRefreshing = true;
-        console.log("refresh token");
-        isRefreshing = false;
-      } 
+      isRefreshing = true;
+      console.log("refresh token");
+      isRefreshing = false;
       return Promise.reject(error);
     }
   );
