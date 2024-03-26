@@ -15,15 +15,28 @@ axiosWithCredentials.interceptors.request.use(
   (error) => { Promise.reject(error); }
 );
 
+interface RetryQueueItem {
+  resolve: (value?: any) => void;
+  reject: (error?: any) => void;
+  config: AxiosRequestConfig;
+}
+
+const refreshAndRetryQueue: RetryQueueItem[] = [];
+let isRefreshing = false;
+
 axiosWithCredentials.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest: AxiosRequestConfig = error.config;
     const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
 
-    if (!!refreshToken && error.response?.status === 401) {
+    if (!!refreshToken && error.response?.status === 401 && !originalRequest.retry) {
+      originalRequest.retry = true;
+      
       axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", { refresh_token: refreshToken })
-        .then()
+        .then(refreshResponse => {
+          
+        })
         .catch(refreshError => {
           return Promise.reject(refreshError);
         });      
