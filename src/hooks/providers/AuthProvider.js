@@ -31,8 +31,8 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     UsersService.getCurrentUser()
-      .then(response => console.log("OK"))
-      .catch(() => console.log("Error"))
+      .then(response => setUser(response.data))
+      .catch(() => clearLocalStorage())
       .finally(() => setLoadingInitial(false));
   }, []);
   
