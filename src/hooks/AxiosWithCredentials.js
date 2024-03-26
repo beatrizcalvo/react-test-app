@@ -9,9 +9,7 @@ const axiosWithCredentials = axios.create({ baseURL: process.env.REACT_APP_AUTH_
 axiosWithCredentials.interceptors.request.use(
   async (config) => {
     const accessToken = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
+    config.headers.Authorization = (accessToken) ? `Bearer ${accessToken}` : "";
     return config;
   },
   (error) => { Promise.reject(error); }
@@ -20,6 +18,10 @@ axiosWithCredentials.interceptors.request.use(
 axiosWithCredentials.interceptors.response.use(
   (response) => response,
   async (error) => {
+    const originalRequest: AxiosRequestConfig = error.config;
+    const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
+
+    console.log(originalRequest._retry);
     
     return Promise.reject(error);
   }
