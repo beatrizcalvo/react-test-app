@@ -47,20 +47,10 @@ export default function axiosWithCredentials (baseURL) {
         });
       }
 
-      try {
-        isRefreshing = true;
-        
-        // Refresh the access token
-        const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
-
-        return Promise.reject(error);
-      } catch (refreshError) {
-        refreshAndRetryQueue.length = 0;
-      } finally {
-        isRefreshing = false;
-        console.log("ejecuta finally");
-      }
-      // Return a Promise rejection if an error occurs
+      // Refresh the access token
+      isRefreshing = true;
+      axios.post(baseURL + "/auth/refresh");
+      isRefreshing = false;
       return Promise.reject(error);
     }
   );
