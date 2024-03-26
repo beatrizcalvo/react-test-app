@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     UsersService.getCurrentUser()
       .then(response => console.log("OK"))
       .catch(() => console.log("Error"))
-      .finally(() => console.log("Finally");
+      .finally(() => console.log("Finally"));
   }, []);
   
   const loginUser = (email, password) => {
