@@ -24,7 +24,9 @@ axiosWithCredentials.interceptors.response.use(
     if (!!refreshToken && error.response?.status === 401) {
       axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", { refresh_token: refreshToken })
         .then()
-        .catch();      
+        .catch(refreshError => {
+          return Promise.reject(refreshError);
+        });      
     }
 
     // Return a Promise rejection if the status code is not 401
