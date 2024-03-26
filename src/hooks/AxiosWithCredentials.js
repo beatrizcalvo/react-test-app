@@ -58,6 +58,7 @@ export default function axiosWithCredentials (baseURL) {
         refreshAndRetryQueue.length = 0;
       } finally {
         isRefreshing = false;
+        console.log("ejecuta finally");
       }
       // Return a Promise rejection if an error occurs
       return Promise.reject(error);
