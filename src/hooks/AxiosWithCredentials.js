@@ -45,17 +45,6 @@ export default function axiosWithCredentials (baseURL) {
             // Update the localStorage with the new access token
             const newAccessToken = refreshResponse.data.access_token;
             secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
-
-            // Retry all requests in the queue with the new token
-            refreshAndRetryQueue.forEach(({ config, resolve, reject }) => {
-              axiosInstance
-                .request(config)
-                .then((response) => resolve(response))
-                .catch((err) => reject(err));
-            });
-
-            // Clear the queue
-            refreshAndRetryQueue.length = 0;
             
             // Retry the original request
             return axiosInstance(originalRequest);
