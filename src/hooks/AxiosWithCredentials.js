@@ -35,7 +35,7 @@ axiosWithCredentials.interceptors.response.use(
       
       axios.post(process.env.REACT_APP_AUTH_API + "/auth/refresh", { refresh_token: refreshToken })
         .then(refreshResponse => {
-          
+          return axiosWithCredentials(originalRequest);
         })
         .catch(refreshError => {
           return Promise.reject(refreshError);
