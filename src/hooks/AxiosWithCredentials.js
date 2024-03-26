@@ -46,7 +46,8 @@ export default function axiosWithCredentials (baseURL) {
           })
           .catch((refreshError) => {
             return Promise.reject(refreshError);
-          });
+          })
+          .finally(() => isRefreshing = false);
       }
 
       // Add the original request to the queue
