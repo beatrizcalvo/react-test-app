@@ -16,7 +16,7 @@ export default function axiosWithCredentials (baseURL) {
   let isRefreshing = false;
 
   axiosInstance.interceptors.request.use(
-    async (config) => {
+    (config) => {
       const accessToken = secureLocalStorage.getItem(ACCESS_TOKEN_KEY);
       if (accessToken) {
         config.headers = {
@@ -31,29 +31,10 @@ export default function axiosWithCredentials (baseURL) {
 
   axiosInstance.interceptors.response.use(
     (response) => { return response },
-    async (error) => {
+    (error) => {
       const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
       const originalRequest: AxiosRequestConfig = error.config;
       
-      // Return a Promise rejection if the status code is not 401 or not refresh token exists
-      if (!refreshToken || error.response?.status !== 401) {
-        return Promise.reject(error);
-      }
-
-      // Refresh the access token
-      isRefreshing = true;
-      axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken})
-        .then(response => { 
-          // Update the localstorage with the new access token
-          const newAccessToken = response.data.access_token;
-          secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
-          
-          // Retry the original request
-          console.log(JSON.stringify(originalRequest);
-        })
-        .catch(() => { refreshAndRetryQueue.length = 0 })
-        .finally(() => isRefreshing = false);
-
       // Return a Promise rejection if error occurs
       return Promise.reject(error);
     }
