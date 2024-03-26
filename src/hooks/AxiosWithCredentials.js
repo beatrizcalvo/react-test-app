@@ -46,10 +46,10 @@ export default function axiosWithCredentials (baseURL) {
         .then(response => { 
           // Update the localstorage with the new access token
           const newAccessToken = response.data.access_token;
-          //secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
+          secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
           
           // Retry the original request
-          return axiosInstance(originalRequest);
+          console.log(JSON.stringify(originalRequest);
         })
         .catch(() => { refreshAndRetryQueue.length = 0 })
         .finally(() => isRefreshing = false);
