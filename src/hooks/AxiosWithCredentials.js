@@ -4,8 +4,16 @@ import secureLocalStorage from  "react-secure-storage";
 const ACCESS_TOKEN_KEY = "access_token";
 const REFRESH_TOKEN_KEY = "refresh_token";
 
+// Define the structure of a retry queue item
+interface RetryQueueItem {
+  resolve: (value?: any) => void;
+  reject: (error?: any) => void;
+  config: AxiosRequestConfig;
+}
+
 export default function axiosWithCredentials (baseURL) {
   const axiosInstance = axios.create({ baseURL: baseURL });
+  const refreshAndRetryQueue: RetryQueueItem[] = [];
   let isRefreshing = false;
 
   axiosInstance.interceptors.request.use(
@@ -28,12 +36,23 @@ export default function axiosWithCredentials (baseURL) {
         return Promise.reject(error);
       }
 
-      // Add the original request to the queue if another call is refreshing token
-      if (isRefreshing) {
-        
+      if (!isRefreshing) {
+        isRefreshing = true;
+
+        // Refresh the access token
+        axios.post(proccess.env.REACT_APP_AUTH_API + "/auth/refresh", {})
+          .then(refreshResponse => {
+            return Promise.reject(error);
+          })
+          .catch((refreshError) => {
+            return Promise.reject(refreshError);
+          });
       }
-      
-      Promise.reject(error);
+
+      // Add the original request to the queue
+      return new Promise<void>((resolve, reject) => {
+        refreshAndRetryQueue.push({ config: originalRequest, resolve, reject });
+      });
     }
   );
 
