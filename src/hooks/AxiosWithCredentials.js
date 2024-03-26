@@ -46,10 +46,18 @@ export default function axiosWithCredentials (baseURL) {
           refreshAndRetryQueue.push({ config: originalRequest, resolve, reject });
         });
       }
-      
-      isRefreshing = true;
-      console.log("refresh token");
-      isRefreshing = false;
+
+      try {
+        isRefreshing = true;
+        console.log("refresh token");
+        return Promise.reject(error);
+      } catch (refreshError) {
+        refreshAndRetryQueue.length = 0;
+      } finally {
+        isRefreshing = false;
+      }
+
+      // Return a Promise rejection if an error occurs
       return Promise.reject(error);
     }
   );
