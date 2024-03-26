@@ -31,7 +31,8 @@ export const AuthProvider = ({ children }) => {
   // Finally, just signal the component that the initial load is over.
   useEffect(() => {
     UsersService.getCurrentUser()
-      .then(response => console.log("OK"));
+      .then(response => console.log("OK"))
+      .catch(() => console.log("Error"));
   }, []);
   
   const loginUser = (email, password) => {
