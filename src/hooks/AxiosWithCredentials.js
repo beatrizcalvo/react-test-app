@@ -63,7 +63,7 @@ export default function axiosWithCredentials (baseURL) {
           // Clear the queue
           refreshAndRetryQueue.length = 0;
           
-          console.log(JSON.stringify(newAccessToken)) 
+          console.log(JSON.stringify(newAccessToken)); 
           // Retry the original request
           return axiosInstance(originalRequest);
         })
