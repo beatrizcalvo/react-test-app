@@ -18,7 +18,7 @@ export default function CardDeleteAccount(props) {
              <Button 
                variant="outline-secondary" 
                className="mb-3 mb-md-0 ms-auto"
-              >
+             >
                 Deactivate
               </Button>
               <Button 
