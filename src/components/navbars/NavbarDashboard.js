@@ -91,7 +91,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
       >
         <Container fluid className="py-1 pe-3">
           <Row>
-            <Col md="auto">
+            <Col sm="auto">
               <div class="sidenav-toggler sidenav-toggler-inner d-xl-none">
                 <a class="nav-link text-body p-0">
                   <i class="fa-solid fa-bars" />
