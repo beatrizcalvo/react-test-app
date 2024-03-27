@@ -66,7 +66,7 @@ export default function axiosWithCredentials (baseURL) {
       } catch (refreshError) {
         refreshAndRetryQueue.length = 0;
         throw refreshError;
-      } finally () {
+      } finally {
         isRefreshing = false;
       }
     }
