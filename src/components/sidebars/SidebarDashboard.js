@@ -51,7 +51,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
 };
 
 const SidebarDashboard = forwardRef((props, _ref) => {
-  const [hide, setHide] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   
   const { user } = useAuth();
 
@@ -70,7 +70,7 @@ const SidebarDashboard = forwardRef((props, _ref) => {
 
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
-    showSidebar: () => { alert("pulsado"); }
+    showSidebar: () => { setHide(true); }
   }));
 
   return (
@@ -78,7 +78,7 @@ const SidebarDashboard = forwardRef((props, _ref) => {
       <SidebarMenu 
         bsPrefix="navbar" 
         variant="vertical"
-        expanded="true"
+        expanded={isOpen}
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
         <SidebarHeader />
