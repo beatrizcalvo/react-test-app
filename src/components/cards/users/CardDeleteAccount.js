@@ -15,10 +15,10 @@ export default function CardDeleteAccount(props) {
               <p className="text-sm mb-0">Once you delete your account, there is no going back. Please be certain.</p>
             </div>
             <div className="w-50 text-end">
-             <Button 
-               variant="outline-secondary" 
-               className="mb-3 mb-md-0 ms-auto"
-             >
+              <Button 
+                variant="outline-secondary" 
+                className="mb-3 mb-md-0 ms-auto"
+              >
                 Deactivate
               </Button>
               <Button 
