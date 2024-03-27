@@ -91,6 +91,9 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
       >
         <Container fluid className="py-1 pe-3">
           <BreadcrumbsDashboard className="ps-3" />
+          <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
+            <i class="fa-solid fa-bars" />
+          </div>
           <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
             <i className="fa-solid fa-ellipsis-vertical" />
           </Navbar.Toggle>
