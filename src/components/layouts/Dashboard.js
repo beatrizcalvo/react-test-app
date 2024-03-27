@@ -22,6 +22,8 @@ export default function Dashboard(props) {
   const navbarShowBlur = () => navbarRef.current.showBlur(true);
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
+  const handleSidebarShow = () => {};
+
   useEffect(() => {
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
     
@@ -54,7 +56,7 @@ export default function Dashboard(props) {
         </ToastContainer>
         <SidebarDashboard ref={sidebarRef} />
         <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
-          <NavbarDashboard ref={navbarRef} sidebarRef={sidebarRef} />
+          <NavbarDashboard ref={navbarRef} toggleSidebar={handleSidebarShow} />
           <Container fluid className="px-4 py-4">          
             <Outlet />
           </Container>
