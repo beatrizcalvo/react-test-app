@@ -38,9 +38,9 @@ export default function BreadcrumbsDashboard(props) {
             return (
               <li className={ "breadcrumb-item text-sm" + (isActive ? " active" : "") }>
                 {
-                  (breadcrumb.name === "Dashboard" && index === 0) ? 
+                  (breadcrumb.name === "Dashboard" && index === 0 && isActive) ? 
                     <i className="fa-solid fa-house" /> 
-                  : <Link>breadcrumb.name</Link>
+                  : <Link className="opacity-5">{breadcrumb.name}</Link>
                                
                 }
               </li>
