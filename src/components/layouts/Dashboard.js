@@ -8,12 +8,6 @@ function Dashboard() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  useEffect(() => {
-    if (window.innerWidth > 576) {
-      setShow(true);
-    }
-  }, []);
-
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
