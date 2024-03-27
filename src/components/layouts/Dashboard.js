@@ -58,7 +58,7 @@ export default function Dashboard(props) {
         <ToastContainer position="bottom-end" className="px-1 py-3">
           { alerts.map(item => { return <Alert {...item} />; }) }
         </ToastContainer>
-        <SidebarDashboard />
+        <SidebarDashboard toggleSidebar={toggleSidebar} />
         <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
           <NavbarDashboard ref={navbarRef} toggleSidebar={toggleSidebar} />
           <Container fluid className="px-4 py-4">          
