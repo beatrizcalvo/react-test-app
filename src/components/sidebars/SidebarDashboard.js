@@ -4,10 +4,14 @@ import SidebarMenu from 'react-bootstrap-sidebar-menu';
 import { useAuth } from "../../hooks/providers/AuthProvider";
 
 function SidebarHeader(prop) {
+  const { toggleSidebar } = props;
+  
   return (
     <>
       <SidebarMenu.Header bsPrefix="sidenav-header" className="d-flex align-items-center justify-content-center">
-        <i className="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-xl-none" />
+        <a className="p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-xl-none" onClick={toggleSidebar}>
+          <i className="fas fa-times" />
+        </a>
         <Link to="/" className="navbar-brand m-0">
           <img src={require("../../assets/img/logo-ct.png")} className="navbar-brand-img h-100" />
           <span className="ms-1 font-weight-bold text-white">
