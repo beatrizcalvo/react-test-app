@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Col, Breadcrumb } from "react-bootstrap";
 
 export default function BreadcrumbsDashboard(props) {
@@ -36,8 +36,8 @@ export default function BreadcrumbsDashboard(props) {
           breadcrumbsLinks.map((breadcrumb, index) => {
             return (
               <Breadcrumb.Item
-                href={breadcrumb.href} 
                 className="text-sm"
+                linkAs="Link"
                 linkProps={{ className: 'opacity-5' }}
                 active={(breadcrumb.name === getCurrentPageName()) ? true : false}
               >
