@@ -54,7 +54,7 @@ export default function Dashboard(props) {
         </ToastContainer>
         <SidebarDashboard ref={sidebarRef} />
         <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
-          <NavbarDashboard ref={navbarRef} />
+          <NavbarDashboard ref={navbarRef} sidebarRef={sidebarRef} />
           <Container fluid className="px-4 py-4">          
             <Outlet />
           </Container>
