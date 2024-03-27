@@ -44,10 +44,12 @@ export default function Dashboard(props) {
     };
   }, []);
 
+  // Reset all variables when page is changed or refresh
   useEffect(() => {
     mainPanelRef.current.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-    if (alerts.length !== 0) setAlerts([]);
+    document.body.classList.remove("g-sidenav-pinned");
+    setAlerts([]);
   }, [location]);
 
   return (
