@@ -21,7 +21,8 @@ export default function Dashboard(props) {
   const navbarShowBlur = () => navbarRef.current.showBlur(true);
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
-  const handleSidebarShow = () => {
+  // Add body class to show sidebar when click toggle button
+  const showSidebar = () => {
     document.body.classList.add("g-sidenav-pinned");
   };
 
@@ -57,7 +58,7 @@ export default function Dashboard(props) {
         </ToastContainer>
         <SidebarDashboard />
         <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
-          <NavbarDashboard ref={navbarRef} toggleSidebar={handleSidebarShow} />
+          <NavbarDashboard ref={navbarRef} toggleSidebar={showSidebar} />
           <Container fluid className="px-4 py-4">          
             <Outlet />
           </Container>
