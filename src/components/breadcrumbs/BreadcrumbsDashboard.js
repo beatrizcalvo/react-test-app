@@ -44,7 +44,7 @@ export default function BreadcrumbsDashboard(props) {
                 {
                   (isActive) 
                     ? linkContent
-                    : <Link className="opacity-5" to={breadcrumb.href}>linkContent</Link>                               
+                    : <Link className="opacity-5" to={breadcrumb.href}>{linkContent}</Link>                               
                 }
               </li>
             );
