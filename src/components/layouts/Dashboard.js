@@ -21,7 +21,9 @@ export default function Dashboard(props) {
   const navbarShowBlur = () => navbarRef.current.showBlur(true);
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
-  const handleSidebarShow = () => sidebarRef.current.showSidebar();
+  const handleSidebarShow = () => {
+    alert("pulsado");
+  };
 
   useEffect(() => {
     document.body.classList.add("g-sidenav-show", "bg-gray-200");
