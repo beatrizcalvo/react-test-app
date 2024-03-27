@@ -1,7 +1,11 @@
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
+
+
+
+
+import { useEffect, useRef, useState } from "react";
 
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -21,7 +25,7 @@ export default function Dashboard(props) {
         Launch
       </Button>
 
-      <Offcanvas show={show} onHide={handleClose} responsive="lg" bsPrefix="navbar" variant="vertical">
+      <Offcanvas show={show} onHide={handleClose} responsive="lg" className="sidenav navbar navbar-vertical">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
