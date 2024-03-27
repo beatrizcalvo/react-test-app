@@ -1,3 +1,4 @@
+import { forwardRef, memo, useState } from "react";
 import { Link } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
@@ -49,7 +50,9 @@ function SidebarItemCollapsable({ id, title, className, links }) {
   );
 };
 
-export default function SidebarDashboard(props) {
+const SidebarDashboard = forwardRef((props, _ref) => {
+  const [hide, setHide] = useState(false);
+  
   const { user } = useAuth();
 
   // Links config for sidebar
@@ -68,7 +71,10 @@ export default function SidebarDashboard(props) {
   return (
     <>
       <SidebarMenu 
-        bsPrefix="navbar" expand="xs" variant="vertical" 
+        bsPrefix="navbar" 
+        expand="xs" 
+        variant="vertical" 
+        hide={hide} 
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
         <SidebarHeader />
@@ -94,4 +100,6 @@ export default function SidebarDashboard(props) {
       </SidebarMenu>
     </>
   );
-}
+};
+
+export default memo(SidebarDashboard);
