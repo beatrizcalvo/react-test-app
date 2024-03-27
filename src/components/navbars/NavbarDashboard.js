@@ -92,9 +92,9 @@ const NavbarDashboard = forwardRef((props, _ref) => {
         expanded={isOpen}
       >
         <Container fluid className="py-1 px-3">
-          <div class="sidenav-toggler sidenav-toggler-inner d-xl-none">
-            <a class="nav-link text-body p-0 icon-md w-100 h-100">
-              <i class="fa-solid fa-bars" />
+          <div className="sidenav-toggler sidenav-toggler-inner d-xl-none">
+            <a className="nav-link text-body p-0 icon-md w-100 h-100" onClick={sidebarRef.current.showSidebar()}>
+              <i className="fa-solid fa-bars" />
             </a>
           </div>
           <BreadcrumbsDashboard className="ps-3" />
