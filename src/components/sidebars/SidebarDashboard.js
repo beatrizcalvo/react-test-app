@@ -70,7 +70,7 @@ const SidebarDashboard = forwardRef((props, _ref) => {
 
   // Functions to update state fields from parent
   useImperativeHandle(_ref, () => ({
-    showSidebar: () => { setHide(false); }
+    showSidebar: () => { alert("pulsado"); }
   }));
 
   return (
