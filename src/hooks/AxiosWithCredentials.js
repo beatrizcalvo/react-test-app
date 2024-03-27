@@ -36,18 +36,38 @@ export default function axiosWithCredentials (baseURL) {
         return Promise.reject(error);
       }
 
+      // Add the original request to the queue if another call is refreshing token
+      if (isRefreshing) {
+        return new Promise((resolve, reject) => {
+          refreshAndRetryQueue.push({ config: originalRequest, resolve, reject });
+        });
+      }
+
       try {
         // Refresh the access token
+        isRefreshing = true;
         const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
 
         // Update the localstorage with the new access token
         const newAccessToken = refreshResponse.data.access_token;
         secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
 
+        // Retry all requests in the queue with the new token
+        refreshAndRetryQueue.forEach(({ config, resolve, reject }) => {
+          console.log("Retry: " + JSON.stringify(config));
+        });
+
+        // Clear the queue
+        refreshAndRetryQueue.length = 0;
+
         // Retry the original request
         return axiosInstance(originalRequest);
+        
       } catch (refreshError) {
+        refreshAndRetryQueue.length = 0;
         throw refreshError;
+      } finally () {
+        isRefreshing = false;
       }
     }
   );
