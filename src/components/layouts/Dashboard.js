@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
@@ -7,6 +7,12 @@ function Dashboard() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    if (window.innerWidth > 576) {
+      setShow(true);
+    }
+  }, []);
 
   return (
     <>
