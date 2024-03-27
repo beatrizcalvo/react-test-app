@@ -14,7 +14,7 @@ function Dashboard() {
         Launch
       </Button>
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} responsive="lg">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
