@@ -78,10 +78,8 @@ const SidebarDashboard = forwardRef((props, _ref) => {
       <SidebarMenu 
         bsPrefix="navbar" 
         expand="xs" 
-        variant="vertical" 
-        exclusiveExpand 
-        collapseOnSelect 
-        expanded="false"
+        variant="vertical"
+        expanded="true"
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
         <SidebarHeader />
