@@ -17,7 +17,7 @@ function LinkTooltip({ id, title, showTooltip, children }) {
   );
 };
 
-const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
+const NavbarDashboard = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlur, setIsBlur] = useState(false);
   const [color, setColor] = useState("transparent");
