@@ -38,7 +38,7 @@ export default function BreadcrumbsDashboard(props) {
             return (
               <li 
                 className="breadcrumb-item text-sm" 
-                {...(isActive ? { className: "active" } : {})}
+                {...(isActive ? { aria-current: "page" } : {})}
               >
                 <Link to={breadcrumb.href}>
                   { 
