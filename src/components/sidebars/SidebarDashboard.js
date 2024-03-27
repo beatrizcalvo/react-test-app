@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
@@ -33,7 +34,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
               links.map((item) => {
                 return (
                   <SidebarMenu.Nav.Item as="li" bsPrefix="nav-item">
-                    <SidebarMenu.Nav.Link bsPrefix="nav-link" className="text-white" href={item.href}>
+                    <SidebarMenu.Nav.Link as="Link" bsPrefix="nav-link" className="text-white" to={item.href}>
                       <SidebarMenu.Nav.Icon as="span" bsPrefix="sidenav-mini-icon">
                         {item.icon}
                       </SidebarMenu.Nav.Icon>
