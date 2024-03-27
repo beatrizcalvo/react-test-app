@@ -34,14 +34,10 @@ function SidebarItemCollapsable({ id, title, className, links }) {
               links.map((item) => {
                 return (
                   <SidebarMenu.Nav.Item as="li" bsPrefix="nav-item">
-                    <SidebarMenu.Nav.Link as="Link" bsPrefix="nav-link" className="text-white" to={item.href}>
-                      <SidebarMenu.Nav.Icon as="span" bsPrefix="sidenav-mini-icon">
-                        {item.icon}
-                      </SidebarMenu.Nav.Icon>
-                      <SidebarMenu.Nav.Title as="span" bsPrefix="sidenav-normal" className="ms-3 ps-1">
-                        {item.title}
-                      </SidebarMenu.Nav.Title>
-                    </SidebarMenu.Nav.Link>
+                    <Link className="nav-link text-white" to={item.href}>
+                      <span class="sidenav-mini-icon">{item.icon}</span>
+                      <span class="ms-3 ps-1 sidenav-normal">{item.title}</span>
+                    </Link>
                   </SidebarMenu.Nav.Item>
                 );
               })
