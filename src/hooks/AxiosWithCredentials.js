@@ -31,24 +31,24 @@ export default function axiosWithCredentials (baseURL) {
       const originalRequest: AxiosRequestConfig = error.config;
       const refreshToken = secureLocalStorage.getItem(REFRESH_TOKEN_KEY);
 
-      if (refreshToken && error.response && error.response.status === 401) {
-        try {
-          // Refresh the access token
-          const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
-
-          // Update the localstorage with the new access token
-          const newAccessToken = refreshResponse.data.access_token;
-          secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
-
-          // Retry the original request
-          return axiosInstance(originalRequest);
-        } catch (refreshError) {
-          throw refreshError;
-        }
+      // Return a Promise rejection if the status code is not 401 or not exists refresh token
+      if (!refreshToken || error.response?.status !== 401) {
+        return Promise.reject(error);
       }
-      
-      // Return a Promise rejection if the status code is not 401
-      return Promise.reject(error);
+
+      try {
+        // Refresh the access token
+        const refreshResponse = await axios.post(baseURL + "/auth/refresh", { refresh_token: refreshToken });
+
+        // Update the localstorage with the new access token
+        const newAccessToken = refreshResponse.data.access_token;
+        secureLocalStorage.setItem(ACCESS_TOKEN_KEY, newAccessToken);
+
+        // Retry the original request
+        return axiosInstance(originalRequest);
+      } catch (refreshError) {
+        throw refreshError;
+      }
     }
   );
 
