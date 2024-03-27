@@ -100,6 +100,6 @@ const SidebarDashboard = forwardRef((props, _ref) => {
       </SidebarMenu>
     </>
   );
-};
+});
 
 export default memo(SidebarDashboard);
