@@ -7,12 +7,12 @@ function SidebarHeader() {
   return (
     <>
       <SidebarMenu.Header bsPrefix="sidenav-header" className="d-flex align-items-center justify-content-center">
-        <SidebarMenu.Brand as="a" bsPrefix="navbar-brand" className="m-0" href="/">
+        <Link to="/" className="navbar-brand m-0">
           <img src={require("../../assets/img/logo-ct.png")} className="navbar-brand-img h-100" />
           <span className="ms-1 font-weight-bold text-white">
             React Test App
           </span>
-        </SidebarMenu.Brand>
+        </Link>
       </SidebarMenu.Header>
     </>
   );
@@ -34,7 +34,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
               links.map((item) => {
                 return (
                   <SidebarMenu.Nav.Item as="li" bsPrefix="nav-item">
-                    <Link className="nav-link text-white" to={item.href}>
+                    <Link to={item.href} className="nav-link text-white">
                       <span class="sidenav-mini-icon">{item.icon}</span>
                       <span class="ms-3 ps-1 sidenav-normal">{item.title}</span>
                     </Link>
