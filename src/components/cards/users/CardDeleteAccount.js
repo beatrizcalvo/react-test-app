@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 export default function CardDeleteAccount(props) {
   const { id } = props;
