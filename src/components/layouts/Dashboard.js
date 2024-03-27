@@ -1,39 +1,17 @@
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-
-
-
-
-
 import { useEffect, useRef, useState } from "react";
 
-import PerfectScrollbar from "perfect-scrollbar";
-
-var ps;
+import Button from 'react-bootstrap/Button';
 
 export default function Dashboard(props) {
-  const [alerts, setAlerts] = useState([]);
-  
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
         Launch
       </Button>
-
-      <Offcanvas show={show} onHide={handleClose} responsive="lg" className="sidenav navbar navbar-vertical">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
-      </Offcanvas>
+      <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark">
+        AAAAAAAAAAAAAAAAAAAAA
+      </aside>
     </>
   );
 }
