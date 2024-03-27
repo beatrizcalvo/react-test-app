@@ -1,5 +1,6 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { SidebarMenuToggle } from 'react-bootstrap-sidebar-menu';
 import { Link, useLocation } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
@@ -90,13 +91,11 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         expanded={isOpen}
       >
         <Container fluid className="py-1 px-3">
-          <div class="sidenav-toggler sidenav-toggler-inner d-xl-none">
-            <a class="nav-link text-body p-0">
-              <i class="fa-solid fa-bars" />
-            </a>
-          </div>
+          <SidebarMenuToggle>
+            <i className="fa-solid fa-bars" />
+          </SidebarMenuToggle>
           <BreadcrumbsDashboard className="ps-3" />
-          <div class="col" />
+          <div className="col" />
           <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
             <i className="fa-solid fa-ellipsis-vertical" />
           </Navbar.Toggle>
@@ -104,7 +103,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
             id="navbar-dashboard-collapse" 
             {...(isOpen ? { className: "pt-3" } : {})}
           >
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center" />
+            <div className="ms-md-auto pe-md-3 d-flex align-items-center" />
             <Nav>
               {
                 navbarLinks.map((item) => {
