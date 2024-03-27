@@ -1,5 +1,5 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
-import { Container, Row, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useLocation } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
@@ -90,15 +90,14 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         expanded={isOpen}
       >
         <Container fluid className="py-1 pe-3">
-          <Row className="row-cols-auto">
-            <div class="sidenav-toggler sidenav-toggler-inner d-xl-none">
-              <a class="nav-link text-body p-0">
-                <i class="fa-solid fa-bars" />
-              </a>
-            </div>
-            <BreadcrumbsDashboard className="ps-3" />
-          </Row>
-          </Container>
+          <div class="sidenav-toggler sidenav-toggler-inner d-xl-none">
+            <a class="nav-link text-body p-0">
+              <i class="fa-solid fa-bars" />
+            </a>
+          </div>
+          <BreadcrumbsDashboard className="ps-3" />
+          <div className="col" />
+        </Container>
       </Navbar>
     </>
   );
