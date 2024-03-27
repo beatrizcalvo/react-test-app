@@ -22,7 +22,7 @@ const NavbarDashboard = forwardRef((props, _ref) => {
   const [isBlur, setIsBlur] = useState(false);
   const [color, setColor] = useState("transparent");
 
-  const { sidebarRef } = props; 
+  const { handleSidebarShow } = props; 
   const { logoutUser } = useAuth();
   const location = useLocation();
   
