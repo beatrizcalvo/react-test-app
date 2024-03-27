@@ -102,6 +102,7 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
               <BreadcrumbsDashboard className="ps-3" />
             </Col>
           </Row>
+          </Container>
       </Navbar>
     </>
   );
