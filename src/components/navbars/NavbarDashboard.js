@@ -96,11 +96,36 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
             </a>
           </div>
           <BreadcrumbsDashboard className="ps-3" />
+          <div class="col" />
           <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
             <i className="fa-solid fa-ellipsis-vertical" />
           </Navbar.Toggle>
-          
-          <div className="col" />
+          <Navbar.Collapse 
+            id="navbar-dashboard-collapse" 
+            {...(isOpen ? { className: "pt-3" } : {})}
+          >
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center" />
+            <Nav>
+              {
+                navbarLinks.map((item) => {
+                  return (
+                    <Nav.Link as={Link}
+                      {...(item.href ? { to: item.href } : {})}
+                      className="d-flex align-items-center icon-md w-100 h-100 pe-3"
+                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
+                    >
+                      <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
+                        <i className={ item.icon } />
+                      </LinkTooltip>
+                      <span className="text-uppercase d-lg-none d-md-block ms-2">
+                        {item.title}
+                      </span>
+                    </Nav.Link>
+                  );
+                })
+              }              
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
