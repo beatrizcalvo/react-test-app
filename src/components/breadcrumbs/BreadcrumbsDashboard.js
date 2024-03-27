@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Col, Breadcrumb } from "react-bootstrap";
+import { Breadcrumb } from "react-bootstrap";
 
 export default function BreadcrumbsDashboard(props) {
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
@@ -37,7 +37,7 @@ export default function BreadcrumbsDashboard(props) {
             const isActive = breadcrumb.name === getCurrentPageName();
             const getLinkContent = (breadcrumb.name === "Dashboard" && index === 0) 
               ? <i className="fa-solid fa-house" /> 
-              : {breadcrumb.name};
+              : ({breadcrumb.name});
             
             return (
               <li className={ "breadcrumb-item text-sm" + (isActive ? " active" : "") }>
