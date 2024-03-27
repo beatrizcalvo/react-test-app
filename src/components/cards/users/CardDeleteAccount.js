@@ -22,7 +22,7 @@ export default function CardDeleteAccount(props) {
                 Deactivate
               </Button>
               <Button 
-                className="bg-gradient-danger mb-0 ms-2" 
+                className="bg-gradient-danger mb-3 mb-md-0 ms-auto" 
                 onClick={() => handleDeleteAccount()}
               >
                  Delete Account
