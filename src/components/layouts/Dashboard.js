@@ -16,6 +16,7 @@ export default function Dashboard(props) {
   
   const mainPanelRef = useRef();
   const navbarRef = useRef();
+  const sidebarRef = useRef();
   const location = useLocation();
 
   const navbarShowBlur = () => navbarRef.current.showBlur(true);
@@ -51,7 +52,7 @@ export default function Dashboard(props) {
         <ToastContainer position="bottom-end" className="px-1 py-3">
           { alerts.map(item => { return <Alert {...item} />; }) }
         </ToastContainer>
-        <SidebarDashboard />
+        <SidebarDashboard ref={sidebarRef} />
         <main className="main-content position-relative max-height-vh-100 h-100" ref={mainPanelRef}>
           <NavbarDashboard ref={navbarRef} />
           <Container fluid className="px-4 py-4">          
