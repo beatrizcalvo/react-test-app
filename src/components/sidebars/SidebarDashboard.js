@@ -3,7 +3,7 @@ import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
 
-function SidebarHeader(prop) {
+function SidebarHeader(props) {
   const { toggleSidebar } = props;
   
   return (
