@@ -7,6 +7,7 @@ function SidebarHeader() {
   return (
     <>
       <SidebarMenu.Header bsPrefix="sidenav-header" className="d-flex align-items-center justify-content-center">
+        <i className="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-xl-none" />
         <Link to="/" className="navbar-brand m-0">
           <img src={require("../../assets/img/logo-ct.png")} className="navbar-brand-img h-100" />
           <span className="ms-1 font-weight-bold text-white">
