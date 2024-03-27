@@ -14,15 +14,15 @@ export default function CardDeleteAccount(props) {
               <h5>Delete Account</h5>
               <p className="text-sm mb-0">Once you delete your account, there is no going back. Please be certain.</p>
             </div>
-            <div className="w-50 text-end d-xs-block">
+            <div className="w-50 text-end">
               <Button 
                 variant="outline-secondary" 
-                className="mb-3 mb-md-0 ms-auto"
+                className="mb-3 mb-md-0 ms-auto d-sm-block"
               >
                 Deactivate
               </Button>
               <Button 
-                className="bg-gradient-danger mb-0 ms-2" 
+                className="bg-gradient-danger mb-0 ms-2 d-sm-block" 
                 onClick={() => handleDeleteAccount()}
               >
                  Delete Account
