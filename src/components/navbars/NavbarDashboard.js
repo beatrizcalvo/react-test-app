@@ -96,6 +96,10 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
             </a>
           </div>
           <BreadcrumbsDashboard className="ps-3" />
+          <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
+            <i className="fa-solid fa-ellipsis-vertical" />
+          </Navbar.Toggle>
+          
           <div className="col" />
         </Container>
       </Navbar>
