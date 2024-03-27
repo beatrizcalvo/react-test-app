@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function Dashboard() {
+export default function Dashboard(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -14,7 +14,7 @@ function Dashboard() {
         Launch
       </Button>
 
-      <Offcanvas show={show} onHide={handleClose} responsive="lg">
+      <Offcanvas show={show} onHide={handleClose} responsive="lg" className="bg-transparent">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
@@ -26,5 +26,3 @@ function Dashboard() {
     </>
   );
 }
-
-export default Dashboard;
