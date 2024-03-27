@@ -1,6 +1,6 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
 import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { SidebarMenuToggle } from 'react-bootstrap-sidebar-menu';
+import SidebarMenu from 'react-bootstrap-sidebar-menu';
 import { Link, useLocation } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
@@ -91,9 +91,9 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         expanded={isOpen}
       >
         <Container fluid className="py-1 px-3">
-          <SidebarMenuToggle>
+          <SidebarMenu.Toggle>
             <i className="fa-solid fa-bars" />
-          </SidebarMenuToggle>
+          </SidebarMenu.Toggle>
           <BreadcrumbsDashboard className="ps-3" />
           <div className="col" />
           <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
