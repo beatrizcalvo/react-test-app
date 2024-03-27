@@ -34,20 +34,20 @@ export default function BreadcrumbsDashboard(props) {
       >
         {
           breadcrumbsLinks.map((breadcrumb, index) => {
+            const isActive = breadcrumb.name === getCurrentPageName();
             return (
-              <Breadcrumb.Item 
-                href={breadcrumb.href} 
-                className="text-sm" 
-                linkAs="Link" 
-                linkProps={{ className: 'opacity-5' }} 
-                active={(breadcrumb.name === getCurrentPageName()) ? true : false}
+              <li 
+                className={"breadcrumb-item text-sm" + isActive ? " active" : ""}
+                {...(isActive ? {} : { aria-current: "page" })}
               >
-                { 
-                  (breadcrumb.name === "Dashboard" && index === 0) ? 
-                    <i className="fa-solid fa-house" />
-                  : breadcrumb.name 
-                }
-              </Breadcrumb.Item>
+                <Link to={breadcrumb.href}>
+                  { 
+                    (breadcrumb.name === "Dashboard" && index === 0) ? 
+                      <i className="fa-solid fa-house" />
+                    : breadcrumb.name 
+                  }
+                </Link>
+              </li>
             );
           })
         }
