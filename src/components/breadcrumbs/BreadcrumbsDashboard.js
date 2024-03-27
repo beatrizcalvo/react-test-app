@@ -36,8 +36,8 @@ export default function BreadcrumbsDashboard(props) {
           breadcrumbsLinks.map((breadcrumb, index) => {
             const isActive = breadcrumb.name === getCurrentPageName();
             const getLinkContent = (breadcrumb.name === "Dashboard" && index === 0) 
-              ? (<i className="fa-solid fa-house" />) 
-              : ({breadcrumb.name});
+              ? return (<i className="fa-solid fa-house" />) 
+              : return ({breadcrumb.name});
             
             return (
               <li className={ "breadcrumb-item text-sm" + (isActive ? " active" : "") }>
