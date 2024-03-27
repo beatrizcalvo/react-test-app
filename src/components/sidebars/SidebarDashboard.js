@@ -3,7 +3,7 @@ import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
 
-function SidebarHeader() {
+function SidebarHeader(prop) {
   return (
     <>
       <SidebarMenu.Header bsPrefix="sidenav-header" className="d-flex align-items-center justify-content-center">
@@ -74,7 +74,7 @@ export default function SidebarDashboard(props) {
         expand="xs"
         className="sidenav border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
       >
-        <SidebarHeader />
+        <SidebarHeader {...props} />
         <hr class="horizontal light mt-0 mb-2" />
         <SidebarMenu.Collapse bsPrefix="navbar-collapse" className="w-auto">
           <SidebarMenu.Nav as="ul" bsPrefix="navbar-nav">
