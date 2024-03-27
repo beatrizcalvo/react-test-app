@@ -1,4 +1,3 @@
-import { forwardRef, memo, useState, useImperativeHandle } from "react";
 import { Link } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
@@ -50,9 +49,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
   );
 };
 
-const SidebarDashboard = forwardRef((props, _ref) => {
-  const [isOpen, setIsOpen] = useState(false);
-  
+export default function SidebarDashboard(props) {  
   const { user } = useAuth();
 
   // Links config for sidebar
@@ -67,11 +64,6 @@ const SidebarDashboard = forwardRef((props, _ref) => {
       ]
     }
   ];
-
-  // Functions to update state fields from parent
-  useImperativeHandle(_ref, () => ({
-    showSidebar: () => { setIsOpen(true); }
-  }));
 
   return (
     <>
@@ -105,5 +97,3 @@ const SidebarDashboard = forwardRef((props, _ref) => {
     </>
   );
 });
-
-export default memo(SidebarDashboard);
