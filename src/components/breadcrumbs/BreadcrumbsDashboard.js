@@ -35,7 +35,7 @@ export default function BreadcrumbsDashboard(props) {
         {
           breadcrumbsLinks.map((breadcrumb, index) => {
             const isActive = breadcrumb.name === getCurrentPageName();
-            const getLinkContent = (breadcrumb.name === "Dashboard" && index === 0) 
+            const linkContent = (breadcrumb.name === "Dashboard" && index === 0) 
               ? <i className="fa-solid fa-house" />
               : breadcrumb.name;
             
@@ -43,8 +43,8 @@ export default function BreadcrumbsDashboard(props) {
               <li className={ "breadcrumb-item text-sm" + (isActive ? " active" : "") }>
                 {
                   (isActive) 
-                    ? getLinkContent() 
-                    : <Link className="opacity-5" to={breadcrumb.href}>getLinkContent()</Link>                               
+                    ? linkContent
+                    : <Link className="opacity-5" to={breadcrumb.href}>linkContent</Link>                               
                 }
               </li>
             );
