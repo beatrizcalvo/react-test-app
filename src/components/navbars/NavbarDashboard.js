@@ -21,6 +21,8 @@ const NavbarDashboard = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBlur, setIsBlur] = useState(false);
   const [color, setColor] = useState("transparent");
+
+  const { sidebarRef } = props; 
   const { logoutUser } = useAuth();
   const location = useLocation();
   
