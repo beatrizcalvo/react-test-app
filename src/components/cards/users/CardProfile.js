@@ -26,6 +26,7 @@ export default function CardProfile(props) {
       const errorMessage = "The file " + fileToUpload.name + " is larger than " + MAX_SIZE_MB + "Mb";
       addNewAlert("danger", errorMessage);
       setIsLoading(false);
+      alert("KO");
       return false;
     }
     alert("OK");
