@@ -1,4 +1,4 @@
-import { forwardRef, memo, useState } from "react";
+import { forwardRef, memo, useState, useImperativeHandle } from "react";
 import { Link } from "react-router-dom";
 import SidebarMenu from 'react-bootstrap-sidebar-menu';
 
@@ -51,7 +51,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
 };
 
 const SidebarDashboard = forwardRef((props, _ref) => {
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState(true);
   
   const { user } = useAuth();
 
@@ -67,6 +67,13 @@ const SidebarDashboard = forwardRef((props, _ref) => {
       ]
     }
   ];
+
+  // Functions to update state fields from parent
+  useImperativeHandle(_ref, () => ({
+    showSidebar: () => {
+      
+    }
+  }));
 
   return (
     <>
