@@ -22,7 +22,7 @@ export default function Dashboard(props) {
   const navbarHideBlur = () => navbarRef.current.showBlur(false);
 
   const handleSidebarShow = () => {
-    alert("pulsado");
+    document.body.classList.add("g-sidenav-pinned");
   };
 
   useEffect(() => {
