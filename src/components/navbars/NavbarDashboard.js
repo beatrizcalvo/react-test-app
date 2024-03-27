@@ -1,5 +1,5 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
-import { Container, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Container, Row, Col, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useLocation } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
@@ -90,40 +90,18 @@ const NavbarDashboard = forwardRef(({ handleRegister }, _ref) => {
         expanded={isOpen}
       >
         <Container fluid className="py-1 pe-3">
-          <BreadcrumbsDashboard className="ps-3" />
-          <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
-            <i class="fa-solid fa-bars" />
-          </div>
-          <Navbar.Toggle aria-controls="navbar-dashboard-collapse">
-            <i className="fa-solid fa-ellipsis-vertical" />
-          </Navbar.Toggle>
-          <Navbar.Collapse 
-            id="navbar-dashboard-collapse" 
-            {...(isOpen ? { className: "pt-3" } : {})}
-          >
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center" />
-            <Nav>
-              {
-                navbarLinks.map((item) => {
-                  return (
-                    <Nav.Link as={Link}
-                      {...(item.href ? { to: item.href } : {})}
-                      className="d-flex align-items-center icon-md w-100 h-100 pe-3"
-                      {...(item.clickHandler ? { onClick: item.clickHandler } : {})}
-                    >
-                      <LinkTooltip id={item.id} title={item.title} showTooltip={!isOpen}>
-                        <i className={ item.icon } />
-                      </LinkTooltip>
-                      <span className="text-uppercase d-lg-none d-md-block ms-2">
-                        {item.title}
-                      </span>
-                    </Nav.Link>
-                  );
-                })
-              }              
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+          <Row>
+            <Col md="auto">
+              <div class="sidenav-toggler sidenav-toggler-inner d-xl-none">
+                <a class="nav-link text-body p-0">
+                  <i class="fa-solid fa-bars" />
+                </a>
+              </div>
+            </Col>
+            <Col>
+              <BreadcrumbsDashboard className="ps-3" />
+            </Col>
+          </Row>
       </Navbar>
     </>
   );
