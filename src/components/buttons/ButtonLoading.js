@@ -1,7 +1,7 @@
 import { Button, Spinner } from "react-bootstrap";
 
 export default function ButtonLoading(props) {
-  const { variant, type, className, text, isLoading } = props;
+  const { variant, type, className, textButton, isLoading } = props;
   
   return (
     <>
@@ -23,7 +23,7 @@ export default function ButtonLoading(props) {
             Loading...
           </>
         ) : (
-          {text}
+          {textButton}
         )}
       </Button>
     </>
