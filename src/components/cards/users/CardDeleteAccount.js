@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
@@ -8,8 +9,10 @@ export default function CardDeleteAccount(props) {
   const { id } = props;
   const { addNewAlert } = useAlerts();
 
+  // Delete account from server
   const handleDeleteAccount = () => {
     isLoading(true);
+    UsersService.
   };
 
   return (
