@@ -37,8 +37,8 @@ export default function Dashboard(props) {
     return () => {
       document.body.classList.remove("g-sidenav-show", "bg-gray-200");
 
-      mainPanelRef.current.removeEventListener("ps-scroll-y", navbarShowBlur);
-      mainPanelRef.current.removeEventListener("ps-y-reach-start", navbarHideBlur);  
+      mainPanelRef.current.removeEventListener("ps-scroll-y");
+      mainPanelRef.current.removeEventListener("ps-y-reach-start");  
       document.body.classList.toggle("perfect-scrollbar-on");
       ps.destroy();
     };
