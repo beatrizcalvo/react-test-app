@@ -10,17 +10,21 @@ export default function CardDeleteAccount(props) {
   const connectionError = "Cannot connect to the user registration server.";
   
   const [isLoading, setIsLoading] = useState(false);
-  const { id } = props;
+  const { id, isActionInProgress, setIsActionInProgress } = props;
   const { logoutUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Delete account from server
   const handleDeleteAccount = () => {
+    setIsActionInProgress(true);
     setIsLoading(true);
     UsersService.deleteCurrentUser()
       .then(response => {alert(JSON.stringify(response));})
-      .catch(error => {alert(JSON.stringify(error));})
-      .finally(() => setIsLoading(false));
+      .catch(error => {alert(JSON.stringify(error.response));})
+      .finally(() => {
+        setIsActionInProgress(false);
+        setIsLoading(false)
+      });
   };
 
   return (
@@ -39,6 +43,7 @@ export default function CardDeleteAccount(props) {
                 className="bg-gradient-danger mb-0 ms-2"
                 titleButton="Delete Account" 
                 isLoading={isLoading}
+                disabled={isActionInProgress} 
                 handleOnClick={() => handleDeleteAccount()}
               />
             </div>
