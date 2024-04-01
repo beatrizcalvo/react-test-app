@@ -22,6 +22,7 @@ export default function CardProfile(props) {
     const fileToUpload = event.target.files[0];
 
     alert("OK: " + JSON.stringify(fileToUpload));
+    event.target.value = null;
     setIsLoading(false);
   };
   
