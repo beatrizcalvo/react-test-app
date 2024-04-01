@@ -15,18 +15,7 @@ export default function CardDeleteAccount(props) {
 
   // Delete account from server
   const handleDeleteAccount = () => {
-    isLoading(true);
-    UsersService.deleteCurrentUser()
-      .then(response => {
-        logoutUser();
-      })
-      .catch(error => {
-        const errorMessage = (error.response && error.response.data && error.response.data.errors && 
-                              error.response.data.errors[0].description) 
-          || connectionError;
-        addNewAlert("danger", "Deleting Account - " + errorMessage);
-      })
-      .finally(() => isLoading(false));
+    alert("Pulsado");
   };
 
   return (
