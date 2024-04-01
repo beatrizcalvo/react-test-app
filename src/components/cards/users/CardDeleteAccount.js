@@ -12,7 +12,10 @@ export default function CardDeleteAccount(props) {
   // Delete account from server
   const handleDeleteAccount = () => {
     isLoading(true);
-    UsersService.
+    UsersService.deleteCurrentUser()
+      .then()
+      .catch()
+      .finally();
   };
 
   return (
