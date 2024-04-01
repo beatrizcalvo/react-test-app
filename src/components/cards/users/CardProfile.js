@@ -8,16 +8,17 @@ export default function CardProfile(props) {
   const MAX_SIZE_MB = 1;
 
   const [isLoading, setIsLoading] = useState(false);      
-  const { id } = props;
+  const { id, isActionInProgress, setIsActionInProgress } = props;
   const { user } = useAuth();
   const { addNewAlert } = useAlerts();
   const inputFileRef = useRef();
 
   // Show file browser to select file
-  const showFileSearching = () => { if(!isLoading) inputFileRef.current.click() };
+  const showFileSearching = () => { if(!isLoading && !isActionInProgress) inputFileRef.current.click() };
 
   // Upload file to server
   const uploadFile = (event) => {
+    setIsActionInProgress(true);
     setIsLoading(true);
     const fileToUpload = event.target.files[0];
 
@@ -26,12 +27,14 @@ export default function CardProfile(props) {
       const errorMessage = "The file " + fileToUpload.name + " is larger than " + MAX_SIZE_MB + "Mb";
       addNewAlert("danger", errorMessage);
       event.target.value = null;
+      setIsActionInProgress(false);
       setIsLoading(false);
       return false;
     }
 
     alert("Upload file");
     event.target.value = null;
+    setIsActionInProgress(false);
     setIsLoading(false);
   };
   
