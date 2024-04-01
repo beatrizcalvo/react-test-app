@@ -1,20 +1,22 @@
 import { useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import UsersService from "../../../services/UsersService";
+import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function CardDeleteAccount(props) {
   const connectionError = "Cannot connect to the user registration server.";
   
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingDelete, setIsLoadingDelete] = useState(false);
   const { id } = props;
   const { logoutUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Delete account from server
   const handleDeleteAccount = () => {
+    setIsLoadingDelete(true);
     alert("Pulsado");
   };
 
@@ -28,22 +30,13 @@ export default function CardDeleteAccount(props) {
               <p className="text-sm mb-0">Once you delete your account, there is no going back. Please be certain.</p>
             </div>
             <div className="w-50 text-end">
-              <div className="w-100">
-                <Button 
-                  variant="outline-secondary" 
-                  className="mb-3 mb-md-0 ms-auto"
-                  disabled={isLoading}
-                >
-                  Deactivate
-                </Button>
-                <Button 
-                  className="bg-gradient-danger mb-0 ms-2" 
-                  onClick={() => handleDeleteAccount()} 
-                  disabled={isLoading}
-                >
-                   Delete Account
-                </Button>
-              </div>
+              <ButtonLoading
+                variant="primary"
+                type="button"
+                className="bg-gradient-danger mb-0 ms-2"
+                titleButton="Delete Account" 
+                isLoading={isLoadingDelete}
+              />
             </div>
           </div>
         </Card.Body>
