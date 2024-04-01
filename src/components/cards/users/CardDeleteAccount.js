@@ -1,9 +1,16 @@
 import { Button, Card } from "react-bootstrap";
 
-export default function CardDeleteAccount(props) {
-  const { id } = props;
+import { useAlerts } from "../../../hooks/providers/AlertsProvider";
+import UsersService from "../../../services/UsersService";
 
-  const handleDeleteAccount = () => {};
+export default function CardDeleteAccount(props) {
+  const [isLoading, setIsLoading] = useState(false);
+  const { id } = props;
+  const { addNewAlert } = useAlerts();
+
+  const handleDeleteAccount = () => {
+    isLoading(true);
+  };
 
   return (
     <>
@@ -19,12 +26,14 @@ export default function CardDeleteAccount(props) {
                 <Button 
                   variant="outline-secondary" 
                   className="mb-3 mb-md-0 ms-auto"
+                  disabled={isLoading}
                 >
                   Deactivate
                 </Button>
                 <Button 
                   className="bg-gradient-danger mb-0 ms-2" 
-                  onClick={() => handleDeleteAccount()}
+                  onClick={() => handleDeleteAccount()} 
+                  disabled={isLoading}
                 >
                    Delete Account
                 </Button>
