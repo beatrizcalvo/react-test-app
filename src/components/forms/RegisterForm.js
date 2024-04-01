@@ -1,4 +1,4 @@
-import { Form, Row, Col, Button, Alert, Spinner } from "react-bootstrap";
+import { Form, Row, Col, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
@@ -132,27 +132,13 @@ export default function RegisterForm(props) {
             }
           </span>
         </Alert>
-        <Button
-          className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"
-          variant="primary"
-          type="submit"
-          disabled={loadingAuth}
-        >
-          {loadingAuth ? (
-            <>
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />{" "}
-              Loading...
-            </>
-          ) : (
-            "Submit"
-          )}
-        </Button>
+        <ButtonLoading 
+          variant="primary" 
+          type="submit" 
+          className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" 
+          titleButton="Submit" 
+          isLoading={loadingAuth}
+        />
       </Form>
     </>
   );
