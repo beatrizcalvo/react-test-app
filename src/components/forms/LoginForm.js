@@ -72,7 +72,7 @@ export default function LoginForm(props) {
           variant="primary" 
           type="submit" 
           className="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" 
-          textButton="Submit" 
+          titleButton="Submit" 
           isLoading={loadingAuth}
         />        
       </Form>
