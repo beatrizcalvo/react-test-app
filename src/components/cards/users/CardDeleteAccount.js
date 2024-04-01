@@ -9,15 +9,18 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 export default function CardDeleteAccount(props) {
   const connectionError = "Cannot connect to the user registration server.";
   
-  const [isLoadingDelete, setIsLoadingDelete] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = props;
   const { logoutUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Delete account from server
   const handleDeleteAccount = () => {
-    setIsLoadingDelete(true);
-    alert("Pulsado");
+    setIsLoading(true);
+    UsersService.deleteCurrentUser()
+      .then(response => {alert(JSON.stringify(response));})
+      .catch(error => {alert(JSON.stringify(error));})
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -35,7 +38,7 @@ export default function CardDeleteAccount(props) {
                 type="button"
                 className="bg-gradient-danger mb-0 ms-2"
                 titleButton="Delete Account" 
-                isLoading={isLoadingDelete}
+                isLoading={isLoading}
                 handleOnClick={() => handleDeleteAccount()}
               />
             </div>
