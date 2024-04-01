@@ -9,7 +9,8 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 export default function CardDeleteAccount(props) {
   const connectionError = "Cannot connect to the user registration server.";
   
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingDelete, setIsLoadingDelete] = useState(false);
+  const [isLoadingDeactivate, setIsLoadingDeactivate] = useState(false);
   const { id, isActionInProgress, setIsActionInProgress } = props;
   const { logoutUser } = useAuth();
   const { addNewAlert } = useAlerts();
@@ -17,13 +18,13 @@ export default function CardDeleteAccount(props) {
   // Deactivate account from server
   const handleDeactivateAccount = () => {
     setIsActionInProgress(true);
-    setIsLoading(true);
+    setIsLoadingDeactivate(true);
   };
 
   // Delete account from server
   const handleDeleteAccount = () => {
     setIsActionInProgress(true);
-    setIsLoading(true);
+    setIsLoadingDelete(true);
     UsersService.deleteCurrentUser()
       .then(response => logoutUser())
       .catch(error => {
@@ -34,7 +35,7 @@ export default function CardDeleteAccount(props) {
       })
       .finally(() => {
         setIsActionInProgress(false);
-        setIsLoading(false)
+        setIsLoadingDelete(false)
       });
   };
 
@@ -53,7 +54,7 @@ export default function CardDeleteAccount(props) {
                 type="button" 
                 className="mb-3 mb-md-0 ms-auto"
                 titleButton="Deactivate" 
-                isLoading={isLoading}
+                isLoading={isLoadingDeactivate}
                 disabled={isActionInProgress} 
                 handleOnClick={() => handleDeactivateAccount()}
               />
@@ -62,7 +63,7 @@ export default function CardDeleteAccount(props) {
                 type="button"
                 className="bg-gradient-danger mb-0 ms-2"
                 titleButton="Delete Account" 
-                isLoading={isLoading}
+                isLoading={isLoadingDelete}
                 disabled={isActionInProgress} 
                 handleOnClick={() => handleDeleteAccount()}
               />
