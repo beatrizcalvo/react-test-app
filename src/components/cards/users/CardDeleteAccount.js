@@ -19,7 +19,7 @@ export default function CardDeleteAccount(props) {
     setIsActionInProgress(true);
     setIsLoading(true);
     UsersService.deleteCurrentUser()
-      .then(response => {alert(JSON.stringify(response));})
+      .then(response => logoutUser())
       .catch(error => {alert(JSON.stringify(error.response));})
       .finally(() => {
         setIsActionInProgress(false);
@@ -37,6 +37,14 @@ export default function CardDeleteAccount(props) {
               <p className="text-sm mb-0">Once you delete your account, there is no going back. Please be certain.</p>
             </div>
             <div className="w-50 text-end">
+              <ButtonLoading 
+                variant="outline-secondary"
+                type="button" 
+                className="mb-3 mb-md-0 ms-auto"
+                titleButton="Deactivate Account" 
+                isLoading={isLoading}
+                disabled={isActionInProgress} 
+              />
               <ButtonLoading
                 variant="primary"
                 type="button"
