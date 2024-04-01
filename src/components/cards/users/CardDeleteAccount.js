@@ -14,6 +14,12 @@ export default function CardDeleteAccount(props) {
   const { logoutUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
+  // Deactivate account from server
+  const handleDeactivateAccount = () => {
+    setIsActionInProgress(true);
+    setIsLoading(true);
+  };
+
   // Delete account from server
   const handleDeleteAccount = () => {
     setIsActionInProgress(true);
@@ -49,6 +55,7 @@ export default function CardDeleteAccount(props) {
                 titleButton="Deactivate Account" 
                 isLoading={isLoading}
                 disabled={isActionInProgress} 
+                handleOnClick={() => handleDeactivateAccount()}
               />
               <ButtonLoading
                 variant="primary"
