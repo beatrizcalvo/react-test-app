@@ -36,6 +36,7 @@ export default function CardDeleteAccount(props) {
                 className="bg-gradient-danger mb-0 ms-2"
                 titleButton="Delete Account" 
                 isLoading={isLoadingDelete}
+                handleOnClick={() => handleDeleteAccount()}
               />
             </div>
           </div>
