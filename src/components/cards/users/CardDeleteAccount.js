@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
+import { useAuth } from "../../../hookd/providers/AuthProvider";
 import UsersService from "../../../services/UsersService";
 
 export default function CardDeleteAccount(props) {
@@ -10,6 +10,7 @@ export default function CardDeleteAccount(props) {
   
   const [isLoading, setIsLoading] = useState(false);
   const { id } = props;
+  const { logoutUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Delete account from server
@@ -17,7 +18,7 @@ export default function CardDeleteAccount(props) {
     isLoading(true);
     UsersService.deleteCurrentUser()
       .then(response => {
-        
+        logoutUser();
       })
       .catch(error => {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && 
