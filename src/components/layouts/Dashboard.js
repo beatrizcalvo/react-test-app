@@ -31,8 +31,8 @@ export default function Dashboard(props) {
     
     ps = new PerfectScrollbar(mainPanelRef.current);
     document.body.classList.toggle("perfect-scrollbar-on");
-    mainPanelRef.current.addEventListener("ps-scroll-y", navbarShowBlur);
-    mainPanelRef.current.addEventListener("ps-y-reach-start", navbarHideBlur);  
+    mainPanelRef.current.removeEventListener("ps-scroll-y", navbarShowBlur);
+    mainPanelRef.current.removeEventListener("ps-y-reach-start", navbarHideBlur);  
     
     return () => {
       document.body.classList.remove("g-sidenav-show", "bg-gray-200");
