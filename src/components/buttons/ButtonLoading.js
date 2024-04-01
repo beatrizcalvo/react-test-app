@@ -1,7 +1,7 @@
 import { Button, Spinner } from "react-bootstrap";
 
 export default function ButtonLoading(props) {
-  const { variant, type, className, titleButton, isLoading, handleOnClick } = props;
+  const { variant, type, className, titleButton, disabled, isLoading, handleOnClick } = props;
   
   return (
     <>
@@ -9,7 +9,7 @@ export default function ButtonLoading(props) {
         variant={variant}
         type={type}
         {...(!!className ? { className: className } : {})}
-        disabled={isLoading}
+        disabled={disabled || isLoading}
         {...(!!handleOnClick ? { onClick: handleOnClick } : {})}
       >
         {isLoading ? (
