@@ -1,4 +1,4 @@
-import { createElement } from "react";
+import { createElement, useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 import NavbarUserProfile from "../../navbars/NavbarUserProfile";
@@ -6,6 +6,8 @@ import CardProfile from "../../cards/users/CardProfile";
 import CardDeleteAccount from "../../cards/users/CardDeleteAccount";
 
 export default function Profile(props) {  
+  const [isActionInProgress, setIsActionInProgress] = useState(false);
+  
   // Links config for profile navbar
   const navbarLinks = [
     { href: "#profile-info", title: "Profile", icon: "fa-solid fa-user", component: CardProfile },
@@ -26,7 +28,11 @@ export default function Profile(props) {
           {
             navbarLinks.map(item => {
               if (typeof item.component !== "undefined") {
-                return createElement(item.component, { id: item.href.substring(1) });
+                return createElement(item.component, { 
+                  id: item.href.substring(1), 
+                  isActionInProgress: isActionInProgress, 
+                  setIsActionInProgress: setIsActionInProgress
+                });
               }
             })
           }
