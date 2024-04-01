@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
@@ -15,12 +16,14 @@ export default function CardDeleteAccount(props) {
   const handleDeleteAccount = () => {
     isLoading(true);
     UsersService.deleteCurrentUser()
-      .then(response => {})
+      .then(response => {
+        
+      })
       .catch(error => {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && 
                               error.response.data.errors[0].description) 
           || connectionError;
-        addNewAlert("danger", errorMessage);
+        addNewAlert("danger", "Deleting Account - " + errorMessage);
       })
       .finally(() => isLoading(false));
   };
