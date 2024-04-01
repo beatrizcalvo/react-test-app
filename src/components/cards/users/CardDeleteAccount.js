@@ -52,7 +52,7 @@ export default function CardDeleteAccount(props) {
                 variant="outline-secondary"
                 type="button" 
                 className="mb-3 mb-md-0 ms-auto"
-                titleButton="Deactivate Account" 
+                titleButton="Deactivate" 
                 isLoading={isLoading}
                 disabled={isActionInProgress} 
                 handleOnClick={() => handleDeactivateAccount()}
