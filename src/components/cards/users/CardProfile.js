@@ -49,7 +49,10 @@ export default function CardProfile(props) {
             >
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
               <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
-                <i className="fa-solid fa-camera" />
+                { !isActionInProgress ? 
+                    <i className="fa-solid fa-camera" />
+                  : ""
+                }                
               </span>
               <Form.Control 
                 ref={inputFileRef} 
