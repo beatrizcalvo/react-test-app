@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
-import { useAuth } from "../../../hookd/providers/AuthProvider";
+import { useAuth } from "../../../hooks/providers/AuthProvider";
 import UsersService from "../../../services/UsersService";
 
 export default function CardDeleteAccount(props) {
