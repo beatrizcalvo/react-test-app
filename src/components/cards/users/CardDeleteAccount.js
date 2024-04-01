@@ -5,6 +5,8 @@ import { useAlerts } from "../../../hooks/providers/AlertsProvider";
 import UsersService from "../../../services/UsersService";
 
 export default function CardDeleteAccount(props) {
+  const connectionError = "Cannot connect to the user registration server.";
+  
   const [isLoading, setIsLoading] = useState(false);
   const { id } = props;
   const { addNewAlert } = useAlerts();
@@ -14,8 +16,13 @@ export default function CardDeleteAccount(props) {
     isLoading(true);
     UsersService.deleteCurrentUser()
       .then(response => {})
-      .catch(error => {})
-      .finally(() => {});
+      .catch(error => {
+        const errorMessage = (error.response && error.response.data && error.response.data.errors && 
+                              error.response.data.errors[0].description) 
+          || connectionError;
+        addNewAlert("danger", errorMessage);
+      })
+      .finally(() => isLoading(false));
   };
 
   return (
