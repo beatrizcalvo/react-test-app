@@ -20,7 +20,12 @@ export default function CardDeleteAccount(props) {
     setIsLoading(true);
     UsersService.deleteCurrentUser()
       .then(response => logoutUser())
-      .catch(error => {alert(JSON.stringify(error.response));})
+      .catch(error => {
+        const errorMessage = (error.response && error.response.data && error.response.data.errors && 
+                              error.response.data.errors[0].description) 
+          || connectionError;
+        addNewAlert("danger", "Deleting Account - " + errorMessage);
+      })
       .finally(() => {
         setIsActionInProgress(false);
         setIsLoading(false)
