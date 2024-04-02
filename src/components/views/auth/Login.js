@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
-import LoginForm from "../../forms/LoginForm";
+import LoginForm from "../../forms/auth/LoginForm";
 
 export default function Login(props) {
   const { loginUser } = useAuth();
