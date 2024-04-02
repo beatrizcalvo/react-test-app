@@ -86,13 +86,7 @@ export default function UserInfoForm(props) {
           <Col className="col-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
-              <div className="choices">
-                <Form.Select disabled>
-                  <option value="1">Female</option>
-                  <option value="2">Male</option>
-                  <option value="3">Other</option>
-                </Form.Select>
-              </choices>
+              
             </Form.Group>
           </Col>
           <Col className="col-8">
