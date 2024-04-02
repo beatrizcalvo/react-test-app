@@ -48,10 +48,33 @@ export default function UserInfoForm(props) {
           </Form.Group>
           <Form.Group as={Col} className="col-4 input-group input-group-static">
             <label className="font-weight-bold">Last Name:</label>
+            <Form.Control 
+              type="text" 
+              placeholder="Last Name..."
+              {...register("lastName", inputValidations.lastName)}
+              {...(readOnly ? { plaintext disabled defaultValue=user.lastName } : {})} 
+              isInvalid={!!errors.lastName}
+            />
+            <Form.Control.Feedback type="text-xs invalid">
+              {errors.lastName?.message}
+            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} className="col-4 input-group input-group-static">
             <label className="font-weight-bold">Second Last Name:</label>
+            <Form.Control 
+              type="text" 
+              placeholder="Second Last Name..."
+              {...register("secondLastName", inputValidations.secondLastName)}
+              {...(readOnly ? { plaintext disabled defaultValue=user.secondLastName } : {})} 
+              isInvalid={!!errors.secondLastName}
+            />
+            <Form.Control.Feedback type="text-xs invalid">
+              {errors.secondLastName?.message}
+            </Form.Control.Feedback>
           </Form.Group>
+        </Row>
+        <Row>
+          
         </Row>
       </Form>
     </>
