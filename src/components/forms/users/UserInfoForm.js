@@ -90,6 +90,7 @@ export default function UserInfoForm(props) {
           </Col>
           <Col className="col-8">
             <Form.Group className="input-group input-group-static">
+              <label className="font-weight-bold">Birth Date:</label>
             </Form.Group>
           </Col>
         </Row>
