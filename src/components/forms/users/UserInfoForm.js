@@ -33,7 +33,7 @@ export default function UserInfoForm(props) {
     <>
       <Form>
         <Row>
-          <Col className="col-sm-6">
+          <Col className="col-xs-6">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">First Name:</label>
               <Form.Control 
