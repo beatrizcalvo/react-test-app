@@ -49,7 +49,7 @@ export default function UserInfoForm(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className="col-4">
+          <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Last Name:</label>
               <Form.Control 
@@ -65,7 +65,7 @@ export default function UserInfoForm(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className="col-4">
+          <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Second Last Name:</label>
               <Form.Control 
