@@ -86,6 +86,11 @@ export default function UserInfoForm(props) {
           <Col className="col-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
+              <div className="choices" data-type="select-one">
+                <div className="choices__inner">
+                  <Form.Control type="select" />
+                </div>
+              </div>
               <Form.Control id="number" name="number" list="numberList"
                    autoComplete="new-password" /*value={number} onChange={this.handleChange}*/>
               </Form.Control>
