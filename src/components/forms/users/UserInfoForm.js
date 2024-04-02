@@ -20,6 +20,12 @@ export default function UserInfoForm(props) {
         value: 3,
         message: "Last name must have at lenght 3 or greater",
       }
+    },
+    secondLastName: {
+      minLength: {
+        value: 3,
+        message: "Second last name must have at lenght 3 or greater",
+      }
     }
   };
   
@@ -40,10 +46,12 @@ export default function UserInfoForm(props) {
               {errors.firstName?.message}
             </Form.Control.Feedback>
           </Form.Group>
-          <Col className="col-4">
-          </Col>
-          <Col className="col-4">
-          </Col>
+          <Form.Group as={Col} className="col-4 input-group input-group-static">
+            <label className="font-weight-bold">Last Name:</label>
+          </Form.Group>
+          <Form.Group as={Col} className="col-4 input-group input-group-static">
+            <label className="font-weight-bold">Second Last Name:</label>
+          </Form.Group>
         </Row>
       </Form>
     </>
