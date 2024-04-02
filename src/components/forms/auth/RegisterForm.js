@@ -1,7 +1,7 @@
 import { Form, Row, Col, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-import { useAuth } from "../../hooks/providers/AuthProvider";
+import { useAuth } from "../../../hooks/providers/AuthProvider";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function RegisterForm(props) {
