@@ -40,7 +40,7 @@ export default function UserInfoForm(props) {
                 type="text" 
                 {...(!readOnly ? { placeholder: "First Name..." } : {})}
                 {...register("firstName", inputValidations.firstName)}
-                {...(readOnly ? { readOnly: true } : {})}
+                {...(readOnly ? { readOnly: true, plaintext: true } : {})}
                 defaultValue={user.firstName}
                 isInvalid={!!errors.firstName}
               />
