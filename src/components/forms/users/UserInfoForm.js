@@ -20,6 +20,7 @@ export default function UserInfoForm(props) {
         value: 3,
         message: "Last name must have at lenght 3 or greater",
       }
+    }
   };
   
   return (
