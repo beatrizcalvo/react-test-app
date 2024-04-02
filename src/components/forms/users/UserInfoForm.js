@@ -39,7 +39,8 @@ export default function UserInfoForm(props) {
               type="text" 
               placeholder="First Name..."
               {...register("firstName", inputValidations.firstName)}
-              {...(readOnly ? { plaintext disabled defaultValue=user.firstName } : {})} 
+              {...(readOnly ? { plaintext disabled } : {})}
+              defaultValue={user.firstName}
               isInvalid={!!errors.firstName}
             />
             <Form.Control.Feedback type="text-xs invalid">
@@ -52,7 +53,6 @@ export default function UserInfoForm(props) {
               type="text" 
               placeholder="Last Name..."
               {...register("lastName", inputValidations.lastName)}
-              {...(readOnly ? { plaintext disabled defaultValue=user.lastName } : {})} 
               isInvalid={!!errors.lastName}
             />
             <Form.Control.Feedback type="text-xs invalid">
@@ -65,7 +65,6 @@ export default function UserInfoForm(props) {
               type="text" 
               placeholder="Second Last Name..."
               {...register("secondLastName", inputValidations.secondLastName)}
-              {...(readOnly ? { plaintext disabled defaultValue=user.secondLastName } : {})} 
               isInvalid={!!errors.secondLastName}
             />
             <Form.Control.Feedback type="text-xs invalid">
