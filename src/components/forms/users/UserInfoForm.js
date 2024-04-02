@@ -33,7 +33,7 @@ export default function UserInfoForm(props) {
     <>
       <Form>
         <Row>
-          <Col className="col-4">
+          <Col className="col-sm-6">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">First Name:</label>
               <Form.Control 
@@ -95,20 +95,7 @@ export default function UserInfoForm(props) {
                     className="choices__input" 
                   />
                 </div>
-                <datalist id="genderList">
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </datalist>
               </div>
-              <Form.Control id="number" name="number" list="numberList"
-                   autoComplete="new-password" /*value={number} onChange={this.handleChange}*/>
-              </Form.Control>
-              <datalist id="numberList">
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-              </datalist>
               <Form.Select aria-label="Default select example">
       <option>Open this select menu</option>
       <option value="1">One</option>
