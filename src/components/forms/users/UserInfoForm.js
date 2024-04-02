@@ -26,21 +26,19 @@ export default function UserInfoForm(props) {
     <>
       <Form>
         <Row>
-          <Col className="col-4">
-            <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">First Name:</label>
-              <Form.Control 
-                type="text" 
-                placeholder="First Name..."
-                {...register("firstName", inputValidations.firstName)}
-                {...(readOnly ? { plaintext disabled defaultValue=user.firstName } : {})} 
-                isInvalid={!!errors.firstName}
-              />
-              <Form.Control.Feedback type="text-xs invalid">
-                {errors.firstName?.message}
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Col>
+          <Form.Group as={Col} className="col-4 input-group input-group-static">
+            <label className="font-weight-bold">First Name:</label>
+            <Form.Control 
+              type="text" 
+              placeholder="First Name..."
+              {...register("firstName", inputValidations.firstName)}
+              {...(readOnly ? { plaintext disabled defaultValue=user.firstName } : {})} 
+              isInvalid={!!errors.firstName}
+            />
+            <Form.Control.Feedback type="text-xs invalid">
+              {errors.firstName?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
           <Col className="col-4">
           </Col>
           <Col className="col-4">
