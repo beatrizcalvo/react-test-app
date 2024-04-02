@@ -33,44 +33,54 @@ export default function UserInfoForm(props) {
     <>
       <Form>
         <Row>
-          <Form.Group as={Col} className="col-4 input-group input-group-static">
-            <label className="font-weight-bold">First Name:</label>
-            <Form.Control 
-              type="text" 
-              placeholder="First Name..."
-              {...register("firstName", inputValidations.firstName)}
-              {...(readOnly ? { disabled: true } : {})}
-              defaultValue={user.firstName}
-              isInvalid={!!errors.firstName}
-            />
-            <Form.Control.Feedback type="text-xs invalid">
-              {errors.firstName?.message}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} className="col-4 input-group input-group-static">
-            <label className="font-weight-bold">Last Name:</label>
-            <Form.Control 
-              type="text" 
-              placeholder="Last Name..."
-              {...register("lastName", inputValidations.lastName)}
-              isInvalid={!!errors.lastName}
-            />
-            <Form.Control.Feedback type="text-xs invalid">
-              {errors.lastName?.message}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} className="col-4 input-group input-group-static">
-            <label className="font-weight-bold">Second Last Name:</label>
-            <Form.Control 
-              type="text" 
-              placeholder="Second Last Name..."
-              {...register("secondLastName", inputValidations.secondLastName)}
-              isInvalid={!!errors.secondLastName}
-            />
-            <Form.Control.Feedback type="text-xs invalid">
-              {errors.secondLastName?.message}
-            </Form.Control.Feedback>
-          </Form.Group>
+          <Col className="col-4">
+            <Form.Group className="input-group input-group-static">
+              <label className="font-weight-bold">First Name:</label>
+              <Form.Control 
+                type="text" 
+                placeholder="First Name..."
+                {...register("firstName", inputValidations.firstName)}
+                {...(readOnly ? { disabled: true } : {})}
+                defaultValue={user.firstName}
+                isInvalid={!!errors.firstName}
+              />
+              <Form.Control.Feedback type="text-xs invalid">
+                {errors.firstName?.message}
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col className="col-4">
+            <Form.Group className="input-group input-group-static">
+              <label className="font-weight-bold">Last Name:</label>
+              <Form.Control 
+                type="text" 
+                placeholder="Last Name..."
+                {...register("lastName", inputValidations.lastName)}
+                {...(readOnly ? { disabled: true } : {})}
+                defaultValue={user.lastName}
+                isInvalid={!!errors.lastName}
+              />
+              <Form.Control.Feedback type="text-xs invalid">
+                {errors.lastName?.message}
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col className="col-4">
+            <Form.Group className="input-group input-group-static">
+              <label className="font-weight-bold">Second Last Name:</label>
+              <Form.Control 
+                type="text" 
+                placeholder="Second Last Name..."
+                {...register("secondLastName", inputValidations.secondLastName)}
+                {...(readOnly ? { disabled: true } : {})}
+                defaultValue={user.secondLastName}
+                isInvalid={!!errors.secondLastName}
+              />
+              <Form.Control.Feedback type="text-xs invalid">
+                {errors.secondLastName?.message}
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
         </Row>
         <Row>
           
