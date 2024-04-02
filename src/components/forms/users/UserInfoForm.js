@@ -1,4 +1,4 @@
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, Dropdown } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 export default function UserInfoForm(props) {
@@ -40,7 +40,7 @@ export default function UserInfoForm(props) {
                 type="text" 
                 {...(!readOnly ? { placeholder: "First Name..." } : {})}
                 {...register("firstName", inputValidations.firstName)}
-                {...(readOnly ? { readOnly: true, plaintext: true } : {})}
+                {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                 defaultValue={user.firstName}
                 isInvalid={!!errors.firstName}
               />
@@ -56,7 +56,7 @@ export default function UserInfoForm(props) {
                 type="text" 
                 {...(!readOnly ? { placeholder: "Last Name..." } : {})}
                 {...register("lastName", inputValidations.lastName)}
-                {...(readOnly ? { readOnly: true } : {})}
+                {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                 defaultValue={user.lastName}
                 isInvalid={!!errors.lastName}
               />
@@ -72,7 +72,7 @@ export default function UserInfoForm(props) {
                 type="text" 
                 {...(!readOnly ? { placeholder: "Second Last Name..." } : {})}
                 {...register("secondLastName", inputValidations.secondLastName)}
-                {...(readOnly ? { readOnly: true } : {})}
+                {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                 defaultValue={user.secondLastName}
                 isInvalid={!!errors.secondLastName}
               />
@@ -86,6 +86,16 @@ export default function UserInfoForm(props) {
           <Col className="col-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
+              <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  Dropdown Button
+                </Dropdown.Toggle>          
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </Form.Group>
           </Col>
           <Col className="col-8">
