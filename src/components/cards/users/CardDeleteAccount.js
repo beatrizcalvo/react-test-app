@@ -19,6 +19,18 @@ export default function CardDeleteAccount(props) {
   const handleDeactivateAccount = () => {
     setIsActionInProgress(true);
     setIsLoadingDeactivate(true);
+    UsersService.deactivateCurrentUser()
+      .then(response => logoutUser())
+      .catch(error => {
+        const errorMessage = (error.response && error.response.data && error.response.data.errors && 
+                              error.response.data.errors[0].description) 
+          || connectionError;
+        addNewAlert("danger", "Deactivating Account - " + errorMessage);
+      })
+      .finally(() => {
+        setIsActionInProgress(false);
+        setIsLoadingDeactivate(false)
+      });
   };
 
   // Delete account from server
