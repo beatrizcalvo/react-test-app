@@ -1,6 +1,8 @@
 import { Row, Col } from "react-bootstrap";
 
 export default function UserInfoForm(props) {
+  const { user, readOnly } = props;
+  
   return (
     <>
       <Row>
