@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
@@ -10,6 +10,10 @@ export default function CardBasicInfo(props) {
   const { id, isActionInProgress, setIsActionInProgress } = props;
   const { user } = useAuth();
   const { addNewAlert } = useAlerts();
+
+  const toggleReadOnly = () => {
+    alert("Pulsado edit button");
+  };
   
   return (
     <>
@@ -20,9 +24,9 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>
             <Col className="col-4 text-end">
-              <Button className="text-secondary text-sm">
+              <a className="text-secondary text-sm" onClick={() => toggleReadOnly()}>
                 <i className="fas fa-user-edit" />
-              </Button>
+              </a>
             </Col>
           </Row>
         </Card.Header>
