@@ -9,11 +9,11 @@ export default function UserInfoForm(props) {
         <Row>
           <Col className="col-4">
             <Form.Group className="input-group input-group-static">
-              <Form.Label>First Name</Form.Label>
+              <label className="font-weight-bold">First Name:</label>
               <Form.Control 
                 type="text" 
                 placeholder="First Name..."
-                plaintext readOnly defaultValue={user.firstName}
+                plaintext disabled defaultValue={user.firstName}
               />
             </Form.Group>
           </Col>
