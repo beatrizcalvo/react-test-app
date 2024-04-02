@@ -1,4 +1,4 @@
-import { Card, Row } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 
 export default function CardBasicInfo(props) {
   const { id } = props;
@@ -7,8 +7,14 @@ export default function CardBasicInfo(props) {
     <>
       <Card id={id} className="mt-4">
         <Card.Header>
-          <h5>Basic Info</h5>
-          <i className="fas fa-user-edit text-secondary text-sm" />
+          <Row>
+            <Col className="col-8">
+              <h5>Basic Info</h5>
+            </Col>
+            <Col className="col-4 text-end">
+              <i className="fas fa-user-edit text-secondary text-sm" />
+            </Col>
+          </Row>
         </Card.Header>
         <Card.Body className="pt-0">
           <Row>
