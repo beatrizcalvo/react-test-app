@@ -12,7 +12,7 @@ export default function CardBasicInfo(props) {
   const { addNewAlert } = useAlerts();
 
   const toggleReadOnly = () => {
-    alert("Pulsado edit button");
+    setIsReadOnly(!isReadOnly);
   };
   
   return (
@@ -23,11 +23,15 @@ export default function CardBasicInfo(props) {
             <Col className="col-8">
               <h5>Basic Info</h5>
             </Col>
-            <Col className="col-4 text-end">
-              <a className="text-secondary text-sm" onClick={() => toggleReadOnly()}>
-                <i className="fas fa-user-edit" />
-              </a>
-            </Col>
+            {
+              if (readOnly) {
+                <Col className="col-4 text-end">
+                  <a className="text-secondary text-sm" onClick={() => toggleReadOnly()}>
+                    <i className="fas fa-user-edit" />
+                  </a>
+                </Col>
+              }
+            }            
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
