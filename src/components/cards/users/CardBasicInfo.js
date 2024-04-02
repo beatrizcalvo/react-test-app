@@ -24,13 +24,16 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>
             {
-              (readOnly) ? return () : return ();
-            }
-            <Col className="col-4 text-end">
-                  <a className="text-secondary text-sm" onClick={() => toggleReadOnly()}>
-                    <i className="fas fa-user-edit" />
-                  </a>
-                </Col>            
+              (readOnly) 
+                ? return (
+                  <Col className="col-4 text-end">
+                    <a className="text-secondary text-sm" onClick={() => toggleReadOnly()}>
+                      <i className="fas fa-user-edit" /> 
+                    </a>
+                  </Col>
+                ) 
+                : return ();
+            }       
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
