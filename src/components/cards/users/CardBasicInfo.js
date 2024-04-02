@@ -17,9 +17,7 @@ export default function CardBasicInfo(props) {
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
-          <Row>
-            
-          </Row>
+          
         </Card.Body>
       </Card>
     </>
