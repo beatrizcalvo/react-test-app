@@ -1,6 +1,6 @@
 import { Card, Row, Col } from "react-bootstrap";
 
-import UserInfoForm from "../../forms/UserInfoForm";
+import UserInfoForm from "../../forms/users/UserInfoForm";
 
 export default function CardBasicInfo(props) {
   const { id } = props;
