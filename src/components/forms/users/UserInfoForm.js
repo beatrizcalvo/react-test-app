@@ -1,4 +1,4 @@
-import { Row, Col, Form, Dropdown } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 export default function UserInfoForm(props) {
@@ -86,16 +86,12 @@ export default function UserInfoForm(props) {
           <Col className="col-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
-              <Dropdown>
-                <Dropdown.Toggle variant="success" id="choices-gender">
-                  Dropdown Button
-                </Dropdown.Toggle>          
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <Form.Select aria-label="Default select example">
+                <option>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </Form.Select>
             </Form.Group>
           </Col>
           <Col className="col-8">
