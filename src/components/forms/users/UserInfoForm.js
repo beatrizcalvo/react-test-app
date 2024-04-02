@@ -91,9 +91,15 @@ export default function UserInfoForm(props) {
                   <Form.Control 
                     id="choices-gender" 
                     as="select" 
+                    list="genderList"
                     className="choices__input" 
                   />
                 </div>
+                <datalist id="genderList">
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </datalist>
               </div>
               <Form.Control id="number" name="number" list="numberList"
                    autoComplete="new-password" /*value={number} onChange={this.handleChange}*/>
