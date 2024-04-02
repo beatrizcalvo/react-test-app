@@ -87,7 +87,7 @@ export default function UserInfoForm(props) {
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="success" id="choices-gender">
                   Dropdown Button
                 </Dropdown.Toggle>          
                 <Dropdown.Menu>
