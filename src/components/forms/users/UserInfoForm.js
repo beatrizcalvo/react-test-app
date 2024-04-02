@@ -36,12 +36,12 @@ export default function UserInfoForm(props) {
                 {...(readOnly ? { plaintext disabled defaultValue=user.firstName } : {})} 
                 isInvalid={!!errors.firstName}
               />
+              <Form.Control.Feedback type="text-xs invalid">
+                {errors.firstName?.message}
+              </Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col className="col-4">
-            <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">Last Name:</label>
-            </Form.Group>
           </Col>
           <Col className="col-4">
           </Col>
