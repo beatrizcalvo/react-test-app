@@ -1,9 +1,15 @@
-import { Card, Row, Col } from "react-bootstrap";
+import { useState } from "react";
+import { Card, Row, Col, Button } from "react-bootstrap";
 
+import { useAuth } from "../../../hooks/providers/AuthProvider";
+import { useAlerts } from "../../../hooks/providers/AlertsProvider";
 import UserInfoForm from "../../forms/users/UserInfoForm";
 
 export default function CardBasicInfo(props) {
-  const { id } = props;
+  const [isReadOnly, setIsReadOnly] = useState(true);
+  const { id, isActionInProgress, setIsActionInProgress } = props;
+  const { user } = useAuth();
+  const { addNewAlert } = useAlerts();
   
   return (
     <>
@@ -14,12 +20,14 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>
             <Col className="col-4 text-end">
-              <i className="fas fa-user-edit text-secondary text-sm" />
+              <Button className="text-secondary text-sm">
+                <i className="fas fa-user-edit" />
+              </Button>
             </Col>
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
-          <UserInfoForm />
+          <UserInfoForm user={user} readOnly={isReadOnly} />
         </Card.Body>
       </Card>
     </>
