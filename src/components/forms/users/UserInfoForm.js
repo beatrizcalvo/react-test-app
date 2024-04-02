@@ -88,7 +88,11 @@ export default function UserInfoForm(props) {
               <label className="font-weight-bold">Gender:</label>
               <div className="choices" data-type="select-one">
                 <div className="choices__inner">
-                  <Form.Control type="select" />
+                  <Form.Control 
+                    id="choices-gender" 
+                    as="select" 
+                    className="choices__input" 
+                  />
                 </div>
               </div>
               <Form.Control id="number" name="number" list="numberList"
