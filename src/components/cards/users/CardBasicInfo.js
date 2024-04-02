@@ -22,12 +22,7 @@ export default function CardBasicInfo(props) {
           <Row>
             <Col className="col-8">
               <h5>Basic Info</h5>
-            </Col>
-            { readOnly ? (
-                
-              ) 
-              : ()
-            }       
+            </Col>   
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
