@@ -38,7 +38,7 @@ export default function UserInfoForm(props) {
               <label className="font-weight-bold">First Name:</label>
               <Form.Control 
                 type="text" 
-                placeholder="First Name..."
+                {...(!readOnly ? { placeholder: "First Name..." } : {})}
                 {...register("firstName", inputValidations.firstName)}
                 {...(readOnly ? { disabled: true } : {})}
                 defaultValue={user.firstName}
@@ -54,7 +54,7 @@ export default function UserInfoForm(props) {
               <label className="font-weight-bold">Last Name:</label>
               <Form.Control 
                 type="text" 
-                placeholder="Last Name..."
+                {...(!readOnly ? { placeholder: "Last Name..." } : {})}
                 {...register("lastName", inputValidations.lastName)}
                 {...(readOnly ? { disabled: true } : {})}
                 defaultValue={user.lastName}
@@ -70,7 +70,7 @@ export default function UserInfoForm(props) {
               <label className="font-weight-bold">Second Last Name:</label>
               <Form.Control 
                 type="text" 
-                placeholder="Second Last Name..."
+                {...(!readOnly ? { placeholder: "Second Last Name..." } : {})}
                 {...register("secondLastName", inputValidations.secondLastName)}
                 {...(readOnly ? { disabled: true } : {})}
                 defaultValue={user.secondLastName}
@@ -83,7 +83,15 @@ export default function UserInfoForm(props) {
           </Col>
         </Row>
         <Row>
-          
+          <Col className="col-4">
+            <Form.Group className="input-group input-group-static">
+              <label className="font-weight-bold">Gender:</label>
+            </Form.Group>
+          </Col>
+          <Col className="col-8">
+            <Form.Group className="input-group input-group-static">
+            </Form.Group>
+          </Col>
         </Row>
       </Form>
     </>
