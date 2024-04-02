@@ -1,7 +1,26 @@
 import { Row, Col, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 export default function UserInfoForm(props) {
   const { user, readOnly } = props;
+  const { register, formState: { errors } } = useForm();
+
+  // Input form validations
+  const inputValidations = {
+    firstName: {
+      required: "First name is required",
+      minLength: {
+        value: 3,
+        message: "First name must have at lenght 3 or greater",
+      },
+    },
+    lastName: {
+      required: "Last name is required",
+      minLength: {
+        value: 3,
+        message: "Last name must have at lenght 3 or greater",
+      }
+  };
   
   return (
     <>
@@ -13,11 +32,16 @@ export default function UserInfoForm(props) {
               <Form.Control 
                 type="text" 
                 placeholder="First Name..."
-                plaintext disabled defaultValue={user.firstName}
+                {...register("firstName", inputValidations.firstName)}
+                {...(readOnly ? { plaintext disabled defaultValue=user.firstName } : {})} 
+                isInvalid={!!errors.firstName}
               />
             </Form.Group>
           </Col>
           <Col className="col-4">
+            <Form.Group className="input-group input-group-static">
+              <label className="font-weight-bold">Last Name:</label>
+            </Form.Group>
           </Col>
           <Col className="col-4">
           </Col>
