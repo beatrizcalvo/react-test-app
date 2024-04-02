@@ -24,8 +24,7 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>
             { readOnly ? (
-                <Col className="col-4 text-end">
-                </Col>
+                
               ) 
               : ()
             }       
