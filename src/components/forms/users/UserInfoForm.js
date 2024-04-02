@@ -33,7 +33,7 @@ export default function UserInfoForm(props) {
     <>
       <Form>
         <Row>
-          <Col className="col-xs-6">
+          <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">First Name:</label>
               <Form.Control 
@@ -87,14 +87,12 @@ export default function UserInfoForm(props) {
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
               <div className="choices" data-type="select-one">
-                <div className="choices__inner">
-                  <Form.Control 
-                    id="choices-gender" 
-                    as="select" 
-                    list="genderList"
-                    className="choices__input" 
-                  />
-                </div>
+                <Form.Control 
+                  id="choices-gender" 
+                  as="select" 
+                  className="choices__inner choices__input" 
+                >
+                </Form.Control>
               </div>
               <Form.Select aria-label="Default select example">
       <option>Open this select menu</option>
