@@ -94,12 +94,10 @@ export default function UserInfoForm(props) {
                 >
                 </Form.Control>
               </div>
-              <Form.Select aria-label="Default select example">
-      <option>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </Form.Select>
+              <select class="form-control" name="choices-gender" id="choices-gender">
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
             </Form.Group>
           </Col>
           <Col className="col-8">
