@@ -22,8 +22,9 @@ export default function ButtonCombobox(props) {
 
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
+    console.log(item);
     setSelectedValue(item);
-    setIsOpen(false);
+    console.log(selectedValue);
   };
 	
   return (
