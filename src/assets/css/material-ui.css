@@ -31884,10 +31884,6 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown 
     pointer-events: auto
 }
 
-.choices__list--dropdown.is-active:before {
-    top: -20px
-}
-
 .choices__list--dropdown:before {
     font-family: FontAwesome;
     content: "\f0d8";
