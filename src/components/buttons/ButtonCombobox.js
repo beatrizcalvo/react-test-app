@@ -1,11 +1,13 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
-  const { id, readOnly, defaultValue, choicesList } = props;
+  const { id, readOnly, mandatory, defaultValue, choicesList } = props;
+  const { register, formState: { errors } } = useForm();
 
   useEffect(() => {
     setSelectedValue(defaultValue);
@@ -25,6 +27,7 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen}
+	{...(!readOnly ? { onBlur: () => alert("Blur") } : {})}
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
@@ -44,9 +47,11 @@ export default function ButtonCombobox(props) {
         <div className={classNames("choices__list choices__list--dropdown", { "is-active is-focused": isOpen })} aria-expanded={isOpen}>
 	  <div className="choices__list" role="listbox">
 	    { 
-	      choicesList.map(choice => {
+	      choicesList.map((choice, index) => {
 	        return (
-		  <div>
+		  <div 
+		    id={"choices--choices-" + id + "-item-choice-" + index}
+		  >
 		    {choice}
 		  </div>
 		);
