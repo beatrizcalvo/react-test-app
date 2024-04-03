@@ -91,7 +91,10 @@ export default function UserInfoForm(props) {
                   id="choices-gender"
                   as="select"
                 >
-                    <option>Prueba</option>
+                    <option className="d-none">Prueba</option>
+                    {["1","2","3"].map(option => {
+                      <option key={option}>Option {option}</option>
+                    })}
                 </Form.Control>
               </div>
             </Form.Group>
