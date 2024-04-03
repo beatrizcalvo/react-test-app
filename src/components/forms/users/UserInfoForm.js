@@ -92,10 +92,9 @@ export default function UserInfoForm(props) {
               <label className="font-weight-bold">Gender:</label>
               <div className="choices" data-type="select-one">
                 <Form.Select>
-                  <option>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  {["One", "Two", "Three"].map(option => {
+                    <option value={option}>{option}</option>
+                  })}
                 </Form.Select>
               </div>
             </Form.Group>
