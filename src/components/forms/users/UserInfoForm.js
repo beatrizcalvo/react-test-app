@@ -83,7 +83,7 @@ export default function UserInfoForm(props) {
           </Col>
         </Row>
         <Row className="mt-4">
-          <Col className="col-4">
+          <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
               <div className="choices" data-type="select-one">
@@ -100,7 +100,7 @@ export default function UserInfoForm(props) {
               </div>
             </Form.Group>
           </Col>
-          <Col className="col-8">
+          <Col className="col-12 col-md-8">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Birth Date:</label>
             </Form.Group>
