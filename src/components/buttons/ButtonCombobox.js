@@ -19,7 +19,7 @@ export default function ButtonCombobox(props) {
 	    <Form.Control
 	      id={id}
 	      type="text"
-	      readOnly=true
+	      readOnly="true"
 	      {...(!readOnly ? { placeholder: "Select one..." } : {})}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
 	    />
