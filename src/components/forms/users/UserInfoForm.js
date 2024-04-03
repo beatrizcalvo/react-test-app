@@ -117,7 +117,7 @@ export default function UserInfoForm(props) {
 		</div>
 	</div>
 	<div class="choices__list choices__list--dropdown" aria-expanded="false">
-		<input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="false" placeholder="">
+		<input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="false" placeholder=""/>
 		<div class="choices__list" role="listbox">
 			<div id="choices--choices-language-item-choice-1" class="choices__item choices__item--choice is-selected choices__item--selectable is-highlighted" role="option" data-choice="" data-id="1" data-value="English" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">
 				English
