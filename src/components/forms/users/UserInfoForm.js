@@ -35,9 +35,10 @@ export default function UserInfoForm(props) {
         <Row>
           <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">First Name:</label>
+              <label for="firstName" className="font-weight-bold">First Name:</label>
               <Form.Control 
                 type="text" 
+                id="firstName"
                 {...(!readOnly ? { placeholder: "First Name..." } : {})}
                 {...register("firstName", inputValidations.firstName)}
                 {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
@@ -51,9 +52,10 @@ export default function UserInfoForm(props) {
           </Col>
           <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">Last Name:</label>
+              <label for="lastName" className="font-weight-bold">Last Name:</label>
               <Form.Control 
                 type="text" 
+                id="lastName"
                 {...(!readOnly ? { placeholder: "Last Name..." } : {})}
                 {...register("lastName", inputValidations.lastName)}
                 {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
@@ -67,9 +69,10 @@ export default function UserInfoForm(props) {
           </Col>
           <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">Second Last Name:</label>
+              <label for="secondLastName" className="font-weight-bold">Second Last Name:</label>
               <Form.Control 
                 type="text" 
+                id="secondLastName"
                 {...(!readOnly ? { placeholder: "Second Last Name..." } : {})}
                 {...register("secondLastName", inputValidations.secondLastName)}
                 {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
@@ -93,7 +96,7 @@ export default function UserInfoForm(props) {
                 >
                     <option className="d-none">Prueba</option>
                     {["1","2","3"].map(option => {
-                      <option key={option}>Option {option}</option>
+                      <option key="1">1</option>
                     })}
                 </Form.Control>
               </div>
