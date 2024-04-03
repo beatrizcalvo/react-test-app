@@ -54,7 +54,9 @@ export default function axiosWithCredentials (baseURL) {
 
         // Retry all requests in the queue with the new token
         refreshAndRetryQueue.forEach(({ config, resolve, reject }) => {
-          console.log("Retry: " + JSON.stringify(config));
+          axiosInstance(config)
+            .then(response => resolve(response))
+            .catch(error => reject(err));
         });
 
         // Clear the queue
