@@ -56,7 +56,7 @@ export default function axiosWithCredentials (baseURL) {
         refreshAndRetryQueue.forEach(({ config, resolve, reject }) => {
           axiosInstance(config)
             .then(response => resolve(response))
-            .catch(error => reject(err));
+            .catch(err => reject(err));
         });
 
         // Clear the queue
