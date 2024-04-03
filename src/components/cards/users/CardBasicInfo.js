@@ -11,10 +11,6 @@ export default function CardBasicInfo(props) {
   const { id, isActionInProgress, setIsActionInProgress } = props;
   const { user } = useAuth();
   const { addNewAlert } = useAlerts();
-
-  const toggleReadOnly = () => {
-    setIsReadOnly(!isReadOnly);
-  };
   
   return (
     <>
@@ -25,7 +21,7 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>   
             <Col className={classNames("col-4 text-end", { "d-none": !isReadOnly })}>
-              <a className="text-secondary text-sm" onClick={() => toggleReadOnly()}>
+              <a className="text-secondary text-sm" onClick={() => setIsReadOnly(!isReadOnly)}>
                 <i className="fas fa-user-edit" />
               </a>
             </Col> 
