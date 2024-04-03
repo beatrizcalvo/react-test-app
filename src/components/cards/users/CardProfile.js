@@ -66,7 +66,7 @@ export default function CardProfile(props) {
           <Col sm="auto" className="col-8 my-auto">
             <div className="h-100">
               <h5 className="mb-1 font-weight-bolder">
-                { user.fullName }
+                { user.person.personName.fullName }
               </h5>
               <p className="mb-0 font-weight-normal text-sm">
                 { user.typeDescription }
