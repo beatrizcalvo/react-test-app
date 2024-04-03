@@ -82,23 +82,20 @@ export default function UserInfoForm(props) {
             </Form.Group>
           </Col>
         </Row>
-        <Row className="mt-4">
-          <Col className="col-6 col-md-4">
+        <Row>
+          <Col className="col-6 col-md-4 mt-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
               <div className="choices" data-type="select-one">
                 <Form.Control 
-                  id="choices-gender" 
-                  as="select" 
+                  id="choices-gender"
                 >
-                    {["Male", "Female", "Other"].map(option => {
-                      <option key={option}>{option}</option>
-                    })}
+                    <option>Prueba</option>
                 </Form.Control>
               </div>
             </Form.Group>
           </Col>
-          <Col className="col-12 col-md-8">
+          <Col className="col-12 col-md-8 mt-4">
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Birth Date:</label>
             </Form.Group>
