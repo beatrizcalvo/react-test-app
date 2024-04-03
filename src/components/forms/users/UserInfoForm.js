@@ -106,7 +106,7 @@ export default function UserInfoForm(props) {
             </Form.Group>
           </Col>
         </Row>
-        <Row className="justify-content-end">
+        <Row className={classNames("justify-content-end", { "d-none": readOnly })}>
     <div class="col-6">
       One of two columns
     </div>
