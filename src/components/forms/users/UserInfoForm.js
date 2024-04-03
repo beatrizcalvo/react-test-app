@@ -91,8 +91,11 @@ export default function UserInfoForm(props) {
                   id="choices-gender" 
                   as="select" 
                 >
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+                  <div className="choices__list choices__list--dropdown">
+                    {["Male", "Female", "Other"].map(option => {
+                      <option key={option}>{option}</option>
+                    })}
+                  </div>
                 </Form.Control>
               </div>
             </Form.Group>
