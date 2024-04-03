@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
@@ -67,7 +68,7 @@ export default function UserInfoForm(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className="col-6 col-md-4">
+          <Col className={classNames("col-6 col-md-4", { "d-none": readOnly && !user.secondLastName })}>
             <Form.Group className="input-group input-group-static">
               <label for="secondLastName" className="font-weight-bold">Second Last Name:</label>
               <Form.Control 
@@ -90,15 +91,12 @@ export default function UserInfoForm(props) {
             <Form.Group className="input-group input-group-static">
               <label className="font-weight-bold">Gender:</label>
               <div className="choices" data-type="select-one">
-                <Form.Control 
-                  id="choices-gender"
-                  as="select"
-                >
-                    <option className="d-none">Prueba</option>
-                    {["1","2","3"].map(option => {
-                      <option key="1">1</option>
-                    })}
-                </Form.Control>
+                <Form.Select>
+                  <option>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </Form.Select>
               </div>
             </Form.Group>
           </Col>
