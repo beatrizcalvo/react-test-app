@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);
-  const { id, readOnly, choicesList } = props;
+  const { id, readOnly, defaultValue, choicesList } = props;
   
   return (
     <>
@@ -14,7 +14,10 @@ export default function ButtonCombobox(props) {
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen}
       >
-        <div className="choices__inner" onClick={() => alert("Pulsado")}>
+        <div 
+	  className="choices__inner" 
+	  {...(!readOnly ? (onClick={() => alert("Pulsado")}) : ()}
+	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
 	      id={id}
