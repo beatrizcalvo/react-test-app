@@ -10,6 +10,12 @@ export default function ButtonCombobox(props) {
   useEffect(() => {
     setSelectedValue("Prueba");
   }, []);
+
+  const getPlaceholder = () => {
+    if (!readOnly) return "Select one...";
+    if (!selectedValue) return "ND";
+    return "";
+  };
 	
   return (
     <>
@@ -28,7 +34,7 @@ export default function ButtonCombobox(props) {
 	      id={id}
 	      type="text"
 	      readOnly="true"
-	      placeholder={!readOnly ? "Select one..." : ""}
+	      placeholder={getPlaceholder()}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
               defaultValue={selectedValue}
 	    />
