@@ -46,7 +46,9 @@ export default function ButtonCombobox(props) {
 	    { 
 	      choicesList.map(choice => {
 	        return (
-		  <div>1</div>
+		  <div>
+		    {choice}
+		  </div>
 		);
 	      })
 	    }
