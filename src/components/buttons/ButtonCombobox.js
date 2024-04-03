@@ -27,7 +27,7 @@ export default function ButtonCombobox(props) {
         aria-expanded={isOpen}
       >
         <div 
-	  className="choices__inner" 
+          {...(!readOnly ? { className: "choices__inner" } : {})}
 	  {...(!readOnly ? { onClick: () => alert("Pulsado") } : {})}
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
