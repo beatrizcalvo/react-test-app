@@ -89,6 +89,7 @@ export default function UserInfoForm(props) {
               <div className="choices" data-type="select-one">
                 <Form.Control 
                   id="choices-gender"
+                  as="select"
                 >
                     <option>Prueba</option>
                 </Form.Control>
