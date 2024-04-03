@@ -8,7 +8,7 @@ export default function ButtonCombobox(props) {
   return (
     <>
       <div 
-        className={classNames("choices", "is-open is-focused": isOpen)} 
+        className={classNames("choices", { "is-open is-focused": isOpen })} 
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen}
@@ -16,10 +16,10 @@ export default function ButtonCombobox(props) {
         <div className="choices__inner">
           <div className="choices__list choices__list--single">
 	    <div 
-	      className={className(
+	      className={className({
 		"choices__item choices__item--selectable": !readOnly, 
 		"text-sm form-control-plaintext": readOnly
-	      )}
+	      })}
 	    >
 	      English
 	    </div>
