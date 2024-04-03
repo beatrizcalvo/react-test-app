@@ -28,7 +28,7 @@ export default function ButtonCombobox(props) {
 	      id={id}
 	      type="text"
 	      readOnly="true"
-	      {...(!readOnly ? { placeholder: "Select one..." } : {})}
+	      placeholder={!readOnly ? "Select one..." : ""}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
               defaultValue={selectedValue}
 	    />
