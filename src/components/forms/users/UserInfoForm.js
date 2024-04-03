@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useEffect } from "react";
-import { Row, Col, Form } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 import ButtonCombobox from "../../buttons/ButtonCombobox";
@@ -107,10 +107,10 @@ export default function UserInfoForm(props) {
           </Col>
         </Row>
         <Row className="justify-content-end">
-    <div class="col-4">
+    <div class="col-6">
       One of two columns
     </div>
-    <div class="col-4">
+    <div class="col-6">
       One of two columns
     </div>
   </Row>
