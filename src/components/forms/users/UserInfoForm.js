@@ -35,7 +35,7 @@ export default function UserInfoForm(props) {
   };
 
   useEffect(() => {
-    console.log("Actualiza readOnly");
+    if (!readOnly) firstInputRef.current.focus();
   }, [readOnly]);
   
   return (
