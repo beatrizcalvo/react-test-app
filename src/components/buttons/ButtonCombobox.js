@@ -55,12 +55,13 @@ export default function ButtonCombobox(props) {
 	  <div className="choices__list" role="listbox">
 	    { 
 	      choicesList.map((choice, index) => {
+		const idElement = "choices--choices-" + id + "-item-choice-" + index;
 	        return (
 		  <div 
-		    id={"choices--choices-" + id + "-item-choice-" + index} 
+		    id={idElement} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
 		    onClick={() => handleSelectChoice(choice)} 
-		    onMouseEnter={() => console.log("is-highlighted")}
+		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => console.log("is-highlighted")}
 		  >
 		    {choice}
