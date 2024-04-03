@@ -107,9 +107,6 @@ export default function UserInfoForm(props) {
               <label className="font-weight-bold">Birth Date:</label>
               <div className="choices" data-type="select-one">
                 <div class="choices__inner">
-		<select class="form-control choices__input" name="choices-language" id="choices-language" hidden="" tabindex="-1" data-choice="active">
-			<option value="English">English</option>
-		</select>
 		<div class="choices__list choices__list--single">
 			<div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="English" data-custom-properties="null" aria-selected="true">
 				English
