@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useEffect, useRef } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
@@ -7,6 +8,7 @@ import ButtonCombobox from "../../buttons/ButtonCombobox";
 export default function UserInfoForm(props) {
   const { user, readOnly } = props;
   const { register, formState: { errors } } = useForm();
+  const firstInputRef = useRef();
 
   // Input form validations
   const inputValidations = {
@@ -31,6 +33,10 @@ export default function UserInfoForm(props) {
       }
     }
   };
+
+  useEffect(() => {
+    console.log("Actualiza readOnly");
+  }, [readOnly]);
   
   return (
     <>
@@ -42,6 +48,7 @@ export default function UserInfoForm(props) {
               <Form.Control 
                 id="firstName"
                 type="text" 
+                ref={firstInputRef}
                 {...(!readOnly ? { placeholder: "First Name..." } : {})}
                 {...register("firstName", inputValidations.firstName)}
                 {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
