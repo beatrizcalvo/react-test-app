@@ -11,7 +11,6 @@ export default function ButtonCombobox(props) {
 
   useEffect(() => {
     setSelectedValue(defaultValue);
-    console.log("actualiza selectValue con default");
   }, []);
 
   // Calculate placeholder text
@@ -39,6 +38,7 @@ export default function ButtonCombobox(props) {
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
 	  {...(!readOnly ? { onClick: () => setIsOpen(!isOpen) } : {})}
+          {...(!readOnly ? { onBlur: () => setIsOpen(false) } : {})}
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
