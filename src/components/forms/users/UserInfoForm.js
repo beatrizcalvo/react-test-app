@@ -2,6 +2,8 @@ import classNames from "classnames";
 import { Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
+import ButtonCombobox from "../../buttons/ButtonCombobox";
+
 export default function UserInfoForm(props) {
   const { user, readOnly } = props;
   const { register, formState: { errors } } = useForm();
@@ -89,45 +91,8 @@ export default function UserInfoForm(props) {
         <Row>
           <Col className="col-6 col-md-4 mt-4">
             <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">Gender:</label>
-              <div className="choices" data-type="select-one">
-                <Form.Control
-                  id="gender"
-                  as="select"
-                >
-                  {["Female", "Male"].map(item => {
-                    return (<option key={item} value={item}>{item}</option>);
-                  })}
-                </Form.Control>
-              </div>
-            </Form.Group>
-          </Col>
-          <Col className="col-12 col-md-8 mt-4">
-            <Form.Group className="input-group input-group-static">
-              <label className="font-weight-bold">Birth Date:</label>
-              <div className="choices" data-type="select-one">
-                <div class="choices__inner">
-		<div class="choices__list choices__list--single">
-			<div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="English" data-custom-properties="null" aria-selected="true">
-				English
-			</div>
-		</div>
-	</div>
-	<div class="choices__list choices__list--dropdown" aria-expanded="false">
-		<input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="false" placeholder=""/>
-		<div class="choices__list" role="listbox">
-			<div id="choices--choices-language-item-choice-1" class="choices__item choices__item--choice is-selected choices__item--selectable is-highlighted" role="option" data-choice="" data-id="1" data-value="English" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">
-				English
-			</div>
-			<div id="choices--choices-language-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="French" data-select-text="Press to select" data-choice-selectable="">
-				French
-			</div>
-			<div id="choices--choices-language-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Spanish" data-select-text="Press to select" data-choice-selectable="">
-				Spanish
-			</div>
-		</div>
-	</div>
-              </div>
+              <label for="gender" className="font-weight-bold">Gender:</label>
+              <ButtonCombobox id="gender" readOnly={readOnly} choicesList={["Female", "Male"]} />
             </Form.Group>
           </Col>
         </Row>
