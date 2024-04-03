@@ -8,7 +8,7 @@ export default function ButtonCombobox(props) {
   const { id, readOnly, defaultValue, choicesList } = props;
 
   useEffect(() => {
-    
+    setSelectedValue("Prueba");
   }, []);
 	
   return (
@@ -30,6 +30,7 @@ export default function ButtonCombobox(props) {
 	      readOnly="true"
 	      {...(!readOnly ? { placeholder: "Select one..." } : {})}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+              defaultValue={selectedValue}
 	    />
 	  </div>
         </div>
