@@ -14,7 +14,7 @@ export default function ButtonCombobox(props) {
         aria-expanded={isOpen}
       >
         <div className="choices__inner">
-          <div className="choices__list choices__list--single">
+          <div className={classNames({ "choices__list choices__list--single": !readOnly })}>
 	    <div 
 	      className={classNames({
 		"choices__item choices__item--selectable": !readOnly, 
