@@ -16,7 +16,7 @@ export default function ButtonCombobox(props) {
         <div className="choices__inner">
           <div className="choices__list choices__list--single">
 	    <div 
-	      className={className({
+	      className={classNames({
 		"choices__item choices__item--selectable": !readOnly, 
 		"text-sm form-control-plaintext": readOnly
 	      })}
