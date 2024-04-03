@@ -7,7 +7,7 @@ export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
   const { id, readOnly, mandatory, defaultValue, choicesList } = props;
-  const { register, formState: { errors } } = useForm();
+  const { register, setFocus, formState: { errors } } = useForm();
 
   useEffect(() => {
     setSelectedValue(defaultValue);
@@ -23,9 +23,9 @@ export default function ButtonCombobox(props) {
 
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
-    alert(item);
     setSelectedValue(item);
-    alert(selectedValue);
+    setIsOpen(false);
+    setFocus(id);
   };
 	
   return (
@@ -46,6 +46,7 @@ export default function ButtonCombobox(props) {
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
+              {...register(id)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
               value={selectedValue}
 	    />
