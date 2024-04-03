@@ -45,7 +45,9 @@ export default function ButtonCombobox(props) {
 	  <div className="choices__list" role="listbox">
 	    { 
 	      choicesList.map(choice => {
-	        <div>{choice}</div>
+	        return (
+		  <div>1</div>
+		);
 	      })
 	    }
 	  </div>
