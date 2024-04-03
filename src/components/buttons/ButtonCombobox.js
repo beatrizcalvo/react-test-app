@@ -35,7 +35,7 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen}
-	{...(!readOnly ? { onBlur: () => setIsOpen(false) } : {})}
+	{...(!readOnly ? { onBlur: () => setIsOpen(!isOpen) } : {})}
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
@@ -60,7 +60,7 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={"choices--choices-" + id + "-item-choice-" + index} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => alert("Seleccionado " + choice)}
+		    onClick={handleSelectChoice(choice)}
 		  >
 		    {choice}
 		  </div>
