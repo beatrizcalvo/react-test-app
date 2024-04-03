@@ -51,7 +51,8 @@ export default function ButtonCombobox(props) {
 	        return (
 		  <div 
 		    id={"choices--choices-" + id + "-item-choice-" + index} 
-		    className="choices__item choices__item--choice choices__item--selectable"
+		    className="choices__item choices__item--choice choices__item--selectable" 
+		    onClick={() => setSelectedValue(choice)}
 		  >
 		    {choice}
 		  </div>
