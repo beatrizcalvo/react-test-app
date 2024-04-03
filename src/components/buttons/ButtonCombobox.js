@@ -16,7 +16,7 @@ export default function ButtonCombobox(props) {
       >
         <div 
 	  className="choices__inner" 
-	  {...(!readOnly ? { onClick: () => alert("Pulsado") } : {}}
+	  {...(!readOnly ? { onClick: () => alert("Pulsado") } : {})}
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
