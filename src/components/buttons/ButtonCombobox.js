@@ -1,11 +1,16 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);
+  const [ selectedValue, setSelectedValue] = useState(undefined);
   const { id, readOnly, defaultValue, choicesList } = props;
-  
+
+  useEffect(() => {
+    
+  }, []);
+	
   return (
     <>
       <div 
