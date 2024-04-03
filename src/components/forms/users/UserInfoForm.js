@@ -70,7 +70,7 @@ export default function UserInfoForm(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className={classNames("col-6 col-md-4 mb-4", { "d-none": readOnly && !user.secondLastName })}>
+          <Col className={classNames("col-6 col-md-4 mb-4", { "d-none": readOnly && !user.person.personName.secondLastName })}>
             <Form.Group className="input-group input-group-static">
               <label for="secondLastName" className="font-weight-bold">Second Last Name:</label>
               <Form.Control 
