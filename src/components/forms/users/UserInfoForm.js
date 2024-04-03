@@ -101,14 +101,14 @@ export default function UserInfoForm(props) {
             </Form.Group>
           </Col>
         </Row>
-        <div class="row justify-content-end">
+        <Row className="justify-content-end">
     <div class="col-4">
       One of two columns
     </div>
     <div class="col-4">
       One of two columns
     </div>
-  </div>
+  </Row>
       </Form>
     </>
   );
