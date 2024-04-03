@@ -97,7 +97,12 @@ export default function UserInfoForm(props) {
           <Col className="col-6 col-md-4 mb-4">
             <Form.Group className="input-group input-group-static">
               <label for="gender" className="font-weight-bold">Gender:</label>
-              <ButtonCombobox id="gender" readOnly={readOnly} defaultValue={user.person.genderDescription} choicesList={["Female", "Male"]} />
+              <ButtonCombobox 
+                id="gender" 
+                readOnly={readOnly} 
+                defaultValue={user.person.genderDescription} 
+                choicesList={["Female", "Male"]} 
+              />
             </Form.Group>
           </Col>
         </Row>
