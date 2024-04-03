@@ -13,10 +13,10 @@ export default function ButtonCombobox(props) {
       >
         <div class="choices__inner">
           <div class="choices__list choices__list--single">
-			      <div class="choices__item choices__item--selectable">
-				      English
-			      </div>
-		      </div>
+	    <div class="choices__item choices__item--selectable">
+	      English
+	    </div>
+	  </div>
         </div>
         <div class="choices__list choices__list--dropdown" aria-expanded={isOpen}>
         </div>
