@@ -11,6 +11,7 @@ export default function ButtonCombobox(props) {
 
   useEffect(() => {
     setSelectedValue(defaultValue);
+    console.log("actualiza selectValue con default");
   }, []);
 
   // Calculate placeholder text
