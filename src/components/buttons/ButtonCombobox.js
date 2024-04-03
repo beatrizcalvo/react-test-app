@@ -38,7 +38,6 @@ export default function ButtonCombobox(props) {
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
 	  {...(!readOnly ? { onClick: () => setIsOpen(!isOpen) } : {})}
-          {...(!readOnly ? { onBlur: () => setIsOpen(false) } : {})}
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
@@ -60,7 +59,9 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={"choices--choices-" + id + "-item-choice-" + index} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => handleSelectChoice(choice)}
+		    onClick={() => handleSelectChoice(choice)} 
+		    onMouseEnter={() => alert("hover")}
+      		    onMouseLeave={() => alert("exit hover")}
 		  >
 		    {choice}
 		  </div>
