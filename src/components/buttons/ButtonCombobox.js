@@ -60,7 +60,7 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={"choices--choices-" + id + "-item-choice-" + index} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={handleSelectChoice(choice)}
+		    onClick={() => handleSelectChoice(choice)}
 		  >
 		    {choice}
 		  </div>
