@@ -90,14 +90,11 @@ export default function UserInfoForm(props) {
                 <Form.Control 
                   id="choices-gender" 
                   as="select" 
-                  className="choices__inner choices__input" 
                 >
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </Form.Control>
               </div>
-              <select class="form-control" name="choices-gender" id="choices-gender">
-<option value="Male">Male</option>
-<option value="Female">Female</option>
-</select>
             </Form.Group>
           </Col>
           <Col className="col-8">
