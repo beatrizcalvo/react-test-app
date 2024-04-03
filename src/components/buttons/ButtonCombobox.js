@@ -50,7 +50,8 @@ export default function ButtonCombobox(props) {
 	      choicesList.map((choice, index) => {
 	        return (
 		  <div 
-		    id={"choices--choices-" + id + "-item-choice-" + index}
+		    id={"choices--choices-" + id + "-item-choice-" + index} 
+		    className="choices__item choices__item--choice choices__item--selectable"
 		  >
 		    {choice}
 		  </div>
