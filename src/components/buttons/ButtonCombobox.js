@@ -8,9 +8,10 @@ export default function ButtonCombobox(props) {
   const { id, readOnly, defaultValue, choicesList } = props;
 
   useEffect(() => {
-    setSelectedValue("Prueba");
+    setSelectedValue("");
   }, []);
 
+  // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one...";
     if (!selectedValue) return "ND";
