@@ -40,7 +40,7 @@ export default function ButtonCombobox(props) {
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-              defaultValue={selectedValue}
+              value={selectedValue}
 	    />
 	  </div>
         </div>
