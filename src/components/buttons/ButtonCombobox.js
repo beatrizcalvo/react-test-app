@@ -19,6 +19,12 @@ export default function ButtonCombobox(props) {
     if (!selectedValue) return "ND";
     return "";
   };
+
+  // Set selected value and close combobox
+  const handleSelectChoice = (item) => {
+    setSelectedValue(item);
+    setIsOpen(false);
+  };
 	
   return (
     <>
@@ -27,7 +33,7 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen}
-	{...(!readOnly ? { onBlur: () => setIsOpen(!isOpen) } : {})}
+	{...(!readOnly ? { onBlur: () => setIsOpen(false) } : {})}
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
@@ -52,7 +58,7 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={"choices--choices-" + id + "-item-choice-" + index} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => setSelectedValue(choice)}
+		    onClick={() => handleSelectChoice(choice)}
 		  >
 		    {choice}
 		  </div>
