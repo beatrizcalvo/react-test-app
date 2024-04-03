@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useState } from "react";
 
 export default function ButtonCombobox(props) {
@@ -7,14 +8,19 @@ export default function ButtonCombobox(props) {
   return (
     <>
       <div 
-        className="choices" 
+        className={classNames("choices", "is-open is-focused": isOpen)} 
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen}
       >
         <div className="choices__inner">
           <div className="choices__list choices__list--single">
-	    <div className="choices__item choices__item--selectable">
+	    <div 
+	      className={className(
+		"choices__item choices__item--selectable": !readOnly, 
+		"text-sm form-control-plaintext": readOnly
+	      )}
+	    >
 	      English
 	    </div>
 	  </div>
