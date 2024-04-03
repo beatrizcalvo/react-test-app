@@ -41,8 +41,15 @@ export default function ButtonCombobox(props) {
 	    />
 	  </div>
         </div>
-        <div className="choices__list choices__list--dropdown" aria-expanded={isOpen}>
+        <div className={classNames("choices__list choices__list--dropdown", { "is-active is-focused": isOpen })} aria-expanded={isOpen}>
 	  <div className="choices__list" role="listbox">
+	    { 
+	      choicesList.map(choice => {
+	        return (
+		  <div>{choice}</div>
+		);
+	      })
+	    }
 	  </div>
         </div>
       </div>
