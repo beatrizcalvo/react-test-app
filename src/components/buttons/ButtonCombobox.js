@@ -62,7 +62,7 @@ export default function ButtonCombobox(props) {
 		    className="choices__item choices__item--choice choices__item--selectable" 
 		    onClick={() => handleSelectChoice(choice)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
-      		    onMouseLeave={() => console.log("is-highlighted")}
+      		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
 		  >
 		    {choice}
 		  </div>
