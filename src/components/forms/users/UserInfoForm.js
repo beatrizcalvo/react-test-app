@@ -8,8 +8,9 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
   const { user, readOnly, handleUpdateProfile } = props;
+  
   const methods = useForm();
-  const { register, handleSubmit, setFocus, errors } = methods;
+  const { register, handleSubmit, setFocus, formState: { errors } } = methods;
 
   // Input form validations
   const inputValidations = {
@@ -71,13 +72,13 @@ export default function UserInfoForm(props) {
                   id="lastName"
                   type="text" 
                   {...(!readOnly ? { placeholder: "Last Name..." } : {})}
-                  {...methods.register("lastName", inputValidations.lastName)}
+                  {...register("lastName", inputValidations.lastName)}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                   defaultValue={user.person.personName.lastName}
-                  isInvalid={!!methods.errors.lastName}
+                  isInvalid={!!errors.lastName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {methods.errors.lastName?.message}
+                  {errors.lastName?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -88,13 +89,13 @@ export default function UserInfoForm(props) {
                   id="secondLastName"
                   type="text" 
                   {...(!readOnly ? { placeholder: "Second Last Name..." } : {})}
-                  {...methods.register("secondLastName", inputValidations.secondLastName)}
+                  {...register("secondLastName", inputValidations.secondLastName)}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                   defaultValue={user.person.personName.secondLastName}
-                  isInvalid={!!methods.errors.secondLastName}
+                  isInvalid={!!errors.secondLastName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {methods.errors.secondLastName?.message}
+                  {errors.secondLastName?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
