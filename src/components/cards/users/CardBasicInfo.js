@@ -11,6 +11,11 @@ export default function CardBasicInfo(props) {
   const { id, isActionInProgress, setIsActionInProgress } = props;
   const { user } = useAuth();
   const { addNewAlert } = useAlerts();
+
+  // Submit format and update profile if input fields has not errors
+  const handleUpdateProfile = (data) => {
+    console.log(JSON.stringify(data));
+  };
   
   return (
     <>
@@ -28,7 +33,7 @@ export default function CardBasicInfo(props) {
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
-          <UserInfoForm user={user} readOnly={isReadOnly} />
+          <UserInfoForm user={user} readOnly={isReadOnly} handleUpdateProfile={handleUpdateProfile} />
         </Card.Body>
       </Card>
     </>
