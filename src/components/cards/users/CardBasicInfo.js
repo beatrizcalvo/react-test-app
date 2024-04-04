@@ -40,6 +40,7 @@ export default function CardBasicInfo(props) {
           <UserInfoForm 
             user={user} 
             readOnly={isReadOnly} 
+            setReadOnly={setIsReadOnly}
             isActionInProgress={isActionInProgress} 
             setIsActionInProgress={setIsActionInProgress}
             handleUpdateProfile={handleUpdateProfile} 
