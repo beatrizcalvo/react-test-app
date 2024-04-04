@@ -135,7 +135,7 @@ export default function UserInfoForm(props) {
               >
                 Cancel
               </Button>
-              <button class="btn bg-gradient-dark mb-0 ms-2" type="submit">Save Changes</button>
+              <button class="btn bg-gradient-dark mb-0 ms-3" type="submit">Save Changes</button>
             </Col>
           </Row>
         </Form>
