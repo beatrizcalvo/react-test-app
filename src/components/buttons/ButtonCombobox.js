@@ -7,12 +7,8 @@ const ButtonCombobox = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
 	
-  const { id, readOnly, inputValidations, defaultValue, choicesList } = props;
+  const { id, readOnly, inputValidations, choicesList } = props;
   const { register, setFocus } = useFormContext();
-
-  useEffect(() => {
-    setSelectedValue(defaultValue);
-  }, []);
 
   // Calculate placeholder text
   const getPlaceholder = () => {
