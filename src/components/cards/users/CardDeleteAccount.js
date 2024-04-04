@@ -64,7 +64,7 @@ export default function CardDeleteAccount(props) {
               <ButtonLoading 
                 variant="outline-secondary"
                 type="button" 
-                className="mb-3 ms-auto"
+                className="mb-3 ms-3"
                 titleButton="Deactivate" 
                 isLoading={isLoadingDeactivate}
                 disabled={isActionInProgress} 
@@ -73,7 +73,7 @@ export default function CardDeleteAccount(props) {
               <ButtonLoading
                 variant="primary"
                 type="button"
-                className="bg-gradient-danger ms-2"
+                className="bg-gradient-danger ms-3"
                 titleButton="Delete Account" 
                 isLoading={isLoadingDelete}
                 disabled={isActionInProgress} 
