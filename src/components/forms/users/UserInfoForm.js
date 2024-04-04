@@ -115,7 +115,11 @@ export default function UserInfoForm(props) {
                   readOnly={readOnly} 
                   defaultValue={user.person.genderDescription} 
                   choicesList={["Female", "Male"]} 
+                  inputValidations={inputValidations.gender}
                 />
+                <Form.Control.Feedback type="text-xs invalid">
+                  {errors.gender?.message}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
