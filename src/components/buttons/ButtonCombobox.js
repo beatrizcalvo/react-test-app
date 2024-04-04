@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import { useState, useEffect, forwardRef, memo } from "react";
 import { Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 const ButtonCombobox = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
 	
-  const { id, readOnly, registerInputForm, defaultValue, choicesList } = props;
-  const { setFocus } = useForm();
+  const { id, readOnly, defaultValue, choicesList } = props;
+  const { register, setFocus } = useFormContext();
 
   useEffect(() => {
     setSelectedValue(defaultValue);
@@ -55,7 +55,7 @@ const ButtonCombobox = forwardRef((props, _ref) => {
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
-              {...registerInputForm}
+              {...register(id)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
               value={selectedValue}
 	    />
