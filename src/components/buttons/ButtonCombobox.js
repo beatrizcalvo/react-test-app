@@ -22,7 +22,9 @@ export default function ButtonCombobox(props) {
 
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
-    console.log(item);
+    setSelectedValue(item);
+    setIsOpen(false);
+    setFocus(id);
   };
 	
   return (
@@ -36,7 +38,6 @@ export default function ButtonCombobox(props) {
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
 	  {...(!readOnly ? { onClick: () => setIsOpen(!isOpen) } : {})} 
-          {...(!readOnly ? { onBlur: () => setIsOpen(false) } : {})}
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
