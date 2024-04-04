@@ -39,7 +39,7 @@ export default function ButtonCombobox(props) {
   // Use timeout to execute onBlur event after select a choice
   const handleComboboxOnBlur = () => {
     setTimeout(() => {
-      if (document.activeElement.id === id) setIsOpen(false);
+      if (document.activeElement.id !== id) setIsOpen(false);
     }, 500);
   };
 	
