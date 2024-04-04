@@ -7,10 +7,10 @@ import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
-  const { user, readOnly, handleUpdateProfile } = props;
+  const { user, readOnly, setReadOnly, handleUpdateProfile } = props;
   
   const methods = useForm();
-  const { register, handleSubmit, setFocus, formState: { errors } } = methods;
+  const { register, handleSubmit, reset, setFocus, formState: { errors } } = methods;
 
   // Input form validations
   const inputValidations = {
@@ -45,7 +45,8 @@ export default function UserInfoForm(props) {
 
   // Reset form and close edit mode
   const handleCancel = () => {
-    console.log("Cancel");
+    reset();
+    setReadOnly(!readOnly);
   };
   
   return (
