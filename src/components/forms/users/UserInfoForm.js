@@ -121,9 +121,6 @@ export default function UserInfoForm(props) {
                   choicesList={["Female", "Male"]} 
                   inputValidations={inputValidations.gender}
                 />
-                <Form.Control.Feedback type="text-xs invalid">
-                  {errors}
-                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
