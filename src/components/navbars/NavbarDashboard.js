@@ -1,21 +1,10 @@
 import { forwardRef, memo, useState, useEffect, useImperativeHandle } from "react";
-import { Container, Button, Navbar, Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Container, Button, Navbar, Nav } from "react-bootstrap";
 import { Link, useLocation } from 'react-router-dom';
 
 import { useAuth } from "../../hooks/providers/AuthProvider";
 import BreadcrumbsDashboard from "../breadcrumbs/BreadcrumbsDashboard";
-
-// Add a tooltip in a link
-function LinkTooltip({ id, title, showTooltip, children }) {
-  if (!showTooltip) return children;    
-  return (
-    <>
-      <OverlayTrigger placement="bottom" overlay={<Tooltip id={id}>{title}</Tooltip>}>
-        {children}
-      </OverlayTrigger>
-    </>
-  );
-};
+import LinkTooltip from "../popups/LinkTooltip";
 
 const NavbarDashboard = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen] = useState(false);
