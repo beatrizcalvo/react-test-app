@@ -33,7 +33,13 @@ export default function CardBasicInfo(props) {
           </Row>
         </Card.Header>
         <Card.Body className="pt-0">
-          <UserInfoForm user={user} readOnly={isReadOnly} handleUpdateProfile={handleUpdateProfile} />
+          <UserInfoForm 
+            user={user} 
+            readOnly={isReadOnly} 
+            isActionInProgress={isActionInProgress} 
+            setIsActionInProgress={setIsActionInProgress}
+            handleUpdateProfile={handleUpdateProfile} 
+          />
         </Card.Body>
       </Card>
     </>
