@@ -33,7 +33,7 @@ const ButtonCombobox = forwardRef((props, _ref) => {
   const handleComboboxOnBlur = () => {
     setTimeout(() => {
       if (document.activeElement.id !== id) setIsOpen(false);
-    }, 500);
+    }, 300);
   };
 	
   return (
