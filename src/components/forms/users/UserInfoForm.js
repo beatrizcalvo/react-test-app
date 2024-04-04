@@ -4,6 +4,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 import ButtonCombobox from "../../buttons/ButtonCombobox";
+import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
   const { user, readOnly, handleUpdateProfile } = props;
@@ -108,8 +109,13 @@ export default function UserInfoForm(props) {
         </Row>
         <Row className={classNames("mt-5", { "d-none": readOnly })}>
           <Col lg="8" className="col-12 text-end">
-            <button class="btn btn-outline-dark mb-0" type="reset">Cancel</button>
-            <button class="btn bg-gradient-dark mb-0" type="button">Save Changes</button>
+            <Button 
+              type="reset"
+              className="btn-outline-dark mb-0"
+            >
+              Cancel
+            </Button>
+            <button class="btn bg-gradient-dark mb-0 ms-2" type="submit">Save Changes</button>
           </Col>
         </Row>
       </Form>
