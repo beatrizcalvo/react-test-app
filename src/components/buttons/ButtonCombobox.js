@@ -16,7 +16,7 @@ export default function ButtonCombobox(props) {
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one...";
-    if (!selectedValue) return "ND";
+    if (!selectedValue) return "Not Defined";
     return "";
   };
 
