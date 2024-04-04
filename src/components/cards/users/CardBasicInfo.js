@@ -4,6 +4,8 @@ import { Card, Row, Col } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
+
+import LinkTooltip from "../../popups/LinkTooltip";
 import UserInfoForm from "../../forms/users/UserInfoForm";
 
 export default function CardBasicInfo(props) {
@@ -26,9 +28,11 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>   
             <Col className={classNames("col-4 text-end", { "d-none": !isReadOnly })}>
-              <a className="text-secondary text-sm" onClick={() => setIsReadOnly(!isReadOnly)}>
-                <i className="fas fa-user-edit" />
-              </a>
+              <LinkTooltip id="update-profile" title="Update Profile" showTooltip="true">
+                <a className="text-secondary text-sm" onClick={() => setIsReadOnly(!isReadOnly)}>
+                  <i className="fas fa-user-edit" />
+                </a>
+              </LinkTooltip>
             </Col> 
           </Row>
         </Card.Header>
