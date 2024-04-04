@@ -41,7 +41,7 @@ export default function UserInfoForm(props) {
     <>
       <Form>
         <Row>
-          <Col className="col-6 col-md-4 mb-4">
+          <Col className="col-6 col-md-4 mb-3">
             <Form.Group className="input-group input-group-static">
               <label for="firstName" className="font-weight-bold">First Name:</label>
               <Form.Control 
@@ -58,7 +58,7 @@ export default function UserInfoForm(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className="col-6 col-md-4 mb-4">
+          <Col className="col-6 col-md-4 mb-3">
             <Form.Group className="input-group input-group-static">
               <label for="lastName" className="font-weight-bold">Last Name:</label>
               <Form.Control 
@@ -75,7 +75,7 @@ export default function UserInfoForm(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className={classNames("col-6 col-md-4 mb-4", { "d-none": readOnly && !user.person.personName.secondLastName })}>
+          <Col className={classNames("col-6 col-md-4 mb-3", { "d-none": readOnly && !user.person.personName.secondLastName })}>
             <Form.Group className="input-group input-group-static">
               <label for="secondLastName" className="font-weight-bold">Second Last Name:</label>
               <Form.Control 
@@ -94,7 +94,7 @@ export default function UserInfoForm(props) {
           </Col>
         </Row>
         <Row>
-          <Col className="col-6 col-md-4 mb-4">
+          <Col className={classNames("col-6 col-md-4", { "mb-3": !readOnly })}>
             <Form.Group className="input-group input-group-static">
               <label for="gender" className="font-weight-bold">Gender:</label>
               <ButtonCombobox 
