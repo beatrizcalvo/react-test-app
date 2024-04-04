@@ -10,12 +10,9 @@ export default function ButtonCombobox(props) {
   const { register, setFocus, formState: { errors } } = useForm();
 
   useEffect(() => {
+    if (!!defaultValue) setHighlightedChoice(null, defaultValue);
     setSelectedValue(defaultValue);
   }, []);
-
-  useEffect(() => {
-    console.log("update selectedValue");
-  }, [selectedValue]);
 
   // Calculate placeholder text
   const getPlaceholder = () => {
