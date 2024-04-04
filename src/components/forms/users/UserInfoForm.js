@@ -94,7 +94,7 @@ export default function UserInfoForm(props) {
           </Col>
         </Row>
         <Row>
-          <Col className={classNames("col-6 col-md-4", { "mb-3": !readOnly })}>
+          <Col className="col-6 col-md-4">
             <Form.Group className="input-group input-group-static">
               <label for="gender" className="font-weight-bold">Gender:</label>
               <ButtonCombobox 
@@ -106,14 +106,12 @@ export default function UserInfoForm(props) {
             </Form.Group>
           </Col>
         </Row>
-        <Row className={classNames("justify-content-end", { "d-none": readOnly })}>
-    <div class="col-6">
-      One of two columns
-    </div>
-    <div class="col-6">
-      One of two columns
-    </div>
-  </Row>
+        <Row className={classNames("mt-5", { "d-none": readOnly })}>
+          <Col lg="8" className="col-12 text-end">
+            <button class="btn btn-outline-dark mb-0" type="reset">Cancel</button>
+            <button class="btn bg-gradient-dark mb-0" type="button">Save Changes</button>
+          </Col>
+        </Row>
       </Form>
     </>
   );
