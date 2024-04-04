@@ -8,9 +8,6 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
   const { user, readOnly, setReadOnly, handleUpdateProfile } = props;
-  
-  const methods = useForm({ defaultValues: formDefaultValues });
-  const { register, handleSubmit, reset, setFocus, formState: { errors } } = methods;
 
   // Set default values for form
   const formDefaultValues = {
@@ -18,6 +15,9 @@ export default function UserInfoForm(props) {
     lastName: user.person.personName.lastName,
     secondLastName: user.person.personName.secondLastName    
   };
+  
+  const methods = useForm({ defaultValues: formDefaultValues });
+  const { register, handleSubmit, reset, setFocus, formState: { errors } } = methods;
 
   // Input form validations
   const inputValidations = {
