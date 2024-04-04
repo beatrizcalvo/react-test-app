@@ -30,7 +30,7 @@
   color: var(--bs-light) !important;
 }
 
-.input-group.input-group-static .form-control .is-invalid,
-.input-group.input-group-static .form-control .is-invalid:focus {
+.input-group .input-group-static .form-control .is-invalid,
+.input-group. input-group-static .form-control .is-invalid:focus {
   background-color:blue !important;
 }
