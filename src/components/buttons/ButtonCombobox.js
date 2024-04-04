@@ -35,7 +35,7 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
-	{...(!readOnly ? { onBlur: () => setTimeout(() => { console.log("onBlur active: " + JSON.stringify(document.activeElement)) }, 500) } : {})} 
+	{...(!readOnly ? { onBlur: () => setTimeout(() => { console.log("onBlur active: " + document.activeElement.id) }, 500) } : {})} 
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
@@ -61,7 +61,7 @@ export default function ButtonCombobox(props) {
 	        return (
 		  <div 
 		    id={idElement} 
-		    className="choices__item choices__item--choice choices__item--selectable" 
+		    className={classNames("choices__item choices__item--choice choices__item--selectable", { "is-highlighted": choice === selectedValue })} 
 		    onClick={() => handleSelectChoice(choice)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
