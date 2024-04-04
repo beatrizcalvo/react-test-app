@@ -1,25 +1,23 @@
 import classNames from "classnames";
-import { useState, useEffect, forwardRef, memo } from "react";
+import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
-const ButtonCombobox = forwardRef((props, _ref) => {
-  const [isOpen, setIsOpen ] = useState(false);
-  const [ selectedValue, setSelectedValue] = useState(undefined);
-	
+export default function ButtonCombobox(props) {
+  const [isOpen, setIsOpen ] = useState(false);	
   const { id, readOnly, inputValidations, choicesList } = props;
-  const { register, setFocus } = useFormContext();
+  const { register, getValues, setValue, setFocus } = useFormContext();
 
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one...";
-    if (!selectedValue) return "Not Defined";
+    if (!getValues(id)) return "Not Defined";
     return "";
   };
 
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
-    setSelectedValue(item);
+    console.log("update item: " + item);
     setIsOpen(false);
     setFocus(id);
   };
@@ -53,7 +51,6 @@ const ButtonCombobox = forwardRef((props, _ref) => {
 	      placeholder={getPlaceholder()}
               {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-              value={selectedValue}
 	    />
 	  </div>
         </div>
@@ -81,5 +78,3 @@ const ButtonCombobox = forwardRef((props, _ref) => {
     </>
   );
 });
-
-export default memo(ButtonCombobox);
