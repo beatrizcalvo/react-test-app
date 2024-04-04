@@ -1,16 +1,16 @@
 import classNames from "classnames";
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef, memo } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-export default function ButtonCombobox(props) {
+const ButtonCombobox = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
+	
   const { id, readOnly, inputValidations, defaultValue, choicesList } = props;
   const { register, setFocus, formState: { errors } } = useForm();
 
   useEffect(() => {
-    if (!!defaultValue) setHighlightedChoice(null, defaultValue);
     setSelectedValue(defaultValue);
   }, []);
 
@@ -21,15 +21,8 @@ export default function ButtonCombobox(props) {
     return "";
   };
 
-  // Removes is-highlighted from previous selected choice and adds it for the new ones
-  const setHighlightedChoice = (prevChoice, newChoice) => {
-    if (!!prevChoice) document.getElementById(prevChoice).classList.remove("is-highlighted");
-    document.getElementById(newChoice).classList.add("is-highlighted");
-  };
-
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
-    setHighlightedChoice(selectedValue, item);
     setSelectedValue(item);
     setIsOpen(false);
     setFocus(id);
@@ -91,4 +84,6 @@ export default function ButtonCombobox(props) {
       </div>
     </>
   );
-}
+};
+
+export default memo(ButtonCombobox);
