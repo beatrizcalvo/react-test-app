@@ -31,5 +31,6 @@
 }
 
 .input-group.input-group-static .form-control.is-invalid {
-  background-color:blue !important;
+  border: 0px !important;
+  border-bottom: 1px solid #fd5c70 !important;
 }
