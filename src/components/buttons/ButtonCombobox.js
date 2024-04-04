@@ -32,10 +32,11 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
+	{...(!readOnly ? { onBlur: () => setTimeout(() => { console.log("onBlur") }, 500) } : {})} 
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
-	  {...(!readOnly ? { onClick: () => setTimeout(() => { console.log("onBlur") }, 500) } : {})} 
+	  {...(!readOnly ? { onClick: () => setIsOpen(!isOpen) } : {})} 
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
