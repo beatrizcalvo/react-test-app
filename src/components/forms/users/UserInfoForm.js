@@ -9,8 +9,15 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 export default function UserInfoForm(props) {
   const { user, readOnly, setReadOnly, handleUpdateProfile } = props;
   
-  const methods = useForm();
+  const methods = useForm({ defaultValues: formDefaultValues });
   const { register, handleSubmit, reset, setFocus, formState: { errors } } = methods;
+
+  // Set default values for form
+  const formDefaultValues = {
+    firstName: user.person.personName.firstName,
+    lastName: user.person.personName.lastName,
+    secondLastName: user.person.personName.secondLastName    
+  };
 
   // Input form validations
   const inputValidations = {
@@ -45,7 +52,7 @@ export default function UserInfoForm(props) {
 
   // Reset form and close edit mode
   const handleCancel = () => {
-    reset({});
+    reset();
     setReadOnly(!readOnly);
   };
   
@@ -63,7 +70,6 @@ export default function UserInfoForm(props) {
                   {...(!readOnly ? { placeholder: "First Name..." } : {})}
                   {...register("firstName", inputValidations.firstName)}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
-                  defaultValue={user.person.personName.firstName}
                   isInvalid={!!errors.firstName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -80,7 +86,6 @@ export default function UserInfoForm(props) {
                   {...(!readOnly ? { placeholder: "Last Name..." } : {})}
                   {...register("lastName", inputValidations.lastName)}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
-                  defaultValue={user.person.personName.lastName}
                   isInvalid={!!errors.lastName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -97,7 +102,6 @@ export default function UserInfoForm(props) {
                   {...(!readOnly ? { placeholder: "Second Last Name..." } : {})}
                   {...register("secondLastName", inputValidations.secondLastName)}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
-                  defaultValue={user.person.personName.secondLastName}
                   isInvalid={!!errors.secondLastName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
