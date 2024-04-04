@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
@@ -29,6 +29,7 @@ export default function ButtonCombobox(props) {
 
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
+    setHighlightedChoice(selectedValue, item);
     setSelectedValue(item);
     setIsOpen(false);
     setFocus(id);
