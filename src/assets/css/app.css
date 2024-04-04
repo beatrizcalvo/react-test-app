@@ -30,6 +30,6 @@
   color: var(--bs-light) !important;
 }
 
-.input-group {
+.input-group.input-group-static {
   background-color:blue !important;
 }
