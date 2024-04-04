@@ -84,6 +84,6 @@ const ButtonCombobox = forwardRef((props, _ref) => {
       </div>
     </>
   );
-};
+});
 
 export default memo(ButtonCombobox);
