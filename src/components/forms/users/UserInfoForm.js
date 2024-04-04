@@ -45,7 +45,7 @@ export default function UserInfoForm(props) {
   return (
     <>
       <FormProvider {...methods}>
-        <Form onSubmit={methods.handleSubmit(handleUpdateProfile)}>
+        <Form onSubmit={handleSubmit(handleUpdateProfile)}>
           <Row>
             <Col className="col-6 col-md-4 mb-3">
               <Form.Group className="input-group input-group-static">
@@ -54,13 +54,13 @@ export default function UserInfoForm(props) {
                   id="firstName"
                   type="text" 
                   {...(!readOnly ? { placeholder: "First Name..." } : {})}
-                  {...methods.register("firstName", inputValidations.firstName)}
+                  {...register("firstName", inputValidations.firstName)}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                   defaultValue={user.person.personName.firstName}
-                  isInvalid={!!methods.errors.firstName}
+                  isInvalid={!!errors.firstName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {methods.errors.firstName?.message}
+                  {errors.firstName?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
