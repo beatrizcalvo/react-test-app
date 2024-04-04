@@ -6,13 +6,16 @@ import { useForm } from "react-hook-form";
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
-  const { id, readOnly, mandatory, defaultValue, choicesList } = props;
+  const { id, readOnly, inputValidations, defaultValue, choicesList } = props;
   const { register, setFocus, formState: { errors } } = useForm();
 
   useEffect(() => {
-    setHighlightedChoice(null, defaultValue);
     setSelectedValue(defaultValue);
   }, []);
+
+  useEffect(() => {
+    console.log("update selectedValue");
+  }, [selectedValue]);
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -29,7 +32,6 @@ export default function ButtonCombobox(props) {
 
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
-    setHighlightedChoice(selectedValue, item);
     setSelectedValue(item);
     setIsOpen(false);
     setFocus(id);
@@ -62,7 +64,7 @@ export default function ButtonCombobox(props) {
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
-              {...register(id)}
+              {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
               value={selectedValue}
 	    />
