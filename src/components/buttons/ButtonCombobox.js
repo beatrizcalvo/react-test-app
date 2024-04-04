@@ -10,6 +10,7 @@ export default function ButtonCombobox(props) {
   const { register, setFocus, formState: { errors } } = useForm();
 
   useEffect(() => {
+    setHighlightedChoice(null, defaultValue);
     setSelectedValue(defaultValue);
   }, []);
 
@@ -20,12 +21,26 @@ export default function ButtonCombobox(props) {
     return "";
   };
 
+  // Removes is-highlighted from previous selected choice and adds it for the new ones
+  const setHighlightedChoice = (prevChoice, newChoice) => {
+    if (!!prevChoice) document.getElementById(prevChoice).classList.remove("is-highlighted");
+    document.getElementById(newChoice).classList.add("is-highlighted");
+  };
+
   // Set selected value and close combobox
   const handleSelectChoice = (item) => {
-    console.log("select");
+    setHighlightedChoice(selectedValue, item);
     setSelectedValue(item);
     setIsOpen(false);
     setFocus(id);
+  };
+
+  // Close combobox if component is blur
+  // Use timeout to execute onBlur event after select a choice
+  const handleComboboxOnBlur = () => {
+    setTimeout(() => {
+      if (document.activeElement.id === id) setIsOpen(false);
+    }, 500);
   };
 	
   return (
@@ -35,7 +50,7 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
-	{...(!readOnly ? { onBlur: () => setTimeout(() => { console.log("onBlur active: " + document.activeElement.id) }, 500) } : {})} 
+	{...(!readOnly ? { onBlur: () => handleComboboxOnBlur() : {})} 
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
@@ -61,7 +76,7 @@ export default function ButtonCombobox(props) {
 	        return (
 		  <div 
 		    id={idElement} 
-		    className={classNames("choices__item choices__item--choice choices__item--selectable", { "is-highlighted": choice === selectedValue })} 
+		    className="choices__item choices__item--choice choices__item--selectable" 
 		    onClick={() => handleSelectChoice(choice)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
