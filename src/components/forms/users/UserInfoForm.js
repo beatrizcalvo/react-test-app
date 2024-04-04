@@ -111,7 +111,8 @@ export default function UserInfoForm(props) {
           <Col lg="8" className="col-12 text-end ms-auto">
             <Button 
               type="reset"
-              className="btn-outline-dark mb-0"
+              variant="outline-dark"
+              className="mb-0"
             >
               Cancel
             </Button>
