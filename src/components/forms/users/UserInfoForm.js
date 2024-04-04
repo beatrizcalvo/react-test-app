@@ -101,6 +101,7 @@ export default function UserInfoForm(props) {
               <ButtonCombobox 
                 id="gender" 
                 readOnly={readOnly} 
+                registerInputForm={register("gender")}
                 defaultValue={user.person.genderDescription} 
                 choicesList={["Female", "Male"]} 
               />
