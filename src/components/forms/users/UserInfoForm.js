@@ -42,6 +42,11 @@ export default function UserInfoForm(props) {
   useEffect(() => {
     if (!readOnly) setFocus("firstName");
   }, [readOnly]);
+
+  // Reset form and close edit mode
+  const handleCancel = () => {
+    console.log("Cancel");
+  };
   
   return (
     <>
@@ -116,9 +121,10 @@ export default function UserInfoForm(props) {
           <Row className={classNames("mt-5", { "d-none": readOnly })}>
             <Col lg="8" className="col-12 text-end ms-auto">
               <Button 
-                type="reset"
+                type="button"
                 variant="outline-dark"
                 className="mb-0"
+                onClick={() => handleCancel()}
               >
                 Cancel
               </Button>
