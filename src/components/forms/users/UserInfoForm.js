@@ -118,7 +118,6 @@ export default function UserInfoForm(props) {
                 <ButtonCombobox 
                   id="gender" 
                   readOnly={readOnly} 
-                  defaultValue={user.person.genderDescription} 
                   choicesList={["Female", "Male"]} 
                   inputValidations={inputValidations.gender}
                 />
