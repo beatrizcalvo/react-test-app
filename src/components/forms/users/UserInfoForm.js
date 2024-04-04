@@ -45,7 +45,7 @@ export default function UserInfoForm(props) {
   return (
     <>
       <FormProvider {...methods}>
-        <Form onSubmit={handleSubmit(handleUpdateProfile)}>
+        <Form onSubmit={methods.handleSubmit(handleUpdateProfile)}>
           <Row>
             <Col className="col-6 col-md-4 mb-3">
               <Form.Group className="input-group input-group-static">
