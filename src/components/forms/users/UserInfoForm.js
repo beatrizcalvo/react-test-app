@@ -108,7 +108,7 @@ export default function UserInfoForm(props) {
           </Col>
         </Row>
         <Row className={classNames("mt-5", { "d-none": readOnly })}>
-          <Col lg="8" className="col-12 text-end">
+          <Col lg="8" className="col-12 text-end ms-auto">
             <Button 
               type="reset"
               className="btn-outline-dark mb-0"
