@@ -30,6 +30,6 @@
   color: var(--bs-light) !important;
 }
 
-.input-group.input-group-static .form-control {
+.input-group.input-group-static .form-control.is-invalid {
   background-color:blue !important;
 }
