@@ -34,7 +34,7 @@ export default function ButtonCombobox(props) {
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
-        {...(!readOnly ? { onBlur: () => alert("onBlur") } : {})}
+        {...(!readOnly ? { onBlur: () => console.log("onBlur") } : {})}
       >
         <div 
           {...(!readOnly ? { className: "choices__inner" } : {})}
