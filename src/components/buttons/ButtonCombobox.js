@@ -7,7 +7,7 @@ const ButtonCombobox = forwardRef((props, _ref) => {
   const [isOpen, setIsOpen ] = useState(false);
   const [ selectedValue, setSelectedValue] = useState(undefined);
 	
-  const { id, readOnly, defaultValue, choicesList } = props;
+  const { id, readOnly, inputValidations, defaultValue, choicesList } = props;
   const { register, setFocus } = useFormContext();
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const ButtonCombobox = forwardRef((props, _ref) => {
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
-              {...register(id)}
+              {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
               value={selectedValue}
 	    />
