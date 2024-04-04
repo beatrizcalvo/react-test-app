@@ -45,7 +45,7 @@ export default function UserInfoForm(props) {
 
   // Reset form and close edit mode
   const handleCancel = () => {
-    reset();
+    reset({});
     setReadOnly(!readOnly);
   };
   
