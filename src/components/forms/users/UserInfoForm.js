@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import ButtonCombobox from "../../buttons/ButtonCombobox";
 
 export default function UserInfoForm(props) {
-  const { user, readOnly } = props;
-  const { register, setFocus, formState: { errors } } = useForm();
+  const { user, readOnly, handleUpdateProfile } = props;
+  const { register, handleSubmit, setFocus, formState: { errors } } = useForm();
 
   // Input form validations
   const inputValidations = {
@@ -39,7 +39,7 @@ export default function UserInfoForm(props) {
   
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit(handleUpdateProfile)}>
         <Row>
           <Col className="col-6 col-md-4 mb-3">
             <Form.Group className="input-group input-group-static">
