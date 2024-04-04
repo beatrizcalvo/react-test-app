@@ -7,7 +7,7 @@ import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
-  const { user, readOnly, setReadOnly, handleUpdateProfile } = props;
+  const { user, readOnly, setReadOnly, isActionInProgress, handleUpdateProfile } = props;
 
   // Set default values for form
   const formDefaultValues = {
@@ -132,7 +132,8 @@ export default function UserInfoForm(props) {
               <Button 
                 type="button"
                 variant="outline-dark"
-                className="mb-0"
+                className="mb-0" 
+                disabled={isActionInProgress}
                 onClick={() => handleCancel()}
               >
                 Cancel
