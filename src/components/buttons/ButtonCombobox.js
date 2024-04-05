@@ -33,7 +33,7 @@ export default function ButtonCombobox(props) {
   return (
     <>
       <div 
-        className={classNames("choices", { "is-open is-focused": isOpen })} 
+        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": isInvalid })} 
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
