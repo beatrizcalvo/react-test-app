@@ -48,5 +48,5 @@
 
 .choices.is-invalid~.invalid-feedback {
   display: block !important;
-  padding-top: -1.75rem !important;
+  margin-top: -1.75rem !important;
 }
