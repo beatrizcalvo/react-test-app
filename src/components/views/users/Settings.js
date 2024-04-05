@@ -6,7 +6,7 @@ import CardProfile from "../../cards/users/CardProfile";
 import CardBasicInfo from "../../cards/users/CardBasicInfo";
 import CardDeleteAccount from "../../cards/users/CardDeleteAccount";
 
-export default function Profile(props) {  
+export default function Settings(props) {  
   const [isActionInProgress, setIsActionInProgress] = useState(false);
   
   // Links config for profile navbar
