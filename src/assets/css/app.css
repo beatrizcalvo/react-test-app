@@ -36,6 +36,6 @@
   border-bottom-right-radius: 0rem !important;
 }
 
-.input-group.input-group-static .form-control.is-invalid {
+.input-group.input-group-static .form-control.is-invalid:focus {
   box-shadow: none !important;
 }
