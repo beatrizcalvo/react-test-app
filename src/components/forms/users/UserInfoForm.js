@@ -94,7 +94,7 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
-            <Col className={classNames("col-12 col-md-4 mb-4", { "d-none": readOnly && !user.person.personName.secondLastName })}>
+            <Col className={classNames("col-6 col-md-4 mb-4", { "d-none": readOnly && !user.person.personName.secondLastName })}>
               <Form.Group className="input-group input-group-static">
                 <label for="secondLastName" className="font-weight-bold">Second Last Name:</label>
                 <Form.Control 
@@ -123,7 +123,7 @@ export default function UserInfoForm(props) {
                   isInvalid={!!errors.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors.lastName?.message}
+                  {errors.firstName?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -139,7 +139,13 @@ export default function UserInfoForm(props) {
               >
                 Cancel
               </Button>
-              <button class="btn bg-gradient-dark mb-0 ms-3" type="submit">Save Changes</button>
+              <ButtonLoading
+                variant="primary"
+                type="submit"
+                className="bg-gradient-dark mb-0 ms-3" 
+                titleButton="Save Changes"
+                disabled={isActionInProgress}
+              />
             </Col>
           </Row>
         </Form>
