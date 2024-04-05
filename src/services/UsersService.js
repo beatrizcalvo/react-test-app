@@ -11,7 +11,7 @@ const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { ac
 const UsersService = { 
   getCurrentUser,
   deleteCurrentUser,
-  updateCurrentUser
+  updateCurrentUser,
   deactivateCurrentUser
 };
 
