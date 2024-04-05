@@ -8,7 +8,7 @@ import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 import Dashboard from "./components/layouts/Dashboard";
 import Home from "./components/views/Home";
-import Profile from "./components/views/users/Profile";
+import Settings from "./components/views/users/Settings";
 
 export default function App(props) {
   const { user } = useAuth();
@@ -18,7 +18,7 @@ export default function App(props) {
       <Route element={<ProtectedRoute isAllowed={!!user} />}>
         <Route element={<Dashboard />}>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
         </Route>
       </Route>
       <Route element={<Auth />}>
