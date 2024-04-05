@@ -5,8 +5,8 @@ import { useFormContext } from "react-hook-form";
 
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);	
-  const { id, readOnly, inputValidations, choicesList, isInvalid } = props;
-  const { register, getValues, setValue, setFocus } = useFormContext();
+  const { id, readOnly, inputValidations, choicesList } = props;
+  const { register, getValues, setValue, setFocus, formState: { errors } } = useFormContext();
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -33,7 +33,7 @@ export default function ButtonCombobox(props) {
   return (
     <>
       <div 
-        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": isInvalid })} 
+        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": !!errors[id] })} 
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
@@ -51,7 +51,7 @@ export default function ButtonCombobox(props) {
 	      placeholder={getPlaceholder()}
               {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-	      isInvalid={isInvalid}
+	      isInvalid={!!errors[id]}
 	    />
 	  </div>
         </div>
