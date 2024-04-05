@@ -45,3 +45,8 @@
 .choices .form-control.is-invalid {
   background-position: right 2rem center!important;
 }
+
+.choices.is-invalid~.invalid-feedback {
+  display: block !important;
+  padding-top: -1.75rem !important;
+}
