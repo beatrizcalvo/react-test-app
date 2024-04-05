@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);	
-  const { id, readOnly, inputValidations, choicesList } = props;
+  const { id, readOnly, inputValidations, choicesList, isInvalid } = props;
   const { register, getValues, setValue, setFocus } = useFormContext();
 
   // Calculate placeholder text
@@ -51,6 +51,7 @@ export default function ButtonCombobox(props) {
 	      placeholder={getPlaceholder()}
               {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+	      {...(isInvalid ? { isInvalid: true } : {})}
 	    />
 	  </div>
         </div>
