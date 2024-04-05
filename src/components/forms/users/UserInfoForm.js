@@ -122,6 +122,9 @@ export default function UserInfoForm(props) {
                   inputValidations={inputValidations.gender}
                   isInvalid={!!errors.gender}
                 />
+                <Form.Control.Feedback type="text-xs invalid">
+                  {errors.lastName?.message}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
