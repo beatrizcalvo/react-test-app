@@ -120,7 +120,6 @@ export default function UserInfoForm(props) {
                   readOnly={readOnly} 
                   choicesList={["Female", "Male"]} 
                   inputValidations={inputValidations.gender}
-                  isInvalid={!!errors.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
                   {errors.gender?.message}
