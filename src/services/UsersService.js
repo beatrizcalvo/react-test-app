@@ -5,11 +5,13 @@ const axiosClient = axiosWithCredentials(process.env.REACT_APP_AUTH_API);
 
 const getCurrentUser = () => { return axiosClient.get("/users/me") };
 const deleteCurrentUser = () => { return axiosClient.delete("/users/me") };
+const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", data)};
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false })};
 
 const UsersService = { 
   getCurrentUser,
   deleteCurrentUser,
+  updateCurrentUser
   deactivateCurrentUser
 };
 
