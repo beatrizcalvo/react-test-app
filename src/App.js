@@ -7,7 +7,6 @@ import Auth from "./components/layouts/Auth";
 import Login from "./components/views/auth/Login";
 import Register from "./components/views/auth/Register";
 import Dashboard from "./components/layouts/Dashboard";
-import Home from "./components/views/Home";
 import Profile from "./components/views/users/Profile";
 import Settings from "./components/views/users/Settings";
 
