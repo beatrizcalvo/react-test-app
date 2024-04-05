@@ -29,7 +29,7 @@ function SidebarItemCollapsable({ id, title, className, links }) {
       <SidebarMenu.Sub as="li" bsPrefix="nav-item" className={"mt-0 " + className} >
         <SidebarMenu.Sub.Toggle as="a" bsPrefix="nav-link" className="text-white" aria-controls={id} data-bs-toggle="collapse" aria-expanded="false">
           <SidebarMenu.Nav.Icon as="img" bsPrefix="avatar" src={require("../../assets/img/default_profile.jpg")} />
-          <SidebarMenu.Nav.Title as="span" bsPrefix="nav-link-text" className="ms-2 ps-1">
+          <SidebarMenu.Nav.Title as="span" bsPrefix="nav-link-text" className="ms-2 ps-1 text-break">
             {title}
           </SidebarMenu.Nav.Title>
         </SidebarMenu.Sub.Toggle>
