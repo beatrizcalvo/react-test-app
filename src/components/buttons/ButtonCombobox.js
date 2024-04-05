@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);	
   const { id, readOnly, inputValidations, choicesList } = props;
-  const { register, getValues, setValue, setFocus, clearErrors, formState: { errors } } = useFormContext();
+  const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -19,7 +19,7 @@ export default function ButtonCombobox(props) {
   const handleSelectChoice = (item) => {
     setValue(id, item);
     setIsOpen(false);
-    clearErrors(id);
+    trigger(id);
     setFocus(id);
   };
 
