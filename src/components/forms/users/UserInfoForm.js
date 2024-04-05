@@ -123,7 +123,7 @@ export default function UserInfoForm(props) {
                   isInvalid={!!errors.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors.firstName?.message}
+                  {errors.gender?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
