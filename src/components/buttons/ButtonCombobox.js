@@ -51,7 +51,7 @@ export default function ButtonCombobox(props) {
 	      placeholder={getPlaceholder()}
               {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-	      {...(isInvalid ? { isInvalid: true } : {})}
+	      isInvalid={isInvalid}
 	    />
 	  </div>
         </div>
