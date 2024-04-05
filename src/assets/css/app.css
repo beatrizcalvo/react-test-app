@@ -34,6 +34,7 @@
   border: 0px !important;
   border-bottom: 1px solid #fd5c70 !important;
   border-bottom-right-radius: 0rem !important;
+  padding-left: 0 !important;
 }
 
 .input-group.input-group-static .form-control.is-invalid:focus {
