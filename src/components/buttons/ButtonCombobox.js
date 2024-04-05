@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
@@ -7,6 +7,10 @@ export default function ButtonCombobox(props) {
   const [isOpen, setIsOpen ] = useState(false);	
   const { id, readOnly, inputValidations, choicesList } = props;
   const { register, getValues, setValue, setFocus, formState: { errors } } = useFormContext();
+
+  useEffect(() => {
+    console.log("update errors");
+  }, [errors]);
 
   // Calculate placeholder text
   const getPlaceholder = () => {
