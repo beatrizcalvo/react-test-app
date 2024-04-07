@@ -32,7 +32,7 @@ export default function CardBasicInfo(props) {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && 
                               error.response.data.errors[0].description) 
           || connectionError;
-        alert(errorMessage);
+        addNewAlert("danger", "Updating User Info - " + errorMessage);
       })
       .finally(() => {
         setIsActionInProgress(false);
