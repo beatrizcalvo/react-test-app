@@ -127,7 +127,7 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
           </Row>
-          <Row className={classNames("mt-5", { "d-none": readOnly })}>
+          <Row className={!readOnly ? "mt-5" : "d-none"}>
             <Col lg="8" className="col-12 text-end ms-auto">
               <Button 
                 type="button"
