@@ -3,11 +3,15 @@ import { useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
 
+import { useAuth } from "../../hooks/providers/AuthProvider";
+import UsersService from "../../services/UsersService";
+
 import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
   const { user, readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
+  const { logoutUser } = useAuth();
 
   // Set default values for form
   const formDefaultValues = {
@@ -54,7 +58,9 @@ export default function UserInfoForm(props) {
   };
 
   useEffect(() => {
-    alert("ejecuta");
+    UsersService.getNacionalities()
+      .then(response => alert(JSON.stringify(response.data)))
+      .catch(() => logoutUser());
   }, []);
 
   useEffect(() => {
