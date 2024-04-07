@@ -16,7 +16,7 @@ export default function CardBasicInfo(props) {
   const [isLoading, setIsLoading] = useState(false);
   
   const { id, isActionInProgress, setIsActionInProgress } = props;
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Submit format and update profile if input fields has not errors
