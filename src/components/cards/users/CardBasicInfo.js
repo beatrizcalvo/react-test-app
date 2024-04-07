@@ -26,7 +26,7 @@ export default function CardBasicInfo(props) {
 
     UsersService.updateCurrentUser(data)
       .then(() => {
-        alert("Ok");
+        addNewAlert("success", "Updated user info");
       })
       .catch(error => {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && 
