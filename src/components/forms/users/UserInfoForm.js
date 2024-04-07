@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
 
-import { useAuth } from "../../hooks/providers/AuthProvider";
-import UsersService from "../../services/UsersService";
+import { useAuth } from "../../../hooks/providers/AuthProvider";
+import UsersService from "../../../services/UsersService";
 
 import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
