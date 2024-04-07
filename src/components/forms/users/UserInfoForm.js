@@ -7,7 +7,7 @@ import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
-  const { user, readOnly, setReadOnly, isActionInProgress, handleUpdateProfile } = props;
+  const { user, readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
 
   // Set default values for form
   const formDefaultValues = {
@@ -144,6 +144,7 @@ export default function UserInfoForm(props) {
                 className="bg-gradient-dark mb-0 ms-3" 
                 titleButton="Save Changes"
                 disabled={isActionInProgress}
+                isLoading={isLoading}
               />
             </Col>
           </Row>
