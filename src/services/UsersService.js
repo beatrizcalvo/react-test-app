@@ -15,13 +15,16 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
     gender: data.gender
   }
 })};
-const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false })};
+const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
+
+const getNacionalities = () => { return axiosClient.get("/nacionalities") };
 
 const UsersService = { 
   getCurrentUser,
   deleteCurrentUser,
   updateCurrentUser,
-  deactivateCurrentUser
+  deactivateCurrentUser,
+  getNacionalities
 };
 
 export default UsersService;
