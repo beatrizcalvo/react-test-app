@@ -26,7 +26,7 @@ export default function CardBasicInfo(props) {
 
     // Set request body and update user info
     const requestBody = {
-      person: {
+      personName: {
         
       }
     };
