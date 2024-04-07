@@ -35,7 +35,14 @@ export default function CardBasicInfo(props) {
         
       })
       .catch(error => {
-        const errorMessage = "";
+        const errorMessage = (error.response && error.response.data && error.response.data.errors && 
+                              error.response.data.errors[0].description) 
+          || connectionError;
+        addNewAlert("danger", "Updating User Info - " + errorMessage);
+      })
+      .finally(() => {
+        setIsActionInProgress(false);
+        setIsLoading(false);
       });
   };
   
