@@ -79,6 +79,12 @@ export const AuthProvider = ({ children }) => {
       .finally(() => setLoadingAuth(false));
   };
 
+  const updateUser = () => {
+    UsersService.getCurrentUser()
+      .then(response => setUser(response.data))
+      .catch(() => logoutUser());
+  };
+
   const clearLocalStorage = () => {
     secureLocalStorage.removeItem(ACCESS_TOKEN_KEY);
     secureLocalStorage.removeItem(REFRESH_TOKEN_KEY);
@@ -92,13 +98,13 @@ export const AuthProvider = ({ children }) => {
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     user,
-    setUser,
     loadingAuth,
     errorAuth,
     successAuth,
     loginUser,
     logoutUser,
-    registerUser
+    registerUser,
+    updateUser
   }), [user, loadingAuth, errorAuth, successAuth]);
 
   return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children || <LoadingPage />}</AuthContext.Provider>;
