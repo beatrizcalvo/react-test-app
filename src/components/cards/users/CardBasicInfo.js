@@ -10,7 +10,11 @@ import LinkTooltip from "../../popups/LinkTooltip";
 import UserInfoForm from "../../forms/users/UserInfoForm";
 
 export default function CardBasicInfo(props) {
+  const connectionError = "Cannot connect to the user registration server.";
+  
   const [isReadOnly, setIsReadOnly] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  
   const { id, isActionInProgress, setIsActionInProgress } = props;
   const { user } = useAuth();
   const { addNewAlert } = useAlerts();
@@ -18,7 +22,21 @@ export default function CardBasicInfo(props) {
   // Submit format and update profile if input fields has not errors
   const handleUpdateProfile = (data) => {
     setIsActionInProgress(true);
-    console.log(JSON.stringify(data));
+    setIsLoading(true);
+
+    // Set request body and update user info
+    const requestBody = {
+      person: {
+        
+      }
+    };
+    UsersService.updateCurrentUser(requestBody)
+      .then(() => {
+        
+      })
+      .catch(error => {
+        const errorMessage = "";
+      });
   };
   
   return (
@@ -44,6 +62,7 @@ export default function CardBasicInfo(props) {
             readOnly={isReadOnly} 
             setReadOnly={setIsReadOnly}
             isActionInProgress={isActionInProgress}
+            isLoading={isLoading}
             handleUpdateProfile={handleUpdateProfile} 
           />
         </Card.Body>
