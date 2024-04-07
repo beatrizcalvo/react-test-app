@@ -51,7 +51,7 @@ export default function CardBasicInfo(props) {
               <h5>Basic Info</h5>
             </Col>   
             <Col className={classNames("col-4 text-end", { "d-none": !isReadOnly || isActionInProgress })}>
-              <LinkTooltip id="update-profile" title="Update Profile" showTooltip="true">
+              <LinkTooltip id="update-profile" title="Update Profile" showTooltip={readOnly && !isActionInProgress}>
                 <a className="text-secondary text-sm" onClick={() => setIsReadOnly(!isReadOnly)}>
                   <i className="fas fa-user-edit" />
                 </a>
