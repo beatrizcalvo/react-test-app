@@ -41,8 +41,7 @@ export default function CardBasicInfo(props) {
         addNewAlert("danger", "Updating User Info - " + errorMessage);
       })
       .finally(() => {
-        setIsActionInProgress(false);
-        setIsLoading(false);
+        
       });
   };
   
