@@ -38,10 +38,11 @@ export default function CardBasicInfo(props) {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && 
                               error.response.data.errors[0].description) 
           || connectionError;
-        alert(errorResponse);
+        alert(errorMessage);
       })
       .finally(() => {
-        
+        setIsActionInProgress(false);
+        setIsLoading(false);
       });
   };
   
