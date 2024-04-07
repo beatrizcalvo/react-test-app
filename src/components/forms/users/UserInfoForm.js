@@ -47,8 +47,15 @@ export default function UserInfoForm(props) {
     },
     birthdayDate: {
       required: "Birthday Date is required"
+    },
+    nacionality: {
+      required: "Nacionality is required"
     }
   };
+
+  useEffect(() => {
+    alert("ejecuta");
+  }, []);
 
   useEffect(() => {
     if (!readOnly) setFocus("firstName");
@@ -130,7 +137,9 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="birthdayDate" className="font-weight-bold">Birthday Date:</label>
-                
+                <Form.Control 
+                  id="birthdayDate"
+                />
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
