@@ -44,6 +44,9 @@ export default function UserInfoForm(props) {
     },
     gender: {
       required: "Gender is required"
+    },
+    birthdayDate: {
+      required: "Birthday Date is required"
     }
   };
 
@@ -124,13 +127,16 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
-            <Col className="col-6">
+            <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="birthdayDate" className="font-weight-bold">Birthday Date:</label>
                 <Form.Control 
                   id="birthdayDate"
                   type="date"
                   {...(!readOnly ? { placeholder: "Select one..." } : {})}
+                  {...register("birthdayDate", inputValidations.birthdayDate)}
+                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+                  isInvalid={!!errors.birthdayDate}
                 />
               </Form.Group>
             </Col>
