@@ -92,6 +92,7 @@ export const AuthProvider = ({ children }) => {
   // Make the provider update only when it should
   const memoedValue = useMemo(() => ({
     user,
+    setUser,
     loadingAuth,
     errorAuth,
     successAuth,
