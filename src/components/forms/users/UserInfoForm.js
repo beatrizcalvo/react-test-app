@@ -133,7 +133,7 @@ export default function UserInfoForm(props) {
                 type="button"
                 variant="outline-dark"
                 className="mb-0" 
-                disabled={isActionInProgress}
+                disabled={isActionInProgress || isLoading}
                 onClick={() => handleCancel()}
               >
                 Cancel
