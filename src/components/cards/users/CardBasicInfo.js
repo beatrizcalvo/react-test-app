@@ -4,6 +4,7 @@ import { Card, Row, Col } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
+import UsersService from "../../../services/UsersService";
 
 import LinkTooltip from "../../popups/LinkTooltip";
 import UserInfoForm from "../../forms/users/UserInfoForm";
@@ -16,6 +17,7 @@ export default function CardBasicInfo(props) {
 
   // Submit format and update profile if input fields has not errors
   const handleUpdateProfile = (data) => {
+    setIsActionInProgress(true);
     console.log(JSON.stringify(data));
   };
   
@@ -41,8 +43,7 @@ export default function CardBasicInfo(props) {
             user={user} 
             readOnly={isReadOnly} 
             setReadOnly={setIsReadOnly}
-            isActionInProgress={isActionInProgress} 
-            setIsActionInProgress={setIsActionInProgress}
+            isActionInProgress={isActionInProgress}
             handleUpdateProfile={handleUpdateProfile} 
           />
         </Card.Body>
