@@ -110,8 +110,6 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
-          </Row>
-          <Row>
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="gender" className="font-weight-bold">Gender:</label>
@@ -125,6 +123,9 @@ export default function UserInfoForm(props) {
                   {errors.gender?.message}
                 </Form.Control.Feedback>
               </Form.Group>
+            </Col>
+            <Col className="col-6">
+              Aaaaaaa
             </Col>
           </Row>
           <Row className={!readOnly ? "mt-5" : "d-none"}>
