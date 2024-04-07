@@ -32,13 +32,13 @@ export default function CardBasicInfo(props) {
     };
     UsersService.updateCurrentUser(requestBody)
       .then(() => {
-        
+        alert("Ok");
       })
       .catch(error => {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && 
                               error.response.data.errors[0].description) 
           || connectionError;
-        addNewAlert("danger", "Updating User Info - " + errorMessage);
+        alert(errorResponse);
       })
       .finally(() => {
         
