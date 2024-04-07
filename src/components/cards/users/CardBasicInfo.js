@@ -24,13 +24,7 @@ export default function CardBasicInfo(props) {
     setIsActionInProgress(true);
     setIsLoading(true);
 
-    // Set request body and update user info
-    const requestBody = {
-      personName: {
-        
-      }
-    };
-    UsersService.updateCurrentUser(requestBody)
+    UsersService.updateCurrentUser(data)
       .then(() => {
         alert("Ok");
       })
