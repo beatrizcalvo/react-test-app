@@ -8,9 +8,11 @@ const deleteCurrentUser = () => { return axiosClient.delete("/users/me") };
 const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
   person: {
     personName: {
-      
+      firstName: data.firstName,
+      lastName: data.lastName,
+      secondLastName: data.secondLastName
     },
-    genderD: data.gender
+    gender: data.gender
   }
 })};
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false })};
