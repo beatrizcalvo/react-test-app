@@ -20,7 +20,8 @@ export default function UserInfoForm(props) {
     firstName: user.person.personName.firstName,
     lastName: user.person.personName.lastName,
     secondLastName: user.person.personName.secondLastName,
-    genderDescription: user.person.gender
+    genderDescription: user.person.gender,
+    nationalityDescription: user.person.firstNationality.description
   };
   
   const methods = useForm({ defaultValues: formDefaultValues });
@@ -63,7 +64,6 @@ export default function UserInfoForm(props) {
     // Load nationalities list from server
     UsersService.getNationalities()
       .then(response => {
-        console.log(JSON.stringify(response.data));
         const itemsList = [];
         response.data.nationalities.map(nationality => {
           itemsList.push({
@@ -73,7 +73,7 @@ export default function UserInfoForm(props) {
         });
         setNationalitiesList(itemsList);
       })
-      .catch(error => console.log(JSON.stringify(error)));
+      .catch(() => logoutUser());
   }, []);
 
   useEffect(() => {
