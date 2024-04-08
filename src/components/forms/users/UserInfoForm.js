@@ -20,7 +20,7 @@ export default function UserInfoForm(props) {
     firstName: user.person.personName.firstName,
     lastName: user.person.personName.lastName,
     secondLastName: user.person.personName.secondLastName,
-    gender: user.person.gender
+    gender.description: user.person.gender
   };
   
   const methods = useForm({ defaultValues: formDefaultValues });
