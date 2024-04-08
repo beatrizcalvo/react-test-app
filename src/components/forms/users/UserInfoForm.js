@@ -64,10 +64,10 @@ export default function UserInfoForm(props) {
     UsersService.getNationalities()
       .then(response => {
         const itemsList = [];
-        response.data.nacionalities.map(nacionality => {
+        response.data.nationalities.map(nationality => {
           itemsList.push({
-            code: nacionality.nacionalityId,
-            description: nacionality.nacionalityDescription
+            code: nationality.nationalityId,
+            description: nationality.nationalityDescription
           });
         });
         setNationalitiesList(itemsList);
