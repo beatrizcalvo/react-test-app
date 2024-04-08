@@ -21,6 +21,7 @@ export default function UserInfoForm(props) {
     lastName: user.person.personName.lastName,
     secondLastName: user.person.personName.secondLastName,
     genderDescription: user.person.gender,
+    nationalityCode: user.person.firstNationality?.code,
     nationalityDescription: user.person.firstNationality?.description
   };
   
