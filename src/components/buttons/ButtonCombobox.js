@@ -49,7 +49,7 @@ export default function ButtonCombobox(props) {
           {...(!readOnly ? { className: "choices__inner" } : {})}
 	  {...(!readOnly ? { onClick: () => setIsOpen(!isOpen) } : {})} 
 	>
-          <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
+          <div {...(!readOnly ? { className: classNames("choices__list--single", { "choices__list": !errors[comboIdDescription] }) } : {})}>
 	    <Form.Control
 	      id={comboIdDescription}
 	      type="text"
