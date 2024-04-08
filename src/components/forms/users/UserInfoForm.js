@@ -168,7 +168,7 @@ export default function UserInfoForm(props) {
                   inputValidations={inputValidations.nationality}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors}
+                  {errors.nationality?.description?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
