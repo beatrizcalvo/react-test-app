@@ -9,8 +9,8 @@ export default function ButtonCombobox(props) {
   const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
 
   // Set ids for combo controls
-  const comboIdCode = id + ".code";
-  const comboIdDescription = id + ".description";
+  const comboIdCode = id + "Code";
+  const comboIdDescription = id + "Description";
 
   // Calculate placeholder text
   const getPlaceholder = () => {
