@@ -54,6 +54,9 @@ export default function ButtonCombobox(props) {
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
 	      isInvalid={!!errors[id]}
 	    />
+            <Form.Control 
+	      type="hidden"
+	    />
 	  </div>
         </div>
         <div className={classNames("choices__list choices__list--dropdown", { "is-active is-focused": isOpen })} aria-expanded={isOpen}>
