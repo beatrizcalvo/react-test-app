@@ -21,7 +21,7 @@ export default function UserInfoForm(props) {
     lastName: user.person.personName.lastName,
     secondLastName: user.person.personName.secondLastName,
     genderDescription: user.person.gender,
-    nationality: user.person.firstNationality?.description
+    nationalityDescription: user.person.firstNationality?.description
   };
   
   const methods = useForm({ defaultValues: formDefaultValues });
