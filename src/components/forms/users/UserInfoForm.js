@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -10,6 +10,8 @@ import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
+  const [nacionalitiesList, setNationalitiesList] = useState([]);
+  
   const { user, readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
   const { logoutUser } = useAuth();
 
@@ -132,7 +134,7 @@ export default function UserInfoForm(props) {
                 <ButtonCombobox 
                   id="gender" 
                   readOnly={readOnly} 
-                  choicesList={["Female", "Male"]} 
+                  choicesList={[{key: "f", value: "Female"}, {key: "m", value: "Male"}]} 
                   inputValidations={inputValidations.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -151,7 +153,12 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="nacionality" className="font-weight-bold">Nacionality:</label>
-                
+                <ButtonCombobox
+                  id="nacionality"
+                  readOnly={readOnly}
+                  choicesList={nacionalitiesList} 
+                  inputValidations={inputValidations.nacionality}
+                />
               </Form.Group>
             </Col>
           </Row>
