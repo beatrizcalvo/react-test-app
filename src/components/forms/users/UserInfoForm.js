@@ -162,15 +162,7 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="nationality" className="font-weight-bold">Nationality:</label>
-                <ButtonCombobox
-                  id="nationality"
-                  readOnly={readOnly}
-                  choicesList={nationalitiesList} 
-                  inputValidations={inputValidations.nationality}
-                />
-                <Form.Control.Feedback type="text-xs invalid">
-                  {errors.nationalityDescription?.message}
-                </Form.Control.Feedback>
+
               </Form.Group>
             </Col>
           </Row>
