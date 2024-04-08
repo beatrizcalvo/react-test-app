@@ -9,29 +9,29 @@ export default function ButtonCombobox(props) {
   const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
 
   // Set ids for combo controls
-  const comboIdValue = id + ".value";
-  const comboIdKey = id + ".key";
+  const comboIdCode = id + ".code";
+  const comboIdDescription = id + ".description";
 
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one...";
-    if (!getValues(comboIdValue)) return "Not Defined";
+    if (!getValues(comboIdDescription)) return "Not Defined";
     return "";
   };
 
   // Set selected value and close combobox
-  const handleSelectChoice = (key, value) => {
-    setValue(comboIdValue, value);
+  const handleSelectChoice = (code, description) => {
+    setValue(comboIdDescription, description);
     setIsOpen(false);
-    trigger(comboIdValue);
-    setFocus(comboIdValue);
+    trigger(comboIdDescription);
+    setFocus(comboIdDescription);
   };
 
   // Close combobox if component is blur
   // Use timeout to execute onBlur event after select a choice
   const handleComboboxOnBlur = () => {
     setTimeout(() => {
-      if (document.activeElement.id !== comboIdValue) setIsOpen(false);
+      if (document.activeElement.id !== comboIdDescription) setIsOpen(false);
     }, 300);
   };
 	
@@ -50,11 +50,11 @@ export default function ButtonCombobox(props) {
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
-	      id={comboIdValue}
+	      id={comboIdDescription}
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
-              {...register(comboIdValue, inputValidations)}
+              {...register(comboIdDescription, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
 	      isInvalid={!!errors[id]}
 	    />
@@ -72,11 +72,11 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={idElement} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => handleSelectChoice(choice.key, choice.value)} 
+		    onClick={() => handleSelectChoice(choice.code, choice.description)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
 		  >
-		    {choice.value}
+		    {choice.description}
 		  </div>
 		);
 	      })
