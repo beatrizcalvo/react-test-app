@@ -63,7 +63,7 @@ export default function UserInfoForm(props) {
     // Load nationalities list from server
     UsersService.getNationalities()
       .then(response => {
-        console.log("OK");
+        console.log(JSON.stringify(response.data));
         const itemsList = [];
         response.data.nationalities.map(nationality => {
           itemsList.push({
