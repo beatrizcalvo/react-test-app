@@ -149,7 +149,7 @@ export default function UserInfoForm(props) {
                   inputValidations={inputValidations.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors.gender?.message}
+                  {errors.genderDescription?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
@@ -170,6 +170,9 @@ export default function UserInfoForm(props) {
                   choicesList={nationalitiesList} 
                   inputValidations={inputValidations.nationality}
                 />
+                <Form.Control.Feedback type="text-xs invalid">
+                  {errors.nationalityDescription?.message}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
