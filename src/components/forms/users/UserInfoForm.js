@@ -63,6 +63,7 @@ export default function UserInfoForm(props) {
     // Load nationalities list from server
     UsersService.getNationalities()
       .then(response => {
+        console.log("OK");
         const itemsList = [];
         response.data.nationalities.map(nationality => {
           itemsList.push({
@@ -72,7 +73,7 @@ export default function UserInfoForm(props) {
         });
         setNationalitiesList(itemsList);
       })
-      .catch((error) => alert(JSON.stringify(error)));
+      .catch(error => console.log(JSON.stringify(error)));
   }, []);
 
   useEffect(() => {
