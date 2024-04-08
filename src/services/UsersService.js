@@ -20,7 +20,7 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
 })};
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
 
-const getNationalities = () => { return axiosClient.get("/nacionalities") };
+const getNationalities = () => { return axiosClient.get("/nationalities") };
 
 const UsersService = { 
   getCurrentUser,
