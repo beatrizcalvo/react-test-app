@@ -13,10 +13,11 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
       secondLastName: data.secondLastName
     },
     gender: data.genderDescription,
-    firstNationality: {
-      code: data.nationalityCode
-    }
-  }
+    ...(!!data.nationalityCode && {
+      firstNationality: {
+        code: data.nationalityCode
+      }
+    })
 })};
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
 
