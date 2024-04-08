@@ -10,7 +10,7 @@ import ButtonCombobox from "../../buttons/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
-  const [nacionalitiesList, setNationalitiesList] = useState([]);
+  const [nationalitiesList, setNationalitiesList] = useState([]);
   
   const { user, readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
   const { logoutUser } = useAuth();
@@ -54,21 +54,23 @@ export default function UserInfoForm(props) {
     birthdayDate: {
       required: "Birthday Date is required"
     },
-    nacionality: {
+    nationality: {
       required: "Nacionality is required"
     }
   };
 
   useEffect(() => {
-    // Load nacionalities list from server
-    UsersService.getNacionalities()
+    // Load nationalities list from server
+    UsersService.getNationalities()
       .then(response => {
+        const itemsList = [];
         response.data.nacionalities.map(nacionality => {
-          nacionalitiesList.push({
+          itemsList.push({
             code: nacionality.nacionalityId,
             description: nacionality.nacionalityDescription
           });
         });
+        setNationalitiesList(itemsList);
       })
       .catch(() => logoutUser());
   }, []);
@@ -160,12 +162,12 @@ export default function UserInfoForm(props) {
             </Col>
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
-                <label for="nacionality" className="font-weight-bold">Nacionality:</label>
+                <label for="nationality" className="font-weight-bold">Nationality:</label>
                 <ButtonCombobox
-                  id="nacionality"
+                  id="nationality"
                   readOnly={readOnly}
-                  choicesList={nacionalitiesList} 
-                  inputValidations={inputValidations.nacionality}
+                  choicesList={nationalitiesList} 
+                  inputValidations={inputValidations.nationality}
                 />
               </Form.Group>
             </Col>
