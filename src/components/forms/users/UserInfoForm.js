@@ -134,7 +134,7 @@ export default function UserInfoForm(props) {
                 <ButtonCombobox 
                   id="gender" 
                   readOnly={readOnly} 
-                  choicesList={[{key: "f", value: "Female"}, {key: "m", value: "Male"}]} 
+                  choicesList={[{code: "f", description: "Female"}, {code: "m", description: "Male"}]} 
                   inputValidations={inputValidations.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
