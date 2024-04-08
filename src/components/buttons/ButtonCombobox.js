@@ -8,26 +8,30 @@ export default function ButtonCombobox(props) {
   const { id, readOnly, inputValidations, choicesList } = props;
   const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
 
+  // Set ids for combo controls
+  const comboIdValue = id + ".value";
+  const comboIdKey = id + ".key";
+
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one...";
-    if (!getValues(id)) return "Not Defined";
+    if (!getValues(comboIdValue)) return "Not Defined";
     return "";
   };
 
   // Set selected value and close combobox
-  const handleSelectChoice = (value) => {
-    setValue(id, value);
+  const handleSelectChoice = (key, value) => {
+    setValue(comboIdValue, value);
     setIsOpen(false);
-    trigger(id);
-    setFocus(id);
+    trigger(comboIdValue);
+    setFocus(comboIdValue);
   };
 
   // Close combobox if component is blur
   // Use timeout to execute onBlur event after select a choice
   const handleComboboxOnBlur = () => {
     setTimeout(() => {
-      if (document.activeElement.id !== id) setIsOpen(false);
+      if (document.activeElement.id !== comboIdValue) setIsOpen(false);
     }, 300);
   };
 	
@@ -46,11 +50,11 @@ export default function ButtonCombobox(props) {
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
-	      id={id}
+	      id={comboIdValue}
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
-              {...register(id, inputValidations)}
+              {...register(comboIdValue, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
 	      isInvalid={!!errors[id]}
 	    />
@@ -68,7 +72,7 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={idElement} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => handleSelectChoice(choice.value)} 
+		    onClick={() => handleSelectChoice(choice.key, choice.value)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
 		  >
