@@ -20,7 +20,8 @@ export default function UserInfoForm(props) {
     firstName: user.person.personName.firstName,
     lastName: user.person.personName.lastName,
     secondLastName: user.person.personName.secondLastName,
-    gender: { description: user.person.gender }
+    gender: { description: user.person.gender },
+    nationality: user.person.firstNationality
   };
   
   const methods = useForm({ defaultValues: formDefaultValues });
@@ -148,7 +149,7 @@ export default function UserInfoForm(props) {
                   inputValidations={inputValidations.gender}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors.gender?.message}
+                  {errors.gender?.description?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
