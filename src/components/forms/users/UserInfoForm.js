@@ -156,13 +156,7 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="birthdayDate" className="font-weight-bold">Birthday Date:</label>
-                <Form.Control 
-                  id="birthdayDate"
-                  type="date"
-                  {...(!readOnly ? { placeholder: "Select a date..." } : {})}
-
-                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
-                />
+                
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
