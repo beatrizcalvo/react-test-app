@@ -16,8 +16,8 @@ export default function ButtonCombobox(props) {
   };
 
   // Set selected value and close combobox
-  const handleSelectChoice = (item) => {
-    setValue(id, item);
+  const handleSelectChoice = (value) => {
+    setValue(id, value);
     setIsOpen(false);
     trigger(id);
     setFocus(id);
@@ -68,11 +68,11 @@ export default function ButtonCombobox(props) {
 		  <div 
 		    id={idElement} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => handleSelectChoice(choice)} 
+		    onClick={() => handleSelectChoice(choice.value)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
 		  >
-		    {choice}
+		    {choice.value}
 		  </div>
 		);
 	      })
