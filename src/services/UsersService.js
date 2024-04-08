@@ -18,6 +18,7 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
         code: data.nationalityCode
       }
     })
+  }
 })};
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
 
