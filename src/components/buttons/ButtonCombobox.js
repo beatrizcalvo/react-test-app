@@ -21,6 +21,7 @@ export default function ButtonCombobox(props) {
 
   // Set selected value and close combobox
   const handleSelectChoice = (code, description) => {
+    setValue(comboIdCode, code);
     setValue(comboIdDescription, description);
     setIsOpen(false);
     trigger(comboIdDescription);
@@ -59,7 +60,9 @@ export default function ButtonCombobox(props) {
 	      isInvalid={!!errors[id]}
 	    />
             <Form.Control 
+              id={comboIdCode}
 	      type="hidden"
+	      {...register(comboIdCode)}
 	    />
 	  </div>
         </div>
