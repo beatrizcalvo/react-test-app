@@ -60,8 +60,16 @@ export default function UserInfoForm(props) {
   };
 
   useEffect(() => {
+    // Load nacionalities list from server
     UsersService.getNacionalities()
-      .then(response => alert(JSON.stringify(response.data)))
+      .then(response => {
+        response.data.nacionalities.map(nacionality => {
+          nacionalitiesList.push({
+            code: nacionality.nacionalityId,
+            description: nacionality.nacionalityDescription
+          });
+        });
+      })
       .catch(() => logoutUser());
   }, []);
 
