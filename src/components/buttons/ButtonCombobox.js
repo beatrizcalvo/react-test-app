@@ -22,10 +22,10 @@ export default function ButtonCombobox(props) {
   // Set selected value and close combobox
   const handleSelectChoice = (code, description) => {
     setValue(comboIdCode, code);
-    setValue(comboIdDescription, description);
+    setValue(id, description);
     setIsOpen(false);
-    trigger(comboIdDescription);
-    setFocus(comboIdDescription);
+    trigger(id);
+    setFocus(id);
   };
 
   // Close combobox if component is blur
@@ -39,7 +39,7 @@ export default function ButtonCombobox(props) {
   return (
     <>
       <div 
-        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": !!errors[comboIdDescription] })} 
+        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": !!errors[id] })} 
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
@@ -51,13 +51,13 @@ export default function ButtonCombobox(props) {
 	>
           <div {...(!readOnly ? { className: "choices__list choices__list--single" } : {})}>
 	    <Form.Control
-	      id={comboIdDescription}
+	      id={id}
 	      type="text"
 	      readOnly="true"
 	      placeholder={getPlaceholder()}
-              {...register(comboIdDescription, inputValidations)}
+              {...register(id, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-	      isInvalid={!!errors[comboIdDescription]}
+	      isInvalid={!!errors[id]}
 	    />
             <Form.Control 
               id={comboIdCode}
