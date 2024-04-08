@@ -57,7 +57,7 @@ export default function ButtonCombobox(props) {
 	      placeholder={getPlaceholder()}
               {...register(comboIdDescription, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-	      isInvalid={!!errors[id]}
+	      isInvalid={!!errors[comboIdDescription]}
 	    />
             <Form.Control 
               id={comboIdCode}
