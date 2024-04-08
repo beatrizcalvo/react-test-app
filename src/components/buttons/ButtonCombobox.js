@@ -9,8 +9,8 @@ export default function ButtonCombobox(props) {
   const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
 
   // Set ids for combo controls
-  const comboIdCode = id + "Code";
-  const comboIdDescription = id + "Description";
+  const comboIdCode = id + ".code";
+  const comboIdDescription = id + ".description";
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -39,7 +39,7 @@ export default function ButtonCombobox(props) {
   return (
     <>
       <div 
-        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": !!errors[comboIdDescription] })} 
+        className={classNames("choices", { "is-open is-focused": isOpen, "is-invalid": !!errors[id] })} 
 	role="combobox"
         data-type={readOnly ? "none" : "select-one"} 
         aria-expanded={isOpen} 
@@ -49,7 +49,7 @@ export default function ButtonCombobox(props) {
           {...(!readOnly ? { className: "choices__inner" } : {})}
 	  {...(!readOnly ? { onClick: () => setIsOpen(!isOpen) } : {})} 
 	>
-          <div {...(!readOnly ? { className: classNames("choices__list--single", { "choices__list": !errors[comboIdDescription] }) } : {})}>
+          <div {...(!readOnly ? { className: classNames("choices__list--single", { "choices__list": !errors[id] }) } : {})}>
 	    <Form.Control
 	      id={comboIdDescription}
 	      type="text"
@@ -57,7 +57,7 @@ export default function ButtonCombobox(props) {
 	      placeholder={getPlaceholder()}
               {...register(comboIdDescription, inputValidations)}
 	      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-	      isInvalid={!!errors[comboIdDescription]}
+	      isInvalid={!!errors[id]}
 	    />
             <Form.Control 
               id={comboIdCode}
