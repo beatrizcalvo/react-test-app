@@ -12,7 +12,7 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
       lastName: data.lastName,
       secondLastName: data.secondLastName
     },
-    gender: data.gender
+    gender: data.gender.description
   }
 })};
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
