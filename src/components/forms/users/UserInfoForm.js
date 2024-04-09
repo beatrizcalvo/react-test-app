@@ -67,7 +67,7 @@ export default function UserInfoForm(props) {
         const itemsList = [];
         response.data.nationalities.map(nationality => {
           itemsList.push({
-            code: nationality.nationalityId,
+            code: nationality.nationalityCode,
             description: nationality.nationalityDescription
           });
         });
