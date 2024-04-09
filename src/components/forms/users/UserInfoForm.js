@@ -65,7 +65,6 @@ export default function UserInfoForm(props) {
     // Load nationalities list from server
     UsersService.getNationalities()
       .then(response => {
-        alert(JSON.stringify(response));
         const itemsList = [];
         response.data.nationalities?.map(nationality => {
           itemsList.push({
@@ -75,7 +74,7 @@ export default function UserInfoForm(props) {
         });
         setNationalitiesList(itemsList);
       })
-      .catch(error => alert(error));
+      .catch(() => logoutUser());
   }, []);
 
   useEffect(() => {
