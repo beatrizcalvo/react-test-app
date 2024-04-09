@@ -8,7 +8,11 @@ export default function DatePickerWithHeader(props) {
   
   return (
     <>
-      <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+      <DatePicker 
+        selected={selectedDate} 
+        onChange={(date) => setSelectedDate(date)} 
+        className="form-control"
+      />
     </>
   );
 }
