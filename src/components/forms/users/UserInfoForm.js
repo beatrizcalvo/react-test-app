@@ -74,7 +74,7 @@ export default function UserInfoForm(props) {
         });
         setNationalitiesList(itemsList);
       })
-      .catch(() => logoutUser());
+      .catch(error => alert(error));
   }, []);
 
   useEffect(() => {
