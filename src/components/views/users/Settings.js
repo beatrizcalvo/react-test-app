@@ -21,7 +21,7 @@ export default function Settings(props) {
     <>
       <Row className="mb-5">
         <Col lg="3">
-          <Card className="position-sticky top-1">
+          <Card className="position-sticky top-18">
             <NavbarUserProfile navbarLinks={navbarLinks} />
           </Card>
         </Col>
