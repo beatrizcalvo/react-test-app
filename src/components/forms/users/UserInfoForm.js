@@ -6,7 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import UsersService from "../../../services/UsersService";
 
-import ButtonCombobox from "../../buttons/ButtonCombobox";
+import Combobox from "../../inputs/ButtonCombobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
@@ -142,7 +142,7 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="gender" className="font-weight-bold">Gender:</label>
-                <ButtonCombobox 
+                <Combobox 
                   id="gender" 
                   readOnly={readOnly} 
                   choicesList={[{code: "f", description: "Female"}, {code: "m", description: "Male"}]} 
@@ -162,7 +162,7 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="nationality" className="font-weight-bold">Nationality:</label>
-                <ButtonCombobox 
+                <Combobox 
                   id="nationality" 
                   readOnly={readOnly} 
                   choicesList={nationalitiesList} 
