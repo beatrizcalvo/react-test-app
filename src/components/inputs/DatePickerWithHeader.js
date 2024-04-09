@@ -26,7 +26,7 @@ export default function DatePickerWithHeader(props) {
       <DatePicker 
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
-        customInput={<CustomInput ...props />}
+        customInput={<CustomInput props />}
       />
     </>
   );
