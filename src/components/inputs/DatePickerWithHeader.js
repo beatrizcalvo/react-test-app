@@ -1,11 +1,12 @@
-import { useState, useRef, forwardRef } from "react";
+import { useState, forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
+import { useFormContext } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
-  const { id } = props;
+  const { id, readOnly } = props;
   
   return (
     <Form.Control 
