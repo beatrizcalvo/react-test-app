@@ -6,7 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import UsersService from "../../../services/UsersService";
 
-import Combobox from "../../inputs/ButtonCombobox";
+import Combobox from "../../inputs/Combobox";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
