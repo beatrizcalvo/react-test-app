@@ -157,7 +157,10 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="birthdayDate" className="font-weight-bold">Birthday Date:</label>
-                <DatePickerWithHeader className="w-100" />
+                <DatePickerWithHeader 
+                  id="birthdayDate"
+                  readOnly={readOnly} 
+                />
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
