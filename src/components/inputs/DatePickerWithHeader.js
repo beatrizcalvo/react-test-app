@@ -7,13 +7,13 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
   const { id, readOnly } = props;
+
+  console.log(props);
   
   return (
     <Form.Control 
       id={id}
       type="text"
-      {...(!readOnly ? { placeholder: "Select a date..." } : {})}
-      {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
     />
   );
 });
