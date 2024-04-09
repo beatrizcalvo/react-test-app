@@ -7,6 +7,7 @@ import { useAuth } from "../../../hooks/providers/AuthProvider";
 import UsersService from "../../../services/UsersService";
 
 import Combobox from "../../inputs/Combobox";
+import DatePickerWithHeader from "../../inputs/DatePickerWithHeader";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
@@ -156,7 +157,7 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
                 <label for="birthdayDate" className="font-weight-bold">Birthday Date:</label>
-                
+                <DatePickerWithHeader />
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
