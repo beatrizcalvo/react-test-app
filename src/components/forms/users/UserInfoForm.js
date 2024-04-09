@@ -67,12 +67,12 @@ export default function UserInfoForm(props) {
       .then(response => {
         alert(JSON.stringify(response));
         const itemsList = [];
-        //response.data.nationalities.map(nationality => {
-          //itemsList.push({
-            //code: nationality.nationalityCode,
-            //description: nationality.nationalityDescription
-          //});
-        //});
+        response.data.nationalities?.map(nationality => {
+          itemsList.push({
+            code: nationality.nationalityCode,
+            description: nationality.nationalityDescription
+          });
+        });
         setNationalitiesList(itemsList);
       })
       .catch(error => alert(error));
