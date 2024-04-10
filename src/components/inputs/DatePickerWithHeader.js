@@ -38,8 +38,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   console.log(inputValidations);
 
   useEffect(() => {
-    document.getElementsByClassName("react-datepicker-wrapper").classList.add("position-absolute");
-    document.getElementsByClassName("react-datepicker-wrapper").classList.add("mt-4");
+    console.log(JSON.stringify(document.getElementsByClassName("react-datepicker-wrapper")));
   }, []);
   
   return (
@@ -50,7 +49,8 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         maxDate={new Date()}
         selected={getValues(id)} 
         onChange={(date) => setValue(id, date, { shouldValidate: true, shouldDirty: true, shouldTouch: true})} 
-        customInput={<CustomInput inputValidations />}
+        inputValidations={inputValidations}
+        customInput={<CustomInput />}
       />
     </>
   );
