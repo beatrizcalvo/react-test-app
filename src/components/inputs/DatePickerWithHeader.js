@@ -6,15 +6,22 @@ import { useFormContext } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
-  const { id, value, onClick, onChange } = props;
+  const { id, readOnly, onClick } = props;
 
-  console.log(props);
+  // Calculate placeholder text
+  const getPlaceholder = () => {
+    if (!readOnly) return "Select one date...";
+    if (!getValues(comboIdDescription)) return "Not Defined";
+    return "";
+  };
   
   return (
     <Form.Control
       id={id}
       type="text"
       readOnly="true"
+      placeholder={getPlaceholder()}
+      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
       //value={value}
       //onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
@@ -29,8 +36,8 @@ export default function DatePickerWithHeader({ id, readOnly }) {
     <>
       <DatePicker 
         id={id}
+        readOnly={readOnly}
         selected={selectedDate} 
-        className="form-control"
         onChange={(date) => setSelectedDate(date)} 
         customInput={<CustomInput />}
       />
