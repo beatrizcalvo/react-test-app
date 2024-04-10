@@ -51,7 +51,7 @@ export default function UserInfoForm(props) {
       }
     },
     gender: { required: "Gender is required" },
-    birthdayDate: { required: "Birthday Date is required" },
+    birthDate: { required: "Birth date is required" },
     nationality: { required: "Nacionality is required" }
   };
 
@@ -165,10 +165,11 @@ export default function UserInfoForm(props) {
             </Col>
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
-                <label for="birthdayDate" className="font-weight-bold">Birthday Date:</label>
+                <label for="birthDate" className="font-weight-bold">Birth Date:</label>
                 <DatePickerWithHeader 
-                  id="birthdayDate"
+                  id="birthDate"
                   readOnly={readOnly} 
+                  inputValidations={inputValidations.birthDate}
                 />
               </Form.Group>
             </Col>
