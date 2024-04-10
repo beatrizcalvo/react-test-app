@@ -86,7 +86,7 @@ export default function UserInfoForm(props) {
     console.log("data:" + JSON.stringify(data));
     console.log("dirtyFields:" + JSON.stringify(dirtyFields));
     console.log(JSON.stringify(data["secondLastName"]));
-    console.log(JSON.stringify(Object.fromEntries(["key", "valor"])));
+    console.log(JSON.stringify(Object.fromEntries(new Map(["key", "valor"]))));
   };
   
   return (
