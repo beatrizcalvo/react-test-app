@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 
 export default function ButtonCombobox({ id, readOnly, inputValidations, choicesList }) {
   const [isOpen, setIsOpen ] = useState(false);	
-  const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
+  const { register, getValues, setValue, setFocus, formState: { errors } } = useFormContext();
 
   // Set ids for combo controls
   const comboIdCode = id + ".code";
@@ -20,10 +20,9 @@ export default function ButtonCombobox({ id, readOnly, inputValidations, choices
 
   // Set selected value and close combobox
   const handleSelectChoice = (code, description) => {
-    setValue(comboIdCode, code);
-    setValue(comboIdDescription, description);
+    setValue(comboIdCode, code, { shouldDirty: true, shouldTouch: true });
+    setValue(comboIdDescription, description, { shouldValidate: true, shouldDirty: true, shouldTouch: true });
     setIsOpen(false);
-    trigger(comboIdDescription);
     setFocus(comboIdDescription);
   };
 
