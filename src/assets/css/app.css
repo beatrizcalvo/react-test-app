@@ -46,6 +46,10 @@
   border-bottom: 2px solid #e91e63 !important;
 }
 
+.choices {
+  margin-bottom: 0 !important;
+}
+
 .choices .form-control.is-invalid {
   background-position: right 2rem center!important;
 }
