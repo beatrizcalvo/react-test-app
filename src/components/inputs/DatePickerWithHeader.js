@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
-  const { id, onClick, value } = props;
+  const { id, readOnly, onClick, value } = props;
 
   console.log(props);
   
@@ -21,12 +21,13 @@ const CustomInput = forwardRef((props, ref) => {
 
 export default function DatePickerWithHeader(props) {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const { id } = props;
+  const { id, readOnly } = props;
   
   return (
     <>
       <DatePicker 
         id={id}
+        readOnly={readOnly}
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
         customInput={<CustomInput />}
