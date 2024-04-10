@@ -6,8 +6,8 @@ import { useFormContext } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
-  const { id, readOnly, onClick } = props;
-  const { getValues } = useFormContext();
+  const { id, readOnly, onChange, onClick } = props;
+  const { register, getValues } = useFormContext();
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -24,7 +24,7 @@ const CustomInput = forwardRef((props, ref) => {
       placeholder={getPlaceholder()}
       {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
       //value={value}
-      //onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
   );
