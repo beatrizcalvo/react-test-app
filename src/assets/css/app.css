@@ -60,5 +60,4 @@
 
 .choices.is-invalid~.invalid-feedback {
   display: block !important;
-  margin-top: -1.75rem !important;
 }
