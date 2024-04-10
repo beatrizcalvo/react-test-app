@@ -14,6 +14,7 @@ const CustomInput = forwardRef((props, ref) => {
     <Form.Control 
       id={id}
       type="text"
+      {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
     />
   );
 });
@@ -26,7 +27,6 @@ export default function DatePickerWithHeader(props) {
       <DatePicker 
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
-        className="w-100"
         customInput={<CustomInput props />}
       />
     </>
