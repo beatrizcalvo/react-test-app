@@ -14,7 +14,6 @@ const CustomInput = forwardRef((props, ref) => {
     <input
       type="text"
       value={value}
-      ref={ref}
       onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
@@ -23,7 +22,6 @@ const CustomInput = forwardRef((props, ref) => {
 
 export default function DatePickerWithHeader({ id, readOnly }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const inputRef = useRef(null);
   
   return (
     <>
