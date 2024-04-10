@@ -92,6 +92,7 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
+    console.log(JSON.stringify(dirtyFields));
     const dataUpdated = getDirtyValues(dirtyFields, data);
     console.log(JSON.stringify(dataUpdated));
     const object1 = { a: 1, b: 2, c: 3 };
