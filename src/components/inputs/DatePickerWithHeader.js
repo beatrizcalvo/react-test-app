@@ -1,4 +1,4 @@
-import { useEffect, forwardRef } from "react";
+import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext } from "react-hook-form";
@@ -36,10 +36,6 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   const { setValue, getValues } = useFormContext();
 
   console.log(inputValidations);
-
-  useEffect(() => {
-    console.log(JSON.stringify(document.getElementsByClassName("react-datepicker-wrapper")));
-  }, []);
   
   return (
     <>
@@ -49,8 +45,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         maxDate={new Date()}
         selected={getValues(id)} 
         onChange={(date) => setValue(id, date, { shouldValidate: true, shouldDirty: true, shouldTouch: true})} 
-        inputValidations={inputValidations}
-        customInput={<CustomInput />}
+        customInput={<CustomInput inputValidations={inputValidations} />}
       />
     </>
   );
