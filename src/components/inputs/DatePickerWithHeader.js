@@ -27,9 +27,10 @@ export default function DatePickerWithHeader({ id, readOnly }) {
     <>
       <DatePicker 
         id={id}
+        readOnly={readOnly}
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
-        customInput={<CustomInput />}
+        //customInput={<CustomInput />}
       />
     </>
   );
