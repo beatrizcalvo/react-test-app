@@ -14,20 +14,22 @@ const CustomInput = forwardRef((props, ref) => {
     <Form.Control 
       id={id}
       type="text"
-      {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+      onFocus={() => alert("abre calendario")}
     />
   );
 });
 
 export default function DatePickerWithHeader(props) {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const { id } = props;
   
   return (
     <>
       <DatePicker 
+        id={id}
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
-        customInput={<CustomInput props />}
+        customInput={<CustomInput />}
       />
     </>
   );
