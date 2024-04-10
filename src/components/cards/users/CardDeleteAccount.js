@@ -22,8 +22,7 @@ export default function CardDeleteAccount(props) {
     UsersService.deactivateCurrentUser()
       .then(response => logoutUser())
       .catch(error => {
-        const errorMessage = (error.response && error.response.data && error.response.data.errors && 
-                              error.response.data.errors[0].description) 
+        const errorMessage = (error.response && error.response.data && error.response.data.errors && error.response.data.errors[0].description) 
           || connectionError;
         addNewAlert("danger", "Deactivating Account - " + errorMessage);
       })
