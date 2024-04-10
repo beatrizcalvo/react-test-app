@@ -81,8 +81,8 @@ export default function UserInfoForm(props) {
     setReadOnly(!readOnly);
   };
 
-  // Get only fields updated when submit
-  const getUpdatedFields = (data) => {
+  // Get only fields updated and submit form
+  const onSubmit = (data) => {
     console.log(JSON.stringify("dirtyFields:" + dirtyFields));
     console.log(JSON.stringify(data["secondLastName"]));
     return Object.fromEntries(["key", "valor"]);
@@ -91,7 +91,7 @@ export default function UserInfoForm(props) {
   return (
     <>
       <FormProvider {...methods}>
-        <Form onSubmit={data =>  handleUpdateProfile(getUpdatedFields(data))}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col className="col-6 col-md-4 mb-4">
               <Form.Group className="input-group input-group-static">
