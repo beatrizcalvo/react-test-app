@@ -2,8 +2,7 @@ import { Toast, Button } from "react-bootstrap";
 
 import { useAlerts } from "../../hooks/providers/AlertsProvider";
 
-export default function Alert(props) {
-  const { id, variant, message } = props;
+export default function Alert({ id, variant, message }) {
   const { removeAlert } = useAlerts();
 
   // Get icon depending on variant value
