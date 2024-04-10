@@ -13,6 +13,7 @@ const CustomInput = forwardRef((props, ref) => {
   return (
     <Form.Control 
       id={id}
+      ref={ref}
       type="text"
       onClick={onClick}
     />
