@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
   const { id, readOnly, onClick } = props;
+  const { getValues } = useFormContext();
 
   // Calculate placeholder text
   const getPlaceholder = () => {
