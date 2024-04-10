@@ -86,11 +86,17 @@ export default function UserInfoForm(props) {
     reset();
     setReadOnly(!readOnly);
   };
+
+  // Get only fields updated when submit
+  const getUpdatedFields = (data) => {
+    console.log("getUpdatedFields");
+    return data;
+  };
   
   return (
     <>
       <FormProvider {...methods}>
-        <Form onSubmit={handleSubmit(handleUpdateProfile)}>
+        <Form onSubmit={handleSubmit(getUpdatedFields(handleUpdateProfile))}>
           <Row>
             <Col className="col-6 col-md-4 mb-4">
               <Form.Group className="input-group input-group-static">
