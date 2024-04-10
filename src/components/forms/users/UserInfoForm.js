@@ -26,7 +26,7 @@ export default function UserInfoForm(props) {
   };
   
   const methods = useForm({ defaultValues: formDefaultValues });
-  const { register, handleSubmit, reset, setFocus, formState: { errors } } = methods;
+  const { register, handleSubmit, reset, setFocus, formState: { errors, dirtyFields } } = methods;
 
   // Input form validations
   const inputValidations = {
@@ -89,7 +89,7 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated when submit
   const getUpdatedFields = (data) => {
-    console.log("getUpdatedFields");
+    console.log(dirtyFields);
     return data;
   };
   
