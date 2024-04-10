@@ -50,15 +50,9 @@ export default function UserInfoForm(props) {
         message: "Second last name must have at lenght 3 or greater",
       }
     },
-    gender: {
-      required: "Gender is required"
-    },
-    birthdayDate: {
-      required: "Birthday Date is required"
-    },
-    nationality: {
-      required: "Nacionality is required"
-    }
+    gender: { required: "Gender is required" },
+    birthdayDate: { required: "Birthday Date is required" },
+    nationality: { required: "Nacionality is required" }
   };
 
   useEffect(() => {
@@ -89,6 +83,7 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated when submit
   const getUpdatedFields = (data) => {
+    console.log(JSON.stringify(dirtyFields);
     return Object.fromEntries(Object.keys(dirtyFields).map(key => [ key, data[key] ]));
   };
   
