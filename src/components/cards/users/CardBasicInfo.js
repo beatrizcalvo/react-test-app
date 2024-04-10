@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
@@ -16,7 +16,7 @@ export default function CardBasicInfo(props) {
   const [isLoading, setIsLoading] = useState(false);
   
   const { id, isActionInProgress, setIsActionInProgress } = props;
-  const { updateUser } = useAuth();
+  const { user, updateUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Submit format and update profile if input fields has not errors
@@ -41,6 +41,8 @@ export default function CardBasicInfo(props) {
         setIsLoading(false);
       });
   };
+
+  useEffect(() => console.log("actualiza"), [user]);
   
   return (
     <>
@@ -61,6 +63,7 @@ export default function CardBasicInfo(props) {
         </Card.Header>
         <Card.Body className="pt-0">
           <UserInfoForm 
+            user={user}
             readOnly={isReadOnly} 
             setReadOnly={setIsReadOnly}
             isActionInProgress={isActionInProgress}
