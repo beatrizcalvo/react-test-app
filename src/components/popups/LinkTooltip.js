@@ -1,8 +1,6 @@
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
-export default function LinkTooltip(props) {
-  const { id, title, showTooltip, children } = props;
-
+export default function LinkTooltip({ id, title, showTooltip, children }) {
   if (!showTooltip) return children;
 
   return (
