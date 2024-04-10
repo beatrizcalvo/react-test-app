@@ -30,6 +30,7 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
+  const { setValue, getValues } = useFormContext();
   const [selectedDate, setSelectedDate] = useState(undefined);
   
   return (
@@ -37,10 +38,8 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
       <DatePicker 
         id={id}
         readOnly={readOnly}
-        showIcon
-        icon="fa fa-calendar"
         maxDate={new Date()}
-        selected={selectedDate} 
+        selected={getValues(id)} 
         onChange={(date) => setSelectedDate(date)} 
         customInput={<CustomInput inputValidations />}
       />
