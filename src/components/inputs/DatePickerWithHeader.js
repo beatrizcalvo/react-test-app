@@ -12,7 +12,7 @@ const CustomInput = forwardRef((props, ref) => {
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one date...";
-    if (!getValues(comboIdDescription)) return "Not Defined";
+    if (!getValues(id)) return "Not Defined";
     return "";
   };
   
