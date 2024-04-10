@@ -89,15 +89,14 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated when submit
   const getUpdatedFields = (data) => {
-    console.log(dirtyFields);
-    console.log(data);
+    alert(dirtyFields);
     return data;
   };
   
   return (
     <>
       <FormProvider {...methods}>
-        <Form onSubmit={(data) => { handleSubmit(handleUpdateProfile(getUpdatedFields(data))); }}>
+        <Form onSubmit={data =>  handleSubmit(handleUpdateProfile(getUpdatedFields(data)))}>
           <Row>
             <Col className="col-6 col-md-4 mb-4">
               <Form.Group className="input-group input-group-static">
