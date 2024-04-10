@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomInput = forwardRef(({ id, readOnly, onChange, onClick }, ref) => {
+const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onClick }, ref) => {
   const { register, getValues } = useFormContext();
 
   // Calculate placeholder text
@@ -22,14 +22,14 @@ const CustomInput = forwardRef(({ id, readOnly, onChange, onClick }, ref) => {
       readOnly="true"
       placeholder={getPlaceholder()}
       {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-      {...register(id)}
+      {...register(id, inputValidations)}
       onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
   );
 });
 
-export default function DatePickerWithHeader({ id, readOnly }) {
+export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const [selectedDate, setSelectedDate] = useState(undefined);
   
   return (
@@ -37,10 +37,12 @@ export default function DatePickerWithHeader({ id, readOnly }) {
       <DatePicker 
         id={id}
         readOnly={readOnly}
+        showIcon
+        icon="fa fa-calendar"
         maxDate={new Date()}
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
-        customInput={<CustomInput />}
+        customInput={<CustomInput inputValidations />}
       />
     </>
   );
