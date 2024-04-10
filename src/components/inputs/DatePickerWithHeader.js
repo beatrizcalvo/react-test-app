@@ -1,4 +1,4 @@
-import { useState, forwardRef } from "react";
+import { useEffect, forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext } from "react-hook-form";
@@ -34,6 +34,11 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const { setValue, getValues } = useFormContext();
+
+  useEffect(() => {
+    document.getElementsByClassName("react-datepicker-wrapper").classList.add("position-absolute");
+    document.getElementsByClassName("react-datepicker-wrapper").classList.add("mt-4");
+  }, []);
   
   return (
     <>
