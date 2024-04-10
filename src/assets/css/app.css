@@ -50,6 +50,10 @@
   margin-bottom: 0 !important;
 }
 
+.choices[data-type*=select-one] .choices__inner {
+  padding-bottom: 0 !important;
+}
+
 .choices .form-control.is-invalid {
   background-position: right 2rem center!important;
 }
