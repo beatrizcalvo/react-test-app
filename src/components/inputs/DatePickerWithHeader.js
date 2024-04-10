@@ -22,7 +22,7 @@ const CustomInput = forwardRef(({ id, readOnly, onChange, onClick }, ref) => {
       readOnly="true"
       placeholder={getPlaceholder()}
       {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-      //value={value}
+      {...register(id)}
       onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
