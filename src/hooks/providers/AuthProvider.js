@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }) => {
     logoutUser,
     registerUser,
     updateUser
-  }), [user, loadingAuth, errorAuth, successAuth]);
+  }), [user, loadingAuth, errorAuth, successAuth, updateUser]);
 
   return <AuthContext.Provider value={memoedValue}>{!loadingInitial && children || <LoadingPage />}</AuthContext.Provider>;
 };
