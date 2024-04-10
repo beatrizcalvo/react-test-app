@@ -6,14 +6,8 @@ const axiosClient = axiosWithCredentials(process.env.REACT_APP_AUTH_API);
 const getCurrentUser = () => { return axiosClient.get("/users/me") };
 const deleteCurrentUser = () => { return axiosClient.delete("/users/me") };
 const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
-  person: {
-    personName: {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      secondLastName: data.secondLastName
-    },
-    gender: data.gender.description,
-    ...(!!data.nationality.code && {
+    gender: data.gender?.description,
+    ...(!!data.nationality?.code && {
       firstNationality: {
         code: data.nationality.code
       }
