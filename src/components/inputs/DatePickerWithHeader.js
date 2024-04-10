@@ -31,7 +31,7 @@ export default function DatePickerWithHeader({ id, readOnly }) {
         id={id}
         selected={selectedDate} 
         onChange={(date) => setSelectedDate(date)} 
-        customInput={<CustomInput inputRef={inputRef} />}
+        customInput={<CustomInput />}
       />
     </>
   );
