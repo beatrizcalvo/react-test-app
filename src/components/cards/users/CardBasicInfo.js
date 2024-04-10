@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
@@ -41,8 +41,6 @@ export default function CardBasicInfo(props) {
         setIsLoading(false);
       });
   };
-
-  useEffect(() => console.log("actualiza"), [user]);
   
   return (
     <>
