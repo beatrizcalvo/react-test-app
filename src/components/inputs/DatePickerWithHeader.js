@@ -28,8 +28,9 @@ export default function DatePickerWithHeader({ id, readOnly }) {
       <DatePicker 
         id={id}
         selected={selectedDate} 
+        className="form-control"
         onChange={(date) => setSelectedDate(date)} 
-        customInput={<CustomInput />}
+        //customInput={<CustomInput />}
       />
     </>
   );
