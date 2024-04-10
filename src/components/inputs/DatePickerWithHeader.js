@@ -11,7 +11,7 @@ const CustomInput = forwardRef((props, ref) => {
   console.log(props);
   
   return (
-    <FormControl
+    <Form.Control
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}
