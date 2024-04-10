@@ -8,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onClick }, ref) => {
   const { register, getValues, formState: { errors }} = useFormContext();
 
+  console.log(inputValidations);
+  
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one date...";
