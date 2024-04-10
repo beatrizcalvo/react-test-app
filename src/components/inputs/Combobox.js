@@ -3,9 +3,8 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useFormContext } from "react-hook-form";
 
-export default function ButtonCombobox(props) {
+export default function ButtonCombobox({ id, readOnly, inputValidations, choicesList }) {
   const [isOpen, setIsOpen ] = useState(false);	
-  const { id, readOnly, inputValidations, choicesList } = props;
   const { register, getValues, setValue, setFocus, trigger, formState: { errors } } = useFormContext();
 
   // Set ids for combo controls
