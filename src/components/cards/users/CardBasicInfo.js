@@ -23,23 +23,7 @@ export default function CardBasicInfo(props) {
   const handleUpdateProfile = (data) => {
     setIsActionInProgress(true);
     setIsLoading(true);
-    alert(JSON.stringify(data));
-    //UsersService.updateCurrentUser(data)
-      //.then(() => {
-        //setIsReadOnly(true);
-        //updateUser();
-        //addNewAlert("success", "Updated user info");
-      //})
-      //.catch(error => {
-        //const errorMessage = (error.response && error.response.data && error.response.data.errors && 
-                              //error.response.data.errors[0].description) 
-          //|| connectionError;
-        //addNewAlert("danger", "Updating User Info - " + errorMessage);
-      //})
-      //.finally(() => {
-        //setIsActionInProgress(false);
-        //setIsLoading(false);
-      //});
+    console.log(JSON.stringify(data));
   };
   
   return (
