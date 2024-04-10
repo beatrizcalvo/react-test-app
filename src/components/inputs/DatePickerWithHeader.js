@@ -31,7 +31,6 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const { setValue, getValues } = useFormContext();
-  const [selectedDate, setSelectedDate] = useState(undefined);
   
   return (
     <>
@@ -40,7 +39,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         readOnly={readOnly}
         maxDate={new Date()}
         selected={getValues(id)} 
-        onChange={(date) => setSelectedDate(date)} 
+        onChange={(date) => setValue(id, { shouldValidate: true, shouldDirty: true, shouldTouch: true})} 
         customInput={<CustomInput inputValidations />}
       />
     </>
