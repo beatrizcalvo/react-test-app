@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef((props, ref) => {
-  const { id, readOnly, onClick, value } = props;
+  const { id, onClick, value } = props;
 
   console.log(props);
   
@@ -14,7 +14,7 @@ const CustomInput = forwardRef((props, ref) => {
     <Form.Control 
       id={id}
       type="text"
-      onFocus={() => alert("abre calendario")}
+      onClick={onClick}
     />
   );
 });
