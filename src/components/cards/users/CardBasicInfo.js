@@ -16,7 +16,7 @@ export default function CardBasicInfo(props) {
   const [isLoading, setIsLoading] = useState(false);
   
   const { id, isActionInProgress, setIsActionInProgress } = props;
-  const { user, updateUser } = useAuth();
+  const { updateUser } = useAuth();
   const { addNewAlert } = useAlerts();
 
   // Submit format and update profile if input fields has not errors
@@ -61,7 +61,6 @@ export default function CardBasicInfo(props) {
         </Card.Header>
         <Card.Body className="pt-0">
           <UserInfoForm 
-            user={user} 
             readOnly={isReadOnly} 
             setReadOnly={setIsReadOnly}
             isActionInProgress={isActionInProgress}
