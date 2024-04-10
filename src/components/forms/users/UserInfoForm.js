@@ -13,8 +13,8 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 export default function UserInfoForm(props) {
   const [nationalitiesList, setNationalitiesList] = useState([]);
   
-  const { user, readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
-  const { logoutUser } = useAuth();
+  const { readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
+  const { user, logoutUser } = useAuth();
 
   // Set default values for form
   const formDefaultValues = {
