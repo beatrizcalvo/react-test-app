@@ -81,12 +81,19 @@ export default function UserInfoForm(props) {
     setReadOnly(!readOnly);
   };
 
+  const getDirtyValues = (dirtyFields: UnknownArrayOrObject | boolean, allValues: UnknownArrayOrObject): UnknownArrayOrObject => {
+    // If *any* item in an array was modified, the entire array must be submitted, because there's no
+    // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
+    if (dirtyFields === true || Array.isArray(dirtyFields)) {
+      return allValues;
+    }
+    return Object.fromEntries(Object.keys(dirtyFields).map((key) => [key, dirtyValues(dirtyFields[key], allValues[key])]));
+  };
+
   // Get only fields updated and submit form
   const onSubmit = (data) => {
-    console.log("data:" + JSON.stringify(data));
-    console.log("dirtyFields:" + JSON.stringify(dirtyFields));
-    console.log(JSON.stringify(data["secondLastName"]));
-    
+    const dataUpdated = getDirtyValues(dirtyFields, data);
+    console.log(JSON.stringify(dataUpdated));
     const object1 = { a: 1, b: 2, c: 3 };
     const object2 = Object.fromEntries(Object.entries(object1).map(([key, val]) => [key, val * 2]));
     console.log(object2);
