@@ -87,7 +87,7 @@ export default function UserInfoForm(props) {
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
       return allValues;
     }
-    return Object.fromEntries(Object.keys(dirtyFields).map((key) => [key, dirtyValues(dirtyFields[key], allValues[key])]));
+    return Object.fromEntries(Object.keys(dirtyFields).map((key) => [key, getDirtyValues(dirtyFields[key], allValues[key])]));
   };
 
   // Get only fields updated and submit form
