@@ -40,7 +40,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         readOnly={readOnly}
         maxDate={new Date()}
         selected={getValues(id)} 
-        onChange={(date) => setValue(id, { shouldValidate: true, shouldDirty: true, shouldTouch: true})} 
+        onChange={(date) => setValue(id, date, { shouldValidate: true, shouldDirty: true, shouldTouch: true})} 
         customInput={<CustomInput inputValidations />}
       />
     </>
