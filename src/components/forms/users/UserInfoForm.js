@@ -84,7 +84,8 @@ export default function UserInfoForm(props) {
   // Get only fields updated when submit
   const getUpdatedFields = (data) => {
     console.log(JSON.stringify(dirtyFields));
-    return Object.fromEntries(Object.keys(dirtyFields).map(key => [ key, data[key] ]));
+    console.log(JSON.stringify(data["secondLastName"]);
+    return Object.fromEntries(["key", "valor"]);
   };
   
   return (
