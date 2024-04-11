@@ -42,7 +42,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         minDate={subYears(new Date(), 70)}
         maxDate={subYears(new Date(), 18)}
         selected={getValues(id)} 
-        onChange={(date) => setValue(id, format(new Date(date), "dd/MM/yyyy"), { 
+        onChange={(date) => setValue(id, format(new Date(date)), "dd/MM/yyyy"), { 
           shouldValidate: true, 
           shouldDirty: true, 
           shouldTouch: true
