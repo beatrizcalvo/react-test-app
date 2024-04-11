@@ -38,7 +38,6 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
       <DatePicker 
         id={id}
         readOnly={readOnly}
-        minData={}
         maxDate={new Date()}
         dateFormat="dd/MM/yyyy"
         selected={getValues(id)} 
