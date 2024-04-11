@@ -9,19 +9,7 @@ const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { ac
 
 const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
   person: {
-    ...((data.firstName || data.lastName || data.secondLastName) && {
-      personName: {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        secondLastName: data.secondLastName
-      },
-      gender: data.gender?.description,
-      ...(data.nationality?.code && {
-        firstNationality: {
-          code: data.nationality.code
-        }
-      })
-    })
+    gender: data.gender?.description
   }
 })};
 
