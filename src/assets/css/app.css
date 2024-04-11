@@ -35,6 +35,7 @@
 }
 
 .input-group.input-group-static .form-control.is-invalid {
+  border: 0;
   padding: .625rem 0;
 }
 
@@ -45,7 +46,7 @@
 }
 
 .choices .form-control.is-invalid {
-  background-position: right 2rem center;
+  background-position: right 1.7rem center !important;
 }
 
 .choices__inner, 
