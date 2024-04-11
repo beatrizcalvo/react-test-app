@@ -4,6 +4,8 @@ import { Card, Row, Col, Form } from "react-bootstrap";
 import { useAuth } from "../../../hooks/providers/AuthProvider";
 import { useAlerts } from "../../../hooks/providers/AlertsProvider";
 
+import LinkTooltip from "../../popups/LinkTooltip";
+
 export default function CardProfile(props) {
   const MAX_SIZE_MB = 1;
 
@@ -49,10 +51,9 @@ export default function CardProfile(props) {
             >
               <img src={require("../../../assets/img/default_profile.jpg")} className="w-100 border-radius-lg shadow-sm" />
               <span className="position-absolute top-100 start-100 translate-middle badge badge-circle bg-gradient-primary">
-                { !isActionInProgress ? 
-                    <i className="fa-solid fa-camera" />
-                  : ""
-                }                
+                <LinkTooltip id="upload-avatar" title="Upload Avatar" showTooltip={!isActionInProgress}>
+                  <i className="fa-solid fa-camera" />
+                </LinkTooltip>             
               </span>
               <Form.Control 
                 ref={inputFileRef} 
