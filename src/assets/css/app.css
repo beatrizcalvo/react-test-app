@@ -35,8 +35,12 @@
 }
 
 .input-group.input-group-static .form-control.is-invalid {
-  border: 0;
+  border: 0 !important;
   padding: .625rem 0;
+}
+
+.input-group.input-group-static .form-control.is-invalid:focus {
+  box-shadow: none !important;
 }
 
 .choices.is-invalid[data-type*=select-one],
