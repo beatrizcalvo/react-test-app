@@ -33,3 +33,7 @@
 .navbar-dark .breadcrumb .breadcrumb-title {
   color: var(--bs-light) !important;
 }
+
+.choices.is-invalid[data-type*=select-one] {
+  margin-bottom: 0;
+}
