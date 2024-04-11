@@ -7,8 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onClick }, ref) => {
   const { register, getValues, formState: { errors }} = useFormContext();
-
-  console.log(inputValidations);
   
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -34,15 +32,15 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const { setValue, getValues } = useFormContext();
-
-  console.log(inputValidations);
   
   return (
     <>
       <DatePicker 
         id={id}
         readOnly={readOnly}
+        minData={}
         maxDate={new Date()}
+        dateFormat="dd/MM/yyyy"
         selected={getValues(id)} 
         onChange={(date) => setValue(id, date, { shouldValidate: true, shouldDirty: true, shouldTouch: true})} 
         customInput={<CustomInput inputValidations={inputValidations} />}
