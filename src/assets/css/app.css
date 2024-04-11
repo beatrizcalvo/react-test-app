@@ -34,6 +34,8 @@
   color: var(--bs-light) !important;
 }
 
-.choices.is-invalid[data-type*=select-one] {
+.choices.is-invalid[data-type*=select-one],
+.choices.is-invalid[data-type*=select-one] .choices__inner {
   margin-bottom: 0;
+  padding-bottom: 0;
 }
