@@ -93,9 +93,6 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
-    // Update date fields with ISO format
-    if (data.birthDate) 
-      data.birthDate = format(data.birthDate, "yyyy-MM-dd");
     const dataUpdated = getDirtyValues(dirtyFields, data);
     handleUpdateProfile(dataUpdated);
   };
