@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { format } from "date-fns";
 import { useState, useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
@@ -92,6 +93,9 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
+    // Update date fields with ISO format
+    if (data.birthDate) 
+      data.birthDate = format(data.birthDate, "yyyy-MM-dd");
     const dataUpdated = getDirtyValues(dirtyFields, data);
     handleUpdateProfile(dataUpdated);
   };
