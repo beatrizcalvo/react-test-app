@@ -8,23 +8,22 @@ const deleteCurrentUser = () => { return axiosClient.delete("/users/me") };
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
 
 const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
-    ...((!!data.firstName || !!data.lastName || !!data.secondLastName) && {
-      person: {
-        personName: {
-          firstName: data.firstName,
-          lastName: data.lastName,
-          secondLastName: data.secondLastName
-        }  
-      }
-    }),
-    gender: data.gender?.description,
-    ...(!!data.nationality?.code && {
-      firstNationality: {
-        code: data.nationality.code
-      }
+  person: {
+    ...((data.firstName || data.lastName || data.secondLastName) && {
+      personName: {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        secondLastName: data.secondLastName
+      },
+      gender: data.gender?.description,
+      ...((data.nationality?.code) && {
+        firstNationality: {
+          code: data.nationality.code
+        }
+      })
     })
   }
-)};
+})};
 
 const getNationalities = () => { return axiosClient.get("/nationalities") };
 
