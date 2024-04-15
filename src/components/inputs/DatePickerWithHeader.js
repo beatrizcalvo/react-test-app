@@ -7,6 +7,14 @@ import { useFormContext } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+const CustomHeader = forwardRef(({ props }, ref) => {
+  console.log(props);
+  
+  return (
+    <div></div>
+  );
+});
+
 const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onClick }, ref) => {
   const { register, getValues, formState: { errors }} = useFormContext();
   
@@ -33,7 +41,7 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
-  const { setValue, getValues } = useFormContext();
+  const { setValue, getValues, formState: { errors } } = useFormContext();
   
   return (
     <>
@@ -52,6 +60,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
           shouldDirty: true, 
           shouldTouch: true
         })} 
+        renderCustomHeader={<CustomHeader />}
         customInput={<CustomInput inputValidations={inputValidations} />}
       />
     </>
