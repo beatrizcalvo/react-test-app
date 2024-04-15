@@ -87,7 +87,8 @@ export default function UserInfoForm(props) {
     const parsed = parse(date, "dd/MM/yyyy", new Date());
     return null;
   };
-  
+
+  // Get list (key/value) of modified fields
   const getDirtyValues = (dirtyFields: UnknownArrayOrObject | boolean, allValues: UnknownArrayOrObject): UnknownArrayOrObject => {
     // If *any* item in an array was modified, the entire array must be submitted, because there's no
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
