@@ -48,9 +48,6 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
       <DatePicker 
         id={id}
         wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
-        showIcon
-        icon="fa fa-calendar"
-        toggleCalendarOnIconClick
         readOnly={readOnly}
         minDate={subYears(new Date(), 70)}
         maxDate={subYears(new Date(), 18)}
@@ -59,8 +56,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
           shouldValidate: true, 
           shouldDirty: true, 
           shouldTouch: true
-        })} 
-        renderCustomHeader={<CustomHeader />}
+        })}
         customInput={<CustomInput inputValidations={inputValidations} />}
       />
     </>
