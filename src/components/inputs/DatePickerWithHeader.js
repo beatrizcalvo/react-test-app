@@ -1,18 +1,30 @@
 import classNames from "classnames";
 import { subYears, format } from "date-fns";
-import { forwardRef } from "react";
+import { useState, forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = forwardRef(({ props }, ref) => {
-  console.log(props);
+  const { setValue, getValues, formState: { errors } } = useFormContext();
   
   return (
-    <div style={{ margin: 10, display: "flex", justifyContent: "center" }}>
-    </div>
+    <>
+      <DatePicker 
+        id={id}
+        wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
+        readOnly={readOnly}
+        minDate={subYears(new Date(), 70)}
+        maxDate={subYears(new Date(), 18)}
+        onChange={(date) => setValue(id, format(date, "dd/MM/yyyy"), { 
+          shouldValidate: true, 
+          shouldDirty: true, shouldTouch: true 
+        })}
+        customInput={<CustomInput inputValidations={inputValidations} />}
+      />
+    </>
   );
 });
 
@@ -42,21 +54,26 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
-  const { setValue, getValues, formState: { errors } } = useFormContext();
+  const [date, setDate] = useState();
+  const { control, setValue } = useFormContext();
+
+  const handleChange = (dateChange) => {
+    setValue("dateOfBirth", dateChange, { shouldDirty: true });
+    setDate(dateChange);
+  };
   
   return (
     <>
-      <DatePicker 
-        id={id}
-        wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
-        readOnly={readOnly}
-        minDate={subYears(new Date(), 70)}
-        maxDate={subYears(new Date(), 18)}
-        onChange={(date) => setValue(id, format(date, "dd/MM/yyyy"), { 
-          shouldValidate: true, 
-          shouldDirty: true, shouldTouch: true 
-        })}
-        customInput={<CustomInput inputValidations={inputValidations} />}
+      <Controller 
+        name={id}
+        control={control}
+        render={() => {
+          <DatePicker
+            selected={date}
+            placeholderText="Select date"
+            onChange={handleChange}
+          />
+        }}
       />
     </>
   );
