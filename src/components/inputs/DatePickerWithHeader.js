@@ -11,7 +11,8 @@ const CustomHeader = forwardRef(({ props }, ref) => {
   console.log(props);
   
   return (
-    <div></div>
+    <div style={{ margin: 10, display: "flex", justifyContent: "center" }}>
+    </div>
   );
 });
 
@@ -52,7 +53,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         minDate={subYears(new Date(), 70)}
         maxDate={subYears(new Date(), 18)}
         selected={parseISO(getValues(id))} 
-        onChange={(date) => { setValue(id, format(date, "dd/MM/yyyy"), { 
+        onChange={date => setValue(id, format(date, "dd/MM/yyyy"), { 
           shouldValidate: true, 
           shouldDirty: true, shouldTouch: true 
         })}
