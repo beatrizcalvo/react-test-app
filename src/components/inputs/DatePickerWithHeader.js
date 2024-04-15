@@ -54,6 +54,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         selected={getValues(id)} 
         onChange={(date) => {
           console.log(date);
+          console.log(new Date(date));
           setValue(id, format(date, "dd/MM/yyyy"), { shouldValidate: true, shouldDirty: true, shouldTouch: true });
         }}
         customInput={<CustomInput inputValidations={inputValidations} />}
