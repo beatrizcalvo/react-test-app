@@ -54,21 +54,18 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
-  const { control, formState: { errors } } = useFormContext();
+  const { control } = useFormContext();
   
   return (
     <>
       <Controller
         name={id}
         control={control} 
-        errors={errors}
-        render={({ field: { name, value, errors, onChange } }) => (
+        render={({ field: { name, value, onChange }, formState: { errors } }) => (
           <DatePicker
             id={name}
-            wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
+            wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
             readOnly={readOnly}
-            minDate={subYears(new Date(), 70)}
-            maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)}
           />
