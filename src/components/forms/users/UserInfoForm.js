@@ -84,7 +84,8 @@ export default function UserInfoForm(props) {
 
   // Convert date from dd/MM/yyyy to yyyy-MM-dd
   const getFormmatedDate = (date) => {
-    console.log("getFormmatedDate");
+    const parsed = parse(date, "dd/MM/yyyy", new Date());
+    if (isValid(parsed)) return format(parsed, "yyyy-MM-dd");
     return null;
   };
 
