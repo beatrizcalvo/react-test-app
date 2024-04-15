@@ -23,10 +23,10 @@ export default function CardBasicInfo(props) {
   const handleUpdateProfile = (data) => {
     setIsActionInProgress(true);
     setIsLoading(true);
-    alert(JSON.stringify(data));
     UsersService.updateCurrentUser(data)
       .then(response => {
-        alert(JSON.stringify(response));
+        updateUser();
+        addNewAlert("success", "Updated user info");
       })
       .catch(error => {
         const errorMessage = (error.response && error.response.data && error.response.data.errors && error.response.data.errors[0].description) 
