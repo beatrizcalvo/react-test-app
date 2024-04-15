@@ -50,7 +50,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             minDate={subYears(new Date(), 70)}
             maxDate={subYears(new Date(), 18)}
             selected={value}
-            onChange={(date) => onChange(date)}
+            onChange={(date) => onChange(date.utc().toString())}
             customInput={<CustomInput />}
           />
         )}
