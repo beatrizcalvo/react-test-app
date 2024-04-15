@@ -64,17 +64,16 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   
   return (
     <>
-      <Controller 
-        name="dateOfBirth"
-        control={control}
-        as={
-          <DatePicker
-            selected={selectedDate}
-            placeholderText="Select date"
-            onChange={(date) => setSelectedDate(date)}
-          />
-        }
-      />
+      <Controller
+                name="dateOfBirth"
+                control={control}
+                render={({ onChange, value }) => (
+                    <DatePicker
+                        selected={value}
+                        onChange={onChange}
+                    />
+                )}
+            />
     </>
   );
 }
