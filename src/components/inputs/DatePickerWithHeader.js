@@ -54,7 +54,7 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
-  const [date, setDate] = useState();
+  const [selectedDate, setSelectedDate] = useState();
   const { control, setValue } = useFormContext();
 
   const handleChange = (dateChange) => {
@@ -65,15 +65,15 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   return (
     <>
       <Controller 
-        name={id}
+        name="dateOfBirth"
         control={control}
-        render={() => {
+        as={
           <DatePicker
-            selected={date}
+            selected={selectedDate}
             placeholderText="Select date"
-            onChange={handleChange}
+            onChange={(date) => setSelectedDate(date)}
           />
-        }}
+        }
       />
     </>
   );
