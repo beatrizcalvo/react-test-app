@@ -59,7 +59,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
 
   const handleChange = (dateChange) => {
     setValue("dateOfBirth", dateChange, { shouldDirty: true });
-    setDate(dateChange);
+    setSelectedDate(dateChange);
   };
   
   return (
