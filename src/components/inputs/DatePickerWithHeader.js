@@ -33,9 +33,11 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 const CInput = forwardRef((props, ref) => {
-  alert(props);
+  alert(JSON.stringify(props));
   return(
     <Form.Control 
+      type="text"
+      readOnly="true"
     />
   );
 });
