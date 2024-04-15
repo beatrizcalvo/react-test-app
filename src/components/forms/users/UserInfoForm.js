@@ -152,7 +152,7 @@ export default function UserInfoForm(props) {
             </Col>
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
-                <label for="gender" className="font-weight-bold">Gender:</label>
+                <label for="gender.description" className="font-weight-bold">Gender:</label>
                 <Combobox 
                   id="gender" 
                   readOnly={readOnly} 
@@ -176,7 +176,7 @@ export default function UserInfoForm(props) {
             </Col>
             <Col className="col-6 col-md-4">
               <Form.Group className="input-group input-group-static">
-                <label for="nationality" className="font-weight-bold">Nationality:</label>
+                <label for="nationality.description" className="font-weight-bold">Nationality:</label>
                 <Combobox 
                   id="nationality" 
                   readOnly={readOnly} 
