@@ -51,7 +51,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         render={({ field: { name, value, onChange }, formState: { errors } }) => (
           <DatePicker
             id={name}
-            wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
+            wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
             readOnly={readOnly}
             dateFormat="dd/MM/yyyy"
             minDate={subYears(new Date(), 70)}
