@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { subYears, format } from "date-fns";
+import { subYears } from "date-fns";
 import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
