@@ -26,6 +26,7 @@ export default function CardBasicInfo(props) {
     UsersService.updateCurrentUser(data)
       .then(response => {
         updateUser();
+        setIsReadOnly(true);
         addNewAlert("success", "Updated user info");
       })
       .catch(error => {
