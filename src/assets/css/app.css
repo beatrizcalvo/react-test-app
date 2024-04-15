@@ -63,3 +63,8 @@
 .is-open .choices__inner {
   border-radius: 0;
 }
+
+.input-group.input-group-static .react-datepicker-wrapper {
+  position: absolute;
+  margin-top: 1.4rem;
+}
