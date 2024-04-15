@@ -7,8 +7,9 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomInput = forwardRef(({ id, value, readOnly, errors, onChange, onClick }, ref) => {
-
+const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
+  const { formState: { errors } } = useFormContext();
+  
   // Calculate placeholder text
   const getPlaceholder = () => {
     if (!readOnly) return "Select one date...";
