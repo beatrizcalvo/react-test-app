@@ -45,8 +45,10 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
           <DatePicker
             id={name}
             wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
+            className="ps-3"
             readOnly={readOnly}
             showIcon
+            icon="fa fa-calendar"
             dateFormat="dd/MM/yyyy"
             minDate={subYears(new Date(), 70)}
             maxDate={subYears(new Date(), 18)}
