@@ -48,6 +48,7 @@ const CInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
       readOnly="true"
       placeholder={getPlaceholder()}
       {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+      value={value}
       onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
