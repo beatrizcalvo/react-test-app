@@ -8,7 +8,8 @@ const deleteCurrentUser = () => { return axiosClient.delete("/users/me") };
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
 
 const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
-  ...((data.gender?.description || data.nationality?.code || data.firstName || data.lastName || data.secondLastName) && {
+  ...((data.firstName || data.lastName || data.secondLastName || data.gender?.description || data.birthDate 
+       || data.nationality?.code) && {
     person: {
       ...((data.firstName || data.lastName || data.secondLastName) && {
         personName:{
