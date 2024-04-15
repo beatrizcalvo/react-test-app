@@ -49,6 +49,15 @@
   border-bottom: 2px solid #fd5c70 !important;
 }
 
+.input-group.input-group-static[.react-datepicker-wrapper] .invalid-feedback {
+  display: block;
+}
+
+.input-group.input-group-static .react-datepicker-wrapper {
+  position: absolute;
+  margin-top: 1.4rem;
+}
+
 .choices.is-invalid[data-type*=select-one],
 .choices.is-invalid[data-type*=select-one] .choices__inner {
   margin-bottom: 0;
@@ -62,9 +71,4 @@
 .choices__inner, 
 .is-open .choices__inner {
   border-radius: 0;
-}
-
-.input-group.input-group-static .react-datepicker-wrapper {
-  position: absolute;
-  margin-top: 1.4rem;
 }
