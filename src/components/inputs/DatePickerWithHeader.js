@@ -32,6 +32,11 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
   );
 });
 
+const CInput = forwardRef(({ props }, ref) => {
+  alert(props);
+  return();
+};
+
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const { control } = useFormContext();
   
@@ -50,6 +55,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)}
+            customInput={<CInput />}
           />
         )}
       />
