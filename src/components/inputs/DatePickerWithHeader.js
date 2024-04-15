@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { subYears, format } from "date-fns";
-import { useState, forwardRef } from "react";
+import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
@@ -54,26 +54,20 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const { control, setValue } = useFormContext();
-
-  const handleChange = (dateChange) => {
-    setValue("dateOfBirth", dateChange, { shouldDirty: true });
-    setSelectedDate(dateChange);
-  };
+  const { control } = useFormContext();
   
   return (
     <>
       <Controller
-                name="dateOfBirth"
-                control={control}
-                render={({ onChange, value }) => (
-                    <DatePicker
-                        selected={value}
-                        onChange={onChange}
-                    />
-                )}
-            />
+        name={id}
+        control={control}
+        render={({ value, onChange }) => (
+          <DatePicker
+            selected={value}
+            onChange={onChange}
+          />
+        )}
+      />
     </>
   );
 }
