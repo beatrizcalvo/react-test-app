@@ -19,6 +19,7 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
   return (
     <Form.Control
       id={id}
+      className="is-invalid"
       type="text"
       readOnly="true"
       placeholder={getPlaceholder()}
