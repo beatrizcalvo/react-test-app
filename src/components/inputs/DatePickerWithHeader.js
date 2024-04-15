@@ -7,7 +7,7 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = forwardRef(({ props }, ref) => {
+const CustomHeader = forwardRef(({ id, readOnly, inputValidations }, ref) => {
   const { setValue, getValues, formState: { errors } } = useFormContext();
   
   return (
