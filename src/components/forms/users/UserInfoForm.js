@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { parse, isValid, format } from "date-fns";
+import { isDate, parse, isValid, format } from "date-fns";
 import { useState, useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
@@ -96,7 +96,7 @@ export default function UserInfoForm(props) {
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
       const isString = typeof allValues === "string";
-      
+      alert(isDate(allValues));
       // Format date to yyyy-MM-dd
       if (isString && (allValues.match(/\d{2}\/\d{2}\/\d{4}/).length === 1))
         return getFormmatedDate(allValues);
