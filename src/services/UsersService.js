@@ -13,7 +13,9 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
     person: {
       ...((data.firstName) && {
         personName: {
-          firstName: data.firstName
+          firstName: data.firstName,
+          lastName: data.lastName,
+          secondLastName: data.secondLastName
         },
       }),
       gender: data.gender?.description,
