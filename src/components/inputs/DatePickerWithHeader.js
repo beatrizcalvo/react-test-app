@@ -32,12 +32,23 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
   );
 });
 
-const CInput = forwardRef((props, ref) => {
-  alert(JSON.stringify(props));
+const CInput = forwardRef(({ id, value, readOnly, onClick }, ref) => {
+
+  // Calculate placeholder text
+  const getPlaceholder = () => {
+    if (!readOnly) return "Select one date...";
+    if (!value) return "Not Defined";
+    return "";
+  };
+  
   return(
     <Form.Control 
+      id={id}
       type="text"
       readOnly="true"
+      placeholder={getPlaceholder()}
+      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+      onClick={onClick}
     />
   );
 });
