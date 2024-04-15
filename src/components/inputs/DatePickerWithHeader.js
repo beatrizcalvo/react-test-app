@@ -34,7 +34,10 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
 
 const CInput = forwardRef(({ props }, ref) => {
   alert(props);
-  return();
+  return(
+    <>
+    </>
+  );
 };
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
