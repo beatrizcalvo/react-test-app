@@ -7,27 +7,6 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = forwardRef(({ id, readOnly, inputValidations }, ref) => {
-  const { setValue, getValues, formState: { errors } } = useFormContext();
-  
-  return (
-    <>
-      <DatePicker 
-        id={id}
-        wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
-        readOnly={readOnly}
-        minDate={subYears(new Date(), 70)}
-        maxDate={subYears(new Date(), 18)}
-        onChange={(date) => setValue(id, format(date, "dd/MM/yyyy"), { 
-          shouldValidate: true, 
-          shouldDirty: true, shouldTouch: true 
-        })}
-        customInput={<CustomInput inputValidations={inputValidations} />}
-      />
-    </>
-  );
-});
-
 const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onClick }, ref) => {
   const { register, getValues, formState: { errors }} = useFormContext();
   
@@ -66,6 +45,9 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             id={name}
             wrapperClassName={classNames({ "is-invalid": !!errors[id] })}
             readOnly={readOnly}
+            dateFormat="dd/MM/yyyy"
+            minDate={subYears(new Date(), 70)}
+            maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)}
           />
