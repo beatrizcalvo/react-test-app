@@ -82,13 +82,22 @@ export default function UserInfoForm(props) {
     setReadOnly(!readOnly);
   };
 
+  // Convert date from dd/MM/yyyy to yyyy-MM-dd
+  const getFormmatedDate = (date) => {
+    console.log("getFormmatedDate");
+    return null;
+  };
+
   // Get list (key/value) of modified fields
   const getDirtyValues = (dirtyFields: UnknownArrayOrObject | boolean, allValues: UnknownArrayOrObject): UnknownArrayOrObject => {
     // If *any* item in an array was modified, the entire array must be submitted, because there's no
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
-      console.log(typeof allValues === "string");
-      console.log("12/12".match(/\d{2}\/\d{2}\/\d{4}/).length === 1);
+      const isString = typeof allValues === "string";
+      
+      // Format date to yyyy-MM-dd
+      if (isString && (allValues.match(/\d{2}\/\d{2}\/\d{4}/).length === 1))
+        return getFormmatedDate(allValues);
       return allValues;
     }
     return Object.fromEntries(Object.keys(dirtyFields).map((key) => [key, getDirtyValues(dirtyFields[key], allValues[key])]));
