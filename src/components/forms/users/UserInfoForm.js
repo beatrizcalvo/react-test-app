@@ -82,14 +82,6 @@ export default function UserInfoForm(props) {
     setReadOnly(!readOnly);
   };
 
-  // Convert date from dd/MM/yyyy to yyyy-MM-dd
-  const getFormmatedDate = (date) => {
-    alert(date);
-    const parsed = parse(date, "dd/MM/yyyy", new Date());
-    if (isValid(parsed)) return format(parsed, "yyyy-MM-dd");
-    return null;
-  };
-
   // Get list (key/value) of modified fields
   const getDirtyValues = (dirtyFields: UnknownArrayOrObject | boolean, allValues: UnknownArrayOrObject): UnknownArrayOrObject => {
     // If *any* item in an array was modified, the entire array must be submitted, because there's no
