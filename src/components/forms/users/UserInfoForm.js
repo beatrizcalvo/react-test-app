@@ -87,7 +87,7 @@ export default function UserInfoForm(props) {
     // If *any* item in an array was modified, the entire array must be submitted, because there's no
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
-      console.log(typeof value === "string");
+      console.log(typeof allValues === "string");
       console.log(allValues.match("/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/"));
       return allValues;
     }
