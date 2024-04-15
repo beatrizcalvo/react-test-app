@@ -38,7 +38,7 @@ const CInput = forwardRef(({ props }, ref) => {
     <>
     </>
   );
-};
+});
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const { control } = useFormContext();
