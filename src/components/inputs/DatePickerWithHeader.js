@@ -59,12 +59,12 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   return (
     <>
       <Controller
-        name={id}
+        name="date-input"
         control={control}
         render={({ value, onChange }) => (
           <DatePicker
             selected={value}
-            onChange={onChange}
+            onChange={(date) => onChange(date)}
           />
         )}
       />
