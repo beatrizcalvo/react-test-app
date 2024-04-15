@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears } from "date-fns";
 import { forwardRef } from "react";
-import { Form } from "react-bootstrap";
+import { Form, InputGroup, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -18,17 +18,20 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   };
   
   return(
-    <Form.Control 
-      id={id}
-      type="text"
-      readOnly="true"
-      placeholder={getPlaceholder()}
-      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-      value={value}
-      isInvalid={!!errors[id]}
-      onChange={(e) => onChange(e.target.value)}
-      onClick={onClick}
-    />
+    <InputGroup>
+      <Button as="a"></Button>
+      <Form.Control 
+        id={id}
+        type="text"
+        readOnly="true"
+        placeholder={getPlaceholder()}
+        {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+        value={value}
+        isInvalid={!!errors[id]}
+        onChange={(e) => onChange(e.target.value)}
+        onClick={onClick}
+      />
+    </InputGroup>
   );
 });
 
@@ -45,10 +48,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
           <DatePicker
             id={name}
             wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
-            className="ps-3"
             readOnly={readOnly}
-            showIcon
-            icon="fa fa-calendar"
             dateFormat="dd/MM/yyyy"
             minDate={subYears(new Date(), 70)}
             maxDate={subYears(new Date(), 18)}
