@@ -32,7 +32,7 @@ const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onCl
   );
 });
 
-const CInput = forwardRef(({ id, value, readOnly, onClick }, ref) => {
+const CInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -48,6 +48,7 @@ const CInput = forwardRef(({ id, value, readOnly, onClick }, ref) => {
       readOnly="true"
       placeholder={getPlaceholder()}
       {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+      onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
   );
