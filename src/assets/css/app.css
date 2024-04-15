@@ -63,3 +63,8 @@
 .is-open .choices__inner {
   border-radius: 0;
 }
+
+.react-datepicker-wrapper {
+  position: relative;
+  width: 100%;
+}
