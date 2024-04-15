@@ -87,7 +87,7 @@ export default function UserInfoForm(props) {
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
       // Format date to yyyy-MM-dd
-      console.log("dirtyFields: " + dirtyFields + " | value: " + allValues);
+      console.log("dirtyFields: " + dirtyFields + " | value: " + allValues + " | type: " + typeof allValues);
       return allValues;
     }
     return Object.fromEntries(Object.keys(dirtyFields).map((key) => [key, getDirtyValues(dirtyFields[key], allValues[key])]));
