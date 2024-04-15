@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { subYears, format } from "date-fns";
+import { subYears, format, parseISO } from "date-fns";
 import { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
@@ -51,11 +51,11 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
         readOnly={readOnly}
         minDate={subYears(new Date(), 70)}
         maxDate={subYears(new Date(), 18)}
-        selected={getValues(id)} 
-        onChange={(date) => {
-          console.log(new Date(date));
-          setValue(id, format(new Date(date), "dd/MM/yyyy"), { shouldValidate: true, shouldDirty: true, shouldTouch: true });
-        }}
+        selected={parseISO(getValues(id))} 
+        onChange={(date) => { setValue(id, format(date, "dd/MM/yyyy"), { 
+          shouldValidate: true, 
+          shouldDirty: true, shouldTouch: true 
+        })}
         customInput={<CustomInput inputValidations={inputValidations} />}
       />
     </>
