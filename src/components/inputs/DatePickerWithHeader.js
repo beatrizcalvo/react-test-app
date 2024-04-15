@@ -7,32 +7,7 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomInput = forwardRef(({ id, readOnly, inputValidations, onChange, onClick }, ref) => {
-  const { register, getValues, formState: { errors }} = useFormContext();
-  
-  // Calculate placeholder text
-  const getPlaceholder = () => {
-    if (!readOnly) return "Select one date...";
-    if (!getValues(id)) return "Not Defined";
-    return "";
-  };
-  
-  return (
-    <Form.Control
-      id={id}
-      type="text"
-      readOnly="true"
-      placeholder={getPlaceholder()}
-      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-      {...register(id, inputValidations)}
-      isInvalid={!!errors[id]}
-      onChange={(e) => onChange(e.target.value)}
-      onClick={onClick}
-    />
-  );
-});
-
-const CInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
+const CustomInput = forwardRef(({ id, value, readOnly, errors, onChange, onClick }, ref) => {
 
   // Calculate placeholder text
   const getPlaceholder = () => {
@@ -49,6 +24,7 @@ const CInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
       placeholder={getPlaceholder()}
       {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
       value={value}
+      isInvalid={!!errors[id]}
       onChange={(e) => onChange(e.target.value)}
       onClick={onClick}
     />
@@ -63,6 +39,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
       <Controller
         name={id}
         control={control} 
+        rules={inputValidations}
         render={({ field: { name, value, onChange }, formState: { errors } }) => (
           <DatePicker
             id={name}
@@ -73,7 +50,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)}
-            customInput={<CInput />}
+            customInput={<CustomInput />}
           />
         )}
       />
