@@ -84,6 +84,7 @@ export default function UserInfoForm(props) {
 
   // Format a date from "dd/MM/yyyy" to "yyyy-MM-dd"
   const getFormmatedDate = (date) => {
+    const parsed = parse(date, "dd/MM/yyyy", new Date());
     return null;
   };
   
