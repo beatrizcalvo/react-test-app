@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { format } from "date-fns";
+import { parse, isValid, format } from "date-fns";
 import { useState, useEffect } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
@@ -82,12 +82,19 @@ export default function UserInfoForm(props) {
     setReadOnly(!readOnly);
   };
 
+  const getFormmatedDate = (date) => {
+    const parsed = parse(date, "dd/MM/yyyy", new Date());
+    if (isValid(parsed)) return format(parsed, "yyyy-MM-dd");
+    return null;
+  };
+  
   const getDirtyValues = (dirtyFields: UnknownArrayOrObject | boolean, allValues: UnknownArrayOrObject): UnknownArrayOrObject => {
     // If *any* item in an array was modified, the entire array must be submitted, because there's no
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
       // Format date to yyyy-MM-dd
-      console.log("dirtyFields: " + dirtyFields + " | value: " + allValues + " | type: " + typeof allValues);
+      if ((typeof allValues === "string") && allValues.match("/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/")) 
+        return getFormmatedDate(allValues);
       return allValues;
     }
     return Object.fromEntries(Object.keys(dirtyFields).map((key) => [key, getDirtyValues(dirtyFields[key], allValues[key])]));
