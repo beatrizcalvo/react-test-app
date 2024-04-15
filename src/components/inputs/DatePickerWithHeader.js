@@ -46,6 +46,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             id={name}
             wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
             readOnly={readOnly}
+            showIcon
             dateFormat="dd/MM/yyyy"
             minDate={subYears(new Date(), 70)}
             maxDate={subYears(new Date(), 18)}
