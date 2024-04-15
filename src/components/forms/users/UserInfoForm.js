@@ -82,6 +82,7 @@ export default function UserInfoForm(props) {
     setReadOnly(!readOnly);
   };
 
+  // Format a date from "dd/MM/yyyy" to "yyyy-MM-dd"
   const getFormmatedDate = (date) => {
     const parsed = parse(date, "dd/MM/yyyy", new Date());
     if (isValid(parsed)) return format(parsed, "yyyy-MM-dd");
@@ -181,6 +182,9 @@ export default function UserInfoForm(props) {
                   readOnly={readOnly} 
                   inputValidations={inputValidations.birthDate}
                 />
+                <Form.Control.Feedback type="text-xs invalid">
+                  {errors.birthDate?.message}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
