@@ -49,12 +49,13 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             id={name}
             wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
             readOnly={readOnly}
+            calendarStartDay={1}
+            formatWeekDay={nameOfDay => nameOfDay}
             dateFormat="dd/MM/yyyy"
             minDate={subYears(new Date(), 70)}
             maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)}
-            formatWeekDay={nameOfDay => nameOfDay.substr(0,3)}
             customInput={<CustomInput />}
           />
         )}
