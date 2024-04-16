@@ -19,9 +19,7 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   
   return(
     <InputGroup>
-      { !readOnly && 
-          <InputGroup.Text className="fa-regular fa-calendar-days" style={{ paddingBottom: ".6rem"}} />
-      }
+      { !readOnly && <InputGroup.Text className="fa-regular fa-calendar-days pb-2" /> }
       <Form.Control 
         id={id}
         type="text"
