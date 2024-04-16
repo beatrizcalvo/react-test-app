@@ -60,7 +60,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)}
-            renderCustomHeader={CustomHeader}
+            renderCustomHeader={() => CustomHeader}
             customInput={<CustomInput />}
           />
         )}
