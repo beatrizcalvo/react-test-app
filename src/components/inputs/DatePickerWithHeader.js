@@ -19,8 +19,8 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   
   return(
     <>
-    <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+    <InputGroup>
+        <InputGroup.Text className="fa-regular fa-calendar-days" style={{ padding-bottom: .6rem}} />
         <Form.Control
           placeholder="Username"
           aria-label="Username"
