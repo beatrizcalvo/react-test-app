@@ -18,27 +18,22 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   };
   
   return(
-    <>
     <InputGroup>
-        <InputGroup.Text className="fa-regular fa-calendar-days" style={{ paddingBottom: ".6rem"}} />
-        <Form.Control
-          placeholder="Username"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-    <Form.Control 
-      id={id}
-      type="text"
-      readOnly="true"
-      placeholder={getPlaceholder()}
-      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-      value={value}
-      isInvalid={!!errors[id]}
-      onChange={(e) => onChange(e.target.value)}
-      onClick={onClick}
-    />
-  </>
+      { !readOnly && 
+          <InputGroup.Text className="fa-regular fa-calendar-days" style={{ paddingBottom: ".6rem"}} />
+      }
+      <Form.Control 
+        id={id}
+        type="text"
+        readOnly="true"
+        placeholder={getPlaceholder()}
+        {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+        value={value}
+        isInvalid={!!errors[id]}
+        onChange={(e) => onChange(e.target.value)}
+        onClick={onClick}
+      />
+    </InputGroup>
   );
 });
 
