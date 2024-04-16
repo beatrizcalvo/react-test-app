@@ -50,7 +50,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             wrapperClassName={classNames({ "is-invalid": !!errors[name] })}
             readOnly={readOnly}
             calendarStartDay={1}
-            formatWeekDay={nameOfDay => nameOfDay}
+            formatWeekDay={nameOfDay => nameOfDay.substring(0,2).toUpperCase()}
             dateFormat="dd/MM/yyyy"
             minDate={subYears(new Date(), 70)}
             maxDate={subYears(new Date(), 18)}
