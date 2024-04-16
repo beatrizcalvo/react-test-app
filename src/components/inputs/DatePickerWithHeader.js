@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears } from "date-fns";
 import { forwardRef } from "react";
-import { Form, InputGroup, Button } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -18,20 +18,27 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   };
   
   return(
-    <InputGroup>
-      <Button as="a"></Button>
-      <Form.Control 
-        id={id}
-        type="text"
-        readOnly="true"
-        placeholder={getPlaceholder()}
-        {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
-        value={value}
-        isInvalid={!!errors[id]}
-        onChange={(e) => onChange(e.target.value)}
-        onClick={onClick}
-      />
-    </InputGroup>
+    <>
+    <InputGroup className="mb-3">
+        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+        <Form.Control
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </InputGroup>
+    <Form.Control 
+      id={id}
+      type="text"
+      readOnly="true"
+      placeholder={getPlaceholder()}
+      {...(readOnly ? { plaintext: true, className: "text-sm" } : {})}
+      value={value}
+      isInvalid={!!errors[id]}
+      onChange={(e) => onChange(e.target.value)}
+      onClick={onClick}
+    />
+  </>
   );
 });
 
