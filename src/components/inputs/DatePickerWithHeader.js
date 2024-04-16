@@ -8,7 +8,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = forwardRef((props, ref) => {
-  return <></>;
+  return <div></div>;
 });
 
 const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
@@ -21,7 +21,7 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
     return "";
   };
   
-  return(
+  return (
     <InputGroup>
       { !readOnly && <InputGroup.Text className="fa-regular fa-calendar-days pb-2" /> }
       <Form.Control 
