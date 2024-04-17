@@ -91,9 +91,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             selected={value}
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
-            renderCustomHeader={({ date }) => (
-              
-            )}
+            renderCustomHeader={({ date }) => (<CustomHeader date={date} />)}
           />
         )}
       />
