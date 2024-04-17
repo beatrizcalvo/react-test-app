@@ -41,10 +41,10 @@ const CustomHeader = ({ date }) => {
           </div>
         </div>
       </Col>
-      <Col>
+      <Col className="my-auto">
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col> 
+      <Col className="my-auto">
         <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
