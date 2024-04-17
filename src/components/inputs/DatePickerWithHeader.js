@@ -30,7 +30,8 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
     const getMonthName = (monthIndex: number) => formatter.format(new Date(year, monthIndex));
     return monthList.map(getMonthName);
   };
-    
+  console.log(getMonthList("en"));
+  
   return (
     <Row className="pb-3">
       <Col className="my-auto ms-1">
