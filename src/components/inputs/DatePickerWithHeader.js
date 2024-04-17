@@ -17,6 +17,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 };
 
 const CustomHeader = ({ date }) => {
+  const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const months = getMonthList("en");
   
   return (
@@ -69,7 +70,6 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
-  const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const { control } = useFormContext();
   
   return (
@@ -91,7 +91,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             selected={value}
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
-            renderCustomHeader={({ date }) => (<CustomHeader date={date} />)}
+            renderCustomHeader={({ date }) => <CustomHeader date={date} />}
           />
         )}
       />
