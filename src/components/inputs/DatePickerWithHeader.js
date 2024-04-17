@@ -18,7 +18,6 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 
 const CustomHeader = ({ date }) => {
   const [ showSelectMonth, setShowSelectMonth] = useState(false);
-  const months = getMonthList("en");
   
   return (
     <Row className="pb-3">
