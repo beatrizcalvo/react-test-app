@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { subYears } from "date-fns";
-import { useState, forwardRef } from "react";
+import { forwardRef } from "react";
 import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
@@ -8,7 +8,6 @@ import { useFormContext, Controller } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = ({ date }) => {
-  const [ showSelectMonth, setShowSelectMonth ] = useState(false);
 
   const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
     const year = new Date().getFullYear();
@@ -22,7 +21,9 @@ const CustomHeader = ({ date }) => {
     <Row className="pb-3">
       <Col className="my-auto ms-1 col-5">
         <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
-          
+          <div className="react-datepicker__month-read-view">
+            <span>November</span>
+          </div>
         </div>
       </Col>
       <Col className="my-auto col-1">
