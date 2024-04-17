@@ -49,6 +49,7 @@
   border-bottom: 2px solid #fd5c70 !important;
 }
 
+.choices[data-type*=select-one] .choices__inner,
 .choices.is-invalid[data-type*=select-one],
 .choices.is-invalid[data-type*=select-one] .choices__inner {
   margin-bottom: 0;
