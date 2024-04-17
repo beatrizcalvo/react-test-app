@@ -23,28 +23,19 @@ const CustomHeader = ({ date, increaseMonth }) => {
   
   return (
     <Row className="pb-3 w-100">
-      <Col className="my-auto col-5 me-1">
+      <Col className="my-auto col-5 me-0">
         <div className="react-datepicker__month-dropdown-container">
           { showMonthSelect && (
             <div className="react-datepicker__month-dropdown">
-	      { months.map((item) => {
-		return (<div>{item}</div>);
+	      { months.map((month) => {
+		return (
+		  <div className="react-datepicker__month-option">{month}</div>
+		);
 	      })}
-	      <div class="react-datepicker__month-option">January</div>
-			<div class="react-datepicker__month-option">February</div>
-			<div class="react-datepicker__month-option">March</div>
-			<div class="react-datepicker__month-option">April</div>
-			<div class="react-datepicker__month-option">May</div>
-			<div class="react-datepicker__month-option">June</div>
-			<div class="react-datepicker__month-option">July</div>
-			<div class="react-datepicker__month-option">August</div>
-			<div class="react-datepicker__month-option">September</div>
-			<div class="react-datepicker__month-option">October</div>
 			<div class="react-datepicker__month-option react-datepicker__month-option--selected_month" aria-selected="true">
 				<span class="react-datepicker__month-option--selected">✓</span>
 				November
 			</div>
-			<div class="react-datepicker__month-option">December</div>
             </div>
           )}
           <div 
@@ -60,13 +51,13 @@ const CustomHeader = ({ date, increaseMonth }) => {
           </div>
         </div>
       </Col>
-      <Col className="my-auto col-3 me-3">
+      <Col className="my-auto col-4 me-2">
         <div className="react-datepicker__year-dropdown-container">
           <div 
             className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}
             onClick={() => setShowYearSelect(true)}
           >
-            <span className="react-datepicker__year-read-view--selected-year form-select text-bold text-sm">
+            <span className="react-datepicker__year-read-view--selected-year text-bold text-sm">
               <span className="react-datepicker__year-read-view--down-arrow mt-1"></span>
 	      <span className="react-datepicker__year-read-view--selected-year text-bold text-sm">
                 { getYear(date) }
