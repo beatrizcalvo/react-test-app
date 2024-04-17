@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears } from "date-fns";
 import { forwardRef } from "react";
-import { Row, Form, InputGroup } from "react-bootstrap";
+import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -10,14 +10,14 @@ import "react-datepicker/dist/react-datepicker.css";
 const CustomHeader = ({ date, minDate }) => {
   return (
     <Row className="d-flex justify-content-between">
-      <a>
-        <i class="fa-solid fa-chevron-left" />
-      </a>
-      { minDate }
-      <Form.Select>
-      </Form.Select>
-      <Form.Select>
-      </Form.Select>
+      <Col className="col-2">
+        <a><i className="fa-solid fa-chevron-left" /></a>
+      </Col>
+      <Col>
+        <Form.Select size="sm">
+          <option>Small select</option>
+        </Form.Select>
+      </Col>
     </Row>
   );
 };
