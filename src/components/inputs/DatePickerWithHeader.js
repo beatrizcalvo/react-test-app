@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { subYears, getMonth, getYear } from "date-fns";
-import { useState, forwardRef } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
@@ -80,7 +80,16 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
+  const [ showPortal, setShowPortal ] = useState(false);
   const { control } = useFormContext();
+
+useEffect(() => {
+  const handleResize = () => { setShowPortal(window.innerWidth < 768); };
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
   
   return (
     <>
@@ -101,7 +110,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             selected={value}
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
-            {...(window.innerWidth < 768) ? { withPortal: true } : {}}
+            {...showPortal ? { withPortal: true } : {}}
             renderCustomHeader={({ date }) => <CustomHeader date={date} />}
           />
         )}
