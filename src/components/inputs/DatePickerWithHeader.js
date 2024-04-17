@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = ({ date, minDate }) => {
   return (
-    <Row>
+    <Row className="d-flex justify-content-between">
       <a>
         <i class="fa-solid fa-chevron-left" />
       </a>
