@@ -7,7 +7,7 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = ({ date, minDate, maxDate }) => {
+const CustomHeader = (props) => {
   const months = [
     "January",
     "February",
@@ -31,6 +31,7 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
     return monthList.map(getMonthName);
   };
   console.log(getMonthList("en"));
+  console.log(props);
   
   return (
     <Row className="pb-3">
@@ -110,7 +111,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)} 
-            //renderCustomHeader={CustomHeader} 
+            renderCustomHeader={CustomHeader} 
             showMonthDropdown
             showYearDropdown
             customInput={<CustomInput />}
