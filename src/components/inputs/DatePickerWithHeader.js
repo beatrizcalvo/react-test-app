@@ -36,7 +36,7 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
     <Row className="pb-3">
       <Col className="my-auto ms-1 col-5">
         <select>
-          {months.map((option) => (
+          {getMonthList("en").map((option) => (
             <option key={option} value={option}>{option}</option>
           ))}
         </select>
