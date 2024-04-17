@@ -7,7 +7,10 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-// Get list of month depending on locale and format
+const CustomHeader = ({ date }) => {
+  const [ showSelectMonth, setShowSelectMonth] = useState(false);
+
+  // Get list of month depending on locale and format
 const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
   const year = new Date().getFullYear();
   const monthList = [...Array(12).keys()];
@@ -15,9 +18,6 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   const getMonthName = (monthIndex: number) => formatter.format(new Date(year, monthIndex));
   return monthList.map(getMonthName);
 };
-
-const CustomHeader = ({ date }) => {
-  const [ showSelectMonth, setShowSelectMonth] = useState(false);
   
   return (
     <Row className="pb-3">
@@ -30,7 +30,7 @@ const CustomHeader = ({ date }) => {
           </div>
         </div>
         <div className="react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll">
-          
+          {date.getYear()}
         </div>
       </Col>
       <Col className="my-auto col-1">
