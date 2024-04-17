@@ -35,7 +35,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
           >
             <span className="react-datepicker__month-read-view--selected-month">
               <span className="react-datepicker__month-read-view--down-arrow mt-1" />
-			        <span className="react-datepicker__month-read-view--selected-month text-bold text-sm">
+	      <span className="react-datepicker__month-read-view--selected-month text-bold text-sm">
                 { months[getMonth(date)] }
               </span>
           </div>
@@ -49,7 +49,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
           >
             <span className="react-datepicker__year-read-view--selected-year form-select text-bold text-sm">
               <span className="react-datepicker__year-read-view--down-arrow mt-1" />
-			        <span class="react-datepicker__year-read-view--selected-year text-bold text-sm">
+	      <span className="react-datepicker__year-read-view--selected-year text-bold text-sm">
                 { getYear(date) }
               </span>
           </div>
