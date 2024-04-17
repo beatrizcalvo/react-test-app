@@ -74,7 +74,7 @@
 }
 
 .react-datepicker__header {
-  background-color: transparent;
-  border-bottom: none;
-  padding: 0;
+  background-color: transparent !important;
+  border-bottom: none !important;
+  padding: 0 !important;
 }
