@@ -22,7 +22,8 @@ const CustomHeader = ({ date }) => {
       <Col className="my-auto ms-1 col-5">
         <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
           <div className="react-datepicker__month-read-view">
-            <span>November</span>
+            <span className="react-datepicker__month-read-view--down-arrow" />
+            <span className="react-datepicker__month-read-view--selected-month text-bold text-sm">{date.getMonth()}</span>
           </div>
         </div>
       </Col>
