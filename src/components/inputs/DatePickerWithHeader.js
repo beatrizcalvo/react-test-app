@@ -27,6 +27,9 @@ const CustomHeader = ({ date, increaseMonth }) => {
         <div className="react-datepicker__month-dropdown-container">
           { showMonthSelect && (
             <div className="react-datepicker__month-dropdown">
+	      { months.map((item) => {
+		return (<div>{item}</div>);
+	      })}
 	      <div class="react-datepicker__month-option">January</div>
 			<div class="react-datepicker__month-option">February</div>
 			<div class="react-datepicker__month-option">March</div>
@@ -53,6 +56,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
 	      <span className="react-datepicker__month-read-view--selected-month text-bold text-sm">
                 { months[getMonth(date)] }
               </span>
+	    </span>
           </div>
         </div>
       </Col>
@@ -67,6 +71,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
 	      <span className="react-datepicker__year-read-view--selected-year text-bold text-sm">
                 { getYear(date) }
               </span>
+	    </span>
           </div>
         </div>
       </Col>
