@@ -1,14 +1,25 @@
 import classNames from "classnames";
 import { subYears } from "date-fns";
 import { forwardRef } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Row, Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = () => {
-  return (<div></div>);
+const CustomHeader = ({ date, minDate }) => {
+  return (
+    <Row>
+      <a>
+        <i class="fa-solid fa-chevron-left" />
+      </a>
+      { minDate }
+      <Form.Select>
+      </Form.Select>
+      <Form.Select>
+      </Form.Select>
+    </Row>
+  );
 };
 
 const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
