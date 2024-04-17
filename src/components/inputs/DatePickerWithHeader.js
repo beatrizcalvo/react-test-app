@@ -8,12 +8,22 @@ import { useFormContext, Controller } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = ({ date, minDate, maxDate }) => {
-  console.log("date:" + date + " minDate: " + minDate + " maxDate:" + maxDate);
+
+  const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
+    const year = new Date().getFullYear();
+    const monthList = [...Array(12).keys()];
+    const formatter = new Intl.DateTimeFormat(locales, { month: format });
+    const getMonthName = (monthIndex: number) => formatter.format(new Date(year, monthIndex));
+    return monthList.map(getMonthName);
+  };
+    
   return (
     <Row className="pb-3">
       <Col className="my-auto ms-1">
         <Form.Select className="input-group text-bold text-xs">
-          <option>Small select</option>
+          { getMonthList("en").map(item => {
+              <option key={item} value={item}>{item}</option>
+          })}
         </Form.Select>
       </Col>
       <Col className="my-auto">
