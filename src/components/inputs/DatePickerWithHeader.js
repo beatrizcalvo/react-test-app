@@ -7,7 +7,8 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = ({ date, minDate }) => {
+const CustomHeader = ({ date, minDate, maxDate }) => {
+  console.log("date:" + date + " minDate: " + " maxDate:" + maxDate);
   return (
     <Row>
       <Col className="my-auto">
