@@ -10,15 +10,21 @@ import "react-datepicker/dist/react-datepicker.css";
 const CustomHeader = ({ date, minDate }) => {
   return (
     <Row>
-      <Col>
-        <Form.Select>
+      <Col className="my-auto">
+        <Form.Select className="input-group text-bold text-xs">
           <option>Small select</option>
         </Form.Select>
       </Col>
-      <Col>
-        <Form.Select>
+      <Col className="my-auto">
+        <Form.Select className="input-group text-bold text-xs">
           <option>Small select</option>
         </Form.Select>
+      </Col>
+      <Col className="my-auto">
+        <i className="fa-solid fa-arrow-up" />
+      </Col>
+      <Col className="my-auto"> 
+        <i className="fa-solid fa-arrow-down" />
       </Col>
     </Row>
   );
