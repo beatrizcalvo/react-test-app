@@ -23,28 +23,34 @@ const CustomHeader = ({ date }) => {
   
   return (
     <Row className="pb-3">
-      <Col>
-        <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
-          <div className={classNames("react-datepicker__month-read-view", { "d-none": showMonthSelect })}>
+      <Col className="col-4 me-3">
+        <div className="react-datepicker__month-dropdown-container">
+          <div 
+            className={classNames("react-datepicker__month-read-view", { "d-none": showMonthSelect })}
+            onClick={() => setShowMonthSelect(true)}
+          >
             <span className="react-datepicker__month-read-view--selected-month form-select text-bold text-sm">
               { months[getMonth(date)] }
             </span>
           </div>
         </div>
       </Col>
-      <Col>
-        <div className="react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll">
-          <div className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}>
+      <Col className="col-4">
+        <div className="react-datepicker__year-dropdown-container">
+          <div 
+            className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}
+            onClick={() => setShowYearSelect(true)}
+          >
             <span className="react-datepicker__year-read-view--selected-year form-select text-bold text-sm">
               { getYear(date) }
             </span>
           </div>
         </div>
       </Col>
-      <Col className="my-auto">
+      <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col className="my-auto">
+      <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
