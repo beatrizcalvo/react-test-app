@@ -8,7 +8,6 @@ import { useFormContext, Controller } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = ({ date }) => {
-  const [ showSelectMonth, setShowSelectMonth] = useState(false);
 
   // Get list of month depending on locale and format
 const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
