@@ -7,6 +7,10 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+const CustomHeader = () => {
+  return (<div></div>);
+};
+
 const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref) => {
   const { formState: { errors } } = useFormContext();
   
@@ -57,7 +61,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             selected={value}
             onChange={(date) => onChange(date)}
             customInput={<CustomInput />}
-            renderCustomHeader={() => (<div></div>)}
+            renderCustomHeader={CustomHeader}
           />
         )}
       />
