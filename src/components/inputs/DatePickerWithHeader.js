@@ -41,9 +41,9 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
           ))}
         </select>
         <Form.Select className="input-group text-bold text-xs">
-          { getMonthList("en").map(item => {
-              <option key={item} value={item}>{item}</option>
-          })}
+          {months.map((option) => (
+            <option key={option} value={option}>{option}</option>
+          ))}
         </Form.Select>
       </Col>
       <Col className="my-auto">
