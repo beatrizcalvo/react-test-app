@@ -31,6 +31,10 @@ const CustomHeader = ({ date }) => {
           </div>
         </div>
       </Col>
+      <Col className="my-auto col-5">
+        <div className="react-datepicker__year-dropdown-container">
+        </div>
+      </Col>
       <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
