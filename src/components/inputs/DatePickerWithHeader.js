@@ -7,9 +7,7 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = ({ date }) => {
-
-  // Get list of month depending on locale and format
+// Get list of month depending on locale and format
 const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
   const year = new Date().getFullYear();
   const monthList = [...Array(12).keys()];
@@ -17,6 +15,9 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   const getMonthName = (monthIndex: number) => formatter.format(new Date(year, monthIndex));
   return monthList.map(getMonthName);
 };
+
+const CustomHeader = ({ date }) => {
+  const months = getMonthList("en");
   
   return (
     <Row className="pb-3">
@@ -27,9 +28,6 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
               {date.getMonth()}
             </span>
           </div>
-        </div>
-        <div className="react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll">
-          {date.getYear()}
         </div>
       </Col>
       <Col className="my-auto col-1">
@@ -71,6 +69,7 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
 });
 
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
+  const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const { control } = useFormContext();
   
   return (
@@ -91,7 +90,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             maxDate={subYears(new Date(), 18)}
             selected={value}
             onChange={(date) => onChange(date)} 
-            renderCustomHeader={CustomHeader} 
+            renderCustomHeader={CustomHeader showMonthSelect={showMonthSelect} setShowMonthSelect={setShowMonthSelect} } 
             customInput={<CustomInput />}
           />
         )}
