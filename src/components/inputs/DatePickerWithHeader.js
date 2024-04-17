@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { subYears } from "date-fns";
+import { subYears, getMonth, getYear } from "date-fns";
 import { useState, forwardRef } from "react";
 import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
@@ -18,30 +18,33 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 
 const CustomHeader = ({ date }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
+  const [ showYearSelect, setShowYearSelect ] = useState(false);
   const months = getMonthList("en");
   
   return (
     <Row className="pb-3">
-      <Col className="my-auto ms-1 col-5">
+      <Col>
         <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
           <div className="react-datepicker__month-read-view">
             <span className="react-datepicker__month-read-view--selected-month form-select text-bold text-sm">
-              {months[date.getMonth()]}
+              { months[getMonth(date)] }
             </span>
           </div>
         </div>
       </Col>
-      <Col className="my-auto col-5">
+      <Col>
         <div className="react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll">
           <div className="react-datepicker__year-read-view">
-            
+            <span className="react-datepicker__year-read-view--selected-year form-select text-bold text-sm">
+              { getYear(date) }
+            </span>
           </div>
         </div>
       </Col>
-      <Col className="my-auto col-1">
+      <Col>
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col className="my-auto me-4 col-1"> 
+      <Col> 
         <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
