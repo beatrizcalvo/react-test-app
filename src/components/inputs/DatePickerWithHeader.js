@@ -23,27 +23,35 @@ const CustomHeader = ({ date, increaseMonth }) => {
   
   return (
     <Row className="pb-3 w-100">
-      <Col className="col-5">
+      <Col className="my-auto col-5 me-1">
         <div className="react-datepicker__month-dropdown-container">
+          { showMonthSelect && (
+            <div className="react-datepicker__month-dropdown">
+            </div>
+          )}
           <div 
             className={classNames("react-datepicker__month-read-view", { "d-none": showMonthSelect })}
             onClick={() => setShowMonthSelect(true)}
           >
-            <span className="react-datepicker__month-read-view--selected-month form-select text-bold text-sm">
-              { months[getMonth(date)] }
-            </span>
+            <span className="react-datepicker__month-read-view--selected-month">
+              <span className="react-datepicker__month-read-view--down-arrow mt-1" />
+			        <span className="react-datepicker__month-read-view--selected-month text-bold text-sm">
+                { months[getMonth(date)] }
+              </span>
           </div>
         </div>
       </Col>
-      <Col className="col-4">
+      <Col className="my-auto col-3 me-3">
         <div className="react-datepicker__year-dropdown-container">
           <div 
             className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}
             onClick={() => setShowYearSelect(true)}
           >
             <span className="react-datepicker__year-read-view--selected-year form-select text-bold text-sm">
-              { getYear(date) }
-            </span>
+              <span className="react-datepicker__year-read-view--down-arrow mt-1" />
+			        <span class="react-datepicker__year-read-view--selected-year text-bold text-sm">
+                { getYear(date) }
+              </span>
           </div>
         </div>
       </Col>
