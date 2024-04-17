@@ -32,7 +32,10 @@ const CustomHeader = ({ date }) => {
         </div>
       </Col>
       <Col className="my-auto col-5">
-        <div className="react-datepicker__year-dropdown-container">
+        <div className="react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll">
+          <div className="react-datepicker__year-read-view">
+            
+          </div>
         </div>
       </Col>
       <Col className="my-auto col-1">
@@ -95,7 +98,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             selected={value}
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
-            withPortal
+            {...(window.innerWidth < 768) ? { withPortal: true } : {}}
             renderCustomHeader={({ date }) => <CustomHeader date={date} />}
           />
         )}
