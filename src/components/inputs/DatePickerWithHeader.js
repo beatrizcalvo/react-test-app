@@ -8,9 +8,9 @@ import { useFormContext, Controller } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = ({ date, minDate, maxDate }) => {
-  console.log("date:" + date + " minDate: " + " maxDate:" + maxDate);
+  console.log("date:" + date + " minDate: " + minDate + " maxDate:" + maxDate);
   return (
-    <Row>
+    <Row className="pb-3">
       <Col className="my-auto ms-1">
         <Form.Select className="input-group text-bold text-xs">
           <option>Small select</option>
@@ -24,7 +24,7 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
       <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col className="my-auto me-3 col-1"> 
+      <Col className="my-auto me-4 col-1"> 
         <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
