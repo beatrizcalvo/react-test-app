@@ -24,7 +24,7 @@ const CustomHeader = ({ date }) => {
     <Row className="pb-3">
       <Col className="my-auto ms-1 col-5">
         <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
-          <div className="react-datepicker__month-read-view">
+          <div className="react-datepicker__month-read-view input-group">
             <span className="react-datepicker__month-read-view--selected-month form-select text-bold text-sm">
               {months[date.getMonth()]}
             </span>
@@ -91,6 +91,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             selected={value}
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
+            portal
             renderCustomHeader={({ date }) => <CustomHeader date={date} />}
           />
         )}
