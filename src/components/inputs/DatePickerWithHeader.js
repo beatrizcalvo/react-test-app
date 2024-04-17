@@ -27,6 +27,21 @@ const CustomHeader = ({ date, increaseMonth }) => {
         <div className="react-datepicker__month-dropdown-container">
           { showMonthSelect && (
             <div className="react-datepicker__month-dropdown">
+	      <div class="react-datepicker__month-option">January</div>
+			<div class="react-datepicker__month-option">February</div>
+			<div class="react-datepicker__month-option">March</div>
+			<div class="react-datepicker__month-option">April</div>
+			<div class="react-datepicker__month-option">May</div>
+			<div class="react-datepicker__month-option">June</div>
+			<div class="react-datepicker__month-option">July</div>
+			<div class="react-datepicker__month-option">August</div>
+			<div class="react-datepicker__month-option">September</div>
+			<div class="react-datepicker__month-option">October</div>
+			<div class="react-datepicker__month-option react-datepicker__month-option--selected_month" aria-selected="true">
+				<span class="react-datepicker__month-option--selected">✓</span>
+				November
+			</div>
+			<div class="react-datepicker__month-option">December</div>
             </div>
           )}
           <div 
