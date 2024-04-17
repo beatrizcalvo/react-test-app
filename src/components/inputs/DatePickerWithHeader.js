@@ -16,14 +16,14 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date }) => {
+const CustomHeader = ({ date, increaseMonth }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const [ showYearSelect, setShowYearSelect ] = useState(false);
   const months = getMonthList("en");
   
   return (
-    <Row className="pb-3">
-      <Col className="col-4 me-3">
+    <Row className="pb-3 w-100">
+      <Col>
         <div className="react-datepicker__month-dropdown-container">
           <div 
             className={classNames("react-datepicker__month-read-view", { "d-none": showMonthSelect })}
@@ -35,7 +35,7 @@ const CustomHeader = ({ date }) => {
           </div>
         </div>
       </Col>
-      <Col className="col-4">
+      <Col>
         <div className="react-datepicker__year-dropdown-container">
           <div 
             className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}
@@ -47,10 +47,10 @@ const CustomHeader = ({ date }) => {
           </div>
         </div>
       </Col>
-      <Col className="my-auto col-1">
+      <Col className="my-auto">
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col className="my-auto col-1">
+      <Col className="my-auto">
         <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
@@ -117,7 +117,11 @@ useEffect(() => {
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
-            renderCustomHeader={({ date }) => <CustomHeader date={date} />}
+            renderCustomHeader={({ 
+              date, 
+              increaseMonth }) => 
+                <CustomHeader date={date} increaseMonth={increaseMonth} />
+            }
           />
         )}
       />
