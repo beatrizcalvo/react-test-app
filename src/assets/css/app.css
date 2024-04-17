@@ -80,3 +80,7 @@
   border-bottom: none !important;
   padding: 1rem .6rem 0 !important;
 }
+
+.react-datepicker__month-read-view--selected-month.form-select {
+  border: 0 !important;
+}
