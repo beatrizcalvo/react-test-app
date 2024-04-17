@@ -23,7 +23,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
   
   return (
     <Row className="pb-3 w-100">
-      <Col>
+      <Col className="col-5">
         <div className="react-datepicker__month-dropdown-container">
           <div 
             className={classNames("react-datepicker__month-read-view", { "d-none": showMonthSelect })}
@@ -35,7 +35,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
           </div>
         </div>
       </Col>
-      <Col>
+      <Col className="col-4">
         <div className="react-datepicker__year-dropdown-container">
           <div 
             className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}
@@ -47,10 +47,10 @@ const CustomHeader = ({ date, increaseMonth }) => {
           </div>
         </div>
       </Col>
-      <Col className="my-auto">
+      <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col className="my-auto">
+      <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
