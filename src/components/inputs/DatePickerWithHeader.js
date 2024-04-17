@@ -11,7 +11,7 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
   console.log("date:" + date + " minDate: " + " maxDate:" + maxDate);
   return (
     <Row>
-      <Col className="my-auto">
+      <Col className="my-auto ms-1">
         <Form.Select className="input-group text-bold text-xs">
           <option>Small select</option>
         </Form.Select>
@@ -21,11 +21,11 @@ const CustomHeader = ({ date, minDate, maxDate }) => {
           <option>Small select</option>
         </Form.Select>
       </Col>
-      <Col className="my-auto">
-        <i className="fa-solid fa-arrow-up" />
+      <Col className="my-auto col-1">
+        <i className="fa-solid fa-arrow-up fa-2xl" />
       </Col>
-      <Col className="my-auto"> 
-        <i className="fa-solid fa-arrow-down" />
+      <Col className="my-auto me-3 col-1"> 
+        <i className="fa-solid fa-arrow-down fa-2xl" />
       </Col>
     </Row>
   );
