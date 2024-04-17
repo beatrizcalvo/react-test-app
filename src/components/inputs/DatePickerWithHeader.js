@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CustomHeader = ({ date, minDate }) => {
   return (
-    <Row className="w-100">
+    <Row>
       <Col>
         <Form.Select>
           <option>Small select</option>
