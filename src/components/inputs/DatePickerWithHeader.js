@@ -24,7 +24,7 @@ const CustomHeader = ({ date }) => {
         <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
           <div className={classNames("react-datepicker__month-read-view", { "d-none": showSelectMonth })}>
             <span className="react-datepicker__month-read-view--down-arrow" />
-            <span class="react-datepicker__month-read-view--selected-month">November</span>
+            <span className="react-datepicker__month-read-view--selected-month">{getMonth(date)}</span>
           </div>
         </div>
       </Col>
