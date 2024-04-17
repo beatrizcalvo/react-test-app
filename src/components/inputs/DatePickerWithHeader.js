@@ -1,13 +1,14 @@
 import classNames from "classnames";
 import { subYears } from "date-fns";
-import { forwardRef } from "react";
+import { useState, forwardRef } from "react";
 import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const CustomHeader = (props) => {
+const CustomHeader = ({ date }) => {
+  const [ showSelectMonth, setShowSelectMonth ] = useState(false);
 
   const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
     const year = new Date().getFullYear();
@@ -16,22 +17,16 @@ const CustomHeader = (props) => {
     const getMonthName = (monthIndex: number) => formatter.format(new Date(year, monthIndex));
     return monthList.map(getMonthName);
   };
-  console.log(getMonthList("en"));
-  console.log(props);
   
   return (
     <Row className="pb-3">
       <Col className="my-auto ms-1 col-5">
-        <Form.Select className="input-group text-bold text-xs">
-          {getMonthList("en").map((option) => (
-            <option key={option} value={option}>{option}</option>
-          ))}
-        </Form.Select>
-      </Col>
-      <Col className="my-auto">
-        <Form.Select className="input-group text-bold text-xs">
-          <option>Small select</option>
-        </Form.Select>
+        <div className="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
+          <div className={classNames("react-datepicker__month-read-view", { "d-none": showSelectMonth })}>
+            <span className="react-datepicker__month-read-view--down-arrow" />
+            <span class="react-datepicker__month-read-view--selected-month">November</span>
+          </div>
+        </div>
       </Col>
       <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-up fa-2xl" />
