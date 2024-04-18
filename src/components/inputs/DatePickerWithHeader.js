@@ -21,7 +21,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date, increaseMonth }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const [ showYearSelect, setShowYearSelect ] = useState(false);
-  const months = getMonthList("en");
+  const months = getMonthList("en").map((month) => return ({ code: month, description: month }));
   
   return (  
     <Row className="pb-3 w-100">
@@ -29,7 +29,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
 	<Combobox 
 	  id="month-select" 
 	  readOnly={false}
-	  choicesList={ months.map(month => return ({ code: month, description: month }))}
+	  choicesList={months}
 	/>
       </Col>
       <Col className="my-auto col-1">
