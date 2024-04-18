@@ -21,17 +21,14 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date, increaseMonth }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const [ showYearSelect, setShowYearSelect ] = useState(false);
+  const { watch } = useFormContext();
+	
   const months = getMonthList("en").map(month => ({ code: month, description: month }));
+  const watchMonth = watch("month-select.description", months[date.getMonth()].code);
 
-  var arr1 = [
- {"user":"dan","liked":"yes","age":"22"},
- {"user":"sarah","liked":"no","age":"21"},
- {"user":"john","liked":"yes","age":"23"},
-];
-
-var arr2 = arr1.map(v => ({ user: v.user, liked: v.liked }));
-
-console.log(arr2);
+  useEffect(() => {
+    console.log("Actualizado month-select");
+  }, [watchMonth]);
   
   return (  
     <Row className="pb-3 w-100">
