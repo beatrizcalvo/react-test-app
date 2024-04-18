@@ -7,6 +7,8 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import Combobox from "./Combobox";
+
 // Get list of month depending on locale and format
 const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
   const year = new Date().getFullYear();
@@ -21,37 +23,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
   const [ showYearSelect, setShowYearSelect ] = useState(false);
   const months = getMonthList("en");
   
-  return (
-<div class="react-datepicker__current-month react-datepicker__current-month--hasYearDropdown react-datepicker__current-month--hasMonthDropdown">
-		November 2003
-	</div>
-	<div class="react-datepicker__header__dropdown react-datepicker__header__dropdown--scroll">
-		<div class="react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--scroll">
-			<div class="react-datepicker__month-read-view" style="visibility: visible;">
-				<span class="react-datepicker__month-read-view--down-arrow"></span>
-				<span class="react-datepicker__month-read-view--selected-month">November</span>
-			</div>
-		</div>
-		<div class="react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll">
-			<div class="react-datepicker__year-read-view" style="visibility: visible;">
-				<span class="react-datepicker__year-read-view--down-arrow"></span>
-				<span class="react-datepicker__year-read-view--selected-year">2003</span>
-			</div>
-		</div>
-	</div>
-	<div class="react-datepicker__day-names">
-		<div class="react-datepicker__day-name">MO</div>
-		<div class="react-datepicker__day-name">TU</div>
-		<div class="react-datepicker__day-name">WE</div>
-		<div class="react-datepicker__day-name">TH</div>
-		<div class="react-datepicker__day-name">FR</div>
-		<div class="react-datepicker__day-name">SA</div>
-		<div class="react-datepicker__day-name">SU</div>
-	</div>
-
-
-
-	  
+  return (  
     <Row className="pb-3 w-100">
       <Col className="my-auto col-5 me-0">
         <div className="react-datepicker__month-dropdown-container">
@@ -80,6 +52,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
 	    </span>
           </div>
         </div>
+	<Combobox id="month-select" readOnly="false" choicesList={months} />
       </Col>
       <Col className="my-auto col-4 me-2">
         <div className="react-datepicker__year-dropdown-container">
