@@ -16,13 +16,10 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date }) => {
-  const [ showMonthSelect, setShowMonthSelect ] = useState(false);
-  const [ showYearSelect, setShowYearSelect ] = useState(false);	
-  const months = getMonthList("en");
+const CustomContainer = ({ className, children }) => {
   
   return (  
-    <div className="d-flex justify-content-center m-2">
+    <div className="d-flex justify-content-center">
       Prueba
     </div>
   );
@@ -90,10 +87,7 @@ useEffect(() => {
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
-            renderCustomHeader={({ 
-              date, minDate, maxDate }) => 
-                <CustomHeader date={date} />
-            }
+            calendarContainer={CustomContainer}
           />
         )}
       />
