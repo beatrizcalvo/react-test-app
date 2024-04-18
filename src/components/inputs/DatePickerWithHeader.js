@@ -58,7 +58,7 @@ const CustomHeaderMenu = forwardRef(
 
 const CustomHeader = ({ date }) => {
   return (  
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center m-2">
       <Dropdown>
         <Dropdown.Toggle as={CustomHeaderToggle} id="month-year-select">
           Custom toggle
