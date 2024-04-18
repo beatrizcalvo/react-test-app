@@ -21,7 +21,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date, increaseMonth }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const [ showYearSelect, setShowYearSelect ] = useState(false);
-  const months = getMonthList("en");
+  const months = getMonthList("en").map(month => ({ code: month, description: month }));
 
   var arr1 = [
  {"user":"dan","liked":"yes","age":"22"},
