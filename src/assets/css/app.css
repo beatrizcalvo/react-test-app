@@ -61,6 +61,11 @@
   right: 2px !important;
 }
 
+.react-datepicker-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .choices .form-control.is-invalid {
   background-position: right 1.7rem center !important;
 }
