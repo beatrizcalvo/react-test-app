@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears, getMonth, getYear } from "date-fns";
 import { useState, useEffect, forwardRef } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Form, InputGroup, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -23,7 +23,9 @@ const CustomHeader = ({ date, increaseMonth }) => {
   
   return (  
     <div className="d-flex justify-content-center">
-      Prueba
+      <Button>
+        {">"}
+      </Button>
     </div>
   );
 };
