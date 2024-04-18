@@ -90,8 +90,6 @@ useEffect(() => {
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
-            showMonthYearPicker
-            showFullMonthYearPicker
             renderCustomHeader={({ 
               date, minDate, maxDate }) => 
                 <CustomHeader date={date} />
