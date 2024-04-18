@@ -21,6 +21,7 @@ const CustomContainer = ({ className, children }) => {
   return (  
     <div className="d-flex justify-content-center">
       Prueba
+      {children}
     </div>
   );
 };
