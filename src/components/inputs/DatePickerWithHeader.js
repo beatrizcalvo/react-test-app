@@ -28,7 +28,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
       <Col className="my-auto col-5 me-0">
 	<Combobox 
 	  id="month-select" 
-	  readOnly=false
+	  readOnly={false}
 	/>
       </Col>
       <Col className="my-auto col-1">
