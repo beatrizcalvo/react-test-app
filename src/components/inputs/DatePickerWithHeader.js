@@ -32,19 +32,11 @@ const CustomHeader = ({ date, increaseMonth }) => {
   
   return (  
     <Row className="pb-3 w-100">
-      <Col className="my-auto col-5 me-0">
-	<Combobox 
-	  id="month-select" 
-	  readOnly={false}
-	  choicesList={months}
-	/>
-      </Col>
-      <Col className="my-auto col-1">
-        <i className="fa-solid fa-arrow-up fa-2xl" />
-      </Col>
-      <Col className="my-auto col-1">
-        <i className="fa-solid fa-arrow-down fa-2xl" />
-      </Col>
+      <Combobox 
+	id="month-select" 
+	readOnly={false}
+	choicesList={months}
+      />
     </Row>
   );
 };
