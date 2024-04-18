@@ -7,8 +7,6 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import Combobox from "./Combobox";
-
 // Get list of month depending on locale and format
 const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
   const year = new Date().getFullYear();
@@ -31,12 +29,8 @@ const CustomHeader = ({ date, increaseMonth }) => {
   }, [watchMonth]);
   
   return (  
-    <Row className="pb-3 w-100">
-      <Combobox 
-	id="month-select" 
-	readOnly={false}
-	choicesList={months}
-      />
+    <Row className="d-flex justify-content-center">
+      Prueba
     </Row>
   );
 };
