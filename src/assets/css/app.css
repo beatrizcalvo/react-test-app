@@ -79,13 +79,13 @@
   background-position: right 1.2rem center !important;
 }
 
-.react-datepicker__header {
+.react-datepicker__header--custom {
   background-color: transparent !important;
   border-bottom: none !important;
   padding: 1rem .6rem 0 !important;
 }
 
-.react-datepicker__month-read-view--selected-month.form-select,
-.react-datepicker__year-read-view--selected-year.form-select {
-  border: 0 !important;
+.react-datepicker__header--custom .choices[data-type*=select-one] .form-control {
+  font-size: .675rem !important;
+  font-weight: 600 !important;
 }
