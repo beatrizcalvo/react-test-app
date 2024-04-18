@@ -83,3 +83,8 @@
   background-color: transparent !important;
   border-bottom: none !important;
 }
+
+.react-datepicker__header--custom .form-select {
+  width: fit-content;
+  height: fit-content;
+}
