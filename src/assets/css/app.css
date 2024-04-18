@@ -84,6 +84,7 @@
   border-bottom: none !important;
 }
 
+// Borrar
 .react-datepicker__header--custom .form-select {
   width: fit-content;
   height: fit-content;
