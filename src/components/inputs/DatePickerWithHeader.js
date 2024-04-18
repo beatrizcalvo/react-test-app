@@ -21,7 +21,17 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date, increaseMonth }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const [ showYearSelect, setShowYearSelect ] = useState(false);
-  const months = getMonthList("en").map((month) => return ({ code: month, description: month }));
+  const months = getMonthList("en");
+
+  var arr1 = [
+ {"user":"dan","liked":"yes","age":"22"},
+ {"user":"sarah","liked":"no","age":"21"},
+ {"user":"john","liked":"yes","age":"23"},
+];
+
+var arr2 = arr1.map(v => ({ user: v.user, liked: v.liked }));
+
+console.log(arr2);
   
   return (  
     <Row className="pb-3 w-100">
