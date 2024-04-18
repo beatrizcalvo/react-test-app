@@ -29,7 +29,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
 	<Combobox 
 	  id="month-select" 
 	  readOnly={false}
-	  choicesList={months.map(month => {{ code: month, description: month }})}
+	  choicesList={months.map(month => {{ code: month, description: month };})}
 	/>
       </Col>
       <Col className="my-auto col-1">
