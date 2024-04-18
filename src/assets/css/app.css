@@ -57,6 +57,10 @@
   padding-bottom: 0;
 }
 
+.choices[data-type*=select-one]:after {
+  right: 2px !important;
+}
+
 .choices .form-control.is-invalid {
   background-position: right 1.7rem center !important;
 }
