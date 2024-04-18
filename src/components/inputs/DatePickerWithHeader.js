@@ -103,7 +103,7 @@ useEffect(() => {
             {...showPortal ? { withPortal: true } : {}}
             renderCustomHeader={({ 
               date, minDate, maxDate }) => 
-                <CustomHeader date={date} minDate={minDate}, maxDate= {maxDate} />
+                <CustomHeader date={date} />
             }
           />
         )}
