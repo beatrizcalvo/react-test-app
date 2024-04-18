@@ -18,15 +18,8 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 
 const CustomHeader = ({ date, increaseMonth }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
-  const [ showYearSelect, setShowYearSelect ] = useState(false);
-  const { watch } = useFormContext();
-	
+  const [ showYearSelect, setShowYearSelect ] = useState(false);	
   const months = getMonthList("en").map(month => ({ code: month, description: month }));
-  const watchMonth = watch("month-select.description", months[date.getMonth()].code);
-
-  useEffect(() => {
-    console.log("Actualizado month-select");
-  }, [watchMonth]);
   
   return (  
     <div className="d-flex justify-content-center">
