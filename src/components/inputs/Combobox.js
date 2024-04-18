@@ -69,13 +69,11 @@ export default function Combobox({ id, readOnly, inputValidations, choicesList }
 	    { 
 	      choicesList.map((choice, index) => {
 		const idElement = "choices--choices-" + id + "-item-choice-" + index;
-		const choiceCode = (Object.entries(choice).length === 1) ? choice : choice.code;
-		const choiceDescription = (Object.entries(choice).length === 1) ? choice : choice.description;
 	        return (
 		  <div 
 		    id={idElement} 
 		    className="choices__item choices__item--choice choices__item--selectable" 
-		    onClick={() => handleSelectChoice(choiceCode, choiceDescription)} 
+		    onClick={() => handleSelectChoice(choice.code, choice.description)} 
 		    onMouseEnter={() => document.getElementById(idElement).classList.add("is-highlighted")}
       		    onMouseLeave={() => document.getElementById(idElement).classList.remove("is-highlighted")}
 		  >
