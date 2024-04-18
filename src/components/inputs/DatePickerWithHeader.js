@@ -26,48 +26,10 @@ const CustomHeader = ({ date, increaseMonth }) => {
   return (  
     <Row className="pb-3 w-100">
       <Col className="my-auto col-5 me-0">
-        <div className="react-datepicker__month-dropdown-container">
-          { showMonthSelect && (
-            <div className="react-datepicker__month-dropdown">
-	      { months.map((month) => {
-		return (
-		  <div className="react-datepicker__month-option">{month}</div>
-		);
-	      })}
-			<div class="react-datepicker__month-option react-datepicker__month-option--selected_month" aria-selected="true">
-				<span class="react-datepicker__month-option--selected">✓</span>
-				November
-			</div>
-            </div>
-          )}
-          <div 
-            className={classNames("react-datepicker__month-read-view", { "d-none": showMonthSelect })}
-            onClick={() => setShowMonthSelect(true)}
-          >
-            <span className="react-datepicker__month-read-view--selected-month">
-              <span className="react-datepicker__month-read-view--down-arrow mt-1"></span>
-	      <span className="react-datepicker__month-read-view--selected-month text-bold text-sm">
-                { months[getMonth(date)] }
-              </span>
-	    </span>
-          </div>
-        </div>
-	<Combobox id="month-select" readOnly={false} choicesList={months} />
-      </Col>
-      <Col className="my-auto col-4 me-2">
-        <div className="react-datepicker__year-dropdown-container">
-          <div 
-            className={classNames("react-datepicker__year-read-view", { "d-none": showYearSelect })}
-            onClick={() => setShowYearSelect(true)}
-          >
-            <span className="react-datepicker__year-read-view--selected-year text-bold text-sm">
-              <span className="react-datepicker__year-read-view--down-arrow mt-1"></span>
-	      <span className="react-datepicker__year-read-view--selected-year text-bold text-sm">
-                { getYear(date) }
-              </span>
-	    </span>
-          </div>
-        </div>
+	<Combobox 
+	  id="month-select" 
+	  readOnly=false
+	/>
       </Col>
       <Col className="my-auto col-1">
         <i className="fa-solid fa-arrow-up fa-2xl" />
