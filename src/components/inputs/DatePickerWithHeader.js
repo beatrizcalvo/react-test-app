@@ -22,8 +22,7 @@ const CustomHeader = ({ date }) => {
   const months = getMonthList("en");
   
   return (  
-    <div className="d-flex justify-content-center">
-      <i className="fa-solid fa-chevron-left" />
+    <div className="d-flex justify-content-center m-2">
       <Form.Select>
         <option value="1">One</option>
         <option value="2">Two</option>
@@ -34,7 +33,6 @@ const CustomHeader = ({ date }) => {
         <option value="2">Two</option>
         <option value="3">Three</option>
       </Form.Select>
-      <i className="fa-solid fa-chevron-right" />
     </div>
   );
 };
