@@ -52,7 +52,7 @@ const CustomHeader = ({ date, increaseMonth }) => {
 	    </span>
           </div>
         </div>
-	<Combobox id="month-select" readOnly="false" choicesList={months} />
+	<Combobox id="month-select" readOnly={false} choicesList={months} />
       </Col>
       <Col className="my-auto col-4 me-2">
         <div className="react-datepicker__year-dropdown-container">
