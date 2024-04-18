@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears, getMonth, getYear } from "date-fns";
 import { useState, useEffect, forwardRef } from "react";
-import { Form, InputGroup, Button } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -16,16 +16,25 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date, increaseMonth }) => {
+const CustomHeader = ({ date }) => {
   const [ showMonthSelect, setShowMonthSelect ] = useState(false);
   const [ showYearSelect, setShowYearSelect ] = useState(false);	
-  const months = getMonthList("en").map(month => ({ code: month, description: month }));
+  const months = getMonthList("en");
   
   return (  
     <div className="d-flex justify-content-center">
-      <Button>
-        {">"}
-      </Button>
+      <i className="fa-solid fa-chevron-left" />
+      <Form.Select>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </Form.Select>
+      <Form.Select>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </Form.Select>
+      <i className="fa-solid fa-chevron-right" />
     </div>
   );
 };
@@ -61,6 +70,8 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
 export default function DatePickerWithHeader({ id, readOnly, inputValidations }) {
   const [ showPortal, setShowPortal ] = useState(false);
   const { control } = useFormContext();
+  const minDate = subYears(new Date(), 70);
+  const maxDate = subYears(new Date(), 18);
 
 useEffect(() => {
   const handleResize = () => { setShowPortal(window.innerWidth < 768); };
@@ -84,16 +95,15 @@ useEffect(() => {
             calendarStartDay={1}
             formatWeekDay={nameOfDay => nameOfDay.substring(0,2).toUpperCase()}
             dateFormat="dd/MM/yyyy"
-            minDate={subYears(new Date(), 70)}
-            maxDate={subYears(new Date(), 18)}
+            minDate={minDate}
+            maxDate={maxDate}
             selected={value}
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
             renderCustomHeader={({ 
-              date, 
-              increaseMonth }) => 
-                <CustomHeader date={date} increaseMonth={increaseMonth} />
+              date, minDate, maxDate }) => 
+                <CustomHeader date={date} minDate={minDate}, maxDate= {maxDate} />
             }
           />
         )}
