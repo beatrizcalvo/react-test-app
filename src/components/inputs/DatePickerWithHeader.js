@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears, getMonth, getYear } from "date-fns";
 import { useState, useEffect, forwardRef } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Form, InputGroup, Dropdown } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -23,11 +23,17 @@ const CustomHeader = ({ date }) => {
   
   return (  
     <div className="d-flex justify-content-center m-2">
-      <Form.Select>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </Form.Select>
+      <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Dropdown Button
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
       <Form.Select>
         {months.map((month) => ( <option key={month} value={month}>{month}</option> ))}
       </Form.Select>
