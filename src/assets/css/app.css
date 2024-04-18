@@ -84,8 +84,3 @@
   border-bottom: none !important;
   padding: 1rem .6rem 0 !important;
 }
-
-.react-datepicker__header--custom .choices[data-type*=select-one] .form-control {
-  font-size: .675rem !important;
-  font-weight: 600 !important;
-}
