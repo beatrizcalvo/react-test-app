@@ -87,4 +87,6 @@
 .react-datepicker__header--custom .form-select {
   width: fit-content;
   height: fit-content;
+  padding: 0 16px 0 0;
+  border: none;
 }
