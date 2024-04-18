@@ -61,11 +61,6 @@
   right: 2px !important;
 }
 
-.react-datepicker-wrapper {
-  position: relative;
-  width: 100%;
-}
-
 .choices .form-control.is-invalid {
   background-position: right 1.7rem center !important;
 }
@@ -73,6 +68,11 @@
 .choices__inner, 
 .is-open .choices__inner {
   border-radius: 0;
+}
+
+.react-datepicker-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .react-datepicker-wrapper .form-control.is-invalid {
