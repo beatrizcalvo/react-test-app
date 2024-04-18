@@ -33,7 +33,7 @@ const CustomHeader = ({ date }) => {
   return (  
     <div className="d-flex justify-content-center">
       <Dropdown>
-        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+        <Dropdown.Toggle as={CustomToggle} id="month-year-select">
           Custom toggle
         </Dropdown.Toggle>
       </Dropdown>
