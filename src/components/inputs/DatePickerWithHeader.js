@@ -102,13 +102,14 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   const minDate = subYears(new Date(), 70);
   const maxDate = subYears(new Date(), 18);
 
-useEffect(() => {
-  const handleResize = () => { setShowPortal(window.innerWidth < 768); };
-  window.addEventListener("resize", handleResize);
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-}, []);
+  // Show datepicker on full mode if window with is small
+  useEffect(() => {
+    const handleResize = () => { setShowPortal(window.innerWidth < 768); };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   
   return (
     <>
