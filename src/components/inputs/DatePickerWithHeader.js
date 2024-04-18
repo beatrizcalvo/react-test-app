@@ -131,7 +131,17 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
-            renderCustomHeader={({ date }) =>( <CustomHeader date={date} /> )}
+            renderCustomHeader={({
+        date,
+        changeYear,
+        changeMonth,
+        decreaseMonth,
+        increaseMonth,
+        prevMonthButtonDisabled,
+        nextMonthButtonDisabled,
+      }) => (
+              <CustomHeader date={date} />
+      )}
           />
         )}
       />
