@@ -28,7 +28,9 @@ const CustomHeader = ({ date }) => {
       <div className="datepicker-month">
         <select className="datepicker-monthDropdown-months">
           { months.map((month, index) => {
-            <option className="datepicker-monthDropdown-month" value={index}>month</option>
+            return (
+              <option className="datepicker-monthDropdown-month" value={index}>A</option>
+            );
           })}
         </select>
         <div className="datepicker-current-month">
