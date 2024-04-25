@@ -28,7 +28,7 @@ const CustomHeader = ({ date, changeMonth }) => {
         <div className="datepicker-current-month">
           <select 
             className="datepicker-monthDropdown-months"
-            value={months[date.getMonth()]}
+            value={months[getMonth(date)]}
             onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
             { months.map((month) => (
@@ -36,7 +36,11 @@ const CustomHeader = ({ date, changeMonth }) => {
             ))}
           </select>
           <div className="datepicker-select-year">
-            <input className="input-current-year" type="number" aria-label="Year"/>
+            <input 
+              className="input-current-year" 
+              type="number" 
+              defaultValue={getYear(date)}
+            />
           </div>
         </div>
       </div>
