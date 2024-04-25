@@ -167,6 +167,48 @@
   position: relative;
   height: auto
 }
+
+.react-datepicker__header--custom .datepicker-select-year .input-current-year {
+  background: 0 0;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: text;
+  padding: 0 0 0 .5ch;
+  margin: 0;
+  display: inline-block;
+  font-size: medium;
+  font-family: inherit;
+  font-weight: 300;
+  line-height: inherit;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  vertical-align: initial;
+  appearance: textfield;
+}
+
+.react-datepicker__header--custom .datepicker-select-year span {
+  position: absolute;
+  right: 0;
+  width: 14px;
+  padding: 0 4px 0 2px;
+  height: 50%;
+  line-height: 50%;
+  opacity: 0;
+  cursor: pointer;
+  border: 1px solid rgba(57, 57, 57, .15);
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.react-datepicker__header--custom .datepicker-select-year .arrowUp {
+  top: 0;
+  border-bottom: 0;
+}
+
+.react-datepicker__header--custom .datepicker-select-year .arrowDown {
+  top: 50%;
+}
 /*====================================================================================*/
 /* END COMBOBOX CSS */
 /*====================================================================================*/
