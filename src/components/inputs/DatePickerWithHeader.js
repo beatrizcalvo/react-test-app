@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { subYears, getMonth, getYear } from "date-fns";
 import React, { useState, useEffect, forwardRef } from "react";
-import { Form, InputGroup, Button} from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -19,9 +19,8 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date }) => {
   return (  
     <div className="d-flex m-2">
-      <Button>
-        <
-      </Button>
+      <span className="datepicker-prev-month">
+      </span>
     </div>
   );
 };
