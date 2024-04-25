@@ -37,8 +37,6 @@ const CustomHeader = ({ date, changeMonth }) => {
           </select>
           <div className="datepicker-select-year">
             <input className="input-current-year" type="number" aria-label="Year"/>
-            <span className="arrowUp" />
-            <span className="arrowDown" />
           </div>
         </div>
       </div>
