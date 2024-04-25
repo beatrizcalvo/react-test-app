@@ -16,7 +16,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date }) => {
+const CustomHeader = ({ date, changeMonth }) => {
   const months = getMonthList("en");
   
   return (  
@@ -29,14 +29,16 @@ const CustomHeader = ({ date }) => {
           <select 
             className="datepicker-monthDropdown-months"
             value={months[date.getMonth()]}
-            onChange={({ target: { value } }) => alert(value)}
+            onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
             { months.map((month) => (
               <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
             ))}
           </select>
           <div className="datepicker-select-year">
-            
+            <input className="input-current-year" type="number" aria-label="Year"/>
+            <span className="arrowUp" />
+            <span className="arrowDown" />
           </div>
         </div>
       </div>
@@ -110,8 +112,8 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
-            renderCustomHeader={({ date }) => (
-              <CustomHeader date={date} />
+            renderCustomHeader={({ date, changeMonth }) => (
+              <CustomHeader date={date} changeMonth={changeMonth} />
             )}
           />
         )}
