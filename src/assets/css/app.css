@@ -121,6 +121,18 @@
   overflow: hidden;
   flex: 1 1;
 }
+
+.react-datepicker__header--custom .datepicker-current-month {
+  font-size: 135%;
+  font-weight: 300;
+  color: inherit;
+  position: absolute:
+  width: 75%;
+  left: 12.5%;
+  pading: 7.48px 0 0;
+  display: inline-block;
+  transform: translateZ(0);
+}
 /*====================================================================================*/
 /* END COMBOBOX CSS */
 /*====================================================================================*/
