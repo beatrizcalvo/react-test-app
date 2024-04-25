@@ -29,7 +29,7 @@ const CustomHeader = ({ date }) => {
           className="datepicker-monthDropdown-months"
           value={months[date.getMonth()]}
         >
-          { months.map((option) => (
+          { months.map((month) => (
             <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
           ))}
         </select>
