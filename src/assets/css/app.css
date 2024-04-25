@@ -154,6 +154,19 @@
   -webkit-appearance: menulist;
   width: auto;
 }
+
+.react-datepicker__header--custom .datepicker-monthDropdown-month {
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+}
+
+.react-datepicker__header--custom numInputWrapper {
+  width: 6ch;
+  display: inline-block;
+  position: relative;
+  height: auto
+}
 /*====================================================================================*/
 /* END COMBOBOX CSS */
 /*====================================================================================*/
