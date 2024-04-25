@@ -110,11 +110,12 @@
   height: 34px;
   padding: 10px;
   z-index: 3;
-  color: rgba(0,0,0,.9);
-  fill: rgba(0,0,0,.9);
 }
 
 .react-datepicker__header--custom .datepicker-month {
+  height: 34px;
+  line-height: 1;
+  text-align: center;
   
 }
 /*====================================================================================*/
