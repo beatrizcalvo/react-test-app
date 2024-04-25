@@ -94,8 +94,16 @@
 }
 
 .react-datepicker__header--custom .datepicker-prev-month {
-  top: 0;
   left: 0;
+}
+
+.react-datepicker__header--custom .datepicker-next-month {
+  right: 0;
+}
+
+.react-datepicker__header--custom .datepicker-prev-month, 
+..react-datepicker__header--custom .datepicker-next-month {
+  top: 0;
   height: 34px;
   padding: 10px;
 }
