@@ -18,13 +18,19 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 
 const CustomHeader = ({ date }) => {
   const [ currentMonth, setCurrentMonth ] = useState(date.getMonth());
+  const months = getMonthList("en");
+  
   return (  
     <div className="d-flex m-2">
       <span className="datepicker-prev-month">
         <i className="fa-solid fa-chevron-left fa-lg" />
       </span>
       <div className="datepicker-month">
-        <select></select>
+        <select className="datepicker-monthDropdown-months">
+          { months.map((month, index) => {
+            <option className="datepicker-monthDropdown-month" value={index}>month</option>
+          })}
+        </select>
         <div className="datepicker-current-month">
           <div className="datepicker-select-year">
           </div>
