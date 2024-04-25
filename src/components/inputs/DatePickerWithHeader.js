@@ -17,7 +17,6 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 };
 
 const CustomHeader = ({ date }) => {
-  const [ currentMonth, setCurrentMonth ] = useState(date.getMonth());
   const months = getMonthList("en");
   
   return (  
@@ -26,12 +25,13 @@ const CustomHeader = ({ date }) => {
         <i className="fa-solid fa-chevron-left fa-lg" />
       </span>
       <div className="datepicker-month">
-        <select className="datepicker-monthDropdown-months">
-          { months.map((month, index) => {
-            return (
-              <option className="datepicker-monthDropdown-month" value={index}>{month}</option>
-            );
-          })}
+        <select 
+          className="datepicker-monthDropdown-months"
+          value={months[date.getMonth()]}
+        >
+          { months.map((option) => (
+            <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
+          ))}
         </select>
         <div className="datepicker-current-month">
           <div className="datepicker-select-year">
