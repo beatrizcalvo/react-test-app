@@ -21,7 +21,7 @@ const CustomHeader = ({ date }) => {
   const months = getMonthList("en");
   
   return (  
-    <div className="d-flex m-2">
+    <div className="d-flex">
       <span className="datepicker-prev-month">
         <i className="fa-solid fa-chevron-left fa-lg" />
       </span>
@@ -29,7 +29,7 @@ const CustomHeader = ({ date }) => {
         <select className="datepicker-monthDropdown-months">
           { months.map((month, index) => {
             return (
-              <option className="datepicker-monthDropdown-month" value={index}>A</option>
+              <option className="datepicker-monthDropdown-month" value={index}>{month}</option>
             );
           })}
         </select>
