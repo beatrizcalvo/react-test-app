@@ -25,16 +25,17 @@ const CustomHeader = ({ date }) => {
         <i className="fa-solid fa-chevron-left fa-lg" />
       </span>
       <div className="datepicker-month">
-        <select 
-          className="datepicker-monthDropdown-months"
-          value={months[date.getMonth()]}
-        >
-          { months.map((month) => (
-            <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
-          ))}
-        </select>
         <div className="datepicker-current-month">
+          <select 
+            className="datepicker-monthDropdown-months"
+            value={months[date.getMonth()]}
+          >
+            { months.map((month) => (
+              <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
+            ))}
+          </select>
           <div className="datepicker-select-year">
+            
           </div>
         </div>
       </div>
