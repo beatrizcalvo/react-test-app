@@ -108,7 +108,7 @@
   position: absolute;
   top: 0;
   height: 34px;
-  padding: 10px;
+  padding: 12px;
   z-index: 3;
 }
 
@@ -116,7 +116,10 @@
   height: 34px;
   line-height: 1;
   text-align: center;
-  
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  flex: 1 1;
 }
 /*====================================================================================*/
 /* END COMBOBOX CSS */
