@@ -133,6 +133,27 @@
   display: inline-block;
   transform: translateZ(0);
 }
+
+.react-datepicker__header--custom .datepicker-monthDropdown-months {
+  background: 0 0;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  cursor: ponter;
+  font-size: inherit;
+  font-family: inherit;
+  font-weigth: 300;
+  height: auto;
+  line-height: inherit;
+  margin: -1px 0 0;
+  outline: none;
+  padding: 0 0 0 .5ch;
+  position: relative;
+  vertical-align: initial;
+  -webkit-box-sizing: border-box;
+  -webkit-appearance: menulist;
+  width: auto;
+}
 /*====================================================================================*/
 /* END COMBOBOX CSS */
 /*====================================================================================*/
