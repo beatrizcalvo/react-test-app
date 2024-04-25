@@ -17,6 +17,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 };
 
 const CustomHeader = ({ date }) => {
+  const [ currentMonth, setCurrentMonth ] = useState(date.getMonth());
   return (  
     <div className="d-flex m-2">
       <span className="datepicker-prev-month">
