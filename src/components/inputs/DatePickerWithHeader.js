@@ -32,6 +32,8 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth }) => {
             onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
             { months.map((month) => (
+              ((getYear(maxDate) === getYear(date)) && 
+              (month <= getMonth(maxDate))) && 
               <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
             ))}
           </select>
