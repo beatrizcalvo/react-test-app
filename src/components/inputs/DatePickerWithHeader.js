@@ -24,8 +24,10 @@ const CustomHeader = ({ date }) => {
         <i className="fa-solid fa-chevron-left fa-lg" />
       </span>
       <div className="datepicker-month">
+        <select></select>
         <div className="datepicker-current-month">
-          
+          <div className="datepicker-select-year">
+          </div>
         </div>
       </div>
       <span className="datepicker-next-month">
@@ -47,7 +49,7 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   
   return (
     <InputGroup>
-      { !readOnly && <InputGroup.Text className="fa-regular fa-calendar-days pb-2" /> }
+      { !readOnly && <InputGroup.Text className="fa-regular fa-calendar-days pb-2 me-2" /> }
       <Form.Control 
         id={id}
         type="text"
