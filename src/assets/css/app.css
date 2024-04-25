@@ -161,7 +161,7 @@
   padding: 0;
 }
 
-.react-datepicker__header--custom numInputWrapper {
+.react-datepicker__header--custom .datepicker-select-year {
   width: 6ch;
   display: inline-block;
   position: relative;
