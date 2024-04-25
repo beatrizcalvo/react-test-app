@@ -16,7 +16,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date, changeMonth }) => {
+const CustomHeader = ({ date, minDate, maxDate, changeMonth }) => {
   const months = getMonthList("en");
   
   return (  
@@ -114,8 +114,18 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             onChange={(date) => onChange(date)} 
             customInput={<CustomInput />}
             {...showPortal ? { withPortal: true } : {}}
-            renderCustomHeader={({ date, changeMonth }) => (
-              <CustomHeader date={date} changeMonth={changeMonth} />
+            renderCustomHeader={({ 
+              date, 
+              minDate, 
+              maxDate, 
+              changeMonth 
+            }) => (
+              <CustomHeader 
+                date={date} 
+                minDate={minDate} 
+                maxDate={maxDate}
+                changeMonth={changeMonth} 
+              />
             )}
           />
         )}
