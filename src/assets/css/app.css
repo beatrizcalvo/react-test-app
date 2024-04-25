@@ -188,7 +188,7 @@
 }
 
 .react-datepicker__header--custom .input-current-year {
-  
+  width: 100%;
 }
 /*====================================================================================*/
 /* END COMBOBOX CSS */
