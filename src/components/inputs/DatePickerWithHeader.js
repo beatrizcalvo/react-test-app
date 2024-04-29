@@ -16,13 +16,14 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date, minDate, maxDate, changeMonth, nextMonthButtonDisabled }) => {
+const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, 
+                       nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
   
   return (  
     <div className="d-flex">
-      <span className="datepicker-prev-month">
-        <i className="fa-solid fa-chevron-left fa-lg" />
+      <span className={classNames("datepicker-prev-month", { "d-none": prevMonthButtonDisabled })}>
+        <i className="fa-solid fa-chevron-left fa-lg" onClick={decreaseMonth} />
       </span>
       <div className="datepicker-month">
         <div className="datepicker-current-month">
@@ -40,12 +41,13 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth, nextMonthButtonDisa
               className="input-current-year" 
               type="number" 
               defaultValue={getYear(date)}
+              max={getYear(maxDate)}
             />
           </div>
         </div>
       </div>
       <span className={classNames("datepicker-next-month", { "d-none": nextMonthButtonDisabled })}>
-        <i className="fa-solid fa-chevron-right fa-lg" />
+        <i className="fa-solid fa-chevron-right fa-lg" onClick={increaseMonth} />
       </span>
     </div>
   );
@@ -119,6 +121,9 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
               minDate, 
               maxDate, 
               changeMonth, 
+              decreaseMonth,
+              increaseMonth, 
+              prevMonthButtonDisabled, 
               nextMonthButtonDisabled
             }) => (
               <CustomHeader 
@@ -126,6 +131,9 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
                 minDate={minDate} 
                 maxDate={maxDate}
                 changeMonth={changeMonth} 
+                decreaseMonth={decreaseMonth}
+                increaseMonth={increaseMonth}
+                prevMonthButtonDisabled={prevMonthButtonDisabled} 
                 nextMonthButtonDisabled={nextMonthButtonDisabled}
               />
             )}
