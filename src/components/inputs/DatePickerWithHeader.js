@@ -18,7 +18,12 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 
 const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, 
                        nextMonthButtonDisabled, showPortal }) => {
+  const [ currentYear, setCurrentYear ] = useState(getYear(date));
   const months = getMonthList("en");
+
+  const updateCurrentYear = (year) => {
+    if (year.length === 4) alert("OK");
+  };
   
   return (  
     <div className="d-flex">
@@ -44,10 +49,11 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, incr
               <input 
                 className="input-current-year" 
                 type="number"
-                defaultValue={getYear(date)}
+                defaultValue={currentYear}
                 min={getYear(minDate)}
                 max={getYear(maxDate)}
-                onChange={(e) => alert(e.target.value)}
+                onChange={(e) => updateCurrentYear(e.target.value)}
+                onBlur={() => alert("onBlur")}
               />
             </div>
           )}
