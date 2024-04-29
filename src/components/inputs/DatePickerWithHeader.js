@@ -19,7 +19,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, 
                        nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
-  
+  alert(getYear(maxDate));
   return (  
     <div className="d-flex">
       <span className={classNames("datepicker-prev-month", { "d-none": prevMonthButtonDisabled })}>
@@ -41,7 +41,6 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, incr
               className="input-current-year" 
               type="number" 
               defaultValue={getYear(date)}
-              max={getYear(maxDate)}
             />
           </div>
         </div>
