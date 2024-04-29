@@ -16,13 +16,16 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, 
-                       nextMonthButtonDisabled, showPortal }) => {
+const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreaseMonth, increaseMonth, 
+                       prevMonthButtonDisabled, nextMonthButtonDisabled, showPortal }) => {
   const [ currentYear, setCurrentYear ] = useState(getYear(date));
   const months = getMonthList("en");
 
-  const updateCurrentYear = (year) => {
-    if (year.length === 4) alert("OK");
+  const handleYearChange = (year) => {
+    if (year.length === 4) {
+      changeYear(year);
+      setCurrentYear(year);
+    }
   };
   
   return (  
@@ -52,8 +55,8 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, incr
                 defaultValue={currentYear}
                 min={getYear(minDate)}
                 max={getYear(maxDate)}
-                onChange={(e) => updateCurrentYear(e.target.value)}
-                onBlur={() => alert("onBlur")}
+                onChange={(e) => handleYearChange(e.target.value)}
+                onBlur={(e) => alert(e.target.value)}
               />
             </div>
           )}
@@ -131,6 +134,7 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             {...showPortal ? { withPortal: true } : {}}
             renderCustomHeader={({ 
               date, 
+              changeYear, 
               changeMonth, 
               decreaseMonth,
               increaseMonth, 
@@ -140,7 +144,8 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
               <CustomHeader 
                 date={date}
                 minDate={minDate} 
-                maxDate={maxDate}
+                maxDate={maxDate} 
+                changeYear={changeYear} 
                 changeMonth={changeMonth} 
                 decreaseMonth={decreaseMonth}
                 increaseMonth={increaseMonth}
