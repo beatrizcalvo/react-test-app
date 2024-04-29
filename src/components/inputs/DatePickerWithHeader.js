@@ -16,7 +16,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date, minDate, maxDate, changeMonth }) => {
+const CustomHeader = ({ date, minDate, maxDate, changeMonth, nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
   
   return (  
@@ -44,7 +44,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth }) => {
           </div>
         </div>
       </div>
-      <span className="datepicker-next-month">
+      <span className={classNames("datepicker-next-month", { "d-none": nextMonthButtonDisabled })}>
         <i className="fa-solid fa-chevron-right fa-lg" />
       </span>
     </div>
@@ -118,13 +118,15 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
               date, 
               minDate, 
               maxDate, 
-              changeMonth 
+              changeMonth, 
+              nextMonthButtonDisabled
             }) => (
               <CustomHeader 
                 date={date} 
                 minDate={minDate} 
                 maxDate={maxDate}
                 changeMonth={changeMonth} 
+                nextMonthButtonDisabled={nextMonthButtonDisabled}
               />
             )}
           />
