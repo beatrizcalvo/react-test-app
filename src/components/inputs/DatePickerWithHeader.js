@@ -16,10 +16,10 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
-const CustomHeader = ({ date, maxDate, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, 
-                       nextMonthButtonDisabled }) => {
+const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, increaseMonth, prevMonthButtonDisabled, 
+                       nextMonthButtonDisabled, showPortal }) => {
   const months = getMonthList("en");
-  alert(maxDate);
+  
   return (  
     <div className="d-flex">
       <span className={classNames("datepicker-prev-month", { "d-none": prevMonthButtonDisabled })}>
@@ -36,13 +36,19 @@ const CustomHeader = ({ date, maxDate, changeMonth, decreaseMonth, increaseMonth
               <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
             ))}
           </select>
-          <div className="datepicker-select-year">
-            <input 
-              className="input-current-year" 
-              type="number" 
-              defaultValue={getYear(date)}
-            />
-          </div>
+          { showPortal ? (
+            
+          ) : (
+            <div className="datepicker-select-year">
+              <input 
+                className="input-current-year" 
+                type="number"
+                defaultValue={getYear(date)}
+                min={getYear(minDate)}
+                max={getYear(maxDate)}
+              />
+            </div>
+          )}
         </div>
       </div>
       <span className={classNames("datepicker-next-month", { "d-none": nextMonthButtonDisabled })}>
@@ -125,12 +131,14 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
             }) => (
               <CustomHeader 
                 date={date}
+                minDate={minDate} 
                 maxDate={maxDate}
                 changeMonth={changeMonth} 
                 decreaseMonth={decreaseMonth}
                 increaseMonth={increaseMonth}
                 prevMonthButtonDisabled={prevMonthButtonDisabled} 
-                nextMonthButtonDisabled={nextMonthButtonDisabled}
+                nextMonthButtonDisabled={nextMonthButtonDisabled} 
+                showPortal={showPortal}
               />
             )}
           />
