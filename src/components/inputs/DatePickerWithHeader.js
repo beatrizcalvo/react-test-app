@@ -47,6 +47,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, incr
                 defaultValue={getYear(date)}
                 min={getYear(minDate)}
                 max={getYear(maxDate)}
+                onChange={(e) => alert(e.target.value)}
               />
             </div>
           )}
