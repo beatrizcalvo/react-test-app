@@ -27,7 +27,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth }) => {
       <div className="datepicker-month">
         <div className="datepicker-current-month">
           <select 
-            className="datepicker-monthDropdown-months"
+            className="datepicker-monthDropdown-months me-2"
             value={months[getMonth(date)]}
             onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
