@@ -37,7 +37,8 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth, decreaseMonth, incr
             ))}
           </select>
           { showPortal ? (
-            
+            <div className="datepicker-current-year">
+            </div>
           ) : (
             <div className="datepicker-select-year">
               <input 
