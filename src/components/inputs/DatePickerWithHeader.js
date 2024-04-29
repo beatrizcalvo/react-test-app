@@ -39,8 +39,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeMonth }) => {
             <input 
               className="input-current-year" 
               type="number" 
-              pattern="\d*"
-              value={getYear(date)}
+              defaultValue={getYear(date)}
             />
           </div>
         </div>
