@@ -22,6 +22,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
   const months = getMonthList("en");
 
   const handleYearChange = (year) => {
+    alert(typeof year);
     if (year.length === 4) {
       changeYear(year);
       setCurrentYear(year);
