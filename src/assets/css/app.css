@@ -122,7 +122,8 @@
   flex: 1 1;
 }
 
-.react-datepicker__header--custom .datepicker-current-month {
+.react-datepicker__header--custom .datepicker-current-month,
+.react-datepicker__header--custom .datepicker-current-year {
   font-size: 135%;
   font-weight: 300;
   color: inherit;
