@@ -20,6 +20,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
                        prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
   const [ currentYear, setCurrentYear ] = useState(getYear(date));
   const months = getMonthList("en");
+  const maxYear = getYear(maxDate);
 
   const handleYearChange = (year) => {
     alert(typeof year);
@@ -42,7 +43,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
             onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
             { months.map((month) => {
-              let dateString = maxDate.toString();
+              let dateString = maxYear;
               return (<option className="datepicker-monthDropdown-month" value={month}>{dateString}</option>);
             })}
           </select>
