@@ -122,8 +122,7 @@
   flex: 1 1;
 }
 
-.react-datepicker__header--custom .datepicker-current-month,
-.react-datepicker__header--custom .datepicker-current-year {
+.react-datepicker__header--custom .datepicker-current-month {
   font-size: 135%;
   font-weight: 300;
   color: inherit;
@@ -160,36 +159,6 @@
   background-color: transparent;
   outline: none;
   padding: 0;
-}
-
-.react-datepicker__header--custom .datepicker-select-year {
-  width: 6ch;
-  display: inline-block;
-  position: relative;
-  height: auto
-}
-
-.react-datepicker__header--custom .datepicker-select-year .input-current-year {
-  background: 0 0;
-  box-sizing: border-box;
-  color: inherit;
-  cursor: text;
-  padding: 0 0 0 .5ch;
-  margin: 0;
-  display: inline-block;
-  font-size: medium;
-  font-family: inherit;
-  font-weight: 300;
-  line-height: inherit;
-  height: auto;
-  border: 0;
-  border-radius: 0;
-  vertical-align: initial;
-  appearance: textfield;
-}
-
-.react-datepicker__header--custom .input-current-year {
-  width: 100%;
 }
 /*====================================================================================*/
 /* END COMBOBOX CSS */
