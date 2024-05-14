@@ -49,10 +49,8 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
             value={getYear(date)}
             onChange={({ target: { value } }) => changeYear(value)}
           >
-            {years.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
+            {years.map((year) => (
+              <option className="datepicker-yearDropdown-year" value={year}>{year}</option>
             ))}
           </select>
         </div>
