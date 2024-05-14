@@ -7,8 +7,6 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import Combobox from "./Combobox";
-
 // Get list of month depending on locale and format
 const getMonthList = (locales?: string | string[], format: "long" | "short" = "long"): string[] => {
   const year = new Date().getFullYear();
@@ -35,7 +33,6 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
       </span>
       <div className="datepicker-month-year">
         <div className="datepicker-current-month-year">
-          <Combobox id="year" choicesList={[{code: "f", description: "Female"}, {code: "m", description: "Male"}]} />
           <select 
             className="datepicker-monthDropdown-months me-2"
             value={months[getMonth(date)]}
