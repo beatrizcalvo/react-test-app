@@ -24,7 +24,7 @@ const range = (start: integer, stop: integer, step: integer) => {
 const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreaseMonth, increaseMonth, 
                        prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
-  const years = range(getYear(minDate), getYear(maxDate) + 1, 1);
+  const years = range(getYear(minDate), getYear(maxDate), 1);
   console.log(years);
   
   return (  
