@@ -112,7 +112,7 @@
   z-index: 3;
 }
 
-.react-datepicker__header--custom .datepicker-month {
+.react-datepicker__header--custom .datepicker-month-year {
   height: 34px;
   line-height: 1;
   text-align: center;
@@ -122,7 +122,7 @@
   flex: 1 1;
 }
 
-.react-datepicker__header--custom .datepicker-current-month {
+.react-datepicker__header--custom .datepicker-current-month-year {
   font-size: 135%;
   font-weight: 300;
   color: inherit;
@@ -134,7 +134,8 @@
   transform: translateZ(0);
 }
 
-.react-datepicker__header--custom .datepicker-monthDropdown-months {
+.react-datepicker__header--custom .datepicker-monthDropdown-months,
+.react-datepicker__header--custom .datepicker-yearDropdown-years {
   background: 0 0;
   border: none;
   border-radius: 0;
