@@ -18,17 +18,8 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 
 const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreaseMonth, increaseMonth, 
                        prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
-  const [ currentYear, setCurrentYear ] = useState(getYear(date));
   const months = getMonthList("en");
   const maxYear = getYear(maxDate);
-
-  const handleYearChange = (year) => {
-    alert(typeof year);
-    if (year.length === 4) {
-      changeYear(year);
-      setCurrentYear(year);
-    }
-  };
   
   return (  
     <div className="d-flex">
@@ -43,8 +34,8 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
             onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
             { months.map((month) => {
-              let dateString = maxYear;
-              return (<option className="datepicker-monthDropdown-month" value={month}>{dateString}</option>);
+              let disabled = getYear(date) === maxYear;
+              return (<option className="datepicker-monthDropdown-month" value={month}>{disabled}</option>);
             })}
           </select>
           
