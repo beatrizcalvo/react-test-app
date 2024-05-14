@@ -25,7 +25,6 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
                        prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
   const years = range(getYear(minDate), getYear(maxDate), 1);
-  console.log(years);
   
   return (  
     <div className="d-flex">
