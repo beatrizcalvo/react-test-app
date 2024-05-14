@@ -25,8 +25,8 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
       <span className={classNames("datepicker-prev-month", { "d-none": prevMonthButtonDisabled })}>
         <i className="fa-solid fa-chevron-left fa-lg" onClick={decreaseMonth} />
       </span>
-      <div className="datepicker-month">
-        <div className="datepicker-current-month">
+      <div className="datepicker-month-year">
+        <div className="datepicker-current-month-year">
           <select 
             className="datepicker-monthDropdown-months me-2"
             value={months[getMonth(date)]}
