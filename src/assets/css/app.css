@@ -156,7 +156,8 @@
   width: auto;
 }
 
-.react-datepicker__header--custom .datepicker-monthDropdown-month {
+.react-datepicker__header--custom .datepicker-monthDropdown-month,
+.react-datepicker__header--custom .datepicker-yearDropdown-year {
   background-color: transparent;
   outline: none;
   padding: 0;
