@@ -35,7 +35,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
             { months.map((month, index) => {
               let disabled = (getYear(date) === getYear(minDate)) 
                 || ((getYear(date) === getYear(maxDate)) && (index >= getMonth(maxDate)));
-              return (<option className="datepicker-monthDropdown-month" value={month} {...(disabled ? { "disabled": "true"} : {}}>{month}</option>);
+              return (<option className="datepicker-monthDropdown-month" value={month} {...(disabled ? { "disabled": "true"} : {})}>{month}</option>);
             })}
           </select>
           
