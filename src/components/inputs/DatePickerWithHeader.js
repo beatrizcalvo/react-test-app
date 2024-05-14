@@ -17,7 +17,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 };
 
 const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreaseMonth, increaseMonth, 
-                       prevMonthButtonDisabled, nextMonthButtonDisabled, showPortal }) => {
+                       prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
   const [ currentYear, setCurrentYear ] = useState(getYear(date));
   const months = getMonthList("en");
 
@@ -45,22 +45,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
               <option className="datepicker-monthDropdown-month" value={month}>{month}</option>
             ))}
           </select>
-          { showPortal ? (
-            <div className="datepicker-current-year">
-            </div>
-          ) : (
-            <div className="datepicker-select-year">
-              <input 
-                className="input-current-year" 
-                type="number"
-                defaultValue={currentYear}
-                min={getYear(minDate)}
-                max={getYear(maxDate)}
-                onChange={(e) => handleYearChange(e.target.value)}
-                onBlur={(e) => alert(e.target.value)}
-              />
-            </div>
-          )}
+          
         </div>
       </div>
       <span className={classNames("datepicker-next-month", { "d-none": nextMonthButtonDisabled })}>
@@ -152,7 +137,6 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
                 increaseMonth={increaseMonth}
                 prevMonthButtonDisabled={prevMonthButtonDisabled} 
                 nextMonthButtonDisabled={nextMonthButtonDisabled} 
-                showPortal={showPortal}
               />
             )}
           />
