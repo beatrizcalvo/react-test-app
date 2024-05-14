@@ -35,7 +35,7 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
       </span>
       <div className="datepicker-month-year">
         <div className="datepicker-current-month-year">
-          <Combobox id="year" />
+          <Combobox id="year" choicesList={[{code: "f", description: "Female"}, {code: "m", description: "Male"}]} />
           <select 
             className="datepicker-monthDropdown-months me-2"
             value={months[getMonth(date)]}
