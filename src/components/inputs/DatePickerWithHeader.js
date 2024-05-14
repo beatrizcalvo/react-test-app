@@ -16,6 +16,11 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
   return monthList.map(getMonthName);
 };
 
+// Create array form start number to end number 
+const range = (start: integer, stop: integer, step: integer) => {
+  return Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+};
+
 const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreaseMonth, increaseMonth, 
                        prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
