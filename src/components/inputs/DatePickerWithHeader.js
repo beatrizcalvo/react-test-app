@@ -19,6 +19,7 @@ const getMonthList = (locales?: string | string[], format: "long" | "short" = "l
 const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreaseMonth, increaseMonth, 
                        prevMonthButtonDisabled, nextMonthButtonDisabled }) => {
   const months = getMonthList("en");
+  const years = range(getYear(minDate), getYear(maxDate) + 1, 1);
   
   return (  
     <div className="d-flex">
@@ -33,12 +34,22 @@ const CustomHeader = ({ date, minDate, maxDate, changeYear, changeMonth, decreas
             onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
           >
             { months.map((month, index) => {
-              let disabled = ((getYear(date) === getYear(minDate)) && (index < getMonth(minDate)))
+              let isDisabled = ((getYear(date) === getYear(minDate)) && (index < getMonth(minDate)))
                 || ((getYear(date) === getYear(maxDate)) && (index > getMonth(maxDate)));
-              return (<option className="datepicker-monthDropdown-month" value={month} {...(disabled ? { "disabled": "true"} : {})}>{month}</option>);
+              return (<option className="datepicker-monthDropdown-month" value={month} {...(isDisabled ? { "disabled": true} : {})}>{month}</option>);
             })}
           </select>
-          
+          <select
+            className="datepicker-yearDropdown-years"
+            value={getYear(date)}
+            onChange={({ target: { value } }) => changeYear(value)}
+          >
+            {years.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       <span className={classNames("datepicker-next-month", { "d-none": nextMonthButtonDisabled })}>
