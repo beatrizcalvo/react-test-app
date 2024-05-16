@@ -4,3 +4,8 @@ const axiosClient = axiosWithCredentials(process.env.REACT_APP_API_URL);
 
 const getNationalities = () => { return axiosClient.get("/nationalities") };
 
+const NationalitiesService = { 
+  getNationalities
+};
+
+export default NationalitiesService;
