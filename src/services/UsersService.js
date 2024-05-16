@@ -28,14 +28,11 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
   })
 })};
 
-const getNationalities = () => { return axiosClient.get("/nationalities") };
-
 const UsersService = { 
   getCurrentUser,
   deleteCurrentUser,
   updateCurrentUser,
-  deactivateCurrentUser,
-  getNationalities
+  deactivateCurrentUser
 };
 
 export default UsersService;
