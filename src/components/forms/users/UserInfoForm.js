@@ -5,7 +5,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
 
 import { useAuth } from "../../../hooks/providers/AuthProvider";
-import UsersService from "../../../services/UsersService";
+import NationalitiesService from "../../../services/NationalitiesService";
 
 import Combobox from "../../inputs/Combobox";
 import DatePickerWithHeader from "../../inputs/DatePickerWithHeader";
@@ -59,7 +59,7 @@ export default function UserInfoForm(props) {
 
   useEffect(() => {
     // Load nationalities list from server
-    UsersService.getNationalities()
+    NationalitiesService.getNationalities()
       .then(response => {
         const itemsList = [];
         response.data.nationalities?.map(nationality => {
