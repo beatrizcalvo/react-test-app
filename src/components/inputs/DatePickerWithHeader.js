@@ -67,7 +67,7 @@ const CustomInput = forwardRef(({ id, value, readOnly, onChange, onClick }, ref)
   
   // Calculate placeholder text
   const getPlaceholder = () => {
-    if (!readOnly) return "Select one date...";
+    if (!readOnly) return "Select one...";
     if (!value) return "Not Defined";
     return "";
   };
