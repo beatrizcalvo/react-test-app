@@ -97,7 +97,6 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
-    alert(JSON.stringify(errors));
     const dataUpdated = getDirtyValues(dirtyFields, data);
     handleUpdateProfile(dataUpdated);
   };
@@ -178,7 +177,7 @@ export default function UserInfoForm(props) {
                   inputValidations={inputValidations.birthDate}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors.birthDate?.message}
+                  {JSON.stringify(errors)}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
