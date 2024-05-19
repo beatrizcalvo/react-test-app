@@ -85,7 +85,7 @@
 }
 
 .react-datepicker-wrapper .form-control.is-invalid {
-  background-position: right 2rem center !important;
+  background-position: right 4rem center !important;
 }
 
 .react-datepicker__header--custom {
