@@ -108,7 +108,6 @@ export default function DatePickerWithHeader({ id, readOnly, inputValidations })
   return (
     <>
       <Controller
-        id={id}
         name={id}
         control={control} 
         rules={inputValidations}
