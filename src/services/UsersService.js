@@ -27,7 +27,7 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
     },
     contactPoint: {
       postalAddress: {
-        addressLines: ["Prueba line 1"]
+        addressLines: new Array("Prueba line 1")
       }
     }
   })
