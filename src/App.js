@@ -12,6 +12,7 @@ import Settings from "./components/views/users/Settings";
 
 export default function App(props) {
   const { user } = useAuth();
+  console.log(user);
   
   return (
     <Routes>
