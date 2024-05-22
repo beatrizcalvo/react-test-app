@@ -175,6 +175,7 @@ export default function UserInfoForm(props) {
                   id="birthDate"
                   readOnly={readOnly} 
                   inputValidations={inputValidations.birthDate}
+                  isInvalid={!!errors.birthDate}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
                   {errors.birthDate?.message}
