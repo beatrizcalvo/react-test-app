@@ -62,7 +62,14 @@ export default function UserInfoForm(props) {
         message: "Address must have at lenght 10 or greater"
       }
     },
-    city: { required: "City is required" }
+    city: { required: "City is required" },
+    zipCode: { 
+      required: "ZipCode is required",
+      pattern: {
+        value: "^[0-9]{5}(?:-[0-9]{4})?$/i",
+        message: "Invalid zipCode format"
+      }
+    }
   };
 
   useEffect(() => {
