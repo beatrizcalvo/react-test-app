@@ -88,10 +88,6 @@
   background-position: right 1.5rem center !important;
 }
 
-.react-datepicker__input-container .form-control.is-invalid~.invalid-feedback {
-  display: block;
-}
-
 .react-datepicker__header--custom {
   background-color: transparent !important;
   border-bottom: none !important;
