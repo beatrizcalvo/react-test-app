@@ -34,6 +34,11 @@
   color: var(--bs-light) !important;
 }
 
+.input-group.input-group-static.required label:after {
+  content: " *";
+  color: var(--bs-red);
+}
+
 .input-group.input-group-static .form-control {
   transition: none !important;
 }
