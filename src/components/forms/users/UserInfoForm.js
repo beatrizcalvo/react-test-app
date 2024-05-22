@@ -54,7 +54,8 @@ export default function UserInfoForm(props) {
     },
     gender: { required: "Gender is required" },
     birthDate: { required: "Birth date is required" },
-    nationality: { required: "Nacionality is required" }
+    nationality: { required: "Nacionality is required" },
+    addressLine1: { required: "Address is required" }
   };
 
   useEffect(() => {
@@ -198,8 +199,23 @@ export default function UserInfoForm(props) {
           </Row>
           <Row className="mt-3">
             <Col className="col-12 col-md-6">
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="addressLine1" className="font-weight-bold">Address Line 1</label>
+                <Form.Control 
+                  id="addressLine1"
+                  type="text" 
+                  maxLength=50
+                />
+              </Form.Group>
+            </Col>
+            <Col className="col-12 col-md-6">
               <Form.Group className="input-group input-group-static">
-                
+                <label for="addressLine2" className="font-weight-bold">Address Line 2</label>
+                <Form.Control 
+                  id="addressLine2"
+                  type="text" 
+                  maxLength=50
+                />
               </Form.Group>
             </Col>
           </Row>
