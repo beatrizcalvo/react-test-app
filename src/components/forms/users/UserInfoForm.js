@@ -197,9 +197,9 @@ export default function UserInfoForm(props) {
             </Col>
           </Row>
           <Row>
-            <Col className="col-12 col-md-6">
+            <Col className="col-12">
               <Form.Group className="input-group input-group-static">
-                <label for="email" className="font-weight-bold">Email:</label>
+                <Form.Check type="switch" label="Update email address" />
               </Form.Group>
             </Col>
           </Row>
