@@ -217,7 +217,7 @@ export default function UserInfoForm(props) {
             </Col>            
           </Row>
           <Row className="mt-3">
-            <Col className="col-12 col-md-6">
+            <Col className="col-12">
               <Form.Group className="input-group input-group-static">
                 <label for="addressLine2" className="font-weight-bold">Address Line 2</label>
                 <Form.Control 
