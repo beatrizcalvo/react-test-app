@@ -177,7 +177,7 @@ export default function UserInfoForm(props) {
                   inputValidations={inputValidations.birthDate}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {JSON.stringify(errors)}
+                  {errors.birthDate?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
