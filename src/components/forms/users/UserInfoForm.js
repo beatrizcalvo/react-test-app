@@ -107,8 +107,8 @@ export default function UserInfoForm(props) {
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col className="col-6 col-md-4 mb-3">
-              <Form.Group className="input-group input-group-static">
-                <label for="firstName" className="font-weight-bold">First Name:</label>
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="firstName" className="font-weight-bold">First Name</label>
                 <Form.Control 
                   id="firstName"
                   type="text" 
@@ -123,8 +123,8 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4 mb-3">
-              <Form.Group className="input-group input-group-static">
-                <label for="lastName" className="font-weight-bold">Last Name:</label>
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="lastName" className="font-weight-bold">Last Name</label>
                 <Form.Control 
                   id="lastName"
                   type="text" 
@@ -140,7 +140,7 @@ export default function UserInfoForm(props) {
             </Col>
             <Col className={classNames("col-6 col-md-4 mb-3", { "d-none": readOnly && !user.person.personName.secondLastName })}>
               <Form.Group className="input-group input-group-static">
-                <label for="secondLastName" className="font-weight-bold">Second Last Name:</label>
+                <label for="secondLastName" className="font-weight-bold">Second Last Name</label>
                 <Form.Control 
                   id="secondLastName"
                   type="text" 
@@ -155,8 +155,8 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
-              <Form.Group className="input-group input-group-static">
-                <label for="gender.description" className="font-weight-bold">Gender:</label>
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="gender.description" className="font-weight-bold">Gender</label>
                 <Combobox 
                   id="gender" 
                   readOnly={readOnly} 
@@ -169,8 +169,8 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
-              <Form.Group className="input-group input-group-static">
-                <label for="birthDate" className="font-weight-bold">Birth Date:</label>
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="birthDate" className="font-weight-bold">Birth Date</label>
                 <DatePickerWithHeader 
                   id="birthDate"
                   readOnly={readOnly} 
@@ -182,8 +182,8 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4">
-              <Form.Group className="input-group input-group-static">
-                <label for="nationality.description" className="font-weight-bold">Nationality:</label>
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="nationality.description" className="font-weight-bold">Nationality</label>
                 <Combobox 
                   id="nationality" 
                   readOnly={readOnly} 
@@ -196,10 +196,10 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
           </Row>
-          <Row>
-            <Col className="col-12">
+          <Row className="mt-3">
+            <Col className="col-12 col-md-6">
               <Form.Group className="input-group input-group-static">
-                <Form.Check type="switch" label="Update email address" />
+                
               </Form.Group>
             </Col>
           </Row>
