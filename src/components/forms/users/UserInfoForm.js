@@ -113,9 +113,9 @@ export default function UserInfoForm(props) {
                 <Form.Control 
                   id="firstName"
                   type="text" 
-                  {...(!readOnly ? { placeholder: "First Name..." } : {})}
+                  {...(!readOnly && { placeholder: "First Name..." })}
                   {...register("firstName", inputValidations.firstName)}
-                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                   isInvalid={!!errors.firstName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -129,9 +129,9 @@ export default function UserInfoForm(props) {
                 <Form.Control 
                   id="lastName"
                   type="text" 
-                  {...(!readOnly ? { placeholder: "Last Name..." } : {})}
+                  {...(!readOnly && { placeholder: "Last Name..." })}
                   {...register("lastName", inputValidations.lastName)}
-                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                   isInvalid={!!errors.lastName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -145,9 +145,9 @@ export default function UserInfoForm(props) {
                 <Form.Control 
                   id="secondLastName"
                   type="text" 
-                  {...(!readOnly ? { placeholder: "Second Last Name..." } : {})}
+                  {...(!readOnly && { placeholder: "Second Last Name..." })}
                   {...register("secondLastName", inputValidations.secondLastName)}
-                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                   isInvalid={!!errors.secondLastName}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -197,7 +197,10 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
           </Row>
-          <Row className="mt-3">
+          <Row className="mt-4">
+            <Col className="col-12">
+              <h5>Postal Address</h5>
+            </Col>
             <Col className="col-12">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="addressLine1" className="font-weight-bold">Address Line 1</label>
@@ -205,7 +208,7 @@ export default function UserInfoForm(props) {
                   id="addressLine1"
                   type="text" 
                   maxLength="50"
-                  {...(!readOnly && { placeholder: "Address Line 1..." })}
+                  {...(!readOnly ? { placeholder: "Address Line 1..." } : { placeholder: "Not Defined"})}
                   {...register("addressLine1", inputValidations.addressLine1)}
                   {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                   isInvalid={!!errors.addressLine1}
@@ -215,33 +218,6 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>            
-          </Row>
-          <Row className="mt-3">
-            <Col className="col-12">
-              <Form.Group className="input-group input-group-static">
-                <label for="addressLine2" className="font-weight-bold">Address Line 2</label>
-                <Form.Control 
-                  id="addressLine2"
-                  type="text" 
-                  maxLength="50"
-                  {...(!readOnly && { placeholder: "Address Line 2..." })}
-                  {...register("addressLine2")}
-                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row className="mt-3">
-            <Col className="col-6 col-md-3">
-              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
-                <label for="city" className="font-weight-bold">City</label>
-              </Form.Group>
-            </Col>
-            <Col className="col-6 col-md-3">
-              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
-                <label for="state" className="font-weight-bold">State/Province</label>
-              </Form.Group>
-            </Col>
           </Row>
           <Row className={!readOnly ? "mt-5" : "d-none"}>
             <Col lg="8" className="col-12 text-end ms-auto">
