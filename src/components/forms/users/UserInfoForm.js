@@ -67,7 +67,7 @@ export default function UserInfoForm(props) {
     zipCode: { 
       required: "ZipCode is required",
       pattern: {
-        value: "^[0-9]{5}(?:-[0-9]{4})?$/i",
+        value: /^[0-9]{5}(?:-[0-9]{4})?$/i,
         message: "Invalid zipCode format"
       }
     }
