@@ -195,6 +195,8 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
+          </Row>
+          <Row>
             <Col className="col-12 col-md-6">
               <Form.Group className="input-group input-group-static">
                 <label for="email" className="font-weight-bold">Email:</label>
