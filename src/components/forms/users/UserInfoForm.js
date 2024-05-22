@@ -205,9 +205,9 @@ export default function UserInfoForm(props) {
                   id="addressLine1"
                   type="text" 
                   maxLength="50"
-                  {...(!readOnly ? { placeholder: "Address Line 1..." } : {})}
+                  {...(!readOnly && { placeholder: "Address Line 1..." })}
                   {...register("addressLine1", inputValidations.addressLine1)}
-                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                   isInvalid={!!errors.addressLine1}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
@@ -224,9 +224,9 @@ export default function UserInfoForm(props) {
                   id="addressLine2"
                   type="text" 
                   maxLength="50"
-                  {...(!readOnly ? { placeholder: "Address Line 2..." } : {})}
+                  {...(!readOnly && { placeholder: "Address Line 2..." })}
                   {...register("addressLine2")}
-                  {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
+                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                 />
               </Form.Group>
             </Col>
