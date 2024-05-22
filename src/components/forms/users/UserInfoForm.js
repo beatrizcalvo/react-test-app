@@ -211,7 +211,7 @@ export default function UserInfoForm(props) {
                   isInvalid={!!errors.addressLine1}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
-                  {errors.gender?.addressLine1?.message}
+                  {errors.addressLine1?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>            
@@ -228,6 +228,18 @@ export default function UserInfoForm(props) {
                   {...register("addressLine2")}
                   {...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {})}
                 />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="mt-3">
+            <Col className="col-6 col-md-3">
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="city" className="font-weight-bold">City</label>
+              </Form.Group>
+            </Col>
+            <Col className="col-6 col-md-3">
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="state" className="font-weight-bold">State/Province</label>
               </Form.Group>
             </Col>
           </Row>
