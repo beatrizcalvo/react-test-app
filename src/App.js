@@ -11,7 +11,7 @@ import Profile from "./components/views/users/Profile";
 import Settings from "./components/views/users/Settings";
 
 export default function App(props) {
-  const { user } = null;
+  const { user } = useAuth();
   
   return (
     <Routes>
