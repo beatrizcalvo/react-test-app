@@ -245,7 +245,7 @@ export default function UserInfoForm(props) {
                 />
               </Form.Group>
             </Col>
-            <Col className="col-12 col-md-6 mb-3">
+            <Col className="col-6 col-md-4 mb-3">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="city" className="font-weight-bold">City</label>
                 <Form.Control 
@@ -262,14 +262,14 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
-            <Col className="col-12 col-md-6">
+            <Col className="col-6 col-md-4 mb-3">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="zipCode" className="font-weight-bold">ZipCode</label>
                 <Form.Control 
                   id="zipCode"
                   type="text" 
                   maxLength="9"
-                  {...(!readOnly ? { placeholder: "City..." } : { placeholder: "Not Defined"})}
+                  {...(!readOnly ? { placeholder: "ZipCode..." } : { placeholder: "Not Defined"})}
                   {...register("zipCode", inputValidations.zipCode)}
                   {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
                   isInvalid={!!errors.zipCode}
@@ -277,6 +277,11 @@ export default function UserInfoForm(props) {
                 <Form.Control.Feedback type="text-xs invalid">
                   {errors.zipCode?.message}
                 </Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+            <Col className="col-6 col-md-4 mb-3">
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="country" className="font-weight-bold">Country</label>
               </Form.Group>
             </Col>
           </Row>
