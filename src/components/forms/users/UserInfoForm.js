@@ -198,7 +198,7 @@ export default function UserInfoForm(props) {
             </Col>
           </Row>
           <Row className="mt-3">
-            <Col className="col-12 col-md-6">
+            <Col className="col-12">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="addressLine1" className="font-weight-bold">Address Line 1</label>
                 <Form.Control 
@@ -214,7 +214,9 @@ export default function UserInfoForm(props) {
                   {errors.gender?.addressLine1?.message}
                 </Form.Control.Feedback>
               </Form.Group>
-            </Col>
+            </Col>            
+          </Row>
+          <Row className="mt-3">
             <Col className="col-12 col-md-6">
               <Form.Group className="input-group input-group-static">
                 <label for="addressLine2" className="font-weight-bold">Address Line 2</label>
