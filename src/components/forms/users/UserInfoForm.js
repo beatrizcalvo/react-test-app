@@ -204,7 +204,7 @@ export default function UserInfoForm(props) {
                 <Form.Control 
                   id="addressLine1"
                   type="text" 
-                  maxLength=50
+                  maxLength="50"
                 />
               </Form.Group>
             </Col>
@@ -214,7 +214,7 @@ export default function UserInfoForm(props) {
                 <Form.Control 
                   id="addressLine2"
                   type="text" 
-                  maxLength=50
+                  maxLength="50"
                 />
               </Form.Group>
             </Col>
