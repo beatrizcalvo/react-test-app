@@ -13,6 +13,7 @@ import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
   const [nationalitiesList, setNationalitiesList] = useState([]);
+  const [countriesList, setCountriesList] = useState([]);
   
   const { user, readOnly, setReadOnly, isActionInProgress, isLoading, handleUpdateProfile } = props;
   const { logoutUser } = useAuth();
@@ -76,14 +77,20 @@ export default function UserInfoForm(props) {
     // Load nationalities list from server
     NationalitiesService.getNationalities()
       .then(response => {
-        const itemsList = [];
+        const nationalitiesList = [];
+        const countriesList = [];
         response.data.nationalities?.map(nationality => {
-          itemsList.push({
+          nationalitiesList.push({
             code: nationality.nationalityCode,
             description: nationality.nationalityDescription
           });
+          countriesList.push({
+            code: nationality.nationalityCode,
+            country: nationality.nationalityCountry
+          });
         });
-        setNationalitiesList(itemsList);
+        setNationalitiesList(nationalitiesList);
+        setCountriesList(countriesList);
       })
       .catch(() => logoutUser());
   }, []);
