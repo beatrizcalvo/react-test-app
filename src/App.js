@@ -11,12 +11,16 @@ import Profile from "./components/views/users/Profile";
 import Settings from "./components/views/users/Settings";
 
 export default function App(props) {
-  const { user } = useAuth();
+  const { user } = null;
   
   return (
     <Routes>
       <Route element={<ProtectedRoute isAllowed={!!user} />}>
-        
+        <Route element={<Dashboard />}>
+          <Route path="/" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+        </Route>
       </Route>
       <Route element={<Auth />}>
         <Route path="/login" element={<Login />} />
