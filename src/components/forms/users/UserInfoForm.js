@@ -198,10 +198,10 @@ export default function UserInfoForm(props) {
             </Col>
           </Row>
           <Row className="mt-4">
-            <Col className="col-12">
+            <Col className="col-12 mb-2">
               <h5>Postal Address</h5>
             </Col>
-            <Col className="col-12">
+            <Col className="col-12 mb-3">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="addressLine1" className="font-weight-bold">Address Line 1</label>
                 <Form.Control 
@@ -217,7 +217,21 @@ export default function UserInfoForm(props) {
                   {errors.addressLine1?.message}
                 </Form.Control.Feedback>
               </Form.Group>
-            </Col>            
+            </Col> 
+            <Col className="col-12">
+              <Form.Group className="input-group input-group-static">
+                <label for="addressLine2" className="font-weight-bold">Address Line 2</label>
+                <Form.Control 
+                  id="addressLine2"
+                  type="text" 
+                  maxLength="50"
+                  {...(!readOnly ? { placeholder: "Address Line 2..." } : { placeholder: "Not Defined"})}
+                  {...register("addressLine2")}
+                  {...(readOnly && { readOnly: true, plaintext: true, className: "text-sm" })}
+                />
+              </Form.Group>
+            </Col>
+            <Col></Col>
           </Row>
           <Row className={!readOnly ? "mt-5" : "d-none"}>
             <Col lg="8" className="col-12 text-end ms-auto">
