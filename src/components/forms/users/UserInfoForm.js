@@ -175,9 +175,8 @@ export default function UserInfoForm(props) {
                   id="birthDate"
                   readOnly={readOnly} 
                   inputValidations={inputValidations.birthDate}
-                  isInvalid={!!errors.birthDate}
                 />
-                <Form.Control.Feedback type="text-xs invalid">
+                <Form.Control.Feedback type="text-xs invalid" className={classNames({ "d-block": !!errors.birthDate })}>
                   {errors.birthDate?.message}
                 </Form.Control.Feedback>
               </Form.Group>
@@ -194,6 +193,11 @@ export default function UserInfoForm(props) {
                 <Form.Control.Feedback type="text-xs invalid">
                   {errors.nationality?.description?.message}
                 </Form.Control.Feedback>
+              </Form.Group>
+            </Col>
+            <Col className="col-12 col-md-6">
+              <Form.Group className="input-group input-group-static">
+                <label for="email" className="font-weight-bold">Email:</label>
               </Form.Group>
             </Col>
           </Row>
