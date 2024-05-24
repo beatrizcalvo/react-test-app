@@ -26,7 +26,7 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
       })
     }
   }),
-  ...((data.addressLine1 || data.addressLine2 || data.city) && {
+  ...((data.addressLine1 || data.addressLine2 || data.city || data.zipCode) && {
     contactPoint: {
       postalAddress: {
         ...((data.addressLine1 || data.addressLine2) && {
