@@ -24,10 +24,14 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
           code: data.nationality.code
         }
       })
-    },
+    }
+  }),
+  ...((data.addressLine1 || data.addressLine2) && {
     contactPoint: {
       postalAddress: {
-        addressLines: JSON.parse(JSON.stringify([{code: "1", description: "aaaa"}]))
+        addressLines: [
+          data.addressLine1
+        ]
       }
     }
   })
