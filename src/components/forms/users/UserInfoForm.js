@@ -115,7 +115,6 @@ export default function UserInfoForm(props) {
   const getDirtyValues = (dirtyFields: UnknownArrayOrObject | boolean, allValues: UnknownArrayOrObject): UnknownArrayOrObject => {
     // If *any* item in an array was modified, the entire array must be submitted, because there's no
     // way to indicate "placeholders" for unchanged elements. `dirtyFields` is `true` for leaves.
-    alert(JSON.stringify(dirtyFields));
     if (dirtyFields === true || Array.isArray(dirtyFields)) {
       // Format date to yyyy-MM-dd
       if (isDate(allValues)) return format(allValues, "yyyy-MM-dd");
@@ -126,8 +125,11 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
-    alert(JSON.stringify(dirtyFields));
     const dataUpdated = getDirtyValues(dirtyFields, data);
+    if (dataUpdated.addressLine1 || dataUpdated.addressLine2) {
+      dataUpdated.addressLine1 = dataUpdated.addressLine1 || data.addressLine1;
+      dataUpdated.addressLine2 = dataUpdated.addressLine2 || data.addressLine2;
+    }
     alert(JSON.stringify(dataUpdated));
     handleUpdateProfile(dataUpdated);
   };
