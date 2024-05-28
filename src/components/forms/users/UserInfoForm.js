@@ -230,7 +230,7 @@ export default function UserInfoForm(props) {
             <Col className="col-12 mb-2">
               <h5>Postal Address</h5>
             </Col>
-            <Col className="col-12 mb-3">
+            <Col className="col-12 col-md-6 mb-3">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="addressLine1" className="font-weight-bold">Address Line 1</label>
                 <Form.Control 
@@ -247,7 +247,7 @@ export default function UserInfoForm(props) {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col> 
-            <Col className="col-12 mb-3">
+            <Col className="col-12 col-md-6 mb-3">
               <Form.Group className="input-group input-group-static">
                 <label for="addressLine2" className="font-weight-bold">Address Line 2</label>
                 <Form.Control 
