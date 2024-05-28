@@ -70,7 +70,8 @@ export default function UserInfoForm(props) {
         value: /^[0-9]{5}(?:-[0-9]{4})?$/i,
         message: "Invalid zipCode format"
       }
-    }
+    },
+    country: { required: "Country is required" }
   };
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function UserInfoForm(props) {
           });
           countriesList.push({
             code: nationality.nationalityCode,
-            country: nationality.nationalityCountry
+            description: nationality.nationalityCountry
           });
         });
         setNationalitiesList(nationalitiesList);
@@ -289,6 +290,15 @@ export default function UserInfoForm(props) {
             <Col className="col-6 col-md-4 mb-3">
               <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
                 <label for="country" className="font-weight-bold">Country</label>
+                <Combobox 
+                  id="country" 
+                  readOnly={readOnly} 
+                  choicesList={countriesList} 
+                  inputValidations={inputValidations.country}
+                />
+                <Form.Control.Feedback type="text-xs invalid">
+                  {errors.countries?.description?.message}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
