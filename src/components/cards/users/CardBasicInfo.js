@@ -30,6 +30,7 @@ export default function CardBasicInfo(props) {
         addNewAlert("success", "Updated user info");
       })
       .catch(error => {
+        console.log(JSON.stringify(error);
         const errorMessage = (error.response && error.response.data && error.response.data.errors && error.response.data.errors[0].description) 
           || connectionError;
         addNewAlert("danger", "Updating User Info - " + errorMessage);
