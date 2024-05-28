@@ -26,7 +26,11 @@ export default function UserInfoForm(props) {
     gender: { description: user.person.gender },
     birthDate: user.person.birthDate,
     nationality: user.person.firstNationality,
-    addressLine1: user.contactPoint.postalAddress.addressLines[0]
+    addressLine1: user.contactPoint?.postalAddress?.addressLines[0],
+    addressLine2: user.contactPoint?.postalAddress?.addressLines[1],
+    city: user.contactPoint?.postalAddress?.city,
+    zipCode: user.contactPoint?.postalAddress?.zipCode,
+    country: user.contactPoint?.postalAddress?.country
   };
   
   const methods = useForm({ defaultValues: formDefaultValues });
