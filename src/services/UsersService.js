@@ -31,7 +31,7 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
       postalAddress: {
         ...((data.addressLine1 || data.addressLine2) && {
           addressLines: [
-            ...(data.addressLine1 && { data.addressLine1 }),
+            data.addressLine1
           ]
         }),
         city: data.city,
