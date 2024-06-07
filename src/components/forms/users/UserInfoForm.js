@@ -126,6 +126,7 @@ export default function UserInfoForm(props) {
   // Get only fields updated and submit form
   const onSubmit = (data) => {
     const dataUpdated = getDirtyValues(dirtyFields, data);
+    alert(JSON.stringify(dataUpdated));
     if (dataUpdated.addressLine1 || dataUpdated.addressLine2) {
       dataUpdated.addressLine1 = dataUpdated.addressLine1 || data.addressLine1;
       dataUpdated.addressLine2 = dataUpdated.addressLine2 || data.addressLine2;
