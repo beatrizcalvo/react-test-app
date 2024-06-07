@@ -7,10 +7,10 @@ const deleteCurrentUser = () => { return axiosClient.delete("/users/me") };
 const deactivateCurrentUser = () => { return axiosClient.patch("/users/me", { active: false }) };
 
 const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
-  ...((data.firstName || data.lastName || data.secondLastName || data.gender?.description || data.birthDate 
+  ...((data.firstName || data.lastName || data.hasOwnProperty("secondLastName") || data.gender?.description || data.birthDate 
        || data.nationality?.code) && {
     person: {
-      ...((data.firstName || data.lastName || data.secondLastName) && {
+      ...((data.firstName || data.lastName || data.hasOwnProperty("secondLastName")) && {
         personName: {
           firstName: data.firstName,
           lastName: data.lastName,
@@ -26,10 +26,10 @@ const updateCurrentUser = (data) => { return axiosClient.patch("/users/me", {
       })
     }
   }),
-  ...((data.addressLine1 || data.addressLine2 || data.city || data.zipCode || data.country?.code) && {
+  ...((data.addressLine1 || data.hasOwnProperty("addressLine2") || data.city || data.zipCode || data.country?.code) && {
     contactPoint: {
       postalAddress: {
-        ...(data.addressLine1 && data.addressLine2 && {
+        ...(data.addressLine1 && data.hasOwnProperty("addressLine2") && {
           addressLines: [ data.addressLine1, data.addressLine2 ]
         }),
         city: data.city,
