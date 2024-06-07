@@ -131,7 +131,6 @@ export default function UserInfoForm(props) {
       dataUpdated.addressLine1 = dataUpdated.addressLine1 || data.addressLine1;
       dataUpdated.addressLine2 = dataUpdated.addressLine2 || data.addressLine2;
     }
-    console.log(JSON.stringify(dataUpdated));
     handleUpdateProfile(dataUpdated);
   };
   
