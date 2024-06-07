@@ -9,6 +9,7 @@ import NationalitiesService from "../../../services/NationalitiesService";
 
 import Combobox from "../../inputs/Combobox";
 import DatePickerWithHeader from "../../inputs/DatePickerWithHeader";
+import PhoneNumberWithCountry from "../../inputs/PhoneNumberWithCountry";
 import ButtonLoading from "../../buttons/ButtonLoading";
 
 export default function UserInfoForm(props) {
@@ -125,13 +126,13 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
-    const dataUpdated = getDirtyValues(dirtyFields, data);
-    alert(JSON.stringify(dataUpdated));
+    console.log(JSON.stringify(dirtyFields));
+    /*const dataUpdated = getDirtyValues(dirtyFields, data);
     if (dataUpdated.addressLine1 || dataUpdated.addressLine2) {
       dataUpdated.addressLine1 = dataUpdated.addressLine1 || data.addressLine1;
       dataUpdated.addressLine2 = dataUpdated.addressLine2 || data.addressLine2;
     }
-    handleUpdateProfile(dataUpdated);
+    handleUpdateProfile(dataUpdated);*/
   };
   
   return (
