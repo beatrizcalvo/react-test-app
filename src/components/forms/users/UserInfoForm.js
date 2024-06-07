@@ -126,13 +126,13 @@ export default function UserInfoForm(props) {
 
   // Get only fields updated and submit form
   const onSubmit = (data) => {
-    console.log(JSON.stringify(dirtyFields));
-    /*const dataUpdated = getDirtyValues(dirtyFields, data);
+    const dataUpdated = getDirtyValues(dirtyFields, data);
     if (dataUpdated.addressLine1 || dataUpdated.addressLine2) {
       dataUpdated.addressLine1 = dataUpdated.addressLine1 || data.addressLine1;
       dataUpdated.addressLine2 = dataUpdated.addressLine2 || data.addressLine2;
     }
-    handleUpdateProfile(dataUpdated);*/
+    console.log(JSON.stringify(dataUpdated));
+    handleUpdateProfile(dataUpdated);
   };
   
   return (
