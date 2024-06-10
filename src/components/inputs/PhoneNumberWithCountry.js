@@ -9,10 +9,12 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
   return (
     <>
       <PhoneInput
-        placeholder="Enter phone number"
+        placeholder="Phone number..."
+        readOnly={readOnly}
         value={value}
         onChange={setValue}
         countries={["FR", "ES"]}
+        countryCallingCodeEditable={false}
       />
     </>
   );
