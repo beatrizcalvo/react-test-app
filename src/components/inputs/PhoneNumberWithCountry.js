@@ -24,7 +24,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations,
             countries={countries}
             international={true}
             countryCallingCodeEditable={false}
-            numberInputProps={{ className: "form-control", (readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {}) }}
+            numberInputProps={{ className: "form-control", ...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {}) }}
           />
         )}
       />
