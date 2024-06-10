@@ -1,26 +1,17 @@
-import { useFormContext, Controller } from "react-hook-form";
+import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 
 import "react-phone-number-input/style.css";
 
 export default function PhoneNumberWithCountry({ id, readOnly, inputValidations }) {
-  const { control } = useFormContext();
+  const [value, setValue] = useState()
   
   return (
     <>
-      <Controller
-        name={id}
-        control={control} 
-        rules={inputValidations}
-        render={({ field: { name, value, onChange }, formState: { errors } }) => (
-          <PhoneInput
-            id={name}
-            readOnly={readOnly}
-            value={value} 
-            onChange={(phone) => onChange(phone)}
-          />
-        )}
-      />
+      <PhoneInput
+        placeholder="Enter phone number"
+        value={value}
+        onChange={setValue}/>
     </>
   );
 }
