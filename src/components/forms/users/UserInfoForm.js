@@ -27,7 +27,6 @@ export default function UserInfoForm(props) {
     gender: { description: user.person.gender },
     birthDate: user.person.birthDate,
     nationality: user.person.firstNationality,
-    phoneNumber: "123456789",
     addressLine1: user.contactPoint?.postalAddress?.addressLines[0],
     addressLine2: user.contactPoint?.postalAddress?.addressLines[1],
     city: user.contactPoint?.postalAddress?.city,
