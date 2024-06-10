@@ -15,7 +15,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
         render={({ field }) => (
           <PhoneInput 
             {...field}
-            name={name}
+            name={id}
             placeholder="Phone number..." 
             onChange={(value: string) => field.onChange(value)}
             countries={["FR", "ES"]}
