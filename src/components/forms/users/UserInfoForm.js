@@ -236,7 +236,7 @@ export default function UserInfoForm(props) {
                   id="phoneNumber"
                   readOnly={readOnly}
                   inputValidations={inputValidations.phoneNumber}
-                  countries={countriesList.code}
+                  countries={countriesList.map(({description, ...rest}) => rest)}
                 />
                 <Form.Control.Feedback type="text-xs invalid">
                   {errors.phoneNumber?.message}
