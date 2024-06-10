@@ -3,7 +3,7 @@ import PhoneInput from "react-phone-number-input";
 
 import "react-phone-number-input/style.css";
 
-export default function PhoneNumberWithCountry({ id, readOnly, inputValidations }) {  
+export default function PhoneNumberWithCountry({ id, readOnly, inputValidations, countries }) {  
   const { control } = useFormContext();
   
   return (
@@ -15,10 +15,11 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
         render={({ field }) => (
           <PhoneInput 
             {...field}
-            name={id}
+            name={field.name}
             placeholder="Phone number..." 
+            readOnly={readOnly}
             onChange={(value: string) => field.onChange(value)}
-            countries={["FR", "ES"]}
+            countries={countries}
             international={true}
             countryCallingCodeEditable={false}
           />
