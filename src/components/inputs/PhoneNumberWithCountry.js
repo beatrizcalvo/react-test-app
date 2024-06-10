@@ -12,7 +12,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
         placeholder="Enter phone number"
         value={value}
         onChange={setValue}
-        countries=["FR", "ES"]
+        countries={["FR", "ES"]}
       />
     </>
   );
