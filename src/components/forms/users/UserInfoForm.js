@@ -62,6 +62,7 @@ export default function UserInfoForm(props) {
     gender: { required: "Gender is required" },
     birthDate: { required: "Birth date is required" },
     nationality: { required: "Nacionality is required" },
+    phoneNumber: { required: "Phone number is required" },
     addressLine1: { 
       required: "Address is required",
       minLength: {
@@ -234,8 +235,12 @@ export default function UserInfoForm(props) {
                 <PhoneNumberWithCountry 
                   id="phoneNumber"
                   readOnly={readOnly}
+                  inputValidations={inputValidations.phoneNumber}
                   countries={countriesList.code}
                 />
+                <Form.Control.Feedback type="text-xs invalid">
+                  {errors.phoneNumber?.message}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
