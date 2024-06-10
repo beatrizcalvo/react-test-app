@@ -8,18 +8,12 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
   
   return (
     <>
-      { readOnly ? (
-        
-      ) 
-        : (
-          <PhoneInputWithCountry
-            name={id}
-            control={control}
-            rules={inputValidations}
-            placeholder="Phone number..."
-          />
-        ) 
-      }
+      <PhoneInputWithCountry
+        name={id}
+        control={control}
+        rules={inputValidations}
+        placeholder="Phone number..."
+      />
     </>
   );
 }
