@@ -26,6 +26,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations,
             international={true}
             countryCallingCodeEditable={false}
             numberInputProps={{ className: (readOnly ? "text-sm form-control-plaintext" : "form-control") }}
+            countrySelectProps={{}}
           />
         )}
       />
