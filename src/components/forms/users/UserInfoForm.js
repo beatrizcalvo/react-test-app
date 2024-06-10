@@ -27,6 +27,7 @@ export default function UserInfoForm(props) {
     gender: { description: user.person.gender },
     birthDate: user.person.birthDate,
     nationality: user.person.firstNationality,
+    phoneNumber: "123456789",
     addressLine1: user.contactPoint?.postalAddress?.addressLines[0],
     addressLine2: user.contactPoint?.postalAddress?.addressLines[1],
     city: user.contactPoint?.postalAddress?.city,
@@ -227,6 +228,15 @@ export default function UserInfoForm(props) {
                   {errors.nationality?.description?.message}
                 </Form.Control.Feedback>
               </Form.Group>
+            </Col>
+            <Col className="col-6 col-md-4 mb-3">
+              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+                <label for="phoneNumber" className="font-weight-bold">Phone Number:</label>
+                <PhoneNumberWithCountry 
+                  id="phoneNumber"
+                  readOnly={readOnly}
+                />
+              </Form>
             </Col>
           </Row>
           <Row className="mt-4">
