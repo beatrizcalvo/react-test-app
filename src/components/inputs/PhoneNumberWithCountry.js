@@ -12,7 +12,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
         name={id}
         control={control} 
         rules={inputValidations}
-        render={({ field }) => {
+        render={({ field }) => (
           <PhoneInput 
             {...field}
             name={name}
