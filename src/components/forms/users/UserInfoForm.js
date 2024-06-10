@@ -236,7 +236,7 @@ export default function UserInfoForm(props) {
                   id="phoneNumber"
                   readOnly={readOnly}
                 />
-              </Form>
+              </Form.Group>
             </Col>
           </Row>
           <Row className="mt-4">
