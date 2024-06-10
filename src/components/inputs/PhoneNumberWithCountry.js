@@ -19,12 +19,13 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations,
           <PhoneInput 
             {...field}
             name={field.name}
+            readOnly={readOnly}
             placeholder="Phone number..."
             onChange={(value: string) => field.onChange(value)}
             countries={countries}
             international={true}
             countryCallingCodeEditable={false}
-            numberInputProps={{ className: "form-control", ...(readOnly ? { readOnly: true, plaintext: true, className: "text-sm" } : {}) }}
+            numberInputProps={{ className: (readOnly ? "text-sm form-control-plaintext" : "form-control") }}
           />
         )}
       />
