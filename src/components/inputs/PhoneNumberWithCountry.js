@@ -15,7 +15,10 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
         control={control} 
         rules={inputValidations}
         render={({ field: { name, value, onChange } }) => (
-          
+          <PhoneInput 
+            id={name}
+            readOnly={readOnly}
+          />
         )}
       />
       <PhoneInput
