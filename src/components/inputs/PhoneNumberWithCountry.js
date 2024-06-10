@@ -12,7 +12,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations,
   return (
     <>
       { readOnly && (
-        ReadOnly
+        <p>Prueba</p>
         ) || (
           <Controller 
             name={id}
