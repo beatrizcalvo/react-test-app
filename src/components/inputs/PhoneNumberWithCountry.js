@@ -18,6 +18,7 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations 
           <PhoneInput 
             id={name}
             readOnly={readOnly}
+            onChange={(phone) => onChange(phone)}
           />
         )}
       />
