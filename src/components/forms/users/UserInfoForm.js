@@ -234,6 +234,7 @@ export default function UserInfoForm(props) {
                 <PhoneNumberWithCountry 
                   id="phoneNumber"
                   readOnly={readOnly}
+                  countries={countriesList.code}
                 />
               </Form.Group>
             </Col>
