@@ -23,8 +23,6 @@ export default function PhoneNumberWithCountry({ id, readOnly, inputValidations,
             placeholder="Phone number..."
             onChange={(value: string) => field.onChange(value)}
             countries={countries}
-            international={true}
-            countryCallingCodeEditable={false}
             numberInputProps={{ className: (readOnly ? "text-sm form-control-plaintext" : "form-control") }}
           />
         )}
