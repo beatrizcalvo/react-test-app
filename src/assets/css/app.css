@@ -89,6 +89,10 @@
   width: 100%;
 }
 
+.react-datepicker__input-container .input-group {
+  display: block;
+}
+
 .react-datepicker__input-container .form-control.is-invalid {
   background-position: right 1.5rem center !important;
 }
