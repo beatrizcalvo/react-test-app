@@ -34,10 +34,6 @@
   color: var(--bs-light) !important;
 }
 
-.input-group {
-  flex-direction: column;
-}
-
 .input-group.input-group-static.required label:after {
   content: " *";
   color: var(--bs-red);
