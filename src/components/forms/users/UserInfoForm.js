@@ -230,7 +230,10 @@ export default function UserInfoForm(props) {
               </Form.Group>
             </Col>
             <Col className="col-6 col-md-4 mb-3">
-              <Form.Group className={classNames("input-group input-group-static", { "required": !readOnly })}>
+              <Form.Group 
+                  className={classNames("input-group input-group-static", { "required": !readOnly })} 
+                  style={ "flex-direction": "column"}
+              >
                 <label for="phoneNumber" className="font-weight-bold">Phone Number:</label>
                 <PhoneNumberWithCountry 
                   id="phoneNumber"
